@@ -32,3 +32,17 @@ Desktop.ini
 # Mac
 
 .DS_Store
+
+# ==========================
+# AT-27-30 Core
+# ==========================
+
+# Backups PostgreSQL
+database/backups/*.sql
+
+# Datasets locales
+datasets/
+
+# Python cache
+__pycache__/
+*.pyc
