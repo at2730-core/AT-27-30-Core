@@ -46,3 +46,6 @@ datasets/
 # Python cache
 __pycache__/
 *.pyc
+
+database/backups/
+*.backup
