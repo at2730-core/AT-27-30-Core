@@ -889,7 +889,6 @@ Durante toda la ejecución deberán mantenerse las siguientes reglas:
 - El Runtime Orchestrator coordinará exclusivamente la ejecución del proceso cognitivo y no podrá asumir, sustituir ni replicar las responsabilidades funcionales de los componentes especializados del Runtime. Toda modificación al flujo de ejecución deberá respetar la separación de responsabilidades establecida por la arquitectura institucional de HEYTI.
 
 
-
 Estas invariantes constituyen restricciones permanentes de la arquitectura y no podrán ser vulneradas por futuras implementaciones.
 
 ---
