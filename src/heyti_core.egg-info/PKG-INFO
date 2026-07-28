@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: heyti-core
+Version: 0.1.0
+Summary: Núcleo operativo de la plataforma HEYTI
+Requires-Python: >=3.10
