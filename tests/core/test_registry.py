@@ -54,3 +54,29 @@ def test_registry_replaces_capability_with_same_name() -> None:
 
     assert registry.get("territorial_analysis") is second_capability
     assert registry.count() == 1
+
+def test_registry_can_list_registered_capabilities() -> None:
+    """El Registry debe listar las capacidades registradas."""
+
+    registry = CapabilityRegistry()
+
+    registry.register(
+        "health",
+        object(),
+    )
+
+    registry.register(
+        "system_info",
+        object(),
+    )
+
+    registry.register(
+        "version",
+        object(),
+    )
+
+    assert registry.list_capabilities() == [
+        "health",
+        "system_info",
+        "version",
+    ]

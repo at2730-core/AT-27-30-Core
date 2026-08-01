@@ -43,3 +43,10 @@ class CapabilityRegistry:
         Devuelve el número de capacidades registradas.
         """
         return len(self._capabilities)
+
+    def list_capabilities(self) -> list[str]:
+        """
+        Devuelve los nombres de las capacidades registradas
+        en orden alfabético.
+        """
+        return sorted(self._capabilities.keys())
