@@ -4,7 +4,7 @@ Pruebas unitarias del Kernel de HEYTI.
 Verifica el ciclo básico de inicio y detención
 del componente central del Runtime.
 """
-
+from unittest.mock import Mock
 from heyti.kernel.kernel import HeytiKernel
 
 
@@ -32,3 +32,15 @@ def test_kernel_can_stop() -> None:
     kernel.stop()
 
     assert kernel.is_running is False
+
+def test_kernel_initializes_runtime_before_starting() -> None:
+    """El Kernel debe preparar el Runtime antes de declararse activo."""
+    bootstrap = Mock()
+    kernel = HeytiKernel(
+        bootstrap=bootstrap,
+    )
+
+    kernel.start()
+
+    bootstrap.initialize.assert_called_once_with()
+    assert kernel.is_running is True

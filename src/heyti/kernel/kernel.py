@@ -7,6 +7,10 @@ de los servicios internos de HEYTI-CORE.
 PCA-001 — Kernel HEYTI
 """
 
+from typing import Any
+
+from heyti.runtime.runtime_bootstrap import RuntimeBootstrap
+
 
 class HeytiKernel:
     """
@@ -17,9 +21,13 @@ class HeytiKernel:
     del Runtime y mantener el estado operativo del sistema.
     """
 
-    def __init__(self) -> None:
+    def __init__(
+        self,
+        bootstrap: Any | None = None,
+    ) -> None:
         """Inicializa el Kernel en estado detenido."""
         self._is_running = False
+        self._bootstrap = bootstrap or RuntimeBootstrap()
 
     @property
     def is_running(self) -> bool:
@@ -30,6 +38,8 @@ class HeytiKernel:
         """Inicia la operación del Kernel."""
         if self._is_running:
             return
+
+        self._bootstrap.initialize()
 
         self._is_running = True
 
