@@ -153,39 +153,40 @@ class CapabilityLoader:
         capability_directory: Path,
     ) -> Capability:
         """
-        Carga, instancia y registra una Capability
-        desde un directorio válido.
+        Localiza, carga, instancia y registra la primera
+        Capability ejecutable declarada en un directorio.
         """
-        implementation_files = sorted(
+        python_files = sorted(
             file_path
             for file_path in capability_directory.glob("*.py")
             if file_path.name != "__init__.py"
         )
 
-        if not implementation_files:
-            raise FileNotFoundError(
-                "No se encontró un archivo de implementación "
-                f"en {capability_directory}"
+        for module_path in python_files:
+            module = self._load_module(module_path)
+
+            try:
+                capability_class = self._find_capability_class(
+                    module
+                )
+            except LookupError:
+                continue
+
+            capability_instance = self._instantiate_capability(
+                capability_class
             )
 
-        module = self._load_module(
-            implementation_files[0]
-        )
+            self._register_capability(
+                capability_directory,
+                capability_instance,
+            )
 
-        capability_class = self._find_capability_class(
-            module
-        )
+            return capability_instance
 
-        capability_instance = self._instantiate_capability(
-            capability_class
+        raise LookupError(
+            "No se encontró una implementación ejecutable "
+            f"de Capability en {capability_directory}"
         )
-
-        self._register_capability(
-            capability_directory,
-            capability_instance,
-        )
-
-        return capability_instance
 
     def load_all(
         self,
@@ -193,7 +194,7 @@ class CapabilityLoader:
     ) -> list[Capability]:
         """
         Descubre, carga y registra todas las capabilities
-        válidas disponibles en el directorio raíz.
+        ejecutables disponibles en el directorio raíz.
         """
         capability_directories = self.discover(
             root_directory
@@ -202,11 +203,14 @@ class CapabilityLoader:
         loaded_instances: list[Capability] = []
 
         for capability_directory in capability_directories:
-            capability_instance = (
-                self._load_capability_directory(
-                    capability_directory
+            try:
+                capability_instance = (
+                    self._load_capability_directory(
+                        capability_directory
+                    )
                 )
-            )
+            except LookupError:
+                continue
 
             loaded_instances.append(
                 capability_instance

@@ -307,3 +307,34 @@ def test_capability_loader_loads_real_heyti_capabilities():
         assert registry.exists("health") is True
         assert registry.exists("system_info") is True
         assert registry.exists("version") is True
+
+def test_capability_loader_ignores_directories_without_implementation_file(
+    tmp_path,
+):
+    registry = CapabilityRegistry()
+    loader = CapabilityLoader(registry=registry)
+
+    capability_directory = (
+        tmp_path / "describe_section"
+    )
+
+    capability_directory.mkdir()
+
+    (
+        capability_directory / "__init__.py"
+    ).write_text(
+        "",
+        encoding="utf-8",
+    )
+
+    (
+        capability_directory / "contract.py"
+    ).write_text(
+        "class Contract:\n    pass\n",
+        encoding="utf-8",
+    )
+
+    loaded = loader.load_all(tmp_path)
+
+    assert loaded == []
+    assert registry.count() == 0
