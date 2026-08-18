@@ -9,6 +9,10 @@ dentro de una sesión válida.
 from typing import Any
 
 from heyti.events.event_bus import EventBus
+from heyti.materialization.base import Materializer
+from heyti.materialization.context import MaterializationContext
+from heyti.materialization.contracts import HeytiResponseContract
+from heyti.materialization.validator import ResponseContractValidator
 from heyti.registry.registry import CapabilityRegistry
 from heyti.session.session_manager import SessionManager
 
@@ -40,14 +44,15 @@ class CapabilityRuntime:
         self._session_manager = session_manager
         self._event_bus = event_bus
 
-    def execute(
+    def _execute_capability(
         self,
         capability_name: str,
         session_id: str,
         payload: Any = None,
     ) -> Any:
         """
-        Ejecuta una capacidad registrada dentro de una sesión válida.
+        Ejecuta una capability exactamente una vez y publica
+        el evento interno correspondiente.
         """
 
         if not self._session_manager.exists(session_id):
@@ -79,3 +84,67 @@ class CapabilityRuntime:
         )
 
         return result
+
+    def execute(
+        self,
+        capability_name: str,
+        session_id: str,
+        payload: Any = None,
+    ) -> Any:
+        """
+        Ejecuta una capability y devuelve su Cognitive Result.
+
+        Mantiene el comportamiento heredado del Runtime.
+        """
+
+        return self._execute_capability(
+            capability_name=capability_name,
+            session_id=session_id,
+            payload=payload,
+        )
+
+    def execute_materialized(
+        self,
+        capability_name: str,
+        session_id: str,
+        materializer: Materializer,
+        payload: Any = None,
+        contract_version: str = "1.0",
+        request_id: str | None = None,
+        execution_id: str | None = None,
+        knowledge_version: str | None = None,
+        validator: ResponseContractValidator | None = None,
+    ) -> HeytiResponseContract:
+        """
+        Ejecuta una capability exactamente una vez, materializa
+        su Cognitive Result y valida el Response Contract.
+
+        No existe fallback hacia el Cognitive Result si
+        Materialization o Validation fallan.
+        """
+
+        cognitive_result = self._execute_capability(
+            capability_name=capability_name,
+            session_id=session_id,
+            payload=payload,
+        )
+
+        context = MaterializationContext(
+            capability_id=capability_name,
+            contract_version=contract_version,
+            request_id=request_id,
+            session_id=session_id,
+            execution_id=execution_id,
+            knowledge_version=knowledge_version,
+        )
+
+        response = materializer.materialize(
+            cognitive_result,
+            context,
+        )
+
+        response_validator = (
+            validator or ResponseContractValidator()
+        )
+
+        return response_validator.validate(response)
