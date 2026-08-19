@@ -1,6 +1,8 @@
+from copy import deepcopy
 from heyti.capabilities.describe_section.models import (
     SectionDescription,
 )
+
 from heyti.materialization.base import Materializer
 from heyti.materialization.context import MaterializationContext
 from heyti.materialization.contracts import (
@@ -73,16 +75,16 @@ class DescribeSectionMaterializer(Materializer):
                     ResponseBlock(
                         type="domain",
                         role=field_name,
-                        content=value,
+                        content=deepcopy(value),
                     )
-                )
+            )
 
         if cognitive_result.recommendations:
             blocks.append(
                 ResponseBlock(
                     type="finding",
                     role="recommendations",
-                    content=list(cognitive_result.recommendations),
+                    content=deepcopy(cognitive_result.recommendations),
                 )
             )
 

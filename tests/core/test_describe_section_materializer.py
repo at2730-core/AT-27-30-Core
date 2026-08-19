@@ -184,3 +184,137 @@ def test_describe_section_materialized_response_passes_validator():
     validated = ResponseContractValidator().validate(response)
 
     assert validated is response
+
+def test_internal_fields_are_not_materialized():
+    result = SectionDescription()
+    result.section_id = "1234"
+
+    result.internal_secret = "DO_NOT_EXPOSE"
+    result.debug_state = {
+        "raw_query": "internal",
+    }
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    response = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    serialized = response.to_dict()
+
+    assert "internal_secret" not in str(serialized)
+    assert "debug_state" not in str(serialized)
+    assert "DO_NOT_EXPOSE" not in str(serialized)
+
+
+def test_materializer_uses_explicit_known_fields_only():
+    result = SectionDescription()
+    result.section_id = "1234"
+    result.territorial = {
+        "municipality": "León",
+    }
+
+    result.unexpected_domain = {
+        "value": 999,
+    }
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    response = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    roles = {
+        block.role
+        for block in response.blocks
+    }
+
+    assert "section_identity" in roles
+    assert "territorial" in roles
+    assert "unexpected_domain" not in roles
+
+def test_materialized_domain_isolated_from_source_mutation():
+    result = SectionDescription()
+    result.section_id = "1234"
+    result.electoral = {
+        "votes": 100,
+        "details": {
+            "competitive": True,
+        },
+    }
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    response = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    electoral_block = next(
+        block
+        for block in response.blocks
+        if block.role == "electoral"
+    )
+
+    result.electoral["votes"] = 999
+    result.electoral["details"]["competitive"] = False
+
+    assert electoral_block.content == {
+        "votes": 100,
+        "details": {
+            "competitive": True,
+        },
+    }
+
+
+def test_materialized_recommendations_isolated_from_source_mutation():
+    result = SectionDescription()
+    result.section_id = "1234"
+    result.recommendations = [
+        {
+            "text": "Recomendación original",
+            "metadata": {
+                "priority": 1,
+            },
+        }
+    ]
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    response = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    recommendations_block = next(
+        block
+        for block in response.blocks
+        if block.role == "recommendations"
+    )
+
+    result.recommendations[0]["text"] = "MODIFICADA"
+    result.recommendations[0]["metadata"]["priority"] = 999
+    result.recommendations.append(
+        {
+            "text": "Nueva",
+        }
+    )
+
+    assert recommendations_block.content == [
+        {
+            "text": "Recomendación original",
+            "metadata": {
+                "priority": 1,
+            },
+        }
+    ]

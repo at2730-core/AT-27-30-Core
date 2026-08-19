@@ -7,12 +7,24 @@ from heyti.events.event_bus import EventBus
 from heyti.materialization.describe_section.materializer import (
     DescribeSectionMaterializer,
 )
-from heyti.materialization.errors import (
-    UnsupportedContractVersionError,
-)
+
 from heyti.registry.registry import CapabilityRegistry
 from heyti.runtime.capability_runtime import CapabilityRuntime
 from heyti.session.session_manager import SessionManager
+
+from heyti.materialization.base import Materializer
+from heyti.materialization.context import MaterializationContext
+from heyti.materialization.contracts import (
+    HeytiResponseContract,
+)
+from heyti.materialization.errors import (
+    MaterializationError,
+    MaterializationValidationError,
+    UnsupportedContractVersionError
+)
+from heyti.materialization.validator import (
+    ResponseContractValidator,
+)
 
 
 class CountingDescribeSectionCapability(
@@ -213,3 +225,136 @@ def test_legacy_execute_still_returns_cognitive_result():
 
     assert result.section_id == "1234"
     assert capability.execution_count == 1
+
+
+
+
+class FailingMaterializer(Materializer):
+    def materialize(
+        self,
+        cognitive_result,
+        context: MaterializationContext,
+    ):
+        raise MaterializationError(
+            "materialization failure"
+        )
+
+
+class InvalidContractMaterializer(Materializer):
+    def materialize(
+        self,
+        cognitive_result,
+        context: MaterializationContext,
+    ):
+        return HeytiResponseContract(
+            contract="HEYTI_RESPONSE",
+            version="1.0",
+            capability_id=context.capability_id,
+            status="invalid_status",
+        )
+
+
+def test_runtime_propagates_materialization_failure():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+
+    with pytest.raises(MaterializationError):
+        runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+            materializer=FailingMaterializer(),
+        )
+
+    assert capability.execution_count == 1
+
+
+def test_runtime_does_not_return_raw_result_on_materialization_failure():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+
+    with pytest.raises(MaterializationError):
+        result = runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+            materializer=FailingMaterializer(),
+        )
+
+        assert result is None
+
+    assert capability.execution_count == 1
+
+
+def test_runtime_propagates_validation_failure():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+
+    with pytest.raises(MaterializationValidationError):
+        runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+            materializer=InvalidContractMaterializer(),
+            validator=ResponseContractValidator(),
+        )
+
+    assert capability.execution_count == 1
+
+
+def test_runtime_publishes_capability_event_before_materialization_failure():
+    capability = CountingDescribeSectionCapability()
+    runtime, events = build_runtime(capability)
+
+    published_events = []
+
+    events.subscribe(
+        "capability_executed",
+        published_events.append,
+    )
+
+    with pytest.raises(MaterializationError):
+        runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+            materializer=FailingMaterializer(),
+        )
+
+    assert len(published_events) == 1
+    assert (
+        published_events[0]["capability_name"]
+        == "describe_section"
+    )
+
+
+def test_runtime_publishes_capability_event_before_validation_failure():
+    capability = CountingDescribeSectionCapability()
+    runtime, events = build_runtime(capability)
+
+    published_events = []
+
+    events.subscribe(
+        "capability_executed",
+        published_events.append,
+    )
+
+    with pytest.raises(MaterializationValidationError):
+        runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+            materializer=InvalidContractMaterializer(),
+        )
+
+    assert len(published_events) == 1
