@@ -3,6 +3,12 @@ from pathlib import Path
 from heyti.registry.registry import CapabilityRegistry
 from heyti.runtime.capability_loader import CapabilityLoader
 from heyti.runtime.runtime_startup_sequence import RuntimeStartupSequence
+from heyti.materialization.describe_section.materializer import (
+    DescribeSectionMaterializer,
+)
+from heyti.materialization.registry import (
+    MaterializationRegistry,
+)
 
 class RuntimeBootstrap:
     """
@@ -18,6 +24,7 @@ class RuntimeBootstrap:
             registry=self.registry,
         )
         self.sequence = sequence or RuntimeStartupSequence()
+        self.materialization_registry = MaterializationRegistry()
 
     def initialize(self):
         """
@@ -35,6 +42,12 @@ class RuntimeBootstrap:
 
         loaded_capabilities = self.loader.load_all(
             capabilities_root
+        )
+
+        self.materialization_registry.register(
+            capability_id="describe_section",
+            contract_version="1.0",
+            materializer=DescribeSectionMaterializer(),
         )
 
         self.sequence.add_step(
