@@ -20,10 +20,14 @@ from heyti.materialization.contracts import (
 from heyti.materialization.errors import (
     MaterializationError,
     MaterializationValidationError,
-    UnsupportedContractVersionError
+    UnsupportedContractVersionError,
+    UnsupportedMaterializationError,
 )
 from heyti.materialization.validator import (
     ResponseContractValidator,
+)
+from heyti.materialization.registry import (
+    MaterializationRegistry,
 )
 
 
@@ -77,6 +81,36 @@ def build_runtime(capability):
 
     return runtime, events
 
+def build_runtime_with_materialization_registry(capability):
+    registry = CapabilityRegistry()
+    sessions = SessionManager()
+    events = EventBus()
+    materialization_registry = MaterializationRegistry()
+
+    sessions.create(
+        "SESSION-001",
+        object(),
+    )
+
+    registry.register(
+        "describe_section",
+        capability,
+    )
+
+    materialization_registry.register(
+        capability_id="describe_section",
+        contract_version="1.0",
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    runtime = CapabilityRuntime(
+        registry=registry,
+        session_manager=sessions,
+        event_bus=events,
+        materialization_registry=materialization_registry,
+    )
+
+    return runtime, events
 
 def test_runtime_materializes_describe_section():
     capability = CountingDescribeSectionCapability()
@@ -227,8 +261,6 @@ def test_legacy_execute_still_returns_cognitive_result():
     assert capability.execution_count == 1
 
 
-
-
 class FailingMaterializer(Materializer):
     def materialize(
         self,
@@ -358,3 +390,84 @@ def test_runtime_publishes_capability_event_before_validation_failure():
         )
 
     assert len(published_events) == 1
+
+def test_runtime_resolves_materializer_from_registry():
+    capability = CountingDescribeSectionCapability()
+
+    runtime, _ = (
+        build_runtime_with_materialization_registry(
+            capability
+        )
+    )
+
+    response = runtime.execute_materialized(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        payload={
+            "section_id": "1234",
+        },
+    )
+
+    assert response.contract == "HEYTI_RESPONSE"
+    assert response.version == "1.0"
+    assert response.capability_id == "describe_section"
+    assert capability.execution_count == 1
+
+
+def test_explicit_materializer_remains_supported():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+
+    response = runtime.execute_materialized(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        payload={
+            "section_id": "1234",
+        },
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    assert response.status == "success"
+    assert capability.execution_count == 1
+
+
+def test_runtime_requires_materializer_or_registry():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+
+    with pytest.raises(
+        UnsupportedMaterializationError
+    ):
+        runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+        )
+
+    assert capability.execution_count == 0
+
+
+def test_unknown_registry_version_does_not_execute_capability():
+    capability = CountingDescribeSectionCapability()
+
+    runtime, _ = (
+        build_runtime_with_materialization_registry(
+            capability
+        )
+    )
+
+    with pytest.raises(
+        UnsupportedContractVersionError
+    ):
+        runtime.execute_materialized(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            payload={
+                "section_id": "1234",
+            },
+            contract_version="2.0",
+        )
+
+    assert capability.execution_count == 0

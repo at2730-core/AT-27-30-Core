@@ -16,6 +16,13 @@ from heyti.materialization.validator import ResponseContractValidator
 from heyti.registry.registry import CapabilityRegistry
 from heyti.session.session_manager import SessionManager
 
+from heyti.materialization.errors import (
+    UnsupportedMaterializationError,
+)
+from heyti.materialization.registry import (
+    MaterializationRegistry,
+)
+
 
 class SessionNotFoundError(Exception):
     """
@@ -39,10 +46,12 @@ class CapabilityRuntime:
         registry: CapabilityRegistry,
         session_manager: SessionManager,
         event_bus: EventBus,
+        materialization_registry: MaterializationRegistry | None = None,
     ) -> None:
         self._registry = registry
         self._session_manager = session_manager
         self._event_bus = event_bus
+        self._materialization_registry = materialization_registry
 
     def _execute_capability(
         self,
@@ -107,7 +116,7 @@ class CapabilityRuntime:
         self,
         capability_name: str,
         session_id: str,
-        materializer: Materializer,
+        materializer: Materializer | None = None,
         payload: Any = None,
         contract_version: str = "1.0",
         request_id: str | None = None,
@@ -122,6 +131,22 @@ class CapabilityRuntime:
         No existe fallback hacia el Cognitive Result si
         Materialization o Validation fallan.
         """
+
+        resolved_materializer = materializer
+
+        if resolved_materializer is None:
+            if self._materialization_registry is None:
+                raise UnsupportedMaterializationError(
+                    "No se proporcionó un Materializer y "
+                    "el Runtime no posee MaterializationRegistry"
+                )
+
+            resolved_materializer = (
+                self._materialization_registry.resolve(
+                    capability_id=capability_name,
+                    contract_version=contract_version,
+                )
+            )
 
         cognitive_result = self._execute_capability(
             capability_name=capability_name,
@@ -138,7 +163,7 @@ class CapabilityRuntime:
             knowledge_version=knowledge_version,
         )
 
-        response = materializer.materialize(
+        response = resolved_materializer.materialize(
             cognitive_result,
             context,
         )
@@ -146,5 +171,4 @@ class CapabilityRuntime:
         response_validator = (
             validator or ResponseContractValidator()
         )
-
         return response_validator.validate(response)
