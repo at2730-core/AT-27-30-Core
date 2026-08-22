@@ -17,6 +17,7 @@ from heyti.materialization.validator import (
 
 def test_valid_success_response_passes_validation():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -30,6 +31,7 @@ def test_valid_success_response_passes_validation():
 
 def test_invalid_contract_name_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="INVALID",
         version="1.0",
         capability_id="describe_section",
@@ -44,6 +46,7 @@ def test_invalid_contract_name_is_rejected():
 
 def test_unsupported_contract_version_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="2.0",
         capability_id="describe_section",
@@ -58,6 +61,7 @@ def test_unsupported_contract_version_is_rejected():
 
 def test_missing_capability_id_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="",
@@ -72,6 +76,7 @@ def test_missing_capability_id_is_rejected():
 
 def test_invalid_status_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -86,6 +91,7 @@ def test_invalid_status_is_rejected():
 
 def test_error_status_requires_error_payload():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -100,6 +106,7 @@ def test_error_status_requires_error_payload():
 
 def test_success_status_rejects_errors():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -120,6 +127,7 @@ def test_success_status_rejects_errors():
 
 def test_success_with_warnings_requires_warning():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -134,6 +142,7 @@ def test_success_with_warnings_requires_warning():
 
 def test_success_with_warning_is_valid():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -155,6 +164,7 @@ def test_success_with_warning_is_valid():
 
 def test_block_without_type_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -174,6 +184,7 @@ def test_block_without_type_is_rejected():
 
 def test_block_without_role_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -193,6 +204,7 @@ def test_block_without_role_is_rejected():
 
 def test_non_response_block_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -206,6 +218,7 @@ def test_non_response_block_is_rejected():
 
 def test_warning_without_code_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -224,6 +237,7 @@ def test_warning_without_code_is_rejected():
 
 def test_warning_without_message_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -242,6 +256,7 @@ def test_warning_without_message_is_rejected():
 
 def test_error_without_code_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -260,6 +275,7 @@ def test_error_without_code_is_rejected():
 
 def test_error_without_message_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -277,6 +293,7 @@ def test_error_without_message_is_rejected():
 
 def test_json_serializable_content_is_accepted():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -303,6 +320,7 @@ def test_non_json_serializable_block_content_is_rejected():
         pass
 
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -322,6 +340,7 @@ def test_non_json_serializable_block_content_is_rejected():
 
 def test_non_json_serializable_traceability_is_rejected():
     response = HeytiResponseContract(
+        response_id="RESP-TEST-001",
         contract="HEYTI_RESPONSE",
         version="1.0",
         capability_id="describe_section",
@@ -332,6 +351,18 @@ def test_non_json_serializable_traceability_is_rejected():
         response.trace,
         "request_id",
         object(),
+    )
+
+    with pytest.raises(MaterializationValidationError):
+        ResponseContractValidator().validate(response)
+
+def test_missing_response_id_is_rejected():
+    response = HeytiResponseContract(
+        response_id="",
+        contract="HEYTI_RESPONSE",
+        version="1.0",
+        capability_id="describe_section",
+        status="success",
     )
 
     with pytest.raises(MaterializationValidationError):

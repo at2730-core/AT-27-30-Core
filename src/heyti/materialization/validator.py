@@ -41,6 +41,11 @@ class ResponseContractValidator:
                 "La respuesta no es un HeytiResponseContract"
             )
 
+        if not response.response_id:
+            raise MaterializationValidationError(
+                "response_id es obligatorio"
+            )
+
         if response.contract != SUPPORTED_CONTRACT:
             raise MaterializationValidationError(
                 f"Contrato no soportado: {response.contract}"

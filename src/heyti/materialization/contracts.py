@@ -63,6 +63,7 @@ class HeytiResponseContract:
     Contrato externo base de respuestas materializadas HEYTI.
     """
 
+    response_id: str
     contract: str
     version: str
     capability_id: str

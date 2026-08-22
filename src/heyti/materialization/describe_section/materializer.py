@@ -1,4 +1,5 @@
 from copy import deepcopy
+from uuid import uuid4
 from heyti.capabilities.describe_section.models import (
     SectionDescription,
 )
@@ -89,6 +90,7 @@ class DescribeSectionMaterializer(Materializer):
             )
 
         return HeytiResponseContract(
+            response_id=str(uuid4()),
             contract=self.CONTRACT_NAME,
             version=context.contract_version,
             capability_id=context.capability_id,

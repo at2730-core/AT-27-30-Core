@@ -318,3 +318,58 @@ def test_materialized_recommendations_isolated_from_source_mutation():
             },
         }
     ]
+
+def test_describe_section_materialization_creates_response_id():
+    result = SectionDescription()
+    result.section_id = "1234"
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    response = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    assert isinstance(response.response_id, str)
+    assert response.response_id
+
+
+def test_response_id_is_serialized():
+    result = SectionDescription()
+    result.section_id = "1234"
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    response = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    serialized = response.to_dict()
+
+    assert serialized["response_id"] == response.response_id
+
+
+def test_separate_materializations_have_distinct_response_ids():
+    result = SectionDescription()
+    result.section_id = "1234"
+
+    context = MaterializationContext(
+        capability_id="describe_section"
+    )
+
+    first = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    second = DescribeSectionMaterializer().materialize(
+        result,
+        context,
+    )
+
+    assert first.response_id != second.response_id

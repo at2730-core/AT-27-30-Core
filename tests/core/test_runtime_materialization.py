@@ -279,6 +279,7 @@ class InvalidContractMaterializer(Materializer):
         context: MaterializationContext,
     ):
         return HeytiResponseContract(
+            response_id="RESP-INVALID-001",
             contract="HEYTI_RESPONSE",
             version="1.0",
             capability_id=context.capability_id,
