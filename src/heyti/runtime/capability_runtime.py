@@ -8,6 +8,11 @@ dentro de una sesión válida.
 
 from typing import Any
 
+from heyti.delivery.base import DeliveryAdapter
+from heyti.delivery.context import DeliveryContext
+from heyti.delivery.contracts import DeliveryResult
+from heyti.delivery.service import DeliveryService
+
 from heyti.events.event_bus import EventBus
 from heyti.materialization.base import Materializer
 from heyti.materialization.context import MaterializationContext
@@ -172,3 +177,57 @@ class CapabilityRuntime:
             validator or ResponseContractValidator()
         )
         return response_validator.validate(response)
+
+    def execute_delivered(
+        self,
+        capability_name: str,
+        session_id: str,
+        consumer_id: str,
+        adapter: DeliveryAdapter,
+        materializer: Materializer | None = None,
+        payload: Any = None,
+        contract_version: str = "1.0",
+        request_id: str | None = None,
+        execution_id: str | None = None,
+        knowledge_version: str | None = None,
+        validator: ResponseContractValidator | None = None,
+        delivery_service: DeliveryService | None = None,
+    ) -> DeliveryResult:
+        """
+        Ejecuta la capability, materializa la respuesta,
+        y la entrega a un consumidor a través de un adapter.
+
+        La entrega se realiza únicamente sobre la respuesta
+        contractual ya validada; la ejecución cognitiva ocurre
+        exactamente una vez.
+        """
+
+        response = self.execute_materialized(
+            capability_name=capability_name,
+            session_id=session_id,
+            materializer=materializer,
+            payload=payload,
+            contract_version=contract_version,
+            request_id=request_id,
+            execution_id=execution_id,
+            knowledge_version=knowledge_version,
+            validator=validator,
+        )
+
+        delivery_context = DeliveryContext(
+            consumer_id=consumer_id,
+            adapter_id=adapter.adapter_id,
+            request_id=response.trace.request_id,
+            session_id=response.trace.session_id,
+            execution_id=response.trace.execution_id,
+        )
+
+        resolved_delivery_service = (
+            delivery_service or DeliveryService()
+        )
+
+        return resolved_delivery_service.deliver(
+            response=response,
+            context=delivery_context,
+            adapter=adapter,
+        )
