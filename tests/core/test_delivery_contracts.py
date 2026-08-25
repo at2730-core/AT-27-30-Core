@@ -68,11 +68,14 @@ def test_delivery_and_response_ids_are_independent():
 
 
 def test_delivery_envelope_uses_contract_v1():
+    response = build_response()
+
     envelope = DeliveryEnvelope(
         delivery_id="DEL-001",
-        response_id="RESP-001",
+        response_id=response.response_id,
         consumer_id="TEST_CONSUMER",
         adapter_id="IN_MEMORY",
+        response=response,
     )
 
     assert envelope.contract == DELIVERY_CONTRACT

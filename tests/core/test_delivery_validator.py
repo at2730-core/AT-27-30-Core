@@ -7,8 +7,13 @@ from heyti.delivery.contracts import (
     DeliveryEnvelope,
     DeliveryError,
     DeliveryResult,
+    DELIVERY_CONTRACT,
+    DELIVERY_CONTRACT_VERSION,
 )
-from heyti.delivery.errors import DeliveryValidationError
+from heyti.delivery.errors import (
+    DeliveryValidationError,
+    UnsupportedDeliveryContractVersionError,
+)
 from heyti.delivery.validator import DeliveryContractValidator
 from heyti.materialization.contracts import HeytiResponseContract
 
@@ -53,11 +58,14 @@ def test_valid_delivery_envelope_passes():
     ],
 )
 def test_missing_required_envelope_field_is_rejected(field_name):
+    response = build_response()
+
     values = {
         "delivery_id": "DEL-001",
-        "response_id": "RESP-001",
+        "response_id": response.response_id,
         "consumer_id": "TEST_CONSUMER",
         "adapter_id": "IN_MEMORY",
+        "response": response,
     }
     values[field_name] = ""
 
@@ -81,6 +89,37 @@ def test_envelope_response_identity_mismatch_is_rejected():
     with pytest.raises(DeliveryValidationError):
         DeliveryContractValidator().validate_envelope(envelope)
 
+def test_unknown_delivery_contract_is_rejected():
+    response = build_response()
+
+    envelope = DeliveryEnvelope(
+        delivery_id="DEL-001",
+        response_id=response.response_id,
+        consumer_id="TEST_CONSUMER",
+        adapter_id="IN_MEMORY",
+        response=response,
+        contract="UNKNOWN_CONTRACT",
+    )
+
+    with pytest.raises(DeliveryValidationError):
+        DeliveryContractValidator().validate_envelope(envelope)
+
+
+def test_unsupported_delivery_contract_version_is_rejected():
+    response = build_response()
+
+    envelope = DeliveryEnvelope(
+        delivery_id="DEL-001",
+        response_id=response.response_id,
+        consumer_id="TEST_CONSUMER",
+        adapter_id="IN_MEMORY",
+        response=response,
+        contract=DELIVERY_CONTRACT,
+        version="999.0",
+    )
+
+    with pytest.raises(UnsupportedDeliveryContractVersionError):
+        DeliveryContractValidator().validate_envelope(envelope)
 
 def test_valid_delivered_result_passes():
     result = DeliveryResult(
@@ -144,3 +183,15 @@ def test_non_success_terminal_status_requires_error(status):
 
     with pytest.raises(DeliveryValidationError):
         DeliveryContractValidator().validate_result(result)
+
+def test_delivery_envelope_requires_materialized_response():
+    envelope = DeliveryEnvelope(
+        delivery_id="DEL-001",
+        response_id="RESP-001",
+        consumer_id="TEST_CONSUMER",
+        adapter_id="IN_MEMORY",
+        response=None,
+    )
+
+    with pytest.raises(DeliveryValidationError):
+        DeliveryContractValidator().validate_envelope(envelope)

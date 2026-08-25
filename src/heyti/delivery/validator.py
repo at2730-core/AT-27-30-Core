@@ -5,8 +5,13 @@ from heyti.delivery.contracts import (
     SUPPORTED_DELIVERY_STATUSES,
     DeliveryEnvelope,
     DeliveryResult,
+    DELIVERY_CONTRACT,
+    DELIVERY_CONTRACT_VERSION,
 )
-from heyti.delivery.errors import DeliveryValidationError
+from heyti.delivery.errors import (
+    DeliveryValidationError,
+    UnsupportedDeliveryContractVersionError,
+)
 
 
 class DeliveryContractValidator:
@@ -23,6 +28,18 @@ class DeliveryContractValidator:
         if not isinstance(envelope, DeliveryEnvelope):
             raise DeliveryValidationError(
                 "El candidato no es un DeliveryEnvelope"
+            )
+
+        if envelope.contract != DELIVERY_CONTRACT:
+            raise DeliveryValidationError(
+                f"Contrato de Delivery no soportado: "
+                f"{envelope.contract}"
+            )
+
+        if envelope.version != DELIVERY_CONTRACT_VERSION:
+            raise UnsupportedDeliveryContractVersionError(
+                f"Versión contractual de Delivery no soportada: "
+                f"{envelope.version}"
             )
 
         if not envelope.delivery_id:
@@ -45,12 +62,16 @@ class DeliveryContractValidator:
                 "adapter_id es obligatorio"
             )
 
-        if envelope.response is not None:
-            if envelope.response.response_id != envelope.response_id:
-                raise DeliveryValidationError(
-                    "response_id del envelope no coincide "
-                    "con la respuesta materializada"
-                )
+        if envelope.response is None:
+            raise DeliveryValidationError(
+                "DeliveryEnvelope requiere una respuesta materializada"
+            )
+
+        if envelope.response.response_id != envelope.response_id:
+            raise DeliveryValidationError(
+                "response_id del envelope no coincide "
+                "con la respuesta materializada"
+            )
 
         return envelope
 

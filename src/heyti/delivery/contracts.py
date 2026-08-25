@@ -75,12 +75,18 @@ class DeliveryEnvelope:
     response_id: str
     consumer_id: str
     adapter_id: str
+    response: HeytiResponseContract
 
     contract: str = DELIVERY_CONTRACT
     version: str = DELIVERY_CONTRACT_VERSION
-
-    response: HeytiResponseContract | None = None
     trace: DeliveryTrace = field(default_factory=DeliveryTrace)
+
+    def to_dict(self) -> dict[str, Any]:
+        """
+        Devuelve una representación estructurada del envelope.
+        """
+
+        return asdict(self)
 
     def to_dict(self) -> dict[str, Any]:
         """
