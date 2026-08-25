@@ -3,6 +3,10 @@ from heyti.runtime.runtime_startup_sequence import RuntimeStartupSequence
 from heyti.materialization.describe_section.materializer import (
         DescribeSectionMaterializer,
     )
+from heyti.delivery.registry import DeliveryAdapterRegistry
+from heyti.events.event_bus import EventBus
+from heyti.runtime.capability_runtime import CapabilityRuntime
+from heyti.session.session_manager import SessionManager
 
 def test_runtime_bootstrap_loads_official_capabilities():
     bootstrap = RuntimeBootstrap()
@@ -70,3 +74,51 @@ def test_runtime_bootstrap_materialization_registration_is_idempotent():
         "describe_section",
         "1.0",
     ) is True
+
+def test_runtime_bootstrap_composes_runtime_dependencies():
+    bootstrap = RuntimeBootstrap()
+
+    assert isinstance(
+        bootstrap.session_manager,
+        SessionManager,
+    )
+    assert isinstance(
+        bootstrap.event_bus,
+        EventBus,
+    )
+    assert isinstance(
+        bootstrap.delivery_adapter_registry,
+        DeliveryAdapterRegistry,
+    )
+    assert isinstance(
+        bootstrap.runtime,
+        CapabilityRuntime,
+    )
+
+
+def test_runtime_bootstrap_runtime_uses_shared_dependencies():
+    bootstrap = RuntimeBootstrap()
+
+    assert bootstrap.runtime._registry is bootstrap.registry
+    assert (
+        bootstrap.runtime._session_manager
+        is bootstrap.session_manager
+    )
+    assert (
+        bootstrap.runtime._event_bus
+        is bootstrap.event_bus
+    )
+    assert (
+        bootstrap.runtime._materialization_registry
+        is bootstrap.materialization_registry
+    )
+    assert (
+        bootstrap.runtime._delivery_adapter_registry
+        is bootstrap.delivery_adapter_registry
+    )
+
+
+def test_runtime_bootstrap_delivery_registry_starts_empty():
+    bootstrap = RuntimeBootstrap()
+
+    assert bootstrap.delivery_adapter_registry.count() == 0
