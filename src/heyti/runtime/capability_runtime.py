@@ -226,8 +226,21 @@ class CapabilityRuntime:
             delivery_service or DeliveryService()
         )
 
-        return resolved_delivery_service.deliver(
+        delivery_result = resolved_delivery_service.deliver(
             response=response,
             context=delivery_context,
             adapter=adapter,
         )
+
+        self._event_bus.publish(
+            "delivery_completed",
+            {
+                "delivery_id": delivery_result.delivery_id,
+                "response_id": delivery_result.response_id,
+                "consumer_id": delivery_result.consumer_id,
+                "adapter_id": delivery_result.adapter_id,
+                "status": delivery_result.status,
+            },
+        )
+
+        return delivery_result

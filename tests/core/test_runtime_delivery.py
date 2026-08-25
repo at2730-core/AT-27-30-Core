@@ -301,3 +301,101 @@ def test_runtime_delivery_resolves_materializer_from_registry():
     assert envelope.response.contract == "HEYTI_RESPONSE"
     assert envelope.response.version == "1.0"
     assert envelope.response.capability_id == "describe_section"
+
+def test_runtime_publishes_delivery_completed_event():
+    capability = CountingDescribeSectionCapability()
+    runtime, events = build_runtime(capability)
+    adapter = InMemoryDeliveryAdapter()
+
+    published_events = []
+
+    events.subscribe(
+        "delivery_completed",
+        published_events.append,
+    )
+
+    result = runtime.execute_delivered(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        consumer_id="PORTAL",
+        adapter=adapter,
+        payload={
+            "section_id": "1234",
+        },
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    assert published_events == [
+        {
+            "delivery_id": result.delivery_id,
+            "response_id": result.response_id,
+            "consumer_id": "PORTAL",
+            "adapter_id": "IN_MEMORY",
+            "status": "DELIVERED",
+        }
+    ]
+
+
+def test_runtime_publishes_delivery_event_after_capability_event():
+    capability = CountingDescribeSectionCapability()
+    runtime, events = build_runtime(capability)
+
+    event_order = []
+
+    events.subscribe(
+        "capability_executed",
+        lambda payload: event_order.append(
+            "capability_executed"
+        ),
+    )
+
+    events.subscribe(
+        "delivery_completed",
+        lambda payload: event_order.append(
+            "delivery_completed"
+        ),
+    )
+
+    runtime.execute_delivered(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        consumer_id="PORTAL",
+        adapter=InMemoryDeliveryAdapter(),
+        payload={
+            "section_id": "1234",
+        },
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    assert event_order == [
+        "capability_executed",
+        "delivery_completed",
+    ]
+
+
+def test_materialization_failure_does_not_publish_delivery_event():
+    capability = CountingDescribeSectionCapability()
+    runtime, events = build_runtime(capability)
+    adapter = InMemoryDeliveryAdapter()
+
+    published_events = []
+
+    events.subscribe(
+        "delivery_completed",
+        published_events.append,
+    )
+
+    with pytest.raises(MaterializationError):
+        runtime.execute_delivered(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            consumer_id="PORTAL",
+            adapter=adapter,
+            payload={
+                "section_id": "1234",
+            },
+            materializer=FailingMaterializer(),
+        )
+
+    assert published_events == []
+    assert len(adapter.deliveries) == 0
