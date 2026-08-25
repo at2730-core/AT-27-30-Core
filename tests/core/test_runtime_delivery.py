@@ -399,3 +399,71 @@ def test_materialization_failure_does_not_publish_delivery_event():
 
     assert published_events == []
     assert len(adapter.deliveries) == 0
+
+from heyti.delivery.registry import DeliveryAdapterRegistry
+
+
+def test_runtime_resolves_delivery_adapter_from_registry():
+    capability = CountingDescribeSectionCapability()
+    registry = CapabilityRegistry()
+    sessions = SessionManager()
+    events = EventBus()
+    delivery_registry = DeliveryAdapterRegistry()
+
+    sessions.create("SESSION-001", object())
+    registry.register("describe_section", capability)
+
+    adapter = InMemoryDeliveryAdapter()
+    delivery_registry.register(adapter)
+
+    runtime = CapabilityRuntime(
+        registry=registry,
+        session_manager=sessions,
+        event_bus=events,
+        delivery_adapter_registry=delivery_registry,
+    )
+
+    result = runtime.execute_delivered(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        consumer_id="PORTAL",
+        adapter_id="IN_MEMORY",
+        payload={"section_id": "1234"},
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    assert result.status == "DELIVERED"
+    assert result.adapter_id == "IN_MEMORY"
+    assert len(adapter.deliveries) == 1
+    assert capability.execution_count == 1
+
+
+def test_explicit_adapter_remains_supported_with_registry():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+    adapter = InMemoryDeliveryAdapter()
+
+    result = runtime.execute_delivered(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        consumer_id="PORTAL",
+        adapter=adapter,
+        payload={"section_id": "1234"},
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    assert result.status == "DELIVERED"
+
+
+def test_runtime_requires_adapter_or_registry_resolution():
+    capability = CountingDescribeSectionCapability()
+    runtime, _ = build_runtime(capability)
+
+    with pytest.raises(ValueError):
+        runtime.execute_delivered(
+            capability_name="describe_section",
+            session_id="SESSION-001",
+            consumer_id="PORTAL",
+            payload={"section_id": "1234"},
+            materializer=DescribeSectionMaterializer(),
+        )

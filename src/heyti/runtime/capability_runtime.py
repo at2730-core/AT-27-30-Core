@@ -27,7 +27,7 @@ from heyti.materialization.errors import (
 from heyti.materialization.registry import (
     MaterializationRegistry,
 )
-
+from heyti.delivery.registry import DeliveryAdapterRegistry
 
 class SessionNotFoundError(Exception):
     """
@@ -52,11 +52,13 @@ class CapabilityRuntime:
         session_manager: SessionManager,
         event_bus: EventBus,
         materialization_registry: MaterializationRegistry | None = None,
+        delivery_adapter_registry: DeliveryAdapterRegistry | None = None,
     ) -> None:
         self._registry = registry
         self._session_manager = session_manager
         self._event_bus = event_bus
         self._materialization_registry = materialization_registry
+        self._delivery_adapter_registry = delivery_adapter_registry
 
     def _execute_capability(
         self,
@@ -183,7 +185,8 @@ class CapabilityRuntime:
         capability_name: str,
         session_id: str,
         consumer_id: str,
-        adapter: DeliveryAdapter,
+        adapter: DeliveryAdapter | None = None,
+        adapter_id: str | None = None,
         materializer: Materializer | None = None,
         payload: Any = None,
         contract_version: str = "1.0",
@@ -214,9 +217,31 @@ class CapabilityRuntime:
             validator=validator,
         )
 
+        resolved_adapter = adapter
+
+        if resolved_adapter is None:
+            if adapter_id is None:
+                raise ValueError(
+                    "Se requiere adapter o adapter_id"
+                )
+
+            if self._delivery_adapter_registry is None:
+                raise ValueError(
+                    "Runtime no posee DeliveryAdapterRegistry"
+                )
+
+            resolved_adapter = (
+                self._delivery_adapter_registry.get(adapter_id)
+            )
+
+            if resolved_adapter is None:
+                raise ValueError(
+                    f"Adapter no registrado: {adapter_id}"
+                )
+
         delivery_context = DeliveryContext(
             consumer_id=consumer_id,
-            adapter_id=adapter.adapter_id,
+            adapter_id=resolved_adapter.adapter_id,
             request_id=response.trace.request_id,
             session_id=response.trace.session_id,
             execution_id=response.trace.execution_id,
@@ -229,7 +254,7 @@ class CapabilityRuntime:
         delivery_result = resolved_delivery_service.deliver(
             response=response,
             context=delivery_context,
-            adapter=adapter,
+            adapter=resolved_adapter,
         )
 
         self._event_bus.publish(
