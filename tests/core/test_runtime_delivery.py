@@ -240,3 +240,64 @@ def test_runtime_keeps_single_capability_event_when_delivering():
 
     assert capability.execution_count == 1
     assert len(published_events) == 1
+
+def test_runtime_delivery_resolves_materializer_from_registry():
+    capability = CountingDescribeSectionCapability()
+
+    registry = CapabilityRegistry()
+    sessions = SessionManager()
+    events = EventBus()
+
+    from heyti.materialization.registry import (
+        MaterializationRegistry,
+    )
+
+    materialization_registry = MaterializationRegistry()
+
+    sessions.create(
+        "SESSION-001",
+        object(),
+    )
+
+    registry.register(
+        "describe_section",
+        capability,
+    )
+
+    materialization_registry.register(
+        capability_id="describe_section",
+        contract_version="1.0",
+        materializer=DescribeSectionMaterializer(),
+    )
+
+    runtime = CapabilityRuntime(
+        registry=registry,
+        session_manager=sessions,
+        event_bus=events,
+        materialization_registry=materialization_registry,
+    )
+
+    adapter = InMemoryDeliveryAdapter()
+
+    result = runtime.execute_delivered(
+        capability_name="describe_section",
+        session_id="SESSION-001",
+        consumer_id="PORTAL",
+        adapter=adapter,
+        payload={
+            "section_id": "1234",
+        },
+    )
+
+    assert result.status == "DELIVERED"
+    assert result.consumer_id == "PORTAL"
+    assert result.response_id
+    assert result.delivery_id
+    assert capability.execution_count == 1
+    assert len(adapter.deliveries) == 1
+
+    envelope = adapter.deliveries[0]
+
+    assert envelope.response.contract == "HEYTI_RESPONSE"
+    assert envelope.response.version == "1.0"
+    assert envelope.response.capability_id == "describe_section"
