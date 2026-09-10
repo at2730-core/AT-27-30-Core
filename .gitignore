@@ -49,3 +49,16 @@ __pycache__/
 
 database/backups/
 *.backup
+
+# ==========================
+# HEYTI generated evidence
+# ==========================
+
+# Auditorias, respaldos y salidas tecnicas generadas
+/artifacts/
+
+# PostgreSQL dumps en cualquier ubicacion
+*.dump
+
+# Capturas temporales de consola HDRM
+/docs/txt/HDRM_STEP_*.txt
