@@ -1,0 +1,235 @@
+.splash {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgb(28 112 122 / 18%),
+      transparent 42%
+    ),
+    linear-gradient(145deg, #eaf1f2 0%, #f7f9f9 100%);
+}
+
+.splash-card {
+  width: min(100%, 34rem);
+  padding: clamp(1.5rem, 5vw, 2.75rem);
+  background: rgb(255 255 255 / 96%);
+  border: 1px solid #d5e0e2;
+  border-top: 0.3rem solid #155e68;
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 4rem rgb(20 40 45 / 14%);
+}
+
+.splash-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.splash-mark {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  color: #ffffff;
+  background: #155e68;
+  border-radius: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.splash-eyebrow {
+  margin: 0 0 0.3rem;
+  color: #155e68;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.splash-header h1 {
+  margin: 0;
+  color: #14282d;
+  font-size: clamp(2rem, 8vw, 3.25rem);
+  line-height: 1;
+}
+
+.splash-subtitle {
+  margin: 0.45rem 0 0;
+  color: #607378;
+}
+
+.splash-version {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.75rem 0 0.75rem;
+  color: #65777b;
+  font-size: 0.78rem;
+}
+
+.splash-progress {
+  height: 0.55rem;
+  overflow: hidden;
+  background: #dce6e8;
+  border-radius: 999px;
+}
+
+.splash-progress-value {
+  height: 100%;
+  background: linear-gradient(90deg, #155e68, #2a919a);
+  border-radius: inherit;
+  transition: width 240ms ease;
+}
+
+.splash-progress-copy {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.65rem;
+  color: #43585d;
+  font-size: 0.85rem;
+}
+
+.splash-progress-copy strong {
+  color: #155e68;
+}
+
+.splash-steps {
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.splash-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.7rem 0.8rem;
+  background: #f7f9f9;
+  border: 1px solid #e0e8e9;
+  border-radius: 0.65rem;
+}
+
+.splash-step-indicator {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: #96a5a8;
+  border-radius: 50%;
+}
+
+.splash-step[data-status='running']
+  .splash-step-indicator {
+  background: #247f89;
+  box-shadow: 0 0 0 0.25rem rgb(36 127 137 / 15%);
+}
+
+.splash-step[data-status='passed']
+  .splash-step-indicator {
+  background: #24734d;
+}
+
+.splash-step[data-status='warning']
+  .splash-step-indicator {
+  background: #a8640b;
+}
+
+.splash-step[data-status='failed']
+  .splash-step-indicator {
+  background: #a33b3b;
+}
+
+.splash-step-copy {
+  min-width: 0;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.splash-step-copy strong {
+  color: #23383d;
+  font-size: 0.88rem;
+}
+
+.splash-step-copy small {
+  overflow: hidden;
+  color: #697b7f;
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.splash-step-status {
+  color: #53666a;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.splash-button {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  background: #155e68;
+  border: 0;
+  border-radius: 0.65rem;
+  cursor: pointer;
+  font-weight: 750;
+}
+
+.splash-button:hover:not(:disabled) {
+  background: #104d56;
+}
+
+.splash-button:focus-visible {
+  outline: 0.2rem solid #59aeb5;
+  outline-offset: 0.2rem;
+}
+
+.splash-button:disabled {
+  color: #738286;
+  background: #dce4e5;
+  cursor: wait;
+}
+
+.splash-button-secondary {
+  color: #155e68;
+  background: #e3edef;
+}
+
+.splash-footnote {
+  margin: 0.85rem 0 0;
+  color: #718185;
+  font-size: 0.72rem;
+  text-align: center;
+}
+
+@media (max-width: 34rem) {
+  .splash {
+    padding: 1rem;
+  }
+
+  .splash-version {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .splash-step {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .splash-step-status {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-progress-value {
+    transition: none;
+  }
+}
