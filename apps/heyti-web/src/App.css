@@ -1,0 +1,43 @@
+#root {
+  min-height: 100vh;
+}
+
+.app-foundation {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: #eef3f4;
+}
+
+.foundation-card {
+  width: min(100%, 32rem);
+  padding: 2.5rem;
+  background: #ffffff;
+  border: 1px solid #d8e1e3;
+  border-top: 4px solid #155e68;
+  border-radius: 0.75rem;
+  box-shadow: 0 1rem 2.5rem rgb(22 50 56 / 10%);
+}
+
+.foundation-eyebrow {
+  margin: 0 0 0.75rem;
+  color: #155e68;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.foundation-card h1 {
+  margin: 0;
+  color: #14282d;
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1;
+}
+
+.foundation-message {
+  margin: 1.25rem 0 0;
+  color: #53676c;
+  font-size: 1rem;
+  line-height: 1.6;
+}
