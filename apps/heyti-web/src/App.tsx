@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { ApplicationShell } from './shell/ApplicationShell'
 import { SplashScreen } from './startup/SplashScreen'
 
 function App() {
@@ -13,23 +14,7 @@ function App() {
     )
   }
 
-  return (
-    <main className="app-foundation">
-      <section
-        className="foundation-card"
-        aria-labelledby="heyti-title"
-      >
-        <p className="foundation-eyebrow">HEYTI-CORE</p>
-
-        <h1 id="heyti-title">Espacio de trabajo</h1>
-
-        <p className="foundation-message">
-          El Workspace unificado será el siguiente corte
-          vertical de HEYTI V2.0.
-        </p>
-      </section>
-    </main>
-  )
+  return <ApplicationShell />
 }
 
 export default App
