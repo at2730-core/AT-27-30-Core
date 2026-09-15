@@ -8,6 +8,7 @@ from heyti.audit.data_truth.contracts import (
     SEVERITY_CRITICAL,
     TRUTH_UNRESOLVED,
     DataTruthAuditResult,
+    DataTruthEvidence,
     DataTruthFinding,
 )
 from heyti.audit.data_truth.json_source import (
@@ -16,9 +17,33 @@ from heyti.audit.data_truth.json_source import (
 from heyti.audit.data_truth.profiles import (
     profile_json_non_finite,
 )
+from heyti.audit.data_truth.winner_evidence import (
+    profile_winners_without_numeric_evidence,
+)
 
 
 NON_FINITE_NUMERIC_VALUES = "NON_FINITE_NUMERIC_VALUES"
+WINNER_WITHOUT_NUMERIC_EVIDENCE = (
+    "WINNER_WITHOUT_NUMERIC_EVIDENCE"
+)
+
+
+def _build_source_evidence(
+    path: Path,
+    source_id: str,
+    source_sha256: str,
+) -> DataTruthEvidence:
+    """Construye evidencia común para hallazgos semánticos."""
+
+    return DataTruthEvidence(
+        source_id=source_id,
+        description="Fuente electoral auditada sin modificación",
+        sha256=source_sha256,
+        metadata={
+            "path": str(path),
+            "bytes": path.stat().st_size,
+        },
+    )
 
 
 def audit_electoral_master(
@@ -43,6 +68,12 @@ def audit_electoral_master(
 
     findings = list(strict_result.findings)
     metadata = dict(strict_result.metadata)
+
+    source_evidence = _build_source_evidence(
+        path=source_path,
+        source_id=source_id,
+        source_sha256=metadata["source_sha256"],
+    )
 
     try:
         profile = profile_json_non_finite(
@@ -79,11 +110,7 @@ def audit_electoral_master(
                     entity_id=source_id,
                     truth_status=TRUTH_UNRESOLVED,
                     publication_status=PUBLICATION_BLOCKED,
-                    evidence=(
-                        strict_result.findings[0].evidence
-                        if strict_result.findings
-                        else ()
-                    ),
+                    evidence=(source_evidence,),
                     metadata={
                         "total_values": profile.total_values,
                         "affected_records": (
@@ -93,6 +120,53 @@ def audit_electoral_master(
                             profile.affected_fields
                         ),
                         "field_counts": profile.field_counts,
+                    },
+                )
+            )
+
+    try:
+        winner_profile = (
+            profile_winners_without_numeric_evidence(
+                source_path
+            )
+        )
+    except (
+        UnicodeDecodeError,
+        json.JSONDecodeError,
+        ValueError,
+    ) as error:
+        metadata["winner_evidence_profile_available"] = False
+        metadata["winner_evidence_profile_error"] = str(error)
+    else:
+        metadata.update(
+            {
+                "winner_evidence_profile_available": True,
+                "winner_without_numeric_evidence": len(
+                    winner_profile
+                ),
+                "winner_without_numeric_sections": tuple(
+                    item.section_code
+                    for item in winner_profile
+                ),
+            }
+        )
+
+        for item in winner_profile:
+            findings.append(
+                DataTruthFinding(
+                    code=WINNER_WITHOUT_NUMERIC_EVIDENCE,
+                    message=(
+                        "La sección contiene etiquetas de ganador "
+                        "sin evidencia numérica finita distinta de cero"
+                    ),
+                    severity=SEVERITY_CRITICAL,
+                    entity_type="SECTION",
+                    entity_id=item.section_code,
+                    truth_status=TRUTH_UNRESOLVED,
+                    publication_status=PUBLICATION_BLOCKED,
+                    evidence=(source_evidence,),
+                    metadata={
+                        "winner_fields": item.winner_fields,
                     },
                 )
             )
