@@ -1,4 +1,9 @@
+from heyti.audit.data_truth.contracts import (
+    PUBLICATION_ALLOWED,
+    TRUTH_OBSERVED,
+)
 from heyti.audit.data_truth.section_truth import (
+    CLASSIFICATION_REQUIRES_REPOSITORY_CONFIRMATION,
     resolve_section_truth,
 )
 from heyti.audit.data_truth.territorial_policy import (
@@ -8,6 +13,14 @@ from heyti.audit.data_truth.territorial_policy import (
 from heyti.capabilities.describe_section.models import (
     SectionTruthSnapshot,
     SectionWarning,
+)
+
+
+CLASSIFICATION_CURRENT_TERRITORIAL_SECTION = (
+    "CURRENT_TERRITORIAL_SECTION"
+)
+CONFIRMATION_MASTER_AND_GEOMETRY = (
+    "MASTER_AND_GEOMETRY_INTERSECTION"
 )
 
 
@@ -24,6 +37,7 @@ class TerritorialSectionTruthSource:
         self,
         classification: TerritorialClassification,
         policy: TerritorialSectionPolicy,
+        current_section_ids: tuple[int, ...] = (),
     ) -> None:
         if not isinstance(
             classification,
@@ -42,8 +56,27 @@ class TerritorialSectionTruthSource:
                 "policy debe ser TerritorialSectionPolicy"
             )
 
+        if not isinstance(current_section_ids, tuple):
+            raise TypeError(
+                "current_section_ids debe ser tuple"
+            )
+
+        if not all(
+            isinstance(section_id, int)
+            and not isinstance(section_id, bool)
+            and section_id > 0
+            for section_id in current_section_ids
+        ):
+            raise ValueError(
+                "current_section_ids debe contener "
+                "exclusivamente enteros positivos"
+            )
+
         self.classification = classification
         self.policy = policy
+        self.current_section_ids = frozenset(
+            current_section_ids
+        )
 
     def get_section_truth(
         self,
@@ -54,6 +87,32 @@ class TerritorialSectionTruthSource:
             classification=self.classification,
             policy=self.policy,
         )
+
+        if (
+            resolution.classification
+            == CLASSIFICATION_REQUIRES_REPOSITORY_CONFIRMATION
+            and resolution.section_id
+            in self.current_section_ids
+        ):
+            content = resolution.to_dict()
+            content.update(
+                {
+                    "classification": (
+                        CLASSIFICATION_CURRENT_TERRITORIAL_SECTION
+                    ),
+                    "truth_status": TRUTH_OBSERVED,
+                    "publication_status": PUBLICATION_ALLOWED,
+                    "warning_code": None,
+                    "warning_message": None,
+                    "confirmation_basis": (
+                        CONFIRMATION_MASTER_AND_GEOMETRY
+                    ),
+                }
+            )
+
+            return SectionTruthSnapshot(
+                content=content,
+            )
 
         warning = self._build_warning(resolution)
 
