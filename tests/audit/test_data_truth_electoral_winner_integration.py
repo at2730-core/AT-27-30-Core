@@ -37,7 +37,7 @@ def test_integrated_audit_blocks_unsupported_winner(tmp_path):
     )
 
     assert result.status == AUDIT_STATUS_BLOCKED
-    assert len(result.findings) == 1
+    assert len(result.findings) == 2
 
     finding = result.findings[0]
 
@@ -86,7 +86,7 @@ def test_integrated_audit_emits_one_finding_per_section(
         "4986",
     )
 
-    assert len(result.blocking_findings) == 2
+    assert len(result.blocking_findings) == 3
 
 
 def test_integrated_audit_exposes_winner_profile_metadata(

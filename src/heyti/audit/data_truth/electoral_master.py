@@ -17,12 +17,18 @@ from heyti.audit.data_truth.json_source import (
 from heyti.audit.data_truth.profiles import (
     profile_json_non_finite,
 )
+from heyti.audit.data_truth.contest_winner_summary import (
+    summarize_contest_winners_without_party_votes,
+)
 from heyti.audit.data_truth.winner_evidence import (
     profile_winners_without_numeric_evidence,
 )
 
 
 NON_FINITE_NUMERIC_VALUES = "NON_FINITE_NUMERIC_VALUES"
+CONTEST_WINNERS_NOT_DERIVABLE = (
+    "CONTEST_WINNERS_NOT_DERIVABLE"
+)
 WINNER_WITHOUT_NUMERIC_EVIDENCE = (
     "WINNER_WITHOUT_NUMERIC_EVIDENCE"
 )
@@ -167,6 +173,85 @@ def audit_electoral_master(
                     evidence=(source_evidence,),
                     metadata={
                         "winner_fields": item.winner_fields,
+                    },
+                )
+            )
+
+    try:
+        contest_summary = (
+            summarize_contest_winners_without_party_votes(
+                source_path
+            )
+        )
+    except (
+        UnicodeDecodeError,
+        json.JSONDecodeError,
+        ValueError,
+    ) as error:
+        metadata["contest_winner_summary_available"] = False
+        metadata["contest_winner_summary_error"] = str(error)
+    else:
+        metadata.update(
+            {
+                "contest_winner_summary_available": True,
+                "non_derivable_contest_winners": (
+                    contest_summary.total_findings
+                ),
+                "contest_winner_affected_sections": len(
+                    contest_summary.affected_sections
+                ),
+            }
+        )
+
+        if contest_summary.total_findings:
+            findings.append(
+                DataTruthFinding(
+                    code=CONTEST_WINNERS_NOT_DERIVABLE,
+                    message=(
+                        "Existen ganadores almacenados que no "
+                        "pueden derivarse de los votos partidistas "
+                        "representados"
+                    ),
+                    severity=SEVERITY_CRITICAL,
+                    entity_type="DATASET",
+                    entity_id=source_id,
+                    truth_status=TRUTH_UNRESOLVED,
+                    publication_status=PUBLICATION_BLOCKED,
+                    evidence=(source_evidence,),
+                    metadata={
+                        "total_findings": (
+                            contest_summary.total_findings
+                        ),
+                        "affected_sections": (
+                            contest_summary.affected_sections
+                        ),
+                        "winner_field_counts": (
+                            contest_summary.winner_field_counts
+                        ),
+                        "total_positive": (
+                            contest_summary.total_positive
+                        ),
+                        "total_zero": (
+                            contest_summary.total_zero
+                        ),
+                        "total_unavailable": (
+                            contest_summary.total_unavailable
+                        ),
+                        "ln_positive": (
+                            contest_summary.ln_positive
+                        ),
+                        "ln_zero": (
+                            contest_summary.ln_zero
+                        ),
+                        "ln_unavailable": (
+                            contest_summary.ln_unavailable
+                        ),
+                        "possible_origin": (
+                            "ARGMAX_ZERO_TIE_BREAK"
+                        ),
+                        "possible_origin_status": (
+                            "UNVERIFIED_HYPOTHESIS"
+                        ),
                     },
                 )
             )
