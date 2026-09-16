@@ -1,6 +1,6 @@
 import json
 from collections import Counter
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -25,6 +25,9 @@ class SectionUniverseProfile:
     geometry_duplicates: tuple[int, ...]
     master_invalid_values: tuple[str, ...]
     geometry_invalid_values: tuple[str, ...]
+    comparable_section_ids: tuple[int, ...] = field(
+        default_factory=tuple,
+    )
 
     def to_dict(self) -> dict[str, Any]:
         """Devuelve una representación estructurada del perfil."""
@@ -179,6 +182,9 @@ def profile_section_universes(
         geometry_unique=len(geometry_codes),
         comparable_sections=len(
             master_codes & geometry_codes
+        ),
+        comparable_section_ids=tuple(
+            sorted(master_codes & geometry_codes)
         ),
         master_only=tuple(
             sorted(master_codes - geometry_codes)
