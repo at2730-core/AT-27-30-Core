@@ -1,10 +1,15 @@
 import importlib.util
+import inspect
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from types import ModuleType
-import inspect
-from heyti.capabilities.base import Capability
 
+from heyti.capabilities.base import Capability
 from heyti.registry.registry import CapabilityRegistry
+
+
+CapabilityFactory = Callable[[], Capability]
+
 
 class CapabilityLoader:
     """
@@ -12,9 +17,30 @@ class CapabilityLoader:
     capabilities disponibles para HEYTI Runtime.
     """
 
-    def __init__(self, registry: CapabilityRegistry):
+    def __init__(
+        self,
+        registry: CapabilityRegistry,
+        capability_factories: (
+            Mapping[str, CapabilityFactory] | None
+        ) = None,
+    ) -> None:
         self.registry = registry
+        self.capability_factories = dict(
+            capability_factories or {}
+        )
         self.loaded_capabilities: list[Capability] = []
+
+        if not all(
+            isinstance(capability_id, str)
+            and capability_id
+            and callable(factory)
+            for capability_id, factory
+            in self.capability_factories.items()
+        ):
+            raise TypeError(
+                "capability_factories debe asociar "
+                "identificadores no vacíos con fábricas ejecutables"
+            )
 
     def _is_valid_capability(self, path: Path) -> bool:
         """
@@ -35,7 +61,10 @@ class CapabilityLoader:
 
         return bool(implementation_files)
 
-    def _scan_directories(self, root_path: Path) -> list[Path]:
+    def _scan_directories(
+        self,
+        root_path: Path,
+    ) -> list[Path]:
         """
         Examina los subdirectorios inmediatos de una ruta y devuelve
         únicamente aquellos que cumplen la estructura mínima de una
@@ -52,16 +81,20 @@ class CapabilityLoader:
 
         return sorted(capability_directories)
 
-    def discover(self, root_path: Path) -> list[Path]:
+    def discover(
+        self,
+        root_path: Path,
+    ) -> list[Path]:
         """
         Descubre capabilities válidas dentro de una ruta raíz
         y devuelve las rutas encontradas.
         """
         return self._scan_directories(root_path)
 
-
-
-    def _load_module(self, module_path: Path) -> ModuleType:
+    def _load_module(
+        self,
+        module_path: Path,
+    ) -> ModuleType:
         """
         Carga dinámicamente un módulo Python desde una ruta de archivo.
         """
@@ -76,13 +109,18 @@ class CapabilityLoader:
             module_path,
         )
 
-        if specification is None or specification.loader is None:
+        if (
+            specification is None
+            or specification.loader is None
+        ):
             raise ImportError(
-                f"No fue posible crear la especificación del módulo: "
-                f"{module_path}"
+                "No fue posible crear la especificación "
+                f"del módulo: {module_path}"
             )
 
-        module = importlib.util.module_from_spec(specification)
+        module = importlib.util.module_from_spec(
+            specification
+        )
         specification.loader.exec_module(module)
 
         return module
@@ -99,38 +137,55 @@ class CapabilityLoader:
             module,
             inspect.isclass,
         ):
-
-            # Ignorar la clase base
             if candidate is Capability:
                 continue
 
-            # Debe heredar de Capability
             if not issubclass(candidate, Capability):
                 continue
 
-            # No debe ser abstracta
             if inspect.isabstract(candidate):
                 continue
 
-            # Debe estar definida en ESTE módulo
             if candidate.__module__ != module.__name__:
                 continue
 
             return candidate
 
         raise LookupError(
-            f"No se encontró una clase Capability válida "
+            "No se encontró una clase Capability válida "
             f"en el módulo {module.__name__}"
         )
 
     def _instantiate_capability(
         self,
         capability_class: type[Capability],
+        capability_name: str | None = None,
     ) -> Capability:
         """
         Crea una instancia ejecutable de una clase Capability.
+
+        Cuando existe una fábrica para el identificador descubierto,
+        delega en ella la composición de dependencias.
         """
-        return capability_class()
+        factory = (
+            self.capability_factories.get(capability_name)
+            if capability_name is not None
+            else None
+        )
+
+        capability = (
+            factory()
+            if factory is not None
+            else capability_class()
+        )
+
+        if not isinstance(capability, Capability):
+            raise TypeError(
+                "La fábrica debe devolver una instancia "
+                "de Capability"
+            )
+
+        return capability
 
     def _register_capability(
         self,
@@ -158,7 +213,8 @@ class CapabilityLoader:
         """
         python_files = sorted(
             file_path
-            for file_path in capability_directory.glob("*.py")
+            for file_path
+            in capability_directory.glob("*.py")
             if file_path.name != "__init__.py"
         )
 
@@ -166,14 +222,19 @@ class CapabilityLoader:
             module = self._load_module(module_path)
 
             try:
-                capability_class = self._find_capability_class(
-                    module
+                capability_class = (
+                    self._find_capability_class(module)
                 )
             except LookupError:
                 continue
 
-            capability_instance = self._instantiate_capability(
-                capability_class
+            capability_instance = (
+                self._instantiate_capability(
+                    capability_class,
+                    capability_name=(
+                        capability_directory.name
+                    ),
+                )
             )
 
             self._register_capability(
