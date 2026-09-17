@@ -1,31 +1,43 @@
+from collections.abc import Mapping
 from pathlib import Path
 
-from heyti.registry.registry import CapabilityRegistry
-from heyti.runtime.capability_loader import CapabilityLoader
-from heyti.runtime.runtime_startup_sequence import RuntimeStartupSequence
+from heyti.delivery.registry import DeliveryAdapterRegistry
+from heyti.events.event_bus import EventBus
 from heyti.materialization.describe_section.materializer import (
     DescribeSectionMaterializer,
 )
 from heyti.materialization.registry import (
     MaterializationRegistry,
 )
-from heyti.delivery.registry import DeliveryAdapterRegistry
-from heyti.events.event_bus import EventBus
+from heyti.registry.registry import CapabilityRegistry
+from heyti.runtime.capability_loader import (
+    CapabilityFactory,
+    CapabilityLoader,
+)
 from heyti.runtime.capability_runtime import CapabilityRuntime
+from heyti.runtime.runtime_startup_sequence import RuntimeStartupSequence
 from heyti.session.session_manager import SessionManager
+
 
 class RuntimeBootstrap:
     """
     Responsable del arranque inicial del Runtime de HEYTI.
+
+    Puede recibir fábricas explícitas para componer dependencias
+    de capabilities concretas sin acoplar esa composición al loader.
     """
 
     def __init__(
         self,
         sequence: RuntimeStartupSequence | None = None,
+        capability_factories: (
+            Mapping[str, CapabilityFactory] | None
+        ) = None,
     ) -> None:
         self.registry = CapabilityRegistry()
         self.loader = CapabilityLoader(
             registry=self.registry,
+            capability_factories=capability_factories,
         )
         self.sequence = sequence or RuntimeStartupSequence()
         self.materialization_registry = MaterializationRegistry()
