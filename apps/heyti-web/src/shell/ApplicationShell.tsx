@@ -9,6 +9,12 @@ import {
   describeSection,
 } from '../gateway/heyti.client'
 import {
+  readTerritorialGeometry,
+} from '../gateway/territorial.geometry'
+import type {
+  TerritorialGeometryView,
+} from '../gateway/territorial.geometry'
+import {
   readTerritorialTruth,
 } from '../gateway/territorial.response'
 import type {
@@ -52,6 +58,10 @@ function ApplicationShellContent() {
     useState('')
   const [territorialTruth, setTerritorialTruth] =
     useState<TerritorialTruthView | null>(null)
+  const [
+    territorialGeometry,
+    setTerritorialGeometry,
+  ] = useState<TerritorialGeometryView | null>(null)
   const [territorialLoading, setTerritorialLoading] =
     useState(false)
   const [territorialError, setTerritorialError] =
@@ -87,8 +97,22 @@ function ApplicationShellContent() {
         response,
         requestedSectionId,
       )
+      const geometry = readTerritorialGeometry(
+        response,
+        requestedSectionId,
+      )
+
+      if (
+        truth.truthStatus !== 'certified' &&
+        geometry !== null
+      ) {
+        throw new Error(
+          'HEYTI rechazó una geometría sin autorización.',
+        )
+      }
 
       setTerritorialTruth(truth)
+      setTerritorialGeometry(geometry)
       selectUniverse({
         id: truth.sectionId,
         label: `Sección ${truth.sectionId}`,
@@ -130,6 +154,7 @@ function ApplicationShellContent() {
             setOpenPanel('comparison')
           }
           territorialTruth={territorialTruth}
+          territorialGeometry={territorialGeometry}
           territorialLoading={territorialLoading}
           territorialError={territorialError}
         />

@@ -1,13 +1,18 @@
 import type {
+  TerritorialGeometryView,
+} from '../gateway/territorial.geometry'
+import type {
   TerritorialTruthView,
 } from '../gateway/territorial.response'
 import { getHeytiModule } from '../platform/module.catalog'
 import { useWorkspace } from '../platform/useWorkspace'
+import { SectionGeometryMap } from './SectionGeometryMap'
 
 interface WorkspaceCanvasProps {
   onOpenCrossQuery: () => void
   onConfigureComparison: () => void
   territorialTruth: TerritorialTruthView | null
+  territorialGeometry: TerritorialGeometryView | null
   territorialLoading: boolean
   territorialError: string | null
 }
@@ -46,6 +51,7 @@ export function WorkspaceCanvas({
   onOpenCrossQuery,
   onConfigureComparison,
   territorialTruth,
+  territorialGeometry,
   territorialLoading,
   territorialError,
 }: WorkspaceCanvasProps) {
@@ -138,52 +144,58 @@ export function WorkspaceCanvas({
             </span>
           </header>
 
-          <div className="workspace-visual-placeholder">
-            <span aria-hidden="true">◎</span>
-
-            {territorialTruth ? (
-              territorialTruth.truthStatus ===
-              'certified' ? (
-                <>
-                  <strong>
-                    Verdad territorial certificada
-                  </strong>
-                  <small>
-                    Identidad validada por HEYTI-CORE. La
-                    geometría y el mapa se integrarán en el
-                    siguiente bloque de migración.
-                  </small>
-                </>
-              ) : territorialTruth.truthStatus ===
-                'unavailable' ? (
-                <>
-                  <strong>
-                    Identidad territorial no publicable
-                  </strong>
-                  <small>
-                    HEYTI-CORE bloqueó su representación. No
-                    se mostrará mapa, geometría ni información
-                    territorial como si estuviera certificada.
-                  </small>
-                </>
-              ) : (
-                <>
-                  <strong>
-                    Identidad territorial pendiente
-                  </strong>
-                  <small>
-                    La fuente requiere validación antes de
-                    permitir su representación territorial.
-                  </small>
-                </>
-              )
+          <div
+            className={
+              territorialGeometry
+                ? 'workspace-visual-map'
+                : 'workspace-visual-placeholder'
+            }
+          >
+            {territorialGeometry ? (
+              <SectionGeometryMap
+                territorialGeometry={
+                  territorialGeometry
+                }
+              />
             ) : (
               <>
-                <strong>Área de visualización</strong>
-                <small>
-                  Selecciona una sección para consultar su
-                  identidad territorial certificada.
-                </small>
+                <span aria-hidden="true">◎</span>
+
+                {territorialTruth ? (
+                  territorialTruth.truthStatus ===
+                  'unavailable' ? (
+                    <>
+                      <strong>
+                        Identidad territorial no publicable
+                      </strong>
+                      <small>
+                        HEYTI-CORE bloqueó su representación.
+                        No se mostrará mapa, geometría ni
+                        información territorial como si
+                        estuviera certificada.
+                      </small>
+                    </>
+                  ) : (
+                    <>
+                      <strong>
+                        Geometría territorial no disponible
+                      </strong>
+                      <small>
+                        La identidad fue consultada, pero no
+                        existe una geometría autorizada para
+                        representarla.
+                      </small>
+                    </>
+                  )
+                ) : (
+                  <>
+                    <strong>Área de visualización</strong>
+                    <small>
+                      Selecciona una sección para consultar su
+                      identidad territorial certificada.
+                    </small>
+                  </>
+                )}
               </>
             )}
           </div>
