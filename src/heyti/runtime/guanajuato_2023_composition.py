@@ -7,6 +7,9 @@ from heyti.capabilities.describe_section.implementation import (
 from heyti.capabilities.describe_section.provider import (
     DescribeSectionProvider,
 )
+from heyti.capabilities.describe_section.territorial_geometry_source import (
+    CertifiedGeoJsonSectionSource,
+)
 from heyti.capabilities.describe_section.territorial_truth_factory import (
     GuanajuatoTerritorialTruthAssembly,
     build_guanajuato_2023_territorial_truth,
@@ -19,12 +22,13 @@ class Guanajuato2023RuntimeComposition:
     """
     Composición trazable del Runtime para Guanajuato 2023.
 
-    Conserva tanto el bootstrap configurado como el ensamblaje
-    territorial certificado utilizado para construirlo.
+    Conserva el bootstrap, el ensamblaje de verdad territorial
+    y la fuente geométrica autorizada utilizados para construirlo.
     """
 
     bootstrap: RuntimeBootstrap
     territorial_truth: GuanajuatoTerritorialTruthAssembly
+    territorial_geometry: CertifiedGeoJsonSectionSource
 
 
 def compose_guanajuato_2023_runtime(
@@ -45,9 +49,17 @@ def compose_guanajuato_2023_runtime(
         )
     )
 
+    territorial_geometry = CertifiedGeoJsonSectionSource(
+        geometry_path=geometry_path,
+        authorized_section_ids=(
+            territorial_truth.profile.comparable_section_ids
+        ),
+    )
+
     def build_describe_section() -> DescribeSectionCapability:
         provider = DescribeSectionProvider(
             truth_source=territorial_truth.source,
+            territorial_source=territorial_geometry,
         )
 
         return DescribeSectionCapability(
@@ -63,4 +75,5 @@ def compose_guanajuato_2023_runtime(
     return Guanajuato2023RuntimeComposition(
         bootstrap=bootstrap,
         territorial_truth=territorial_truth,
+        territorial_geometry=territorial_geometry,
     )

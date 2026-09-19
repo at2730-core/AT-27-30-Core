@@ -1,5 +1,5 @@
 from copy import deepcopy
-from typing import Protocol
+from typing import Any, Protocol
 
 from heyti.capabilities.describe_section.models import (
     SectionDescription,
@@ -18,19 +18,37 @@ class SectionTruthSource(Protocol):
         ...
 
 
+class SectionTerritorialSource(Protocol):
+    """Fuente contractual de contenido territorial."""
+
+    def get_section_territorial(
+        self,
+        section_id: str,
+    ) -> dict[str, Any] | None:
+        """
+        Devuelve contenido territorial autorizado o None.
+        """
+        ...
+
+
 class DescribeSectionProvider:
     """
     Proveedor inicial de información para DescribeSection.
 
-    Construye el modelo raíz y puede incorporar un estado de verdad
-    mediante una fuente contractual inyectada.
+    Construye el modelo raíz, incorpora el estado de verdad
+    y sólo publica contenido territorial cuando Data Truth
+    lo autoriza explícitamente.
     """
 
     def __init__(
         self,
         truth_source: SectionTruthSource | None = None,
+        territorial_source: (
+            SectionTerritorialSource | None
+        ) = None,
     ) -> None:
         self.truth_source = truth_source
+        self.territorial_source = territorial_source
 
     def get_section(
         self,
@@ -54,5 +72,37 @@ class DescribeSectionProvider:
 
         description.data_truth = deepcopy(snapshot.content)
         description.warnings = list(snapshot.warnings)
+
+        if self.territorial_source is None:
+            return description
+
+        publication_status = (
+            description.data_truth.get(
+                "publication_status"
+            )
+        )
+
+        if publication_status != "ALLOWED":
+            return description
+
+        territorial = (
+            self.territorial_source
+            .get_section_territorial(
+                section_id=section_id,
+            )
+        )
+
+        if territorial is None:
+            return description
+
+        if not isinstance(territorial, dict):
+            raise TypeError(
+                "SectionTerritorialSource debe devolver "
+                "dict o None"
+            )
+
+        description.territorial = deepcopy(
+            territorial
+        )
 
         return description
