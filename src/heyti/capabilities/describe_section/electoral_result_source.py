@@ -199,24 +199,43 @@ class CertifiedElectoralSectionSource:
         record: dict[str, Any],
         contest: str,
     ) -> dict[str, Any]:
-        votes = {
+        raw_votes = {
             party: record.get(
                 self._field_name(contest, party)
             )
             for party in TRACKED_PARTIES
         }
-        total_votes = record.get(
+        raw_total_votes = record.get(
             self._field_name(contest, "TOTAL")
         )
-        nominal_list = record.get(
+        raw_nominal_list = record.get(
             self._field_name(contest, "LN")
         )
 
         required_values = [
-            *votes.values(),
-            total_votes,
-            nominal_list,
+            *raw_votes.values(),
+            raw_total_votes,
+            raw_nominal_list,
         ]
+
+        votes = {
+            party: (
+                value
+                if _finite_number(value)
+                else None
+            )
+            for party, value in raw_votes.items()
+        }
+        total_votes = (
+            raw_total_votes
+            if _finite_number(raw_total_votes)
+            else None
+        )
+        nominal_list = (
+            raw_nominal_list
+            if _finite_number(raw_nominal_list)
+            else None
+        )
 
         base_content: dict[str, Any] = {
             "contest_id": contest,

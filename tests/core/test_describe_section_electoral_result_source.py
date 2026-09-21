@@ -383,3 +383,30 @@ def test_real_section_1524_preserves_partial_truth():
     assert content["contests"]["DL"][
         "data_status"
     ] == "AVAILABLE"
+
+def test_source_sanitizes_non_finite_values_for_json(
+    tmp_path,
+):
+    record = build_record()
+    record["24DL_LN"] = float("nan")
+
+    source = CertifiedElectoralSectionSource(
+        master_path=write_master(
+            tmp_path,
+            [record],
+        ),
+        authorized_section_ids=[1],
+    )
+
+    content = source.get_section_electoral("1")
+    contest = content["contests"]["DL"]
+
+    assert contest["data_status"] == "INCOMPLETE"
+    assert contest["nominal_list"] is None
+
+    serialized = json.dumps(
+        content,
+        allow_nan=False,
+    )
+
+    assert '"nominal_list": null' in serialized
