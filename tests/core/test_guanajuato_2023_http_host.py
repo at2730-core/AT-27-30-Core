@@ -147,12 +147,19 @@ def test_certified_http_host_serves_real_section_truth():
     assert current_status == 200
     assert current["contract"] == "HEYTI_RESPONSE"
     assert current["capability_id"] == "describe_section"
-    assert current["status"] == "success"
-    assert current["warnings"] == []
+    assert current["status"] == "success_with_warnings"
+    assert len(current["warnings"]) == 1
+    assert current["warnings"][0]["code"] == (
+        "PARTIAL_ELECTORAL_COVERAGE"
+    )
 
     current_truth = get_block(
         current,
         "data_truth",
+    )
+    current_electoral = get_block(
+        current,
+        "electoral",
     )
 
     assert current_truth["content"]["classification"] == (
@@ -161,6 +168,31 @@ def test_certified_http_host_serves_real_section_truth():
     assert current_truth["content"]["publication_status"] == (
         "ALLOWED"
     )
+
+    assert current_electoral is not None
+    assert current_electoral["type"] == "domain"
+    assert current_electoral["content"]["section_id"] == (
+        "1524"
+    )
+    assert current_electoral["content"][
+        "coverage_scope"
+    ] == "TRACKED_PARTIES_ONLY"
+    assert current_electoral["content"][
+        "quality_status"
+    ] == "PARTIAL"
+
+    ayuntamiento = current_electoral["content"][
+        "contests"
+    ]["A"]
+
+    assert ayuntamiento["data_status"] == "ZERO_TOTAL"
+    assert ayuntamiento["total_votes"] == 0.0
+    assert ayuntamiento["nominal_list"] == 620.0
+    assert ayuntamiento[
+        "leading_tracked_party"
+    ] is None
+    assert "winner" not in ayuntamiento
+
     assert current["trace"]["request_id"] == (
         "REQ-HTTP-CURRENT-1524"
     )

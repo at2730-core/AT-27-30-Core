@@ -4,6 +4,7 @@ from typing import Any, Protocol
 from heyti.capabilities.describe_section.models import (
     SectionDescription,
     SectionTruthSnapshot,
+    SectionWarning,
 )
 
 
@@ -31,13 +32,26 @@ class SectionTerritorialSource(Protocol):
         ...
 
 
+class SectionElectoralSource(Protocol):
+    """Fuente contractual de contenido electoral."""
+
+    def get_section_electoral(
+        self,
+        section_id: str,
+    ) -> dict[str, Any] | None:
+        """
+        Devuelve contenido electoral autorizado o None.
+        """
+        ...
+
+
 class DescribeSectionProvider:
     """
     Proveedor inicial de información para DescribeSection.
 
     Construye el modelo raíz, incorpora el estado de verdad
-    y sólo publica contenido territorial cuando Data Truth
-    lo autoriza explícitamente.
+    y sólo publica dominios cuando Data Truth los autoriza
+    explícitamente.
     """
 
     def __init__(
@@ -46,9 +60,13 @@ class DescribeSectionProvider:
         territorial_source: (
             SectionTerritorialSource | None
         ) = None,
+        electoral_source: (
+            SectionElectoralSource | None
+        ) = None,
     ) -> None:
         self.truth_source = truth_source
         self.territorial_source = territorial_source
+        self.electoral_source = electoral_source
 
     def get_section(
         self,
@@ -73,9 +91,6 @@ class DescribeSectionProvider:
         description.data_truth = deepcopy(snapshot.content)
         description.warnings = list(snapshot.warnings)
 
-        if self.territorial_source is None:
-            return description
-
         publication_status = (
             description.data_truth.get(
                 "publication_status"
@@ -85,24 +100,59 @@ class DescribeSectionProvider:
         if publication_status != "ALLOWED":
             return description
 
-        territorial = (
-            self.territorial_source
-            .get_section_territorial(
-                section_id=section_id,
-            )
-        )
-
-        if territorial is None:
-            return description
-
-        if not isinstance(territorial, dict):
-            raise TypeError(
-                "SectionTerritorialSource debe devolver "
-                "dict o None"
+        if self.territorial_source is not None:
+            territorial = (
+                self.territorial_source
+                .get_section_territorial(
+                    section_id=section_id,
+                )
             )
 
-        description.territorial = deepcopy(
-            territorial
-        )
+            if territorial is not None:
+                if not isinstance(territorial, dict):
+                    raise TypeError(
+                        "SectionTerritorialSource debe "
+                        "devolver dict o None"
+                    )
+
+                description.territorial = deepcopy(
+                    territorial
+                )
+
+        if self.electoral_source is not None:
+            electoral = (
+                self.electoral_source
+                .get_section_electoral(
+                    section_id=section_id,
+                )
+            )
+
+            if electoral is not None:
+                if not isinstance(electoral, dict):
+                    raise TypeError(
+                        "SectionElectoralSource debe "
+                        "devolver dict o None"
+                    )
+
+                description.electoral = deepcopy(
+                    electoral
+                )
+
+                if (
+                    electoral.get("quality_status")
+                    == "PARTIAL"
+                ):
+                    description.warnings.append(
+                        SectionWarning(
+                            code=(
+                                "PARTIAL_ELECTORAL_COVERAGE"
+                            ),
+                            message=(
+                                "La sección contiene uno o más "
+                                "concursos electorales sin "
+                                "cobertura completa y positiva."
+                            ),
+                        )
+                    )
 
         return description

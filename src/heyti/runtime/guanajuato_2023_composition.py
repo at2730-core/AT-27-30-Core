@@ -1,6 +1,9 @@
 from dataclasses import dataclass
 from pathlib import Path
 
+from heyti.capabilities.describe_section.electoral_result_source import (
+    CertifiedElectoralSectionSource,
+)
 from heyti.capabilities.describe_section.implementation import (
     DescribeSectionCapability,
 )
@@ -22,13 +25,14 @@ class Guanajuato2023RuntimeComposition:
     """
     Composición trazable del Runtime para Guanajuato 2023.
 
-    Conserva el bootstrap, el ensamblaje de verdad territorial
-    y la fuente geométrica autorizada utilizados para construirlo.
+    Conserva el bootstrap y las fuentes certificadas utilizadas
+    para construir la capability DescribeSection.
     """
 
     bootstrap: RuntimeBootstrap
     territorial_truth: GuanajuatoTerritorialTruthAssembly
     territorial_geometry: CertifiedGeoJsonSectionSource
+    electoral_results: CertifiedElectoralSectionSource
 
 
 def compose_guanajuato_2023_runtime(
@@ -49,17 +53,26 @@ def compose_guanajuato_2023_runtime(
         )
     )
 
+    authorized_section_ids = (
+        territorial_truth.profile.comparable_section_ids
+    )
+
     territorial_geometry = CertifiedGeoJsonSectionSource(
         geometry_path=geometry_path,
-        authorized_section_ids=(
-            territorial_truth.profile.comparable_section_ids
-        ),
+        authorized_section_ids=authorized_section_ids,
+    )
+
+    electoral_results = CertifiedElectoralSectionSource(
+        master_path=master_path,
+        authorized_section_ids=authorized_section_ids,
+        election_year=2024,
     )
 
     def build_describe_section() -> DescribeSectionCapability:
         provider = DescribeSectionProvider(
             truth_source=territorial_truth.source,
             territorial_source=territorial_geometry,
+            electoral_source=electoral_results,
         )
 
         return DescribeSectionCapability(
@@ -76,4 +89,5 @@ def compose_guanajuato_2023_runtime(
         bootstrap=bootstrap,
         territorial_truth=territorial_truth,
         territorial_geometry=territorial_geometry,
+        electoral_results=electoral_results,
     )

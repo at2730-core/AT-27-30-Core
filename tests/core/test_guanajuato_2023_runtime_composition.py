@@ -113,8 +113,11 @@ def test_certified_composition_reaches_materialized_runtime():
         "data_truth",
     )
 
-    assert current_response.status == "success"
-    assert current_response.warnings == []
+    assert current_response.status == "success_with_warnings"
+    assert len(current_response.warnings) == 1
+    assert current_response.warnings[0].code == (
+        "PARTIAL_ELECTORAL_COVERAGE"
+    )
     assert current_truth.content["classification"] == (
         "CURRENT_TERRITORIAL_SECTION"
     )
