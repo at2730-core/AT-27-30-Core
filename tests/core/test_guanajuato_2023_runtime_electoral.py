@@ -76,7 +76,7 @@ def block_by_role(
     )
 
 
-def test_runtime_exposes_complete_golden_electoral_case(
+def test_runtime_quarantines_untrusted_gubernatura(
     runtime_context,
 ):
     composition = runtime_context
@@ -99,8 +99,12 @@ def test_runtime_exposes_complete_golden_electoral_case(
         "electoral",
     )
 
-    assert response.status == "success"
-    assert response.warnings == []
+    assert response.status == "success_with_warnings"
+    assert any(
+        warning.code
+        == "PARTIAL_ELECTORAL_COVERAGE"
+        for warning in response.warnings
+    )
     assert electoral_block is not None
     assert electoral_block.type == "domain"
 
@@ -111,7 +115,7 @@ def test_runtime_exposes_complete_golden_electoral_case(
     assert content["coverage_scope"] == (
         "TRACKED_PARTIES_ONLY"
     )
-    assert content["quality_status"] == "COMPLETE"
+    assert content["quality_status"] == "PARTIAL"
 
     ayuntamiento = content["contests"]["A"]
 
@@ -126,6 +130,23 @@ def test_runtime_exposes_complete_golden_electoral_case(
     assert ayuntamiento["nominal_list"] == 1573.0
     assert ayuntamiento["residual_votes"] == 51.0
     assert "winner" not in ayuntamiento
+
+    gubernatura = content["contests"]["G"]
+
+    assert gubernatura["data_status"] == "INCONSISTENT"
+    assert all(
+        value is None
+        for value in gubernatura[
+            "votes_by_tracked_party"
+        ].values()
+    )
+    assert gubernatura["total_votes"] is None
+    assert gubernatura["nominal_list"] is None
+    assert gubernatura["tracked_votes"] is None
+    assert gubernatura["residual_votes"] is None
+    assert gubernatura["participation_rate"] is None
+    assert gubernatura["leading_tracked_party"] is None
+    assert gubernatura["tracked_lead_margin"] is None
 
 
 def test_runtime_preserves_partial_section_1524(

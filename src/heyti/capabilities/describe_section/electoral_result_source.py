@@ -80,6 +80,7 @@ class CertifiedElectoralSectionSource:
         authorized_section_ids: Iterable[str | int],
         election_year: int = 2024,
         section_field: str = "SECCION",
+        quarantined_contests: Iterable[str] = (),
     ) -> None:
         self.master_path = Path(master_path)
         self.section_field = section_field
@@ -96,6 +97,50 @@ class CertifiedElectoralSectionSource:
 
         self.election_year = election_year
         self.year_prefix = str(election_year)[-2:]
+
+        if isinstance(
+            quarantined_contests,
+            (str, bytes),
+        ):
+            raise TypeError(
+                "quarantined_contests debe ser un iterable "
+                "de identificadores de contienda"
+            )
+
+        try:
+            normalized_quarantined_contests = frozenset(
+                quarantined_contests
+            )
+        except TypeError as error:
+            raise TypeError(
+                "quarantined_contests debe ser un iterable "
+                "de identificadores de contienda"
+            ) from error
+
+        if any(
+            not isinstance(contest, str)
+            for contest in normalized_quarantined_contests
+        ):
+            raise TypeError(
+                "quarantined_contests debe contener "
+                "identificadores de texto"
+            )
+
+        unknown_quarantined_contests = (
+            normalized_quarantined_contests
+            - set(ELECTORAL_CONTESTS)
+        )
+
+        if unknown_quarantined_contests:
+            raise ValueError(
+                "quarantined_contests contiene contiendas "
+                "no soportadas: "
+                f"{sorted(unknown_quarantined_contests)}"
+            )
+
+        self.quarantined_contests = (
+            normalized_quarantined_contests
+        )
 
         normalized_authorized_ids = {
             _normalize_section_id(section_id)
@@ -199,6 +244,23 @@ class CertifiedElectoralSectionSource:
         record: dict[str, Any],
         contest: str,
     ) -> dict[str, Any]:
+        if contest in self.quarantined_contests:
+            return {
+                "contest_id": contest,
+                "votes_by_tracked_party": {
+                    party: None
+                    for party in TRACKED_PARTIES
+                },
+                "total_votes": None,
+                "nominal_list": None,
+                "tracked_votes": None,
+                "residual_votes": None,
+                "participation_rate": None,
+                "leading_tracked_party": None,
+                "tracked_lead_margin": None,
+                "data_status": "INCONSISTENT",
+            }
+
         raw_votes = {
             party: record.get(
                 self._field_name(contest, party)

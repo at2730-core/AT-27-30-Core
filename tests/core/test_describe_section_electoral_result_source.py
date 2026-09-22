@@ -410,3 +410,65 @@ def test_source_sanitizes_non_finite_values_for_json(
     )
 
     assert '"nominal_list": null' in serialized
+
+def test_source_quarantines_configured_contest():
+    source = CertifiedElectoralSectionSource(
+        master_path=real_master_path(),
+        authorized_section_ids=[1],
+        quarantined_contests=["G"],
+    )
+
+    content = source.get_section_electoral("1")
+
+    assert content is not None
+    assert content["quality_status"] == "PARTIAL"
+    assert source.quarantined_contests == frozenset({"G"})
+
+    ayuntamiento = content["contests"]["A"]
+    gubernatura = content["contests"]["G"]
+
+    assert ayuntamiento["data_status"] == "AVAILABLE"
+
+    assert gubernatura["data_status"] == "INCONSISTENT"
+    assert all(
+        value is None
+        for value in gubernatura[
+            "votes_by_tracked_party"
+        ].values()
+    )
+    assert gubernatura["total_votes"] is None
+    assert gubernatura["nominal_list"] is None
+    assert gubernatura["tracked_votes"] is None
+    assert gubernatura["residual_votes"] is None
+    assert gubernatura["participation_rate"] is None
+    assert gubernatura["leading_tracked_party"] is None
+    assert gubernatura["tracked_lead_margin"] is None
+
+@pytest.mark.parametrize(
+    "quarantined_contests",
+    [
+        "G",
+        [1],
+    ],
+)
+def test_source_rejects_invalid_quarantine_container(
+    quarantined_contests,
+):
+    with pytest.raises(TypeError):
+        CertifiedElectoralSectionSource(
+            master_path=real_master_path(),
+            authorized_section_ids=[1],
+            quarantined_contests=quarantined_contests,
+        )
+
+
+def test_source_rejects_unknown_quarantined_contest():
+    with pytest.raises(
+        ValueError,
+        match="contiendas no soportadas",
+    ):
+        CertifiedElectoralSectionSource(
+            master_path=real_master_path(),
+            authorized_section_ids=[1],
+            quarantined_contests=["UNKNOWN"],
+        )
