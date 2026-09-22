@@ -6,6 +6,12 @@ import type {
 } from 'react'
 import './ApplicationShell.css'
 import {
+  readElectoralResults,
+} from '../gateway/electoral.response'
+import type {
+  ElectoralResultsView,
+} from '../gateway/electoral.response'
+import {
   describeSection,
 } from '../gateway/heyti.client'
 import {
@@ -62,6 +68,8 @@ function ApplicationShellContent() {
     territorialGeometry,
     setTerritorialGeometry,
   ] = useState<TerritorialGeometryView | null>(null)
+  const [electoralResults, setElectoralResults] =
+    useState<ElectoralResultsView | null>(null)
   const [territorialLoading, setTerritorialLoading] =
     useState(false)
   const [territorialError, setTerritorialError] =
@@ -101,18 +109,34 @@ function ApplicationShellContent() {
         response,
         requestedSectionId,
       )
+      const electoral = readElectoralResults(
+        response,
+      )
 
       if (
         truth.truthStatus !== 'certified' &&
-        geometry !== null
+        (
+          geometry !== null ||
+          electoral !== null
+        )
       ) {
         throw new Error(
-          'HEYTI rechazó una geometría sin autorización.',
+          'HEYTI rechazó contenido de dominio sin autorización.',
+        )
+      }
+
+      if (
+        electoral !== null &&
+        electoral.sectionId !== truth.sectionId
+      ) {
+        throw new Error(
+          'La identidad electoral no corresponde a la sección autorizada.',
         )
       }
 
       setTerritorialTruth(truth)
       setTerritorialGeometry(geometry)
+      setElectoralResults(electoral)
       selectUniverse({
         id: truth.sectionId,
         label: `Sección ${truth.sectionId}`,
@@ -128,6 +152,9 @@ function ApplicationShellContent() {
           ? error.message
           : 'No fue posible consultar la sección.'
 
+      setTerritorialTruth(null)
+      setTerritorialGeometry(null)
+      setElectoralResults(null)
       setTerritorialError(message)
     } finally {
       setTerritorialLoading(false)
@@ -155,6 +182,7 @@ function ApplicationShellContent() {
           }
           territorialTruth={territorialTruth}
           territorialGeometry={territorialGeometry}
+          electoralResults={electoralResults}
           territorialLoading={territorialLoading}
           territorialError={territorialError}
         />

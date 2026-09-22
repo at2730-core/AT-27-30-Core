@@ -1,4 +1,7 @@
 import type {
+  ElectoralResultsView,
+} from '../gateway/electoral.response'
+import type {
   TerritorialGeometryView,
 } from '../gateway/territorial.geometry'
 import type {
@@ -6,6 +9,7 @@ import type {
 } from '../gateway/territorial.response'
 import { getHeytiModule } from '../platform/module.catalog'
 import { useWorkspace } from '../platform/useWorkspace'
+import { SectionElectoralSummary } from './SectionElectoralSummary'
 import { SectionGeometryMap } from './SectionGeometryMap'
 
 interface WorkspaceCanvasProps {
@@ -13,6 +17,7 @@ interface WorkspaceCanvasProps {
   onConfigureComparison: () => void
   territorialTruth: TerritorialTruthView | null
   territorialGeometry: TerritorialGeometryView | null
+  electoralResults: ElectoralResultsView | null
   territorialLoading: boolean
   territorialError: string | null
 }
@@ -52,6 +57,7 @@ export function WorkspaceCanvas({
   onConfigureComparison,
   territorialTruth,
   territorialGeometry,
+  electoralResults,
   territorialLoading,
   territorialError,
 }: WorkspaceCanvasProps) {
@@ -284,6 +290,12 @@ export function WorkspaceCanvas({
                   </dd>
                 </div>
               </dl>
+
+              {electoralResults ? (
+                <SectionElectoralSummary
+                  electoralResults={electoralResults}
+                />
+              ) : null}
 
               {territorialTruth.warnings.length > 0 ? (
                 <section className="workspace-warning-list">
