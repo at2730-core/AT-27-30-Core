@@ -4,12 +4,23 @@ import {
 } from '../gateway/electoral.response'
 import type {
   ElectoralContestId,
+  ElectoralContestView,
   ElectoralDataStatus,
+  ElectoralQualityStatus,
   ElectoralResultsView,
 } from '../gateway/electoral.response'
 
 interface SectionElectoralSummaryProps {
   electoralResults: ElectoralResultsView
+}
+
+interface ElectoralContestGridProps {
+  contests: ElectoralResultsView['contests']
+}
+
+interface ElectoralContestCardProps {
+  contestId: ElectoralContestId
+  contest: ElectoralContestView
 }
 
 const integerFormatter = new Intl.NumberFormat(
@@ -68,6 +79,14 @@ function dataStatusLabel(
   }
 }
 
+function qualityStatusLabel(
+  status: ElectoralQualityStatus,
+): string {
+  return status === 'COMPLETE'
+    ? 'Cobertura completa'
+    : 'Cobertura parcial'
+}
+
 function formatNumber(
   value: number | null,
 ): string {
@@ -82,6 +101,103 @@ function formatPercentage(
   return value === null
     ? 'No disponible'
     : `${percentageFormatter.format(value * 100)} %`
+}
+
+function ElectoralContestCard({
+  contestId,
+  contest,
+}: ElectoralContestCardProps) {
+  return (
+    <article
+      className="workspace-electoral-contest"
+      data-status={contest.dataStatus}
+    >
+      <header>
+        <strong>{contestLabel(contestId)}</strong>
+        <span>
+          {dataStatusLabel(contest.dataStatus)}
+        </span>
+      </header>
+
+      <dl>
+        <div>
+          <dt>Votos totales</dt>
+          <dd>
+            {formatNumber(contest.totalVotes)}
+          </dd>
+        </div>
+        <div>
+          <dt>Lista nominal</dt>
+          <dd>
+            {formatNumber(contest.nominalList)}
+          </dd>
+        </div>
+        <div>
+          <dt>Participación</dt>
+          <dd>
+            {formatPercentage(
+              contest.participationRate,
+            )}
+          </dd>
+        </div>
+        <div>
+          <dt>Mayor votación rastreada</dt>
+          <dd>
+            {contest.leadingTrackedParty ??
+              'No calculable'}
+          </dd>
+        </div>
+        <div>
+          <dt>Margen rastreado</dt>
+          <dd>
+            {formatNumber(
+              contest.trackedLeadMargin,
+            )}
+          </dd>
+        </div>
+        <div>
+          <dt>Votos no desglosados</dt>
+          <dd>
+            {formatNumber(
+              contest.residualVotes,
+            )}
+          </dd>
+        </div>
+      </dl>
+
+      <ul aria-label="Votos por partido rastreado">
+        {ELECTORAL_TRACKED_PARTIES.map(
+          (party) => (
+            <li key={party}>
+              <span>{party}</span>
+              <strong>
+                {formatNumber(
+                  contest
+                    .votesByTrackedParty[party],
+                )}
+              </strong>
+            </li>
+          ),
+        )}
+      </ul>
+    </article>
+  )
+}
+
+function ElectoralContestGrid({
+  contests,
+}: ElectoralContestGridProps) {
+  return (
+    <div className="workspace-electoral-contests">
+      {ELECTORAL_CONTEST_IDS.map((contestId) => (
+        <ElectoralContestCard
+          key={contestId}
+          contestId={contestId}
+          contest={contests[contestId]}
+        />
+      ))}
+    </div>
+  )
 }
 
 export function SectionElectoralSummary({
@@ -100,10 +216,14 @@ export function SectionElectoralSummary({
           </h3>
         </div>
 
-        <span data-quality={electoralResults.qualityStatus}>
-          {electoralResults.qualityStatus === 'COMPLETE'
-            ? 'Cobertura completa'
-            : 'Cobertura parcial'}
+        <span
+          data-quality={
+            electoralResults.qualityStatus
+          }
+        >
+          {qualityStatusLabel(
+            electoralResults.qualityStatus,
+          )}
         </span>
       </header>
 
@@ -113,89 +233,61 @@ export function SectionElectoralSummary({
         absoluto.
       </p>
 
-      <div className="workspace-electoral-contests">
-        {ELECTORAL_CONTEST_IDS.map((contestId) => {
-          const contest =
-            electoralResults.contests[contestId]
+      <ElectoralContestGrid
+        contests={electoralResults.contests}
+      />
 
-          return (
-            <article
-              key={contestId}
-              className="workspace-electoral-contest"
-              data-status={contest.dataStatus}
-            >
-              <header>
-                <strong>{contestLabel(contestId)}</strong>
-                <span>
-                  {dataStatusLabel(contest.dataStatus)}
-                </span>
-              </header>
+      <section
+        className="workspace-electoral-history"
+        aria-labelledby="electoral-history-title"
+      >
+        <header>
+          <div>
+            <p>EVOLUCIÓN CERTIFICADA</p>
+            <h4 id="electoral-history-title">
+              Historial electoral
+            </h4>
+          </div>
+        </header>
 
-              <dl>
-                <div>
-                  <dt>Votos totales</dt>
-                  <dd>
-                    {formatNumber(contest.totalVotes)}
-                  </dd>
-                </div>
-                <div>
-                  <dt>Lista nominal</dt>
-                  <dd>
-                    {formatNumber(contest.nominalList)}
-                  </dd>
-                </div>
-                <div>
-                  <dt>Participación</dt>
-                  <dd>
-                    {formatPercentage(
-                      contest.participationRate,
-                    )}
-                  </dd>
-                </div>
-                <div>
-                  <dt>Mayor votación rastreada</dt>
-                  <dd>
-                    {contest.leadingTrackedParty ??
-                      'No calculable'}
-                  </dd>
-                </div>
-                <div>
-                  <dt>Margen rastreado</dt>
-                  <dd>
-                    {formatNumber(
-                      contest.trackedLeadMargin,
-                    )}
-                  </dd>
-                </div>
-                <div>
-                  <dt>Votos no desglosados</dt>
-                  <dd>
-                    {formatNumber(
-                      contest.residualVotes,
-                    )}
-                  </dd>
-                </div>
-              </dl>
+        <p className="workspace-electoral-history-note">
+          Consulta los resultados históricos disponibles.
+          Los estados parciales identifican datos que la
+          fuente oficial no desglosa completamente.
+        </p>
 
-              <ul aria-label="Votos por partido rastreado">
-                {ELECTORAL_TRACKED_PARTIES.map(
-                  (party) => (
-                    <li key={party}>
-                      <span>{party}</span>
-                      <strong>
-                        {formatNumber(
-                          contest
-                            .votesByTrackedParty[party],
-                        )}
-                      </strong>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </article>
-          )
-        })}
-      </div>
+        <div className="workspace-electoral-history-years">
+          {electoralResults.historicalElections.map(
+            (election) => (
+              <details
+                key={election.electionYear}
+                className="workspace-electoral-history-year"
+              >
+                <summary>
+                  <strong>
+                    Elección {election.electionYear}
+                  </strong>
+                  <span
+                    data-quality={
+                      election.qualityStatus
+                    }
+                  >
+                    {qualityStatusLabel(
+                      election.qualityStatus,
+                    )}
+                  </span>
+                </summary>
+
+                <div className="workspace-electoral-history-content">
+                  <ElectoralContestGrid
+                    contests={election.contests}
+                  />
+                </div>
+              </details>
+            ),
+          )}
+        </div>
+      </section>
     </section>
   )
 }
