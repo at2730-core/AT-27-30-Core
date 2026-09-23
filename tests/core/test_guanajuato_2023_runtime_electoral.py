@@ -76,7 +76,7 @@ def block_by_role(
     )
 
 
-def test_runtime_quarantines_untrusted_gubernatura(
+def test_runtime_publishes_certified_gubernatura(
     runtime_context,
 ):
     composition = runtime_context
@@ -99,12 +99,8 @@ def test_runtime_quarantines_untrusted_gubernatura(
         "electoral",
     )
 
-    assert response.status == "success_with_warnings"
-    assert any(
-        warning.code
-        == "PARTIAL_ELECTORAL_COVERAGE"
-        for warning in response.warnings
-    )
+    assert response.status == "success"
+    assert response.warnings == []
     assert electoral_block is not None
     assert electoral_block.type == "domain"
 
@@ -115,7 +111,7 @@ def test_runtime_quarantines_untrusted_gubernatura(
     assert content["coverage_scope"] == (
         "TRACKED_PARTIES_ONLY"
     )
-    assert content["quality_status"] == "PARTIAL"
+    assert content["quality_status"] == "COMPLETE"
 
     ayuntamiento = content["contests"]["A"]
 
@@ -133,20 +129,25 @@ def test_runtime_quarantines_untrusted_gubernatura(
 
     gubernatura = content["contests"]["G"]
 
-    assert gubernatura["data_status"] == "INCONSISTENT"
-    assert all(
-        value is None
-        for value in gubernatura[
-            "votes_by_tracked_party"
-        ].values()
-    )
-    assert gubernatura["total_votes"] is None
-    assert gubernatura["nominal_list"] is None
-    assert gubernatura["tracked_votes"] is None
-    assert gubernatura["residual_votes"] is None
-    assert gubernatura["participation_rate"] is None
-    assert gubernatura["leading_tracked_party"] is None
-    assert gubernatura["tracked_lead_margin"] is None
+    assert gubernatura["data_status"] == "AVAILABLE"
+    assert gubernatura[
+        "votes_by_tracked_party"
+    ] == {
+        "PAN": 492,
+        "PRI": 160,
+        "PVEM": 41,
+        "MORENA": 266,
+    }
+    assert gubernatura["total_votes"] == 1037
+    assert gubernatura["nominal_list"] == 1570
+    assert gubernatura["tracked_votes"] == 959
+    assert gubernatura["residual_votes"] == 78
+    assert gubernatura[
+        "participation_rate"
+    ] == pytest.approx(1037 / 1570)
+    assert gubernatura["leading_tracked_party"] == "PAN"
+    assert gubernatura["tracked_lead_margin"] == 226
+    assert "winner" not in gubernatura
 
 
 def test_runtime_preserves_partial_section_1524(
@@ -178,6 +179,30 @@ def test_runtime_preserves_partial_section_1524(
     assert ayuntamiento[
         "leading_tracked_party"
     ] is None
+
+    gubernatura = electoral_block.content[
+        "contests"
+    ]["G"]
+
+    assert gubernatura["data_status"] == "AVAILABLE"
+    assert gubernatura[
+        "votes_by_tracked_party"
+    ] == {
+        "PAN": 248,
+        "PRI": 9,
+        "PVEM": 8,
+        "MORENA": 126,
+    }
+    assert gubernatura["total_votes"] == 443
+    assert gubernatura["nominal_list"] == 621
+    assert gubernatura["tracked_votes"] == 391
+    assert gubernatura["residual_votes"] == 52
+    assert gubernatura[
+        "participation_rate"
+    ] == pytest.approx(443 / 621)
+    assert gubernatura["leading_tracked_party"] == "PAN"
+    assert gubernatura["tracked_lead_margin"] == 122
+    assert "winner" not in gubernatura
 
     assert any(
         warning.code

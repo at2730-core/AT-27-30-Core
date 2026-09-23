@@ -66,7 +66,7 @@ def compose_guanajuato_2023_runtime(
         master_path=master_path,
         authorized_section_ids=authorized_section_ids,
         election_year=2024,
-        quarantined_contests=("G",),
+
     )
 
     def build_describe_section() -> DescribeSectionCapability:
