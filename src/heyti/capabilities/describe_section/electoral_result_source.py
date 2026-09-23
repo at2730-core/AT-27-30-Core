@@ -54,6 +54,22 @@ def _normalize_section_id(
     return None
 
 
+HISTORICAL_ELECTION_YEARS = (
+    2018,
+    2021,
+)
+
+CONTESTED_CONTESTS_BY_YEAR = {
+    2018: frozenset(ELECTORAL_CONTESTS),
+    2021: frozenset(("A", "DL", "DF")),
+}
+
+HISTORICAL_CONTEST_PROFILES = {
+    (2018, "DF"): "WITHOUT_NOMINAL_LIST",
+    (2021, "DF"): "SUMMARY_ONLY",
+}
+
+
 def _finite_number(
     value: Any,
 ) -> bool:
@@ -233,52 +249,112 @@ class CertifiedElectoralSectionSource:
         self,
         contest: str,
         suffix: str,
+        election_year: int | None = None,
     ) -> str:
+        selected_year = (
+            self.election_year
+            if election_year is None
+            else election_year
+        )
+
         return (
-            f"{self.year_prefix}"
+            f"{str(selected_year)[-2:]}"
             f"{contest}_{suffix}"
+        )
+
+    @staticmethod
+    def _empty_contest_content(
+        contest: str,
+        data_status: str,
+    ) -> dict[str, Any]:
+        return {
+            "contest_id": contest,
+            "votes_by_tracked_party": {
+                party: None
+                for party in TRACKED_PARTIES
+            },
+            "total_votes": None,
+            "nominal_list": None,
+            "tracked_votes": None,
+            "residual_votes": None,
+            "participation_rate": None,
+            "leading_tracked_party": None,
+            "tracked_lead_margin": None,
+            "data_status": data_status,
+        }
+
+    def _contest_is_applicable(
+        self,
+        election_year: int,
+        contest: str,
+    ) -> bool:
+        contested = CONTESTED_CONTESTS_BY_YEAR.get(
+            election_year
+        )
+
+        return (
+            contest in contested
+            if contested is not None
+            else True
         )
 
     def _build_contest_content(
         self,
         record: dict[str, Any],
         contest: str,
+        election_year: int | None = None,
     ) -> dict[str, Any]:
+        selected_year = (
+            self.election_year
+            if election_year is None
+            else election_year
+        )
+        data_profile = HISTORICAL_CONTEST_PROFILES.get(
+            (
+                selected_year,
+                contest,
+            )
+        )
+
+        if not self._contest_is_applicable(
+            selected_year,
+            contest,
+        ):
+            return self._empty_contest_content(
+                contest=contest,
+                data_status="NOT_CONTESTED",
+            )
+
         if contest in self.quarantined_contests:
-            return {
-                "contest_id": contest,
-                "votes_by_tracked_party": {
-                    party: None
-                    for party in TRACKED_PARTIES
-                },
-                "total_votes": None,
-                "nominal_list": None,
-                "tracked_votes": None,
-                "residual_votes": None,
-                "participation_rate": None,
-                "leading_tracked_party": None,
-                "tracked_lead_margin": None,
-                "data_status": "INCONSISTENT",
-            }
+            return self._empty_contest_content(
+                contest=contest,
+                data_status="INCONSISTENT",
+            )
 
         raw_votes = {
             party: record.get(
-                self._field_name(contest, party)
+                self._field_name(
+                    contest,
+                    party,
+                    selected_year,
+                )
             )
             for party in TRACKED_PARTIES
         }
         raw_total_votes = record.get(
-            self._field_name(contest, "TOTAL")
+            self._field_name(
+                contest,
+                "TOTAL",
+                selected_year,
+            )
         )
         raw_nominal_list = record.get(
-            self._field_name(contest, "LN")
+            self._field_name(
+                contest,
+                "LN",
+                selected_year,
+            )
         )
-
-        required_values = [
-            *raw_votes.values(),
-            raw_total_votes,
-            raw_nominal_list,
-        ]
 
         votes = {
             party: (
@@ -311,25 +387,60 @@ class CertifiedElectoralSectionSource:
             "tracked_lead_margin": None,
         }
 
-        if not all(
-            _finite_number(value)
-            for value in required_values
+        finite_votes = [
+            value
+            for value in votes.values()
+            if value is not None
+        ]
+        has_all_votes = (
+            len(finite_votes) == len(TRACKED_PARTIES)
+        )
+        has_no_votes = not finite_votes
+
+        if (
+            data_profile == "SUMMARY_ONLY"
+            and has_no_votes
+            and total_votes is not None
+            and nominal_list is not None
+        ):
+            summary_content = {
+                **base_content,
+                "participation_rate": (
+                    total_votes / nominal_list
+                    if nominal_list > 0
+                    else None
+                ),
+            }
+
+            if (
+                total_votes < 0
+                or nominal_list <= 0
+                or total_votes > nominal_list
+            ):
+                return {
+                    **summary_content,
+                    "data_status": "INCONSISTENT",
+                }
+
+            return {
+                **summary_content,
+                "data_status": "SUMMARY_ONLY",
+            }
+
+        if (
+            not has_all_votes
+            or total_votes is None
+            or (
+                nominal_list is None
+                and data_profile != "WITHOUT_NOMINAL_LIST"
+            )
         ):
             return {
                 **base_content,
                 "data_status": "INCOMPLETE",
             }
 
-        if any(
-            value < 0
-            for value in required_values
-        ):
-            return {
-                **base_content,
-                "data_status": "INCONSISTENT",
-            }
-
-        tracked_votes = sum(votes.values())
+        tracked_votes = sum(finite_votes)
         residual_votes = total_votes - tracked_votes
 
         derived_content = {
@@ -338,15 +449,25 @@ class CertifiedElectoralSectionSource:
             "residual_votes": residual_votes,
             "participation_rate": (
                 total_votes / nominal_list
-                if nominal_list > 0
+                if (
+                    nominal_list is not None
+                    and nominal_list > 0
+                )
                 else None
             ),
         }
 
         if (
-            tracked_votes > total_votes
-            or total_votes > nominal_list
-            or nominal_list <= 0
+            any(value < 0 for value in finite_votes)
+            or total_votes < 0
+            or tracked_votes > total_votes
+            or (
+                nominal_list is not None
+                and (
+                    nominal_list <= 0
+                    or total_votes > nominal_list
+                )
+            )
         ):
             return {
                 **derived_content,
@@ -378,22 +499,26 @@ class CertifiedElectoralSectionSource:
 
         return {
             **derived_content,
-            "data_status": "AVAILABLE",
+            "data_status": (
+                "AVAILABLE_WITHOUT_NOMINAL_LIST"
+                if data_profile == "WITHOUT_NOMINAL_LIST"
+                else "AVAILABLE"
+            ),
             "leading_tracked_party": first_party,
             "tracked_lead_margin": (
                 first_votes - second_votes
             ),
         }
-
-    def _build_section_content(
+    def _build_election_content(
         self,
-        section_id: str,
         record: dict[str, Any],
+        election_year: int,
     ) -> dict[str, Any]:
         contests = {
             contest: self._build_contest_content(
                 record=record,
                 contest=contest,
+                election_year=election_year,
             )
             for contest in ELECTORAL_CONTESTS
         }
@@ -408,14 +533,41 @@ class CertifiedElectoralSectionSource:
         )
 
         return {
-            "section_id": section_id,
-            "election_year": self.election_year,
-            "coverage_scope": "TRACKED_PARTIES_ONLY",
-            "tracked_parties": list(TRACKED_PARTIES),
+            "election_year": election_year,
             "quality_status": quality_status,
             "contests": contests,
         }
 
+    def _build_section_content(
+        self,
+        section_id: str,
+        record: dict[str, Any],
+    ) -> dict[str, Any]:
+        current_election = self._build_election_content(
+            record=record,
+            election_year=self.election_year,
+        )
+        historical_elections = [
+            self._build_election_content(
+                record=record,
+                election_year=historical_year,
+            )
+            for historical_year
+            in HISTORICAL_ELECTION_YEARS
+            if historical_year != self.election_year
+        ]
+
+        return {
+            "section_id": section_id,
+            "election_year": self.election_year,
+            "coverage_scope": "TRACKED_PARTIES_ONLY",
+            "tracked_parties": list(TRACKED_PARTIES),
+            "quality_status": current_election[
+                "quality_status"
+            ],
+            "contests": current_election["contests"],
+            "historical_elections": historical_elections,
+        }
     def get_section_electoral(
         self,
         section_id: str,

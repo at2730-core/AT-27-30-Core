@@ -472,3 +472,290 @@ def test_source_rejects_unknown_quarantined_contest():
             authorized_section_ids=[1],
             quarantined_contests=["UNKNOWN"],
         )
+
+def test_real_golden_section_one_exposes_historical_elections():
+    source = CertifiedElectoralSectionSource(
+        master_path=real_master_path(),
+        authorized_section_ids=[1],
+    )
+
+    content = source.get_section_electoral("1")
+    history = content["historical_elections"]
+
+    assert [
+        election["election_year"]
+        for election in history
+    ] == [2018, 2021]
+
+    election_2018 = history[0]
+
+    assert election_2018["quality_status"] == "PARTIAL"
+
+    ayuntamiento_2018 = election_2018[
+        "contests"
+    ]["A"]
+
+    assert ayuntamiento_2018["data_status"] == "AVAILABLE"
+    assert ayuntamiento_2018[
+        "votes_by_tracked_party"
+    ] == {
+        "PAN": 250.0,
+        "PRI": 441.0,
+        "PVEM": 40.0,
+        "MORENA": 131.0,
+    }
+    assert ayuntamiento_2018["total_votes"] == 932.0
+    assert ayuntamiento_2018["nominal_list"] == 1535.0
+    assert ayuntamiento_2018["tracked_votes"] == 862.0
+    assert ayuntamiento_2018["residual_votes"] == 70.0
+    assert ayuntamiento_2018[
+        "participation_rate"
+    ] == pytest.approx(932 / 1535)
+    assert ayuntamiento_2018[
+        "leading_tracked_party"
+    ] == "PRI"
+    assert ayuntamiento_2018[
+        "tracked_lead_margin"
+    ] == 191.0
+
+    diputacion_federal_2018 = election_2018[
+        "contests"
+    ]["DF"]
+
+    assert diputacion_federal_2018[
+        "data_status"
+    ] == "AVAILABLE_WITHOUT_NOMINAL_LIST"
+    assert diputacion_federal_2018[
+        "total_votes"
+    ] == 931.0
+    assert diputacion_federal_2018[
+        "nominal_list"
+    ] is None
+    assert diputacion_federal_2018[
+        "tracked_votes"
+    ] == 797.0
+    assert diputacion_federal_2018[
+        "residual_votes"
+    ] == 134.0
+    assert diputacion_federal_2018[
+        "participation_rate"
+    ] is None
+    assert diputacion_federal_2018[
+        "leading_tracked_party"
+    ] == "PAN"
+    assert diputacion_federal_2018[
+        "tracked_lead_margin"
+    ] == 25.0
+
+    election_2021 = history[1]
+
+    assert election_2021["quality_status"] == "PARTIAL"
+
+    diputacion_federal_2021 = election_2021[
+        "contests"
+    ]["DF"]
+
+    assert diputacion_federal_2021[
+        "data_status"
+    ] == "SUMMARY_ONLY"
+    assert all(
+        value is None
+        for value in diputacion_federal_2021[
+            "votes_by_tracked_party"
+        ].values()
+    )
+    assert diputacion_federal_2021[
+        "total_votes"
+    ] == 877.0
+    assert diputacion_federal_2021[
+        "nominal_list"
+    ] == 1580.0
+    assert diputacion_federal_2021[
+        "tracked_votes"
+    ] is None
+    assert diputacion_federal_2021[
+        "residual_votes"
+    ] is None
+    assert diputacion_federal_2021[
+        "participation_rate"
+    ] == pytest.approx(877 / 1580)
+    assert diputacion_federal_2021[
+        "leading_tracked_party"
+    ] is None
+    assert diputacion_federal_2021[
+        "tracked_lead_margin"
+    ] is None
+
+    for contest in ("G", "S", "P"):
+        unavailable = election_2021[
+            "contests"
+        ][contest]
+
+        assert unavailable[
+            "data_status"
+        ] == "NOT_CONTESTED"
+        assert all(
+            value is None
+            for value in unavailable[
+                "votes_by_tracked_party"
+            ].values()
+        )
+        assert unavailable["total_votes"] is None
+        assert unavailable["nominal_list"] is None
+        assert unavailable["tracked_votes"] is None
+        assert unavailable["residual_votes"] is None
+        assert unavailable["participation_rate"] is None
+        assert unavailable[
+            "leading_tracked_party"
+        ] is None
+        assert unavailable[
+            "tracked_lead_margin"
+        ] is None
+
+def test_real_golden_section_1524_exposes_historical_elections():
+    source = CertifiedElectoralSectionSource(
+        master_path=real_master_path(),
+        authorized_section_ids=[1524],
+    )
+
+    content = source.get_section_electoral("1524")
+    history = content["historical_elections"]
+
+    assert [
+        election["election_year"]
+        for election in history
+    ] == [2018, 2021]
+
+    election_2018 = history[0]
+
+    assert election_2018["quality_status"] == "PARTIAL"
+
+    gubernatura_2018 = election_2018[
+        "contests"
+    ]["G"]
+
+    assert gubernatura_2018["data_status"] == "AVAILABLE"
+    assert gubernatura_2018[
+        "votes_by_tracked_party"
+    ] == {
+        "PAN": 275.0,
+        "PRI": 34.0,
+        "PVEM": 33.0,
+        "MORENA": 61.0,
+    }
+    assert gubernatura_2018["total_votes"] == 444.0
+    assert gubernatura_2018["nominal_list"] == 668.0
+    assert gubernatura_2018["tracked_votes"] == 403.0
+    assert gubernatura_2018["residual_votes"] == 41.0
+    assert gubernatura_2018[
+        "participation_rate"
+    ] == pytest.approx(444 / 668)
+    assert gubernatura_2018[
+        "leading_tracked_party"
+    ] == "PAN"
+    assert gubernatura_2018[
+        "tracked_lead_margin"
+    ] == 214.0
+
+    diputacion_federal_2018 = election_2018[
+        "contests"
+    ]["DF"]
+
+    assert diputacion_federal_2018[
+        "data_status"
+    ] == "AVAILABLE_WITHOUT_NOMINAL_LIST"
+    assert diputacion_federal_2018[
+        "total_votes"
+    ] == 444.0
+    assert diputacion_federal_2018[
+        "nominal_list"
+    ] is None
+    assert diputacion_federal_2018[
+        "tracked_votes"
+    ] == 394.0
+    assert diputacion_federal_2018[
+        "residual_votes"
+    ] == 50.0
+    assert diputacion_federal_2018[
+        "participation_rate"
+    ] is None
+    assert diputacion_federal_2018[
+        "leading_tracked_party"
+    ] == "PAN"
+    assert diputacion_federal_2018[
+        "tracked_lead_margin"
+    ] == 188.0
+
+    election_2021 = history[1]
+
+    assert election_2021["quality_status"] == "PARTIAL"
+
+    ayuntamiento_2021 = election_2021[
+        "contests"
+    ]["A"]
+
+    assert ayuntamiento_2021["data_status"] == "AVAILABLE"
+    assert ayuntamiento_2021[
+        "votes_by_tracked_party"
+    ] == {
+        "PAN": 231.0,
+        "PRI": 12.0,
+        "PVEM": 6.0,
+        "MORENA": 75.0,
+    }
+    assert ayuntamiento_2021["total_votes"] == 355.0
+    assert ayuntamiento_2021["nominal_list"] == 647.0
+    assert ayuntamiento_2021["tracked_votes"] == 324.0
+    assert ayuntamiento_2021["residual_votes"] == 31.0
+    assert ayuntamiento_2021[
+        "participation_rate"
+    ] == pytest.approx(355 / 647)
+    assert ayuntamiento_2021[
+        "leading_tracked_party"
+    ] == "PAN"
+    assert ayuntamiento_2021[
+        "tracked_lead_margin"
+    ] == 156.0
+
+    diputacion_local_2021 = election_2021[
+        "contests"
+    ]["DL"]
+
+    assert diputacion_local_2021[
+        "data_status"
+    ] == "INCOMPLETE"
+    assert all(
+        value is None
+        for value in diputacion_local_2021[
+            "votes_by_tracked_party"
+        ].values()
+    )
+    assert diputacion_local_2021["total_votes"] is None
+    assert diputacion_local_2021["nominal_list"] is None
+    assert diputacion_local_2021["tracked_votes"] is None
+    assert diputacion_local_2021["residual_votes"] is None
+    assert diputacion_local_2021[
+        "participation_rate"
+    ] is None
+
+    diputacion_federal_2021 = election_2021[
+        "contests"
+    ]["DF"]
+
+    assert diputacion_federal_2021[
+        "data_status"
+    ] == "SUMMARY_ONLY"
+    assert diputacion_federal_2021[
+        "total_votes"
+    ] == 353.0
+    assert diputacion_federal_2021[
+        "nominal_list"
+    ] == 647.0
+    assert diputacion_federal_2021[
+        "participation_rate"
+    ] == pytest.approx(353 / 647)
+
+    for contest in ("G", "S", "P"):
+        assert election_2021[
+            "contests"
+        ][contest]["data_status"] == "NOT_CONTESTED"

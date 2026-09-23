@@ -239,3 +239,89 @@ def test_runtime_withholds_blocked_electoral_content(
         == "PARTIAL_ELECTORAL_COVERAGE"
         for warning in response.warnings
     )
+
+def test_runtime_exposes_certified_electoral_history(
+    runtime_context,
+):
+    response = execute_section(
+        runtime_context,
+        "1",
+    )
+
+    electoral_block = block_by_role(
+        response,
+        "electoral",
+    )
+
+    assert response.status == "success"
+    assert response.warnings == []
+    assert electoral_block is not None
+
+    content = electoral_block.content
+
+    assert content["election_year"] == 2024
+    assert content["quality_status"] == "COMPLETE"
+
+    history = content["historical_elections"]
+
+    assert [
+        election["election_year"]
+        for election in history
+    ] == [2018, 2021]
+
+    assert [
+        election["quality_status"]
+        for election in history
+    ] == ["PARTIAL", "PARTIAL"]
+
+    gubernatura_2018 = history[0][
+        "contests"
+    ]["G"]
+
+    assert gubernatura_2018["data_status"] == "AVAILABLE"
+    assert gubernatura_2018[
+        "votes_by_tracked_party"
+    ] == {
+        "PAN": 380.0,
+        "PRI": 235.0,
+        "PVEM": 42.0,
+        "MORENA": 168.0,
+    }
+    assert gubernatura_2018["total_votes"] == 925.0
+    assert gubernatura_2018["nominal_list"] == 1535.0
+    assert gubernatura_2018[
+        "leading_tracked_party"
+    ] == "PAN"
+    assert gubernatura_2018[
+        "tracked_lead_margin"
+    ] == 145.0
+
+    diputacion_federal_2018 = history[0][
+        "contests"
+    ]["DF"]
+
+    assert diputacion_federal_2018[
+        "data_status"
+    ] == "AVAILABLE_WITHOUT_NOMINAL_LIST"
+    assert diputacion_federal_2018[
+        "participation_rate"
+    ] is None
+
+    diputacion_federal_2021 = history[1][
+        "contests"
+    ]["DF"]
+
+    assert diputacion_federal_2021[
+        "data_status"
+    ] == "SUMMARY_ONLY"
+    assert diputacion_federal_2021[
+        "total_votes"
+    ] == 877.0
+    assert diputacion_federal_2021[
+        "nominal_list"
+    ] == 1580.0
+
+    for contest in ("G", "S", "P"):
+        assert history[1][
+            "contests"
+        ][contest]["data_status"] == "NOT_CONTESTED"
