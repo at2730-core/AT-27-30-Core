@@ -29,6 +29,9 @@ export type ElectoralTrackedParty =
 
 export type ElectoralDataStatus =
   | 'AVAILABLE'
+  | 'AVAILABLE_WITHOUT_NOMINAL_LIST'
+  | 'SUMMARY_ONLY'
+  | 'NOT_CONTESTED'
   | 'ZERO_TOTAL'
   | 'INCOMPLETE'
   | 'INCONSISTENT'
@@ -58,6 +61,15 @@ export interface ElectoralContestView {
   trackedLeadMargin: number | null
 }
 
+export interface HistoricalElectionView {
+  electionYear: number
+  qualityStatus: ElectoralQualityStatus
+  contests: Record<
+    ElectoralContestId,
+    ElectoralContestView
+  >
+}
+
 export interface ElectoralResultsView {
   sectionId: string
   electionYear: number
@@ -68,6 +80,7 @@ export interface ElectoralResultsView {
     ElectoralContestId,
     ElectoralContestView
   >
+  historicalElections: HistoricalElectionView[]
 }
 
 function isRecord(
@@ -148,6 +161,9 @@ function parseDataStatus(
 
   switch (status) {
     case 'AVAILABLE':
+    case 'AVAILABLE_WITHOUT_NOMINAL_LIST':
+    case 'SUMMARY_ONLY':
+    case 'NOT_CONTESTED':
     case 'ZERO_TOTAL':
     case 'INCOMPLETE':
     case 'INCONSISTENT':
@@ -332,8 +348,13 @@ function parseContest(
       contestId,
     )
 
+  const supportsTrackedLeader =
+    dataStatus === 'AVAILABLE' ||
+    dataStatus ===
+      'AVAILABLE_WITHOUT_NOMINAL_LIST'
+
   if (
-    dataStatus === 'AVAILABLE' &&
+    supportsTrackedLeader &&
     leadingTrackedParty === null
   ) {
     invalidElectoralResults(
@@ -342,7 +363,7 @@ function parseContest(
   }
 
   if (
-    dataStatus !== 'AVAILABLE' &&
+    !supportsTrackedLeader &&
     leadingTrackedParty !== null
   ) {
     invalidElectoralResults(
@@ -426,6 +447,70 @@ function parseContests(
   }
 }
 
+function parseElectionYear(
+  value: unknown,
+  fieldName: string,
+): number {
+  if (
+    typeof value !== 'number' ||
+    !Number.isInteger(value)
+  ) {
+    invalidElectoralResults(
+      `El bloque electoral contiene un año inválido en ${fieldName}.`,
+    )
+  }
+
+  return value
+}
+
+function parseHistoricalElections(
+  value: unknown,
+): HistoricalElectionView[] {
+  const expectedYears = [
+    2018,
+    2021,
+  ] as const
+
+  if (
+    !Array.isArray(value) ||
+    value.length !== expectedYears.length
+  ) {
+    invalidElectoralResults(
+      'El bloque electoral no contiene exactamente las elecciones históricas certificadas.',
+    )
+  }
+
+  return value.map((entry, index) => {
+    if (!isRecord(entry)) {
+      invalidElectoralResults(
+        'El bloque electoral contiene una elección histórica inválida.',
+      )
+    }
+
+    const electionYear = parseElectionYear(
+      entry.election_year,
+      'historical_elections.election_year',
+    )
+
+    if (electionYear !== expectedYears[index]) {
+      invalidElectoralResults(
+        'Las elecciones históricas no corresponden al orden certificado 2018, 2021.',
+      )
+    }
+
+    return {
+      electionYear,
+      qualityStatus: parseQualityStatus(
+        entry.quality_status,
+      ),
+      contests: parseContests(
+        entry.contests,
+      ),
+    }
+  })
+}
+
+
 export function readElectoralResults(
   response: HeytiResponse,
 ): ElectoralResultsView | null {
@@ -462,14 +547,10 @@ export function readElectoralResults(
     )
   }
 
-  if (
-    typeof content.election_year !== 'number' ||
-    !Number.isInteger(content.election_year)
-  ) {
-    invalidElectoralResults(
-      'El bloque electoral contiene un año inválido.',
-    )
-  }
+  const electionYear = parseElectionYear(
+    content.election_year,
+    'election_year',
+  )
 
   const coverageScope = requireString(
     content.coverage_scope,
@@ -484,7 +565,7 @@ export function readElectoralResults(
 
   return {
     sectionId,
-    electionYear: content.election_year,
+    electionYear,
     coverageScope,
     trackedParties: parseTrackedParties(
       content.tracked_parties,
@@ -495,5 +576,9 @@ export function readElectoralResults(
     contests: parseContests(
       content.contests,
     ),
+    historicalElections:
+      parseHistoricalElections(
+        content.historical_elections,
+      ),
   }
 }

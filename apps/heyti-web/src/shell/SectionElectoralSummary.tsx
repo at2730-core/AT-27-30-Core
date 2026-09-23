@@ -51,6 +51,12 @@ function dataStatusLabel(
   switch (status) {
     case 'AVAILABLE':
       return 'Disponible'
+    case 'AVAILABLE_WITHOUT_NOMINAL_LIST':
+      return 'Disponible sin lista nominal'
+    case 'SUMMARY_ONLY':
+      return 'Solo resumen'
+    case 'NOT_CONTESTED':
+      return 'No celebrada'
     case 'ZERO_TOTAL':
       return 'Total en cero'
     case 'INCOMPLETE':
