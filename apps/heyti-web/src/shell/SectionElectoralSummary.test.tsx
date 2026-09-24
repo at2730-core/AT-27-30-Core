@@ -176,5 +176,35 @@ describe(
         )
       },
     )
+
+    it(
+      'renders the certified historical comparison',
+      () => {
+        const markup = renderToStaticMarkup(
+          <SectionElectoralSummary
+            electoralResults={electoralResults()}
+          />,
+        )
+
+        expect(markup).toContain(
+          'Comparativa histórica',
+        )
+        expect(markup).toContain(
+          'Serie certificada 2018–2024',
+        )
+        expect(markup).toContain(
+          'aria-label="Contienda comparada"',
+        )
+        expect(markup).toContain(
+          'Mayor votación rastreada por año',
+        )
+        expect(markup).toContain(
+          'No certifica un ganador absoluto',
+        )
+        expect(markup).toContain(
+          'workspace-electoral-comparison',
+        )
+      },
+    )
   },
 )

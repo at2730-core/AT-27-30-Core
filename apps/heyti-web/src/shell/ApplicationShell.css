@@ -1203,3 +1203,241 @@
     flex-wrap: wrap;
   }
 }
+/* HEYTI certified electoral comparison */
+
+.workspace-electoral-comparison {
+  display: grid;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--shell-border);
+}
+
+.workspace-electoral-comparison > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.workspace-electoral-comparison > header p {
+  margin: 0 0 0.25rem;
+  color: var(--shell-accent);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.workspace-electoral-comparison > header h4 {
+  margin: 0;
+  color: var(--shell-text);
+  font-size: 0.9rem;
+}
+
+.workspace-electoral-comparison > header > span {
+  padding: 0.3rem 0.5rem;
+  color: #174c8c;
+  background: #e8f0ff;
+  border-radius: 999px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.workspace-electoral-comparison-note {
+  margin: 0;
+  padding: 0.65rem 0.75rem;
+  color: var(--shell-muted);
+  background: #f7f9fc;
+  border: 1px solid var(--shell-border);
+  border-radius: 0.6rem;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.workspace-electoral-comparison-control {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.workspace-electoral-comparison-control > span {
+  color: var(--shell-muted);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.workspace-electoral-comparison-control select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  color: var(--shell-text);
+  background: #ffffff;
+  border: 1px solid var(--shell-border);
+  border-radius: 0.55rem;
+  font: inherit;
+  font-size: 0.72rem;
+}
+
+.workspace-electoral-comparison-control select:focus-visible {
+  border-color: var(--shell-accent);
+  outline: 2px solid color-mix(
+    in srgb,
+    var(--shell-accent) 25%,
+    transparent
+  );
+  outline-offset: 2px;
+}
+
+.workspace-electoral-comparison-years {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+}
+
+.workspace-electoral-comparison-year {
+  overflow: hidden;
+  min-width: 0;
+  background: #ffffff;
+  border: 1px solid var(--shell-border);
+  border-radius: 0.65rem;
+}
+
+.workspace-electoral-comparison-year > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.65rem;
+  background: #f7f9fc;
+  border-bottom: 1px solid var(--shell-border);
+}
+
+.workspace-electoral-comparison-year > header strong {
+  color: var(--shell-text);
+  font-size: 0.76rem;
+}
+
+.workspace-electoral-comparison-year > header span {
+  color: #11613f;
+  font-size: 0.56rem;
+  font-weight: 800;
+  text-align: right;
+}
+
+.workspace-electoral-comparison-year[
+  data-status="AVAILABLE_WITHOUT_NOMINAL_LIST"
+] > header span,
+.workspace-electoral-comparison-year[
+  data-status="SUMMARY_ONLY"
+] > header span,
+.workspace-electoral-comparison-year[
+  data-status="NOT_CONTESTED"
+] > header span,
+.workspace-electoral-comparison-year[
+  data-status="ZERO_TOTAL"
+] > header span,
+.workspace-electoral-comparison-year[
+  data-status="INCOMPLETE"
+] > header span,
+.workspace-electoral-comparison-year[
+  data-status="TIED_TRACKED_LEAD"
+] > header span {
+  color: #8a6300;
+}
+
+.workspace-electoral-comparison-year[
+  data-status="INCONSISTENT"
+] > header span {
+  color: #a1262f;
+}
+
+.workspace-electoral-comparison-year dl {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  margin: 0;
+}
+
+.workspace-electoral-comparison-year dl > div {
+  min-width: 0;
+  padding: 0.5rem 0.55rem;
+  border-bottom: 1px solid var(--shell-border);
+}
+
+.workspace-electoral-comparison-year
+  dl
+  > div:nth-child(odd) {
+  border-right: 1px solid var(--shell-border);
+}
+
+.workspace-electoral-comparison-year dt {
+  margin-bottom: 0.18rem;
+  color: var(--shell-muted);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.workspace-electoral-comparison-year dd {
+  margin: 0;
+  color: var(--shell-text);
+  font-size: 0.64rem;
+  overflow-wrap: anywhere;
+}
+
+.workspace-electoral-comparison-year ul {
+  display: grid;
+  grid-template-columns: repeat(
+    2,
+    minmax(0, 1fr)
+  );
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.55rem;
+  list-style: none;
+}
+
+.workspace-electoral-comparison-year li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.35rem 0.4rem;
+  background: #f7f9fc;
+  border-radius: 0.4rem;
+  font-size: 0.58rem;
+}
+
+.workspace-electoral-comparison-year li span {
+  color: var(--shell-muted);
+  font-weight: 750;
+}
+
+.workspace-electoral-comparison-year li strong {
+  min-width: 0;
+  color: var(--shell-text);
+  overflow-wrap: anywhere;
+}
+
+
+@media (max-width: 48rem) {
+  .workspace-electoral-comparison > header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workspace-electoral-comparison-year dl,
+  .workspace-electoral-comparison-year ul {
+    grid-template-columns: 1fr;
+  }
+
+  .workspace-electoral-comparison-year
+    dl
+    > div:nth-child(odd) {
+    border-right: 0;
+  }
+}

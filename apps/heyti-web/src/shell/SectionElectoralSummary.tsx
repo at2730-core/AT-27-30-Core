@@ -1,4 +1,8 @@
 import {
+  useState,
+} from 'react'
+
+import {
   ELECTORAL_CONTEST_IDS,
   ELECTORAL_TRACKED_PARTIES,
 } from '../gateway/electoral.response'
@@ -200,6 +204,141 @@ function ElectoralContestGrid({
   )
 }
 
+function ElectoralHistoricalComparison({
+  electoralResults,
+}: SectionElectoralSummaryProps) {
+  const [selectedContestId, setSelectedContestId] =
+    useState<ElectoralContestId>('A')
+
+  const elections = [
+    ...electoralResults.historicalElections,
+    {
+      electionYear: electoralResults.electionYear,
+      qualityStatus: electoralResults.qualityStatus,
+      contests: electoralResults.contests,
+    },
+  ]
+
+  return (
+    <section
+      className="workspace-electoral-comparison"
+      aria-labelledby="electoral-comparison-title"
+    >
+      <header>
+        <div>
+          <p>COMPARATIVA CERTIFICADA</p>
+          <h4 id="electoral-comparison-title">
+            Comparativa histórica
+          </h4>
+        </div>
+
+        <span>Serie certificada 2018–2024</span>
+      </header>
+
+      <p className="workspace-electoral-comparison-note">
+        Mayor votación rastreada por año. No certifica un
+        ganador absoluto.
+      </p>
+
+      <label className="workspace-electoral-comparison-control">
+        <span>Contienda</span>
+        <select
+          aria-label="Contienda comparada"
+          value={selectedContestId}
+          onChange={(event) => {
+            setSelectedContestId(
+              event.target.value as ElectoralContestId,
+            )
+          }}
+        >
+          {ELECTORAL_CONTEST_IDS.map((contestId) => (
+            <option
+              key={contestId}
+              value={contestId}
+            >
+              {contestLabel(contestId)}
+            </option>
+          ))}
+        </select>
+      </label>
+
+      <div className="workspace-electoral-comparison-years">
+        {elections.map((election) => {
+          const contest =
+            election.contests[selectedContestId]
+
+          return (
+            <article
+              key={election.electionYear}
+              className="workspace-electoral-comparison-year"
+              data-status={contest.dataStatus}
+            >
+              <header>
+                <strong>{election.electionYear}</strong>
+                <span>
+                  {dataStatusLabel(contest.dataStatus)}
+                </span>
+              </header>
+
+              <dl>
+                <div>
+                  <dt>Mayor votación rastreada</dt>
+                  <dd>
+                    {contest.leadingTrackedParty ??
+                      'No calculable'}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Margen rastreado</dt>
+                  <dd>
+                    {formatNumber(
+                      contest.trackedLeadMargin,
+                    )}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Votos totales</dt>
+                  <dd>
+                    {formatNumber(contest.totalVotes)}
+                  </dd>
+                </div>
+                <div>
+                  <dt>Participación</dt>
+                  <dd>
+                    {formatPercentage(
+                      contest.participationRate,
+                    )}
+                  </dd>
+                </div>
+              </dl>
+
+              <ul aria-label={
+                `Votos rastreados en ${
+                  election.electionYear
+                }`
+              }>
+                {ELECTORAL_TRACKED_PARTIES.map(
+                  (party) => (
+                    <li key={party}>
+                      <span>{party}</span>
+                      <strong>
+                        {formatNumber(
+                          contest
+                            .votesByTrackedParty[party],
+                        )}
+                      </strong>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </article>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
 export function SectionElectoralSummary({
   electoralResults,
 }: SectionElectoralSummaryProps) {
@@ -235,6 +374,10 @@ export function SectionElectoralSummary({
 
       <ElectoralContestGrid
         contests={electoralResults.contests}
+      />
+
+      <ElectoralHistoricalComparison
+        electoralResults={electoralResults}
       />
 
       <section
