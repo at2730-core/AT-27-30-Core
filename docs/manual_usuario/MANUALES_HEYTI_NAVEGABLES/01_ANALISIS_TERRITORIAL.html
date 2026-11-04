@@ -1,0 +1,1106 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Análisis Territorial · HEYTI</title><style>
+:root{--bg:#edf2f7;--paper:#fff;--text:#172b40;--muted:#465c72;--link:#154fb8;--border:#ccd7e3;--soft:#eef4fc;--size:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;font-size:var(--size);line-height:1.7}a{color:var(--link);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}button,a:focus-visible{outline-offset:4px}button{font:inherit;font-size:16px;cursor:pointer;color:var(--text);background:var(--paper);border:1px solid var(--border);border-radius:9px;padding:7px 12px}button:hover{background:var(--soft)}.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:var(--paper);border-bottom:1px solid var(--border);padding:12px 24px}.brand{font-size:16px;letter-spacing:1.5px;font-weight:800}.tools{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.tools a{font-size:16px;margin-right:8px}.layout{max-width:1550px;margin:26px auto;display:grid;grid-template-columns:290px minmax(0,1fr);gap:26px;padding:0 24px}.sidebar{position:sticky;top:105px;align-self:start;max-height:calc(100vh - 130px);overflow:auto;background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:19px}.sidebar summary{cursor:pointer;font-weight:700}.sidebar ol{padding-left:22px}.sidebar li{font-size:15px;line-height:1.45;margin:12px 0}.sidebar a{text-decoration:none}.sidebar a:hover{text-decoration:underline}.content{min-width:0;background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:38px 48px;box-shadow:0 5px 22px #17324d08}h1,h2,h3,h4{line-height:1.28;color:var(--text)}h1{font-size:2rem;margin-top:8px}h2{font-size:1.55rem;margin-top:2.5em;border-top:1px solid var(--border);padding-top:26px;scroll-margin-top:110px}h3{font-size:1.16rem;margin-top:1.7em}p,ul,ol{margin-top:15px;margin-bottom:19px}li{margin:7px 0}blockquote{margin:25px 0;padding:10px 23px;border-left:5px solid #2563b6;background:var(--soft);color:var(--text);border-radius:0 8px 8px 0}code{font-size:.9em;background:var(--soft);padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.table-scroll{max-width:100%;overflow:auto;margin:24px 0;border:1px solid var(--border);border-radius:10px}table{width:100%;border-collapse:collapse;font-size:.91em;line-height:1.55}th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);min-width:120px}th{background:var(--soft);font-weight:700}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 45%,var(--paper))}.meta{font-size:15px;color:var(--muted);margin-bottom:25px}.back{display:inline-block;font-size:15px;margin-top:12px}.footer{padding-top:28px;margin-top:35px;border-top:1px solid var(--border);font-size:15px;color:var(--muted)}.skip{position:absolute;left:10px;top:-100px}.skip:focus{top:10px;z-index:30;background:var(--paper);padding:10px}.home{max-width:1050px;margin:35px auto;padding:35px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:30px 0}.card{display:block;border:1px solid var(--border);border-radius:12px;padding:23px;text-decoration:none;background:var(--paper)}.card strong{display:block;font-size:1.2em}.card small{color:var(--muted)}body.contrast{--bg:#000;--paper:#111;--text:#fff;--muted:#e0e0e0;--link:#a9d7ff;--border:#777;--soft:#252525}body.contrast blockquote{border-left-color:#a9d7ff}.status{font-size:14px;color:var(--muted)}
+@media(max-width:950px){.layout{grid-template-columns:1fr;padding:0 13px;gap:15px}.sidebar{position:static;max-height:none}.sidebar ol{columns:2}.content{padding:25px}.top{padding:12px 15px}h1{font-size:1.65rem}}
+@media(max-width:580px){.sidebar ol{columns:1}.content{padding:20px 17px}.cards{grid-template-columns:1fr}.home{padding:20px}.tools{gap:5px}.tools button{padding:6px 8px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.sidebar,.back,.skip{display:none!important}.layout{display:block;max-width:none;margin:0;padding:0}.content,.home{border:0;box-shadow:none;padding:0;margin:0}body,body.contrast{background:#fff;color:#111;font-size:11pt;--text:#111;--paper:#fff;--border:#bbb;--soft:#eee;--link:#164ba0;--muted:#444}h2{break-after:avoid}h3,h4{break-after:avoid}p,li{orphans:3;widows:3}table{font-size:9pt}.table-scroll{overflow:visible}th,td{min-width:0;padding:7px;overflow-wrap:anywhere}.cards{display:block}.card{margin:12px 0}a{color:#164ba0}blockquote{break-inside:avoid}}
+</style></head><body><a class="skip" href="#contenido">Ir al contenido</a><header class="top"><span class="brand">HEYTI · DOCUMENTOS</span><nav class="tools" aria-label="Controles de lectura"><a href="ABRIR_MANUALES.html">Todos los documentos</a><button type="button" data-smaller aria-label="Reducir tamaño del texto">A−</button><button type="button" data-larger aria-label="Aumentar tamaño del texto">A+</button><button type="button" data-contrast aria-pressed="false">Alto contraste</button><button type="button" data-print>Imprimir / PDF</button><span class="status" data-status role="status">Texto: 18 px</span></nav></header><div class="layout"><aside class="sidebar" aria-label="Índice navegable"><details open><summary>Índice del documento</summary><ol><li><a href="#0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</a></li><li><a href="#01-ubicación-y-función-de-cada-control">0.1. Ubicación y función de cada control</a></li><li><a href="#02-consulta-cruzada">0.2. Consulta cruzada</a></li><li><a href="#03-universo-activo">0.3. Universo activo</a></li><li><a href="#04-individual">0.4. Individual</a></li><li><a href="#05-comparar">0.5. Comparar</a></li><li><a href="#06-resumen-de-sección--expandir">0.6. Resumen de sección → Expandir</a></li><li><a href="#07-recorrido-rápido-antes-de-la-auditoría">0.7. Recorrido rápido antes de la auditoría</a></li><li><a href="#08-qué-registrar-si-hay-una-dificultad">0.8. Qué registrar si hay una dificultad</a></li><li><a href="#1-primeros-pasos-y-palabras-útiles">1. Primeros pasos y palabras útiles</a></li><li><a href="#2-botones-ventanas-y-mapa">2. Botones, ventanas y mapa</a></li><li><a href="#3-qué-consultas-hay-y-dónde-están">3. Qué consultas hay y dónde están</a></li><li><a href="#4-top-20-secciones">4. Top 20 Secciones</a></li><li><a href="#5-comparativa">5. Comparativa</a></li><li><a href="#6-competitividad">6. Competitividad</a></li><li><a href="#7-top-3">7. Top 3</a></li><li><a href="#8-ganadores-por-año">8. Ganadores por año</a></li><li><a href="#9-abstención">9. Abstención</a></li><li><a href="#10-índice-de-concentración-2024">10. Índice de concentración 2024</a></li><li><a href="#11-seleccionar-sección">11. Seleccionar sección</a></li><li><a href="#12-resumen-de-sección">12. Resumen de sección</a></li><li><a href="#13-elección-actual">13. Elección actual</a></li><li><a href="#14-historial-comparativo">14. Historial comparativo</a></li><li><a href="#15-trazabilidad">15. Trazabilidad</a></li><li><a href="#16-opciones-que-no-debes-confundir-con-estas-consultas">16. Opciones que no debes confundir con estas consultas</a></li><li><a href="#17-si-algo-no-aparece">17. Si algo no aparece</a></li><li><a href="#18-hoja-de-observaciones">18. Hoja de observaciones</a></li></ol></details><a class="back" href="#contenido">Volver al principio ↑</a></aside><main class="content" id="contenido"><div class="meta">Manual de usuario · Lectura sin conexión · 23 de octubre de 2026</div><h1 id="heyti-core-v2">HEYTI CORE V2</h1>
+<h1 id="manual-de-uso--análisis-territorial">Manual de uso · Análisis Territorial</h1>
+<p><strong>Para:</strong> persona que realizará la revisión como usuario final.<br />
+<strong>Versión del manual:</strong> 1.1 · 23 de octubre de 2026.<br />
+<strong>Alcance:</strong> las siete consultas de «Consultas del módulo» y las opciones de «Sección · contexto compartido» de Análisis Territorial.</p>
+<p>No necesitas conocimientos de programación. Esta guía explica qué seleccionar, qué botón pulsar y cómo leer la respuesta. No necesitas instalar herramientas ni modificar archivos del proyecto.</p>
+<blockquote>
+<p><strong>Antes de empezar:</strong> solicita a Alex que deje HEYTI abierto y funcionando. La revisión debe hacerse con la versión actualizada. El mapa de calles necesita conexión a Internet. Este manual se preparó revisando la versión de la aplicación disponible para esta entrega; la comprobación de uso real corresponde a la revisión que vas a realizar. Si una pantalla se comporta distinto de lo descrito, anótalo.</p>
+</blockquote>
+<p><strong>Actualización 23 de octubre de 2026:</strong> se añade la guía de los controles de la pantalla inicial; las consultas siguientes conservan su contenido.</p>
+<h2 id="índice">Índice</h2>
+<ul>
+<li><a href="#0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</a></li>
+<li><a href="#1-primeros-pasos-y-palabras-%C3%BAtiles">1. Primeros pasos y palabras útiles</a></li>
+<li><a href="#2-botones-ventanas-y-mapa">2. Botones, ventanas y mapa</a></li>
+<li><a href="#3-qu%C3%A9-consultas-hay-y-d%C3%B3nde-est%C3%A1n">3. Qué consultas hay y dónde están</a></li>
+<li><a href="#4-top-20-secciones">4. Top 20 Secciones</a></li>
+<li><a href="#5-comparativa">5. Comparativa</a></li>
+<li><a href="#6-competitividad">6. Competitividad</a></li>
+<li><a href="#7-top-3">7. Top 3</a></li>
+<li><a href="#8-ganadores-por-a%C3%B1o">8. Ganadores por año</a></li>
+<li><a href="#9-abstenci%C3%B3n">9. Abstención</a></li>
+<li><a href="#10-%C3%ADndice-de-concentraci%C3%B3n-2024">10. Índice de concentración 2024</a></li>
+<li><a href="#11-seleccionar-secci%C3%B3n">11. Seleccionar sección</a></li>
+<li><a href="#12-resumen-de-secci%C3%B3n">12. Resumen de sección</a></li>
+<li><a href="#13-elecci%C3%B3n-actual">13. Elección actual</a></li>
+<li><a href="#14-historial-comparativo">14. Historial comparativo</a></li>
+<li><a href="#15-trazabilidad">15. Trazabilidad</a></li>
+<li><a href="#16-opciones-que-no-debes-confundir-con-estas-consultas">16. Opciones que no debes confundir con estas consultas</a></li>
+<li><a href="#17-si-algo-no-aparece">17. Si algo no aparece</a></li>
+<li><a href="#18-hoja-de-observaciones">18. Hoja de observaciones</a></li>
+</ul>
+<h2 id="0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</h2>
+<h3 id="01-ubicación-y-función-de-cada-control">0.1. Ubicación y función de cada control</h3>
+<p>En la parte superior derecha de la captura, de izquierda a derecha, aparecen <strong>Consulta cruzada</strong>, <strong>Universo activo</strong> y el selector <strong>Individual / Comparar</strong>. Abajo a la derecha está <strong>Resumen de sección</strong>, con el botón <strong>Expandir</strong>.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Para qué sirve actualmente</th>
+<th>¿Cuándo lo utilizarás?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consulta cruzada</td>
+<td>Abre un aviso sobre una función de consulta futura. No ejecuta todavía una consulta cruzada.</td>
+<td>Para reconocer su estado; no es necesario para ejecutar los manuales actuales.</td>
+</tr>
+<tr>
+<td>Universo activo</td>
+<td>Muestra el contexto territorial seleccionado y abre el formulario «Seleccionar sección».</td>
+<td>Cuando deseas consultar una sección por su número.</td>
+</tr>
+<tr>
+<td>Individual</td>
+<td>Activa el modo de uso de las consultas documentadas.</td>
+<td>Déjalo seleccionado para revisar los tres módulos.</td>
+</tr>
+<tr>
+<td>Comparar</td>
+<td>Abre una pantalla de comparación entre módulos cuya configuración aún está pendiente.</td>
+<td>Puedes reconocer el aviso y volver a Individual; no equivale a una consulta comparativa ya operativa.</td>
+</tr>
+<tr>
+<td>Resumen de sección → Expandir</td>
+<td>Muestra el panel de información de la sección consultada y sus pestañas.</td>
+<td>Para ver identidad, resultados electorales, historial o trazabilidad de una sección.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Los controles no son filtros intercambiables. Elegir una sección, cambiar el modo y abrir una consulta son acciones distintas.</p>
+<h3 id="02-consulta-cruzada">0.2. Consulta cruzada</h3>
+<p><strong>Dónde aparece:</strong> en la cabecera de <strong>Análisis Territorial</strong>. En la implementación actual no se muestra ese mismo botón superior en Ganar Todo ni Socioeconómico; su ausencia allí no es un error.</p>
+<p><strong>Qué significa:</strong> es el acceso previsto para consultas que combinen capacidades o información. En esta versión abre un mensaje informativo, no un formulario operativo de búsqueda.</p>
+<p><strong>Cómo utilizarlo y salir:</strong></p>
+<ol>
+<li>Entra en <strong>Análisis Territorial</strong>.</li>
+<li>Pulsa <strong>Consulta cruzada</strong> en la parte superior.</li>
+<li>Se abre la ventana <strong>Pregúntale a HEYTI</strong>, bajo el rótulo <strong>CONSULTA CRUZADA</strong>.</li>
+<li>Lee el mensaje: <strong>«La consulta cruzada se habilitará al integrar las siguientes capacidades certificadas.»</strong></li>
+<li>Pulsa <strong>×</strong> en la ventana para cerrarla.</li>
+<li>Continúa desde <strong>Consultas del módulo</strong> con una de las consultas disponibles.</li>
+</ol>
+<p>No hay una pregunta que debas escribir ni un filtro adicional que debas encontrar para habilitarla. No necesita que el usuario instale algo. El mensaje tampoco significa que se hayan certificado todas las cifras de la plataforma.</p>
+<p><strong>Qué anotar en la revisión:</strong> si esperabas poder escribir una pregunta al pulsar el botón, registra esa expectativa y el aviso que apareció. No lo confundas con una consulta ejecutada sin resultados.</p>
+<h3 id="03-universo-activo">0.3. Universo activo</h3>
+<p><strong>Dónde está:</strong> botón superior con el rótulo <strong>UNIVERSO ACTIVO</strong>, un nombre territorial y una flecha hacia abajo. En la captura dice <strong>Sección 1024</strong>. Antes de seleccionar un territorio puede decir <strong>Seleccionar universo</strong>; después de una consulta por conjunto puede mostrar el municipio o distrito correspondiente.</p>
+<p><strong>Qué indica:</strong> el contexto territorial que la aplicación tiene seleccionado. <strong>No garantiza que todos los paneles abiertos hayan ejecutado ya una consulta con ese contexto.</strong> Revisa también los encabezados y filtros de cada ventana.</p>
+<h4 id="consultar-una-sección-por-su-número">Consultar una sección por su número</h4>
+<ol>
+<li>Para seguir los manuales, comprueba que esté seleccionado <strong>Individual</strong>.</li>
+<li>Pulsa sobre el botón completo <strong>UNIVERSO ACTIVO</strong>, su nombre o su flecha.</li>
+<li>Se abre la ventana <strong>Seleccionar sección</strong>, con el rótulo <strong>CONTEXTO TERRITORIAL</strong>.</li>
+<li>Busca el campo <strong>Número de sección</strong>.</li>
+<li>Escribe solo el número de la sección que deseas revisar; por ejemplo, <strong>1024</strong>, como en la captura. Si ya aparece otro número, selecciónalo y reemplázalo.</li>
+<li>Pulsa <strong>Consultar en HEYTI</strong>. También puedes pulsar Enter dentro del formulario.</li>
+<li>Espera mientras el botón indique <strong>Consultando...</strong>. No es necesario pulsarlo varias veces. Durante la consulta, el campo y el cierre pueden quedar desactivados.</li>
+<li>Si termina sin error, el diálogo se cierra y <strong>UNIVERSO ACTIVO</strong> muestra <strong>Sección [número consultado]</strong>.</li>
+<li>Revisa que el número coincida con el solicitado. El mapa muestra la geometría cuando existe y está autorizada para publicarse.</li>
+<li>Pulsa <strong>Expandir</strong> en <strong>Resumen de sección</strong> para leer su información, si el panel está reducido.</li>
+</ol>
+<p>El ejemplo 1024 sirve para reconocer el campo; la disponibilidad de cada sección depende de la respuesta de la instalación. Si aparece un mensaje de error, conserva su texto y avisa a Alex. Si la sección no tiene una geometría publicable, no debe interpretarse un mapa anterior como si fuera su polígono.</p>
+<h4 id="cerrar-sin-cambiar-de-sección">Cerrar sin cambiar de sección</h4>
+<p>Si abriste el formulario pero no deseas consultar otro número, pulsa <strong>×</strong>, antes de iniciar una consulta. Cerrar el formulario no equivale a ejecutar la selección que escribiste. Esta guía no presupone cierre al pulsar fuera de la ventana ni con Escape.</p>
+<h4 id="elegir-un-municipio-distrito-o-todo-guanajuato">Elegir un municipio, distrito o todo Guanajuato</h4>
+<p>Aunque el botón se llama «Universo activo», el formulario que abre actualmente es de <strong>sección individual</strong>. No escribas el nombre de un municipio o distrito en «Número de sección».</p>
+<p>Para consultar un conjunto:</p>
+<ol>
+<li>Abre la consulta deseada desde el menú del módulo.</li>
+<li>Dentro de esa ventana, busca <strong>Universo</strong> o <strong>Universo de referencia</strong>.</li>
+<li>Elige Guanajuato, el municipio o el distrito disponible.</li>
+<li>Selecciona los demás filtros de esa consulta.</li>
+<li>Pulsa su botón de ejecución: por ejemplo, <strong>Pintar mapa</strong> o <strong>Consultar ingresos y pintar mapa</strong>.</li>
+<li>Comprueba el encabezado del resultado. Ese es el alcance de la respuesta recién consultada.</li>
+</ol>
+<p><strong>Precaución:</strong> consultar una nueva sección con el selector general puede retirar el mapa por universo o un escenario que estabas viendo. Si quieres repetir una consulta por municipio o distrito, vuelve a abrirla y ejecútala con sus filtros. El selector no actualiza automáticamente todas las ventanas ni aplica sus parámetros de forma universal.</p>
+<h3 id="04-individual">0.4. Individual</h3>
+<p><strong>Qué significa:</strong> modo para trabajar con las consultas actuales desde sus módulos. No significa obligatoriamente «una sola sección»: también puedes consultar un municipio, distrito o Guanajuato completo dentro de una consulta.</p>
+<p><strong>Cómo utilizarlo:</strong></p>
+<ol>
+<li>Pulsa <strong>Individual</strong> en la cabecera.</li>
+<li>Comprueba que ese botón quede resaltado, como en la captura de Alex.</li>
+<li>Abre el módulo y despliega <strong>Consultas del módulo</strong>.</li>
+<li>Entra en la consulta y ejecútala con sus filtros.</li>
+</ol>
+<p>Si las entradas de consulta estaban desactivadas por estar en Comparar, Individual permite volver al recorrido normal. Pulsarlo no ejecuta por sí mismo una nueva consulta, no selecciona un número de sección y no convierte una estimación en resultado histórico.</p>
+<h3 id="05-comparar">0.5. Comparar</h3>
+<p><strong>Qué significa:</strong> acceso a una vista prevista para contrastar hasta tres módulos sobre el mismo universo. No es el selector de años ni el botón que ejecuta comparaciones dentro de una consulta.</p>
+<p><strong>Qué verás actualmente:</strong></p>
+<ol>
+<li>Pulsa <strong>Comparar</strong>.</li>
+<li>La zona central cambia a <strong>Comparar perspectivas</strong>, con el texto <strong>Hasta tres módulos sobre el mismo universo</strong>.</li>
+<li>Aparece <strong>Comparación sin configurar</strong> y el botón <strong>Configurar módulos</strong>.</li>
+<li>Si pulsas <strong>Configurar módulos</strong>, se abre una ventana con ese título y el aviso <strong>«Aquí se seleccionarán hasta tres módulos sobre el mismo universo.»</strong></li>
+<li>Esa ventana todavía es informativa: no contiene una selección operativa de módulos para completar la comparación.</li>
+<li>Ciérrala con <strong>×</strong> y pulsa <strong>Individual</strong> para regresar al uso de las consultas.</li>
+</ol>
+<p>En este modo las consultas del menú de los manuales quedan desactivadas. Cambiar a Individual permite retomarlas, pero debes comprobar qué respuesta está visible y volver a ejecutar si hace falta; no asumas que el cambio de modo recalcula nada.</p>
+<p><strong>No confundir:</strong></p>
+<ul>
+<li><strong>Comparar</strong>, de la cabecera: vista entre módulos, pendiente de configuración operativa.</li>
+<li><strong>Comparativa</strong>, de Análisis Territorial: consulta disponible para comparar históricos de una sección.</li>
+<li><strong>Comparador de escenarios de participación</strong>, de Ganar Todo: consulta disponible para comparar variantes de participación.</li>
+</ul>
+<p>La revisión de los tres módulos debe realizarse en <strong>Individual</strong>, sin esperar a que se habilite la comparación entre módulos.</p>
+<h3 id="06-resumen-de-sección--expandir">0.6. Resumen de sección → Expandir</h3>
+<p><strong>Dónde está:</strong> en la captura es la barra reducida de la parte inferior derecha. Corresponde a la consulta individual de sección, no al resumen de cualquier municipio, distrito o escenario que haya quedado en el mapa.</p>
+<p><strong>Cómo abrirlo:</strong></p>
+<ol>
+<li>Consulta una sección con <strong>UNIVERSO ACTIVO → Seleccionar sección → Consultar en HEYTI</strong>.</li>
+<li>En la barra <strong>Resumen de sección</strong>, pulsa <strong>Expandir</strong>.</li>
+<li>Se abre la ventana con encabezado <strong>RESPUESTA HEYTI</strong> y las pestañas disponibles.</li>
+<li>Pulsa la pestaña que desees revisar.</li>
+<li>Verifica el número de sección y, al leer resultados electorales, el año de la respuesta.</li>
+</ol>
+<p><strong>Expandir solo muestra el contenido:</strong> no vuelve a consultar, no selecciona una sección distinta y no abre automáticamente una tabla de resultados por universo.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Pestaña</th>
+<th>Información que muestra</th>
+<th>Cómo usarla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resumen</td>
+<td>Número de sección, clasificación territorial y estado de publicación de su identidad.</td>
+<td>Comprueba que sea la sección que acabas de solicitar. No es una tabla de votos.</td>
+</tr>
+<tr>
+<td>Elección [año]</td>
+<td>Resultados de la elección más reciente recibida para esa sección, con selector de Contienda y cifras disponibles.</td>
+<td>Selecciona el cargo dentro de la pestaña; el año no se cambia con el botón Expandir.</td>
+</tr>
+<tr>
+<td>Historial comparativo</td>
+<td>Comparación histórica por contienda y desplegables de años y cargos disponibles.</td>
+<td>Cambia Contienda en la comparación y abre los encabezados de año o cargo para ver sus fichas.</td>
+</tr>
+<tr>
+<td>Trazabilidad</td>
+<td>Clasificación, estado de respuesta, versión de conocimiento, identificador de solicitud y advertencias.</td>
+<td>Registra esos datos si necesitas informar una incidencia; no tienes que modificar los códigos.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Si no hay sección consultada, puede aparecer <strong>Sin lectura disponible</strong>. Si la respuesta no incluye cifras electorales o históricas, las pestañas lo indican. Expandir no puede crear esos datos. La publicación de la identidad territorial no equivale a una auditoría terminada de sus cifras electorales.</p>
+<h4 id="mover-ampliar-reducir-y-recuperar-el-panel">Mover, ampliar, reducir y recuperar el panel</h4>
+<ul>
+<li><strong>Minimizar:</strong> devuelve el panel a una barra pequeña; no elimina la sección consultada. <strong>Expandir</strong> permite verlo otra vez.</li>
+<li><strong>Arrastrar el encabezado:</strong> mantén pulsado sobre el título y mueve la ventana para descubrir el mapa.</li>
+<li><strong>Esquina inferior derecha:</strong> arrástrala para cambiar el tamaño del panel expandido.</li>
+<li><strong>Restablecer:</strong> recupera su posición y tamaño iniciales; no borra datos ni ejecuta otra consulta.</li>
+<li><strong>Barras de desplazamiento:</strong> permiten leer el contenido que no cabe en el panel. Las tablas anchas pueden necesitar desplazamiento horizontal.</li>
+</ul>
+<p>En <strong>Análisis Territorial</strong> puedes abrir las mismas pestañas desde <strong>Sección · contexto compartido</strong> en el menú izquierdo. Esto permite recuperar el panel reducido y entrar directamente en la pestaña elegida.</p>
+<p>Este panel compartido puede aparecer también en la vista general de <strong>Ganar Todo</strong>, pero sus consultas por universo usan sus propias ventanas. Si muestra una sección anterior o queda sin lectura después de ejecutar una consulta, no debe interpretarse como resumen de esa consulta nueva.</p>
+<p>En <strong>Socioeconómico</strong>, las ocho consultas usan paneles propios. Su <strong>Cerrar</strong> y su botón <strong>Expandir…</strong> corresponden a la consulta socioeconómica elegida, no a las cuatro pestañas del «Resumen de sección» de esta captura. No es un error que ese panel compartido no aparezca allí.</p>
+<h3 id="07-recorrido-rápido-antes-de-la-auditoría">0.7. Recorrido rápido antes de la auditoría</h3>
+<p><strong>Para revisar una sola sección en Análisis Territorial:</strong></p>
+<ol>
+<li>Entra en <strong>Análisis Territorial</strong> y activa <strong>Individual</strong>.</li>
+<li>Pulsa <strong>Universo activo</strong>.</li>
+<li>Escribe la sección y pulsa <strong>Consultar en HEYTI</strong>.</li>
+<li>Comprueba el número en la cabecera y pulsa <strong>Expandir</strong>.</li>
+<li>Recorre Resumen, Elección, Historial comparativo y Trazabilidad.</li>
+<li>Después abre Comparativa, Competitividad o Top 3 desde el menú cuando corresponda.</li>
+</ol>
+<p><strong>Para revisar una consulta por conjunto en cualquiera de los tres módulos:</strong></p>
+<ol>
+<li>Activa <strong>Individual</strong> y abre el módulo.</li>
+<li>Entra en <strong>Consultas del módulo</strong> y elige la consulta.</li>
+<li>Selecciona el <strong>Universo dentro de esa ventana</strong>, sus demás filtros y ejecuta.</li>
+<li>Comprueba el encabezado del resultado y utiliza su tabla, mapa y detalle.</li>
+<li>No necesitas abrir Consulta cruzada, configurar Comparar ni seleccionar previamente una sección individual.</li>
+</ol>
+<h3 id="08-qué-registrar-si-hay-una-dificultad">0.8. Qué registrar si hay una dificultad</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Qué comprobar o anotar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La flecha de Universo activo no muestra municipios</td>
+<td>Actualmente abre «Seleccionar sección». Usa el filtro Universo de la consulta para municipios y distritos.</td>
+</tr>
+<tr>
+<td>Consulta cruzada solo muestra un aviso</td>
+<td>Es el alcance actual; anota si el nombre te hizo esperar otra cosa.</td>
+</tr>
+<tr>
+<td>Comparar deja de mostrar el mapa de la consulta</td>
+<td>Es otra vista. Cierra cualquier aviso abierto y vuelve a Individual.</td>
+</tr>
+<tr>
+<td>Las consultas del menú no se pueden pulsar</td>
+<td>Comprueba que esté activo Individual.</td>
+</tr>
+<tr>
+<td>Expandir no muestra votos</td>
+<td>Comprueba si consultaste una sección, si hay cifras en la respuesta y qué pestaña elegiste.</td>
+</tr>
+<tr>
+<td>La sección del panel no coincide con el universo del mapa</td>
+<td>Registra ambos encabezados; pueden corresponder a consultas distintas. No mezcles sus cifras.</td>
+</tr>
+<tr>
+<td>Una sección no produce mapa o muestra error</td>
+<td>Conserva el número, mensaje exacto, hora y captura. No sustituyas su resultado con datos de otra sección.</td>
+</tr>
+<tr>
+<td>El panel tapa el mapa</td>
+<td>Muévelo, redimensiónalo o usa Minimizar.</td>
+</tr>
+</tbody>
+</table></div>
+<p>En tu hoja de revisión, anota por separado si encontraste cada control, si entendiste su nombre y si el resultado coincidió con lo que esperabas. No necesitas resolver la incidencia ni modificar la aplicación.</p>
+<h2 id="1-primeros-pasos-y-palabras-útiles">1. Primeros pasos y palabras útiles</h2>
+<h3 id="entrar-al-módulo">Entrar al módulo</h3>
+<ol>
+<li>En el panel del lado izquierdo, pulsa <strong>Análisis Territorial</strong>.</li>
+<li>En la parte superior de la aplicación, selecciona <strong>Individual</strong>. Si algunas consultas están apagadas o no se pueden pulsar, revisa primero esta opción.</li>
+<li>Dentro del módulo, pulsa <strong>Consultas del módulo</strong> para desplegar las siete consultas principales.</li>
+<li>Para consultar una sola sección, despliega <strong>Sección · contexto compartido</strong>.</li>
+<li>Si no alcanzas a ver una opción, desplaza la barra del menú izquierdo hacia arriba o hacia abajo. Esa barra es independiente de la de las ventanas de resultados.</li>
+</ol>
+<p>Al pulsar nuevamente el nombre del módulo o de un grupo puedes plegar su contenido. Esto no significa que se hayan eliminado las consultas.</p>
+<h3 id="palabras-que-encontrarás">Palabras que encontrarás</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Palabra</th>
+<th>Significado para usar HEYTI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sección</td>
+<td>Área electoral identificada con un número. Por ejemplo, 1524. No es una casilla individual.</td>
+</tr>
+<tr>
+<td>Universo</td>
+<td>Conjunto de secciones que deseas consultar: Guanajuato, un municipio, un distrito federal o un distrito local.</td>
+</tr>
+<tr>
+<td>Contienda</td>
+<td>Cargo de la elección: Ayuntamiento, Diputación local, Diputación federal, Gubernatura, Senaduría o Presidencia.</td>
+</tr>
+<tr>
+<td>Lista nominal / LN</td>
+<td>Número de personas registradas para votar que figura en la fuente de esa elección. No equivale a toda la población residente.</td>
+</tr>
+<tr>
+<td>Votos totales</td>
+<td>Total informado para la contienda. Puede incluir votos de participantes y tipos de voto que no aparecen en el desglose de cuatro partidos.</td>
+</tr>
+<tr>
+<td>Participación</td>
+<td>Votos totales divididos entre lista nominal, multiplicados por 100, cuando las bases permiten calcularlo.</td>
+</tr>
+<tr>
+<td>Abstención</td>
+<td>Diferencia entre lista nominal y votos totales, dividida entre lista nominal, multiplicada por 100.</td>
+</tr>
+<tr>
+<td>Puntos porcentuales / pp</td>
+<td>Diferencia directa entre porcentajes. Entre 40% y 35% hay 5 puntos porcentuales.</td>
+</tr>
+<tr>
+<td>N/D / No disponible</td>
+<td>No hay un dato utilizable para mostrar ese resultado. <strong>No significa cero.</strong></td>
+</tr>
+<tr>
+<td>Cero</td>
+<td>El archivo contiene el valor 0. Debe conservarse, aunque su causa pueda requerir revisión.</td>
+</tr>
+<tr>
+<td>No celebrada</td>
+<td>Esa contienda no tuvo elección en el año consultado. No equivale a una votación de cero.</td>
+</tr>
+<tr>
+<td>Cobertura parcial</td>
+<td>No se dispone de todos los participantes, datos o secciones necesarios para una lectura completa.</td>
+</tr>
+<tr>
+<td>Secciones representadas</td>
+<td>Secciones que HEYTI puede mostrar en ese mapa.</td>
+</tr>
+<tr>
+<td>Secciones bloqueadas</td>
+<td>Secciones que no se representan por las reglas de publicación de la aplicación. No deben interpretarse como áreas con cero votos.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Para interpretar todos los resultados:</strong> el desglose electoral de estas consultas sigue cuatro partidos: PAN, PRI, PVEM y MORENA. Los primeros lugares se refieren a ese conjunto, no necesariamente a todos los participantes de la elección. Las cifras electorales conservan revisión pendiente; poder ver un dato no significa que ya esté certificado.</p>
+<p>Los mapas de municipio y distrito usan la delimitación territorial disponible en la versión actual, incluso al consultar años anteriores. No deben leerse automáticamente como una reconstrucción de los límites de cada elección histórica.</p>
+<h2 id="2-botones-ventanas-y-mapa">2. Botones, ventanas y mapa</h2>
+<h3 id="las-ventanas-de-resultados">Las ventanas de resultados</h3>
+<p>Al abrir una consulta aparece una ventana con el encabezado <strong>RESPUESTA HEYTI</strong>. Puede quedar encima del mapa o de otra ventana.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control o acción</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arrastrar el encabezado</td>
+<td>Mantén pulsado el botón izquierdo del ratón sobre el título de la ventana y muévela. Sirve para descubrir el mapa que queda detrás.</td>
+</tr>
+<tr>
+<td>Arrastrar la esquina inferior derecha</td>
+<td>Cambia el tamaño de la ventana. Úsalo si no alcanzas a leer una tabla.</td>
+</tr>
+<tr>
+<td>Restablecer</td>
+<td>Devuelve la posición y el tamaño de la ventana a sus valores iniciales. <strong>No vuelve a consultar los datos ni restablece los filtros.</strong></td>
+</tr>
+<tr>
+<td>Cerrar</td>
+<td>Oculta esa ventana. Para verla otra vez, pulsa su consulta en el menú izquierdo. No equivale a borrar los datos del mapa.</td>
+</tr>
+<tr>
+<td>Expandir / Minimizar</td>
+<td>En «Resumen de sección», muestra u oculta el contenido del panel sin eliminar la consulta.</td>
+</tr>
+<tr>
+<td>Barra vertical de la ventana</td>
+<td>Permite recorrer su contenido hacia arriba o hacia abajo.</td>
+</tr>
+<tr>
+<td>Barra horizontal de una tabla</td>
+<td>Permite ver columnas que quedaron fuera del ancho de la ventana.</td>
+</tr>
+<tr>
+<td>Un título con una pequeña flecha desplegable</td>
+<td>Pulsa el título para mostrar u ocultar información adicional.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Consejo:</strong> cierra las ventanas de consultas anteriores que ya no estés utilizando. Antes de leer una cifra, comprueba el título, la sección o universo, el año y la contienda de esa ventana. Una ventana previa puede seguir visible.</p>
+<h3 id="el-mapa">El mapa</h3>
+<ul>
+<li><strong>+</strong>: acerca el mapa.</li>
+<li><strong>−</strong>: aleja el mapa.</li>
+<li><strong>Arrastrar el mapa</strong>: cambia el área visible.</li>
+<li><strong>Rueda del ratón sobre el mapa</strong>: acerca o aleja.</li>
+<li><strong>Recentrar</strong>, dentro del mapa: vuelve a encuadrar las geometrías de la consulta representada.</li>
+<li><strong>Pasar el puntero sobre una sección</strong>: permite identificar su número en los mapas por universo; no presupongas que todos los números estarán siempre escritos sobre el mapa.</li>
+<li><strong>Pulsar una sección</strong>: en los mapas por universo, selecciona y acerca esa sección. Debajo del mapa puede aparecer su identificación y el resultado correspondiente. En «Top 20 Secciones» también se enlaza con el detalle de la tabla.</li>
+</ul>
+<p>Las calles son el <strong>mapa base</strong>. Los contornos y rellenos encima representan las secciones y el resultado de la consulta. Un color tiene significado solo dentro de su consulta: lee su leyenda y no traslades ese significado a otra pantalla.</p>
+<p>La selección de un polígono del mapa no equivale a ejecutar «Seleccionar sección» para todas las consultas individuales. Para Comparativa, Competitividad y Top 3, usa el procedimiento de selección descrito en el apartado 11.</p>
+<h3 id="cuándo-se-actualizan-los-resultados">Cuándo se actualizan los resultados</h3>
+<p>En Top 20 Secciones, Ganadores por año, Abstención e Índice de concentración 2024:</p>
+<ol>
+<li>Elige los filtros dentro de la ventana de esa consulta.</li>
+<li>Pulsa el botón de ejecución indicado en su ficha.</li>
+<li>Espera a que termine <strong>Consultando…</strong>.</li>
+<li>Comprueba el encabezado del resultado.</li>
+</ol>
+<p>Cambiar un filtro no significa que el mapa ya se haya actualizado. Si aparece un aviso para volver a consultar, la respuesta visible todavía corresponde a la selección anterior.</p>
+<p>En Comparativa, Competitividad y Top 3, el selector <strong>Contienda</strong> cambia la información de la sección ya consultada sin un botón adicional de ejecución.</p>
+<h2 id="3-qué-consultas-hay-y-dónde-están">3. Qué consultas hay y dónde están</h2>
+<p>Todas las siguientes pertenecen al módulo <strong>Análisis Territorial</strong>.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Nombre exacto en «Consultas del módulo»</th>
+<th>Alcance</th>
+<th>Título de la ventana</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top 20 Secciones</td>
+<td>Universo de varias secciones</td>
+<td>Resultados 2024 por universo</td>
+</tr>
+<tr>
+<td>Comparativa</td>
+<td>Una sección previamente consultada</td>
+<td>Comparativa histórica por puesto</td>
+</tr>
+<tr>
+<td>Competitividad</td>
+<td>Una sección previamente consultada</td>
+<td>Competitividad por puesto</td>
+</tr>
+<tr>
+<td>Top 3</td>
+<td>Una sección previamente consultada</td>
+<td>Top 3 por puesto</td>
+</tr>
+<tr>
+<td>Ganadores por año</td>
+<td>Universo de varias secciones</td>
+<td>Ganadores por año · lectura parcial</td>
+</tr>
+<tr>
+<td>Abstención</td>
+<td>Universo de varias secciones</td>
+<td>Abstención por universo · lectura parcial</td>
+</tr>
+<tr>
+<td>Índice de concentración 2024</td>
+<td>Universo de varias secciones</td>
+<td>Concentración 2024 · índice parcial</td>
+</tr>
+</tbody>
+</table></div>
+<p>En <strong>Sección · contexto compartido</strong> encontrarás además: <strong>Seleccionar sección</strong>, <strong>Resumen de sección</strong>, <strong>Elección actual</strong>, <strong>Historial comparativo</strong>, <strong>Trazabilidad</strong> y <strong>Recentrar mapa</strong>. Se explican después de las siete consultas.</p>
+<h2 id="4-top-20-secciones">4. Top 20 Secciones</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Top 20 Secciones</strong>.<br />
+<strong>Ventana que se abre:</strong> <strong>Resultados 2024 por universo</strong>.</p>
+<h3 id="para-qué-sirve">Para qué sirve</h3>
+<p>Consultar resultados de 2024 de las secciones de un universo y ordenarlos por distintas columnas.</p>
+<p><strong>Aclaración sobre el nombre:</strong> en esta versión, aunque el menú dice «Top 20 Secciones», la consulta muestra <strong>todas las secciones representadas del universo elegido</strong>. No aplica un corte de veinte filas ni establece prioridades de trabajo.</p>
+<h3 id="cómo-ejecutarla">Cómo ejecutarla</h3>
+<ol>
+<li>Pulsa <strong>Top 20 Secciones</strong>.</li>
+<li>En <strong>Universo</strong>, elige Guanajuato, un municipio, un distrito federal o uno local.</li>
+<li>En <strong>Contienda</strong>, elige el cargo electoral.</li>
+<li>Pulsa <strong>Consultar resultados 2024</strong>.</li>
+<li>Espera la respuesta y verifica universo y contienda en el encabezado. El año es 2024; esta consulta no tiene selector de otro año.</li>
+<li>Recorre la tabla y utiliza su barra horizontal para ver todas las columnas.</li>
+</ol>
+<h3 id="filtros-y-botones-propios">Filtros y botones propios</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Universo</td>
+<td>Elige el conjunto de secciones.</td>
+</tr>
+<tr>
+<td>Contienda</td>
+<td>Elige el cargo electoral de 2024.</td>
+</tr>
+<tr>
+<td>Consultar resultados 2024</td>
+<td>Ejecuta la consulta con esos filtros.</td>
+</tr>
+<tr>
+<td>Encabezados Sección, Lista nominal, Participación, Total de votos, PAN, PRI, PVEM y MORENA</td>
+<td>Ordenan la tabla por esa columna. Al volver a pulsar la misma columna, cambia la dirección del orden.</td>
+</tr>
+<tr>
+<td>Flechas ↑ / ↓</td>
+<td>Indican el orden ascendente o descendente. Para ver las cifras más grandes primero, deja la flecha descendente.</td>
+</tr>
+<tr>
+<td>Número de sección o fila</td>
+<td>Selecciona la sección, acerca su mapa y abre su detalle en la misma ventana.</td>
+</tr>
+<tr>
+<td>Información de los datos</td>
+<td>Despliega las notas de alcance y procedencia.</td>
+</tr>
+<tr>
+<td>Trazabilidad del mapa</td>
+<td>Despliega los identificadores de procedencia de esa consulta.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="qué-presenta">Qué presenta</h3>
+<ul>
+<li>Universo, año, contienda y número de secciones representadas y bloqueadas.</li>
+<li><strong>Tabla:</strong> Sección; Lista nominal; Participación; Total de votos; PAN; PRI; PVEM; MORENA; Datos.</li>
+<li>Participación expresada en porcentaje, cuando se puede calcular.</li>
+<li>Estado de las cifras: por ejemplo, datos incompletos, total en cero, cifras por revisar o disponibles sin certificar.</li>
+<li>Mapa base con límites de sección y relleno neutral. No colorea por un partido ganador.</li>
+<li>Al seleccionar una fila: ficha con lista nominal, participación, total de votos y tabla de votos de los cuatro partidos para esa sección.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> no esperes que PAN + PRI + PVEM + MORENA sea siempre igual al total de votos; puede haber participantes y tipos de voto fuera de ese desglose. N/D no debe usarse como cero.</p>
+<p><strong>Prueba sencilla:</strong> consulta un municipio; pulsa «Total de votos» hasta dejar los valores mayores primero; selecciona una sección y compara sus cifras en la fila y en la ficha. Anota si cuesta encontrar el orden o las columnas.</p>
+<h2 id="5-comparativa">5. Comparativa</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Comparativa</strong>.<br />
+<strong>Ventana:</strong> <strong>Comparativa histórica por puesto</strong>.</p>
+<h3 id="para-qué-sirve-1">Para qué sirve</h3>
+<p>Ver cómo cambian los votos y otros resultados disponibles de <strong>una misma sección</strong> entre los años históricos recibidos, normalmente 2018, 2021 y 2024.</p>
+<h3 id="cómo-ejecutarla-1">Cómo ejecutarla</h3>
+<ol>
+<li>Consulta una sección con <strong>Seleccionar sección</strong>, según el apartado 11. Por ejemplo, puedes comenzar con la sección 1524 si está disponible en la instalación de prueba.</li>
+<li>Despliega <strong>Consultas del módulo</strong> y pulsa <strong>Comparativa</strong>.</li>
+<li>Comprueba el número de sección del encabezado.</li>
+<li>En <strong>Contienda</strong>, selecciona el cargo que deseas comparar.</li>
+<li>Observa la gráfica y recorre los resultados por año que están debajo. No hay que pulsar «Pintar mapa» en esta consulta.</li>
+<li>Para cambiar de sección, vuelve a <strong>Seleccionar sección</strong>, consulta el nuevo número y revisa otra vez el encabezado.</li>
+</ol>
+<h3 id="controles-y-resultados">Controles y resultados</h3>
+<ul>
+<li><strong>Contienda:</strong> Ayuntamiento, Diputación local, Diputación federal, Gubernatura, Senaduría o Presidencia.</li>
+<li><strong>Gráfica de barras por año y partido</strong>, con una escala común para comparar alturas entre años. La leyenda identifica PAN, PRI, PVEM y MORENA.</li>
+<li><strong>Ficha de cada año:</strong> estado del dato, mayor votación rastreada, margen rastreado, votos totales, participación y votos por cada uno de los cuatro partidos.</li>
+<li>El mapa de fondo corresponde a la geometría disponible; cambiar la contienda en esta ventana no genera por sí mismo un mapa temático histórico nuevo.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> la altura de una barra representa votos, no porcentaje. La participación de la ficha sí es un porcentaje. Puede haber años con desglose incompleto, N/D o una contienda «No celebrada». La ausencia de barra no debe interpretarse automáticamente como cero votos.</p>
+<p>La diferencia o margen rastreado compara los mayores valores dentro de los cuatro partidos incluidos. No acredita el resultado de todos los participantes.</p>
+<p><strong>Prueba sencilla:</strong> cambia de Ayuntamiento a Diputación local y comprueba que cambien tanto la gráfica como las fichas por año. Intenta localizar el dato exacto que explica una barra.</p>
+<h2 id="6-competitividad">6. Competitividad</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Competitividad</strong>.<br />
+<strong>Ventana:</strong> <strong>Competitividad por puesto</strong>.</p>
+<h3 id="para-qué-sirve-2">Para qué sirve</h3>
+<p>Describir qué tan separados quedaron los dos partidos rastreados con más votos en una sección y en la elección mostrada. No es una proyección de una elección futura.</p>
+<h3 id="cómo-ejecutarla-2">Cómo ejecutarla</h3>
+<ol>
+<li>Consulta una sección mediante el apartado 11.</li>
+<li>Pulsa <strong>Competitividad</strong>.</li>
+<li>Comprueba la sección y el año que aparecen dentro de la ventana.</li>
+<li>Elige <strong>Contienda</strong>.</li>
+<li>Lee la categoría, la diferencia en votos y los puntos porcentuales.</li>
+<li>Revisa la tabla de partidos para entender de dónde sale esa diferencia.</li>
+</ol>
+<h3 id="qué-filtros-y-resultados-tiene">Qué filtros y resultados tiene</h3>
+<ul>
+<li>Un selector <strong>Contienda</strong>; no hay un selector propio de año o de municipio en esta ventana.</li>
+<li>Sección y año de los resultados recibidos.</li>
+<li>Recuadro con una categoría descriptiva:</li>
+</ul>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Margen entre los dos primeros rastreados, dividido entre votos totales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Muy competida</td>
+<td>Menos de 5 puntos porcentuales.</td>
+</tr>
+<tr>
+<td>Competida</td>
+<td>Desde 5 hasta menos de 10 puntos porcentuales.</td>
+</tr>
+<tr>
+<td>Margen amplio</td>
+<td>Desde 10 puntos porcentuales.</td>
+</tr>
+<tr>
+<td>No calculable</td>
+<td>No hay bases suficientes o utilizables para ese cálculo.</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Diferencia entre esos dos partidos, en <strong>votos</strong> y en <strong>puntos porcentuales</strong>.</li>
+<li>Votos totales de la contienda.</li>
+<li>Tabla de votos de PAN, PRI, PVEM y MORENA ordenados de mayor a menor.</li>
+<li>Explicación cuando el cálculo no puede realizarse: por ejemplo, elección no celebrada, total en cero, falta de desglose o cifras inconsistentes.</li>
+</ul>
+<p><strong>Ejemplo solo explicativo:</strong> si los dos mayores registros tienen 400 y 350 votos y el total es 1,000, la diferencia es 50 votos, equivalente a 5 puntos porcentuales. La categoría sería «Competida».</p>
+<p><strong>Cómo leerla:</strong> las categorías y sus colores describen el margen observado con estos datos. «Margen amplio» no significa una sección garantizada ni una recomendación para una campaña. Esta ventana no pinta un mapa de competitividad de todas las secciones.</p>
+<p><strong>Prueba sencilla:</strong> cambia de contienda e intenta explicar con tus palabras qué significa la categoría y cuáles fueron los dos valores comparados. Si no queda claro, anótalo.</p>
+<h2 id="7-top-3">7. Top 3</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Top 3</strong>.<br />
+<strong>Ventana:</strong> <strong>Top 3 por puesto</strong>.</p>
+<h3 id="para-qué-sirve-3">Para qué sirve</h3>
+<p>Ver los primeros lugares por votos dentro del grupo PAN, PRI, PVEM y MORENA, en una sección y en la elección indicada.</p>
+<h3 id="cómo-ejecutarla-3">Cómo ejecutarla</h3>
+<ol>
+<li>Consulta una sección mediante el apartado 11.</li>
+<li>Abre <strong>Top 3</strong>.</li>
+<li>Comprueba sección y año.</li>
+<li>Elige <strong>Contienda</strong>. El contenido cambia con esa selección.</li>
+<li>Lee cada posición, sus votos, porcentaje y diferencia respecto del máximo rastreado.</li>
+<li>Pulsa <strong>Desglose de los cuatro partidos rastreados</strong> para mostrar la tabla completa del grupo.</li>
+</ol>
+<h3 id="qué-presenta-1">Qué presenta</h3>
+<ul>
+<li>Selector <strong>Contienda</strong>; sin filtro propio de año o universo.</li>
+<li>Votos totales de la contienda.</li>
+<li>Posición, nombre de partido y marca de empate, cuando corresponde.</li>
+<li>Votos y porcentaje de cada partido mostrado. <strong>El porcentaje usa los votos totales de la contienda como base.</strong></li>
+<li>Barras horizontales. Su longitud es relativa al partido con más votos dentro del grupo, no una escala de porcentaje del total.</li>
+<li>Diferencia de votos entre cada partido y el máximo rastreado.</li>
+<li>Desglose desplegable con los cuatro partidos.</li>
+</ul>
+<p>Si hay un empate en el corte del tercer lugar, pueden aparecer <strong>más de tres partidos</strong>. Esto conserva el empate. Si faltan datos necesarios, el total es cero u otras bases impiden calcularlo, aparece <strong>Top 3 no calculable</strong>, acompañado de su motivo.</p>
+<p><strong>Cómo leerla:</strong> esta lista no es el resultado completo de todos los participantes de la elección. El porcentaje escrito y la longitud de la barra utilizan referencias distintas, como se explica arriba.</p>
+<p><strong>Prueba sencilla:</strong> cambia de contienda, abre el desglose y verifica que los votos del primer lugar coincidan con los de ese partido en la tabla.</p>
+<h2 id="8-ganadores-por-año">8. Ganadores por año</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Ganadores por año</strong>.<br />
+<strong>Ventana:</strong> <strong>Ganadores por año · lectura parcial</strong>.</p>
+<h3 id="para-qué-sirve-4">Para qué sirve</h3>
+<p>Ver, sección por sección, cuál tuvo la mayor votación dentro de los cuatro partidos rastreados en el año y contienda seleccionados.</p>
+<h3 id="cómo-ejecutarla-4">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Ganadores por año</strong>.</li>
+<li>Elige <strong>Universo</strong>.</li>
+<li>Elige <strong>Año</strong>: 2018, 2021 o 2024.</li>
+<li>Elige <strong>Contienda</strong>.</li>
+<li>Pulsa <strong>Pintar mapa</strong> y espera la respuesta.</li>
+<li>Lee la leyenda de colores y el número de secciones en cada categoría.</li>
+<li>Pulsa un polígono para identificar la sección y revisar su categoría en el texto asociado al mapa.</li>
+<li>Para consultar otro año, cambia el filtro y vuelve a pulsar <strong>Pintar mapa</strong>.</li>
+</ol>
+<h3 id="qué-presenta-2">Qué presenta</h3>
+<ul>
+<li>Universo, año y cargo consultados.</li>
+<li>Cantidad de secciones representadas, geográficas y bloqueadas.</li>
+<li>Mapa base con secciones coloreadas por la mayor votación rastreada o por un estado especial.</li>
+<li>Lista de categorías con su color y su cantidad de secciones.</li>
+<li>Desplegable <strong>Trazabilidad del mapa</strong>.</li>
+</ul>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Cómo interpretarla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PAN / PRI / PVEM / MORENA</td>
+<td>Partido con el mayor valor dentro del grupo rastreado para esa sección.</td>
+</tr>
+<tr>
+<td>Empate rastreado</td>
+<td>Hay igualdad en la mayor votación de ese grupo.</td>
+</tr>
+<tr>
+<td>Total en cero</td>
+<td>La fuente registra cero votos totales. No asigna un partido ganador.</td>
+</tr>
+<tr>
+<td>Datos faltantes o desglose faltante</td>
+<td>No hay cifras suficientes para clasificar esa sección.</td>
+</tr>
+<tr>
+<td>No celebrada</td>
+<td>Esa contienda no tuvo elección en el año.</td>
+</tr>
+<tr>
+<td>Cifras inconsistentes</td>
+<td>Las cifras requieren revisión y no se clasifican como un partido ganador.</td>
+</tr>
+<tr>
+<td>Sin votos rastreados</td>
+<td>No hay votos positivos del grupo rastreado que permitan asignar ese máximo.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Solo se muestran las categorías presentes en la respuesta. La lista cuenta <strong>secciones</strong>, no votos ni personas.</p>
+<p><strong>Cómo leerla:</strong> el nombre del menú se conserva, pero el mapa no acredita ganadores absolutos. Tampoco presenta una tabla completa de votos por sección; para esa tabla de 2024 utiliza «Top 20 Secciones».</p>
+<p><strong>Prueba sencilla:</strong> consulta el mismo municipio y cargo en dos años distintos. Comprueba que el año del resultado cambie después de pulsar «Pintar mapa» y que puedas interpretar al menos un color.</p>
+<h2 id="9-abstención">9. Abstención</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Abstención</strong>.<br />
+<strong>Ventana:</strong> <strong>Abstención por universo · lectura parcial</strong>.</p>
+<h3 id="para-qué-sirve-5">Para qué sirve</h3>
+<p>Mostrar el porcentaje de abstención calculable por sección y una comparación de los años históricos del universo elegido.</p>
+<h3 id="cómo-ejecutarla-5">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Abstención</strong>.</li>
+<li>Elige <strong>Universo</strong>, <strong>Año</strong> y <strong>Contienda</strong>.</li>
+<li>Pulsa <strong>Pintar mapa</strong>.</li>
+<li>Revisa el año del mapa y la cantidad de secciones representadas.</li>
+<li>Consulta los rangos de la leyenda y selecciona una sección del mapa para ver su porcentaje, cuando exista.</li>
+<li>Desplaza el contenido de la ventana hasta <strong>Tendencia 2018–2024</strong>.</li>
+<li>Compara porcentaje y cobertura de cada año; abre <strong>Trazabilidad del mapa</strong> si necesitas identificar la procedencia.</li>
+</ol>
+<h3 id="qué-presenta-3">Qué presenta</h3>
+<ul>
+<li>Mapa base con las secciones agrupadas por porcentaje de abstención.</li>
+<li>Número de secciones en cada rango: <strong>menos de 25%</strong>, <strong>25% a menos de 50%</strong>, <strong>50% a menos de 75%</strong> y <strong>75% a 100%</strong>.</li>
+<li>Categorías especiales para faltantes, inconsistencias y contiendas no celebradas.</li>
+<li><strong>Tendencia 2018–2024:</strong> porcentaje de cada año, cantidad de secciones calculables, lista nominal acumulada, votos acumulados y una barra en escala de 0 a 100%.</li>
+</ul>
+<h3 id="cómo-se-calcula-y-cómo-leerla">Cómo se calcula y cómo leerla</h3>
+<p><strong>Abstención = (lista nominal − votos totales) ÷ lista nominal × 100.</strong></p>
+<p>Ejemplo solo explicativo: con lista nominal de 1,000 y 600 votos totales, la abstención calculada es 40%.</p>
+<p>El porcentaje del universo se obtiene sumando votos y lista nominal de las secciones calculables de ese año. <strong>No es el promedio simple de los porcentajes de cada sección.</strong> La cobertura puede cambiar entre años: compara también cuántas secciones entran en cada cálculo.</p>
+<p>La elección del año determina el mapa; la sección «Tendencia» conserva la comparación de los tres años. No confundas ambos elementos.</p>
+<p>Con votos totales cero y lista nominal positiva puede resultar 100% de abstención; eso no demuestra por sí solo la causa de ese cero. Sin lista nominal válida no se calcula el porcentaje. Los rangos son descriptivos, no instrucciones de campaña.</p>
+<p><strong>Prueba sencilla:</strong> identifica el porcentaje de una sección y el de un año en «Tendencia». Explica cuál se refiere a una sección y cuál al conjunto de secciones calculables.</p>
+<h2 id="10-índice-de-concentración-2024">10. Índice de concentración 2024</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Consultas del módulo → <strong>Índice de concentración 2024</strong>.<br />
+<strong>Ventana:</strong> <strong>Concentración 2024 · índice parcial</strong>.</p>
+<h3 id="para-qué-sirve-6">Para qué sirve</h3>
+<p>Describir cómo se concentra la votación en los cuatro partidos rastreados. Ofrece una lectura por sección y otra para el universo elegido.</p>
+<h3 id="cómo-ejecutarla-6">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Índice de concentración 2024</strong>.</li>
+<li>Elige <strong>Universo</strong>.</li>
+<li>Verifica que <strong>Año</strong> esté en 2024. El selector queda fijo; no es necesario cambiarlo.</li>
+<li>Elige <strong>Contienda</strong>.</li>
+<li>Pulsa <strong>Pintar mapa</strong>.</li>
+<li>Lee la leyenda y desplaza la ventana hasta <strong>Concentración del universo · parcial</strong>.</li>
+<li>Pulsa una sección del mapa para revisar su índice cuando sea calculable.</li>
+</ol>
+<h3 id="qué-presenta-4">Qué presenta</h3>
+<ul>
+<li>Mapa base con rangos del índice parcial por sección.</li>
+<li>Cantidad de secciones por rango o estado de dato.</li>
+<li>Rangos descriptivos: <strong>menor de 0.30</strong>, <strong>de 0.30 a menos de 0.45</strong> y <strong>0.45 o mayor</strong>.</li>
+<li>Índice parcial del universo.</li>
+<li>Secciones calculables y sus votos totales acumulados.</li>
+<li>Porcentaje de esos votos cubierto por los cuatro partidos rastreados.</li>
+<li>Votos por PAN, PRI, PVEM y MORENA, con barras de su proporción respecto del total acumulado.</li>
+<li>Desplegable <strong>Trazabilidad del mapa</strong>.</li>
+</ul>
+<h3 id="cómo-leerla">Cómo leerla</h3>
+<p>El índice se calcula elevando al cuadrado la proporción de cada partido rastreado sobre los votos totales y sumando esos cuatro resultados. Se muestra como un número decimal: <strong>un índice de 0.30 no es un porcentaje de participación de 30%</strong>.</p>
+<p>Es <strong>parcial</strong> porque no incluye individualmente a todos los participantes. La concentración del universo se calcula a partir de las sumas de votos de las secciones calculables; no promedia los índices de sus secciones.</p>
+<p>La cifra «Votos cubiertos por los cuatro partidos» informa cuánto del total queda desglosado en ese grupo. Cuanto menor sea esa cobertura, más importante es reconocer el alcance parcial. No clasifica por sí sola una elección como ganada, segura o competida.</p>
+<p>No hay una tabla completa de todas las secciones en esta ventana; el detalle se apoya en el mapa y el resumen del universo.</p>
+<p><strong>Prueba sencilla:</strong> localiza el índice y el porcentaje de votos cubiertos; verifica que puedas distinguir cuál es un número de concentración y cuál es un porcentaje.</p>
+<h2 id="11-seleccionar-sección">11. Seleccionar sección</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → <strong>Sección · contexto compartido</strong> → <strong>Seleccionar sección</strong>.<br />
+<strong>Otra entrada:</strong> botón <strong>UNIVERSO ACTIVO</strong> de la parte superior; también abre el diálogo de selección de sección.</p>
+<p>Esta acción establece la sección que utilizan Comparativa, Competitividad, Top 3 y las pestañas del panel «Resumen de sección».</p>
+<h3 id="cómo-usarla">Cómo usarla</h3>
+<ol>
+<li>Activa <strong>Individual</strong>.</li>
+<li>Si tienes ventanas anteriores que ya no necesitas, ciérralas para que no tapen los resultados nuevos.</li>
+<li>Entra en <strong>Seleccionar sección</strong>.</li>
+<li>En <strong>Número de sección</strong>, escribe solamente el número. El ejemplo visible es 1524.</li>
+<li>Pulsa <strong>Consultar en HEYTI</strong>. También puedes enviar el formulario con Enter.</li>
+<li>Espera a que termine <strong>Consultando...</strong>.</li>
+<li>Al completarse la consulta, comprueba que <strong>UNIVERSO ACTIVO</strong> muestre la sección solicitada.</li>
+<li>Si «Resumen de sección» está reducido, pulsa <strong>Expandir</strong>, o abre una de sus opciones desde el menú.</li>
+</ol>
+<h3 id="qué-puede-mostrar">Qué puede mostrar</h3>
+<ul>
+<li>Sección e identidad territorial consultadas.</li>
+<li>Estado de publicación de esa identidad.</li>
+<li>Polígono de la sección sobre mapa base, si existe geometría publicable.</li>
+<li>Resultados electorales e históricos si la respuesta dispone de ellos.</li>
+<li>Mensaje de error o de falta de publicación cuando no se puede mostrar la información solicitada.</li>
+</ul>
+<p>El botón <strong>×</strong> cierra el diálogo sin ejecutar una nueva consulta. No intentes corregir un error modificando archivos: copia el mensaje y entrégalo a Alex.</p>
+<p><strong>Diferencia importante:</strong> el botón superior «UNIVERSO ACTIVO» abre aquí un formulario de <strong>sección</strong>. Para escoger un municipio o distrito en las consultas por universo, utiliza el filtro <strong>Universo dentro de la ventana de esa consulta</strong>.</p>
+<h2 id="12-resumen-de-sección">12. Resumen de sección</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Sección · contexto compartido → <strong>Resumen de sección</strong>.<br />
+<strong>Pestaña dentro del panel:</strong> <strong>Resumen</strong>.</p>
+<ol>
+<li>Consulta primero una sección con el apartado 11.</li>
+<li>Pulsa <strong>Resumen de sección</strong>, o pulsa <strong>Expandir</strong> y después la pestaña <strong>Resumen</strong>.</li>
+<li>Comprueba el número de sección y lee el estado de publicación y su clasificación territorial.</li>
+</ol>
+<p>El panel presenta el resumen de identidad y la posibilidad de cambiar entre cuatro pestañas: <strong>Resumen</strong>, <strong>Elección [año]</strong>, <strong>Historial comparativo</strong> y <strong>Trazabilidad</strong>.</p>
+<p>Esta pestaña no es una tabla de resultados electorales. La autorización para mostrar la identidad territorial no certifica automáticamente todas las cifras de las otras pestañas.</p>
+<p><strong>Controles:</strong> Expandir/Minimizar y Restablecer; pestañas para cambiar el contenido. Si no se ha consultado una sección, puede aparecer <strong>Sin lectura disponible</strong>.</p>
+<h2 id="13-elección-actual">13. Elección actual</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Sección · contexto compartido → <strong>Elección actual</strong>.<br />
+<strong>Pestaña dentro del panel:</strong> <strong>Elección [año]</strong>, por ejemplo, «Elección 2024».</p>
+<p>«Actual» significa el año más reciente <strong>recibido en la respuesta</strong>, no el año calendario en que abres HEYTI.</p>
+<h3 id="cómo-usarla-y-qué-presenta">Cómo usarla y qué presenta</h3>
+<ol>
+<li>Consulta una sección según el apartado 11.</li>
+<li>Pulsa <strong>Elección actual</strong>.</li>
+<li>Verifica sección y año de la respuesta.</li>
+<li>Selecciona <strong>Contienda</strong> dentro de la pestaña.</li>
+<li>Revisa la ficha y su gráfica de barras.</li>
+</ol>
+<p>La ficha muestra <strong>votos totales, lista nominal, participación, mayor votación rastreada, margen rastreado y votos no desglosados</strong>, además del estado de disponibilidad.</p>
+<p>La gráfica presenta votos de los cuatro partidos. Sus barras se ajustan al mayor valor de esa tarjeta: compara cifras escritas, no el ancho de barras de pantallas distintas que puedan utilizar escalas diferentes.</p>
+<p>«Votos no desglosados» corresponde al total que no queda explicado por los cuatro registros mostrados; no es un quinto partido. Los valores «No disponible», «No celebrada» o «Incompleto» deben conservar su significado.</p>
+<p><strong>Controles:</strong> Contienda, las cuatro pestañas y los controles generales del panel. No tiene un selector propio para cambiar de año.</p>
+<h2 id="14-historial-comparativo">14. Historial comparativo</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Sección · contexto compartido → <strong>Historial comparativo</strong>.<br />
+<strong>Pestaña:</strong> <strong>Historial comparativo</strong> del panel «Resumen de sección».</p>
+<h3 id="cómo-usarla-1">Cómo usarla</h3>
+<ol>
+<li>Consulta una sección según el apartado 11.</li>
+<li>Pulsa <strong>Historial comparativo</strong>.</li>
+<li>En la parte de <strong>Comparativa histórica</strong>, cambia <strong>Contienda</strong> para ver su gráfica y las fichas por año.</li>
+<li>Más abajo, busca <strong>Historial electoral</strong>.</li>
+<li>Despliega un encabezado <strong>Elección [año]</strong>.</li>
+<li>Dentro de ese año, despliega el nombre del cargo que deseas revisar.</li>
+<li>Lee su ficha y su gráfica. Puedes plegarla otra vez pulsando el mismo encabezado.</li>
+</ol>
+<h3 id="qué-presenta-5">Qué presenta</h3>
+<ul>
+<li>Comparación de los años disponibles mediante barras agrupadas por partido y año.</li>
+<li>Fichas anuales con máximo rastreado, margen, votos totales, participación y votos del grupo.</li>
+<li>Años históricos desplegables y contiendas desplegables dentro de cada uno.</li>
+<li>En las fichas detalladas: votos totales, lista nominal, participación, máximo rastreado, margen, votos no desglosados y barras por partido.</li>
+</ul>
+<p><strong>Diferencia con «Comparativa» del menú principal:</strong> ambas permiten comparar la sección. «Comparativa» abre una ventana independiente; «Historial comparativo» está dentro del panel con pestañas e incluye además los desplegables de años y contiendas. No son comparaciones entre municipios ni entre módulos.</p>
+<p>El selector de contienda de la comparación superior no sustituye la apertura de las contiendas en las fichas históricas inferiores.</p>
+<p>Algunos encabezados de esta pestaña conservan palabras como «certificada». Para esta revisión, no las tomes como comprobación de que todas las cifras electorales ya fueron auditadas; anota si ese lenguaje te resulta confuso.</p>
+<h2 id="15-trazabilidad">15. Trazabilidad</h2>
+<p><strong>Módulo:</strong> Análisis Territorial.<br />
+<strong>Ruta:</strong> Análisis Territorial → Sección · contexto compartido → <strong>Trazabilidad</strong>.<br />
+<strong>Pestaña:</strong> <strong>Trazabilidad</strong> del panel «Resumen de sección».</p>
+<ol>
+<li>Consulta una sección según el apartado 11.</li>
+<li>Pulsa <strong>Trazabilidad</strong>.</li>
+<li>Revisa <strong>Trazabilidad de la consulta territorial</strong>.</li>
+<li>Lee <strong>Clasificación</strong>, <strong>Estado de respuesta</strong>, <strong>Versión de conocimiento</strong> y <strong>Solicitud</strong>.</li>
+<li>Si aparecen advertencias, copia su texto o toma una captura. Si no hay advertencias territoriales, la pantalla lo indica.</li>
+</ol>
+<p>Estos datos identifican la respuesta y ayudan a Alex a localizar una incidencia. No necesitas interpretar los códigos ni cambiarlos. «Sin advertencias» de la consulta territorial no significa que ya se hayan verificado todos los datos electorales.</p>
+<p>No hay filtros de año, partido o contienda en esta pestaña. Tampoco genera una tabla de votos.</p>
+<h2 id="16-opciones-que-no-debes-confundir-con-estas-consultas">16. Opciones que no debes confundir con estas consultas</h2>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Opción</th>
+<th>Alcance en esta versión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recentrar mapa, dentro de «Sección · contexto compartido»</td>
+<td>Es una acción de navegación, no una nueva consulta ni una fuente de datos. Existe además el botón «Recentrar» dentro del mapa; usa este último para recuperar el encuadre visible. Registra si ambas acciones se comportan de forma diferente.</td>
+</tr>
+<tr>
+<td>Individual / Comparar</td>
+<td>Son modos de visualización. Esta guía y sus siete consultas se revisan en Individual. «Comparar» no equivale a «Comparativa». La configuración de comparación entre módulos aún presenta un aviso de integración pendiente.</td>
+</tr>
+<tr>
+<td>Consulta cruzada</td>
+<td>Abre «Pregúntale a HEYTI» con un aviso de habilitación futura. No tiene todavía un procedimiento de consulta cruzada operativo en este bloque.</td>
+</tr>
+<tr>
+<td>Generar o descargar una ficha PDF</td>
+<td>No se documenta como botón disponible en estas consultas. La generación de fichas está contemplada para una etapa posterior.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="17-si-algo-no-aparece">17. Si algo no aparece</h2>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Qué hacer sin conocimientos técnicos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Las consultas no se pueden pulsar</td>
+<td>Comprueba que esté seleccionado <strong>Individual</strong>.</td>
+</tr>
+<tr>
+<td>No aparece el listado de consultas</td>
+<td>Despliega <strong>Análisis Territorial</strong> y después <strong>Consultas del módulo</strong>, o <strong>Sección · contexto compartido</strong> según lo que busques.</td>
+</tr>
+<tr>
+<td>Comparativa, Competitividad o Top 3 piden seleccionar sección</td>
+<td>Ejecuta <strong>Seleccionar sección → Consultar en HEYTI</strong>. No basta con haber consultado un municipio o haber pulsado una fila de la tabla de resultados.</td>
+</tr>
+<tr>
+<td>Solo ves el título «Resumen de sección»</td>
+<td>Pulsa <strong>Expandir</strong>, o abre una de sus pestañas desde el menú.</td>
+</tr>
+<tr>
+<td>Cambiaste los filtros pero sigues viendo la respuesta anterior</td>
+<td>Pulsa el botón de ejecución de esa ventana y comprueba el nuevo encabezado al terminar.</td>
+</tr>
+<tr>
+<td>Una ventana tapa el mapa</td>
+<td>Muévela por el encabezado, reduce su tamaño o ciérrala.</td>
+</tr>
+<tr>
+<td>No ves todas las columnas</td>
+<td>Utiliza la barra horizontal de la tabla; puedes ampliar la ventana.</td>
+</tr>
+<tr>
+<td>El mapa quedó muy cerca o muy lejos</td>
+<td>Pulsa <strong>Recentrar dentro del mapa</strong>.</td>
+</tr>
+<tr>
+<td>No se ven las calles, pero sí los polígonos</td>
+<td>Anota la incidencia y comprueba la conexión a Internet con ayuda de Alex. La capa de calles y los datos de la consulta son elementos distintos.</td>
+</tr>
+<tr>
+<td>Aparece N/D o No calculable</td>
+<td>Lee el motivo. No sustituyas ese resultado por cero ni lo marques automáticamente como error de la aplicación.</td>
+</tr>
+<tr>
+<td>Aparece No celebrada</td>
+<td>Registra el año y cargo. No presupongas que deberían existir resultados para toda combinación de año y contienda.</td>
+</tr>
+<tr>
+<td>Aparece un error de consulta o el resultado no termina de cargar</td>
+<td>Anota el mensaje exacto, la hora y los filtros. Toma una captura y avisa a Alex. No necesitas reiniciar servicios ni modificar configuraciones.</td>
+</tr>
+<tr>
+<td>El título, año o sección no coincide con lo que esperabas</td>
+<td>Comprueba si estás mirando una ventana anterior; si la diferencia persiste, regístrala.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="18-hoja-de-observaciones">18. Hoja de observaciones</h2>
+<p>La finalidad es conocer si una persona puede utilizar HEYTI y entender sus resultados sin explicaciones del equipo de desarrollo. No necesitas decidir cómo se programa una solución.</p>
+<p><strong>Cómo revisar:</strong> intenta seguir el procedimiento por tu cuenta. Si necesitas ayuda, anota en qué paso la pediste. Si un resultado te parece dudoso, registra qué esperabas y qué viste; no cambies los datos para hacerlo coincidir.</p>
+<h3 id="registro-general">Registro general</h3>
+<ul>
+<li>Nombre de quien revisa:</li>
+<li>Fecha y hora:</li>
+<li>Dispositivo utilizado: computadora / teléfono / tableta.</li>
+<li>Navegador utilizado, si lo conoces:</li>
+<li>Universo y sección de ejemplo utilizados:</li>
+<li>¿El tamaño del texto fue cómodo?:</li>
+<li>¿Los colores y las leyendas fueron comprensibles?:</li>
+</ul>
+<h3 id="una-ficha-por-cada-consulta">Una ficha por cada consulta</h3>
+<p>Copia este bloque para cada una de las siete consultas y, si corresponde, para las opciones por sección.</p>
+<ul>
+<li><strong>Nombre exacto de la consulta:</strong></li>
+<li><strong>Universo o sección:</strong></li>
+<li><strong>Año y contienda:</strong></li>
+<li><strong>Filtros o columnas que seleccioné:</strong></li>
+<li><strong>¿La encontré sin ayuda?:</strong> Sí / No.</li>
+<li><strong>¿Pude ejecutarla sin ayuda?:</strong> Sí / No / No pude comprobarlo.</li>
+<li><strong>¿Entendí qué muestra?:</strong> Sí / En parte / No.</li>
+<li><strong>¿Coinciden el encabezado y los filtros que elegí?:</strong></li>
+<li><strong>¿Pude leer la tabla, gráfica, leyenda y mapa que correspondían?:</strong></li>
+<li><strong>Paso donde tuve dificultad:</strong></li>
+<li><strong>Qué esperaba que ocurriera:</strong></li>
+<li><strong>Qué ocurrió realmente:</strong></li>
+<li><strong>Mensaje exacto o captura:</strong></li>
+<li><strong>Sugerencia en mis propias palabras:</strong></li>
+</ul>
+<h3 id="lista-de-recorrido">Lista de recorrido</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Consulta u opción</th>
+<th>La encontré</th>
+<th>La pude usar</th>
+<th>Entendí el resultado</th>
+<th>Observaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top 20 Secciones</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comparativa</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Competitividad</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Top 3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Ganadores por año</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Abstención</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Índice de concentración 2024</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Seleccionar sección</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Resumen de sección</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Elección actual</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Historial comparativo</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Trazabilidad</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Movimiento, tamaño y cierre de ventanas</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Acercar, alejar y recentrar mapa</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Entrega a Alex:</strong> este registro y las capturas de los casos que te generaron dificultad. Diferencia «no entendí el dato», «no encontré el control», «la consulta falló» y «no había datos disponibles»: son observaciones distintas y todas ayudan a mejorar la plataforma.</p>
+<footer class="footer">Documento de HEYTI CORE V2. Usa el índice para navegar o Ctrl + F para buscar una palabra. <a href="#contenido">Volver al principio ↑</a></footer></main></div><script>
+(()=>{let size=18;const status=document.querySelector('[data-status]');
+document.querySelector('[data-smaller]').addEventListener('click',()=>{size=Math.max(16,size-2);document.documentElement.style.setProperty('--size',size+'px');status.textContent='Texto: '+size+' px'});
+document.querySelector('[data-larger]').addEventListener('click',()=>{size=Math.min(30,size+2);document.documentElement.style.setProperty('--size',size+'px');status.textContent='Texto: '+size+' px'});
+document.querySelector('[data-contrast]').addEventListener('click',event=>{const active=document.body.classList.toggle('contrast');event.currentTarget.setAttribute('aria-pressed',String(active));event.currentTarget.textContent=active?'Contraste normal':'Alto contraste'});
+document.querySelector('[data-print]').addEventListener('click',()=>window.print());})();
+</script></body></html>

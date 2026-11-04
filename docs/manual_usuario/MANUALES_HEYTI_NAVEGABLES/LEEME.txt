@@ -1,0 +1,14 @@
+HEYTI — MANUALES NAVEGABLES
+
+1. Extrae completamente el ZIP (clic derecho → Extraer todo).
+2. Abre la carpeta extraída y haz doble clic en ABRIR_MANUALES.html.
+3. Elige uno de los documentos.
+
+Si Windows pregunta con qué abrirlo, elige tu navegador (Edge, Chrome o Firefox).
+No cambies las extensiones de los archivos.
+
+Usa el índice para navegar; A+ para letra grande; Alto contraste para cambiar colores.
+Imprimir / PDF abre el diálogo de impresión de tu navegador; ahí puedes guardar una copia PDF.
+Los documentos funcionan sin Internet. Los enlaces a fuentes oficiales externas requieren Internet.
+Conserva juntos los HTML para que funcionen los enlaces entre documentos y la portada.
+Los Markdown originales no fueron modificados. Esta carpeta no se copia al repositorio de la aplicación: es documentación para lectura.

@@ -1,0 +1,288 @@
+{
+  "contract": "HEYTI_JUDICIAL_AUDIT_CANDIDATE_v1",
+  "candidate_label": "A2024_SMA_SM_JDC_517_2024_DERIVED_v0_1",
+  "series": {
+    "year": 2024,
+    "type": "A",
+    "modality": "UNICA"
+  },
+  "municipality_code": "3",
+  "expected_units": 106,
+  "expected_ordinary_units": 105,
+  "expected_special_units": 1,
+  "source": {
+    "zip_sha256": "13fe6a2ddb432922bddc9090f08eb0e558aeb3094ef1ba763b78d789b3d55e69",
+    "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+    "section_sha256": "b6f952da0c32b7e2750a0d40c1f14e10ed915685525da8347962e224c1c9502f",
+    "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+    "casilla_sha256": "90cb61ac6e71b0b5ce4486850107195dde5b2aedc8fb7813b3c967de4192907f"
+  },
+  "judicial_refs": [
+    {
+      "case": "SM-JDC-517/2024",
+      "decision_date": "2024-09-03",
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SM-JDC-0517-2024-"
+    },
+    {
+      "case": "SUP-REC-22097/2024 y acumulados",
+      "decision_date": "2024-10-03",
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-REC-22097-2024",
+      "effect": "DISMISSED_WITHOUT_MERITS"
+    }
+  ],
+  "columns": [
+    {
+      "ordinal": 11,
+      "raw_column": "PAN",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 12,
+      "raw_column": "PRI",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 13,
+      "raw_column": "PRD",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 14,
+      "raw_column": "PVEM",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 15,
+      "raw_column": "PT",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 16,
+      "raw_column": "MC",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 17,
+      "raw_column": "MORENA",
+      "option_kind": "PARTY"
+    },
+    {
+      "ordinal": 18,
+      "raw_column": "PAN_PRI_PRD",
+      "option_kind": "COALITION_COMBINATION"
+    },
+    {
+      "ordinal": 19,
+      "raw_column": "PAN_PRI",
+      "option_kind": "COALITION_COMBINATION"
+    },
+    {
+      "ordinal": 20,
+      "raw_column": "PAN_PRD",
+      "option_kind": "COALITION_COMBINATION"
+    },
+    {
+      "ordinal": 21,
+      "raw_column": "PRI_PRD",
+      "option_kind": "COALITION_COMBINATION"
+    },
+    {
+      "ordinal": 22,
+      "raw_column": "CAND_IND_1",
+      "option_kind": "INDEPENDENT"
+    },
+    {
+      "ordinal": 23,
+      "raw_column": "CAND_IND_2",
+      "option_kind": "INDEPENDENT"
+    },
+    {
+      "ordinal": 24,
+      "raw_column": "CAND_IND_3",
+      "option_kind": "INDEPENDENT"
+    },
+    {
+      "ordinal": 25,
+      "raw_column": "NUM_VOTOS_VALIDOS",
+      "option_kind": "VALID_VOTE_TOTAL"
+    },
+    {
+      "ordinal": 26,
+      "raw_column": "NUM_VOTOS_CAN_NREG",
+      "option_kind": "WRITE_IN"
+    },
+    {
+      "ordinal": 27,
+      "raw_column": "NUM_VOTOS_NULOS",
+      "option_kind": "NULL_VOTE"
+    }
+  ],
+  "base_vector": [
+    15196,
+    25520,
+    663,
+    1130,
+    1052,
+    1725,
+    25031,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1884,
+    0,
+    72201,
+    20,
+    3165
+  ],
+  "derived_vector": [
+    15496,
+    26013,
+    678,
+    1147,
+    1064,
+    1750,
+    25453,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1911,
+    0,
+    73512,
+    21,
+    3224
+  ],
+  "base_total": 75386,
+  "derived_total": 76757,
+  "restorations": [
+    {
+      "unit_key": "SEC:156",
+      "acta_literal": "C01",
+      "source_line": 343,
+      "raw_line_sha256": "4657e55d7bcc3c2a1873eeb739be831ebbcdcedd7483a7707bc25c9d75adcd07",
+      "votes": [
+        70,
+        124,
+        6,
+        4,
+        3,
+        11,
+        116,
+        0,
+        0,
+        0,
+        0,
+        0,
+        10,
+        0,
+        344,
+        0,
+        17
+      ],
+      "total": 361
+    },
+    {
+      "unit_key": "SEC:172",
+      "acta_literal": "B",
+      "source_line": 387,
+      "raw_line_sha256": "085f1f58ca4b460f84db3f8a19ec293375da72955e208b1993320e789086b01f",
+      "votes": [
+        87,
+        179,
+        3,
+        2,
+        0,
+        6,
+        156,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        0,
+        444,
+        1,
+        8
+      ],
+      "total": 453
+    },
+    {
+      "unit_key": "SEC:191",
+      "acta_literal": "B",
+      "source_line": 442,
+      "raw_line_sha256": "4b695c93bfec3c7b5096c67a266e5dd5d78c29d907000489ba68f9430113b289",
+      "votes": [
+        70,
+        104,
+        2,
+        5,
+        8,
+        3,
+        67,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        261,
+        0,
+        23
+      ],
+      "total": 284
+    },
+    {
+      "unit_key": "SEC:200",
+      "acta_literal": "E01",
+      "source_line": 459,
+      "raw_line_sha256": "4c011ad31a0f287a1298f4be082611014dd5095fe3f7ee97f35720c67863b1b0",
+      "votes": [
+        73,
+        86,
+        4,
+        6,
+        1,
+        5,
+        83,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        262,
+        0,
+        11
+      ],
+      "total": 273
+    }
+  ],
+  "exclusions": [
+    {
+      "unit_key": "SEC:156",
+      "acta_literal": "C04",
+      "source_line": 346,
+      "raw_line_sha256": "330f5308a127da2bcde89a0c7719f0f8d93701473a28fd4aa67b72617455d022",
+      "total": 343
+    }
+  ],
+  "special_unit": {
+    "unit_kind": "SPECIAL_SECTION_ROW",
+    "unit_key": "SEC0:[\"\", \"9\", \"3\", \"SAN MIGUEL DE ALLENDE\"]",
+    "section_literal": "0",
+    "original_identity": {
+      "SECCION": "0",
+      "ID_ESTADO": "11",
+      "MUNICIPIO": "SAN MIGUEL DE ALLENDE",
+      "ID_MUNICIPIO": "3",
+      "ID_DISTRITO_LOCAL": "9",
+      "ID_DISTRITO_FEDERAL": null
+    }
+  }
+}

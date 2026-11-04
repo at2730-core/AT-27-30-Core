@@ -1,0 +1,2823 @@
+{
+  "schema_version": "0.1",
+  "rows": 137,
+  "results": [
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "1",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 2,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "2",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 3,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "3",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 4,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "4",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 5,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "5",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 6,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "6",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 7,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "7",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 8,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "8",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 9,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "9",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 10,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "10",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 11,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "11",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 12,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "12",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 13,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "13",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 14,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "14",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "MR",
+      "section_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 15,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "15",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3"
+      ]
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "1",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 2,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "2",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 3,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "3",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 4,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "4",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 5,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "5",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 6,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "6",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 7,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "7",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 8,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "8",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 9,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "9",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 10,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "10",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 11,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "11",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 12,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "12",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 13,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "13",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 14,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "14",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2021,
+      "type": "DF",
+      "modality": "RP",
+      "section_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "casilla_member": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 15,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "15",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": ""
+      },
+      "casilla_count": 1,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2018,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2018/GUBERNATURA_csv/2018_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2018/GUBERNATURA_csv/2018_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "0",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 16,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "14",
+        "MUNICIPIO": "DOLORES HIDALGO CUNA DE LA INDEPENDENCIA NACIONAL"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 2,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "30",
+        "MUNICIPIO": "SAN FELIPE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 3,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "13",
+        "MUNICIPIO": "DOCTOR MORA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 4,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "33",
+        "MUNICIPIO": "SAN LUIS DE LA PAZ"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 5,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "34",
+        "MUNICIPIO": "SANTA CATARINA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 6,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "45",
+        "MUNICIPIO": "XICHU"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 7,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "8",
+        "ID_MUNICIPIO": "15",
+        "MUNICIPIO": "GUANAJUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 8,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "8",
+        "ID_MUNICIPIO": "37",
+        "MUNICIPIO": "SILAO DE LA VICTORIA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 9,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "9",
+        "ID_MUNICIPIO": "3",
+        "MUNICIPIO": "SAN MIGUEL DE ALLENDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 10,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "10",
+        "ID_MUNICIPIO": "31",
+        "MUNICIPIO": "SAN FRANCISCO DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 11,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "11",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 12,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "11",
+        "MUNICIPIO": "CORTAZAR"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 13,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "28",
+        "MUNICIPIO": "SALVATIERRA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 14,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "14",
+        "ID_MUNICIPIO": "27",
+        "MUNICIPIO": "SALAMANCA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 15,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "15",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 16,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "5",
+        "MUNICIPIO": "APASEO EL GRANDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 17,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "9",
+        "MUNICIPIO": "COMONFORT"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 18,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "18",
+        "ID_MUNICIPIO": "25",
+        "MUNICIPIO": "PURISIMA DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 19,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "21",
+        "MUNICIPIO": "MOROLEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 20,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "41",
+        "MUNICIPIO": "URIANGATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 21,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 22,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "46",
+        "MUNICIPIO": "YURIRIA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 23,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "22",
+        "ID_MUNICIPIO": "2",
+        "MUNICIPIO": "ACAMBARO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "A",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_CAS.csv",
+      "ordinal_within_section_zero": 24,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "3",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 19,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "14",
+        "MUNICIPIO": "DOLORES HIDALGO CUNA DE LA INDEPENDENCIA NACIONAL"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 2,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "30",
+        "MUNICIPIO": "SAN FELIPE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 3,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "33",
+        "MUNICIPIO": "SAN LUIS DE LA PAZ"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 4,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "3",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 5,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "4",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 6,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "6",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 7,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "7",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 8,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "8",
+        "ID_MUNICIPIO": "15",
+        "MUNICIPIO": "GUANAJUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 9,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "9",
+        "ID_MUNICIPIO": "3",
+        "MUNICIPIO": "SAN MIGUEL DE ALLENDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 10,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "10",
+        "ID_MUNICIPIO": "31",
+        "MUNICIPIO": "SAN FRANCISCO DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 11,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "11",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 12,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "12",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 13,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "11",
+        "MUNICIPIO": "CORTAZAR"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 14,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "28",
+        "MUNICIPIO": "SALVATIERRA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 15,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "14",
+        "ID_MUNICIPIO": "27",
+        "MUNICIPIO": "SALAMANCA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 16,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "15",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 17,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "16",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 18,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "5",
+        "MUNICIPIO": "APASEO EL GRANDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 19,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "9",
+        "MUNICIPIO": "COMONFORT"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 20,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "18",
+        "ID_MUNICIPIO": "25",
+        "MUNICIPIO": "PURISIMA DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 21,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "19",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 22,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 23,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "46",
+        "MUNICIPIO": "YURIRIA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 24,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "21",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "MR",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_CAS.csv",
+      "ordinal_within_section_zero": 25,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "22",
+        "ID_MUNICIPIO": "2",
+        "MUNICIPIO": "ACAMBARO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "14",
+        "MUNICIPIO": "DOLORES HIDALGO CUNA DE LA INDEPENDENCIA NACIONAL"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 2,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "30",
+        "MUNICIPIO": "SAN FELIPE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 3,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "33",
+        "MUNICIPIO": "SAN LUIS DE LA PAZ"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 4,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "3",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 5,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "4",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 6,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "6",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 7,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "7",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 8,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "8",
+        "ID_MUNICIPIO": "15",
+        "MUNICIPIO": "GUANAJUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 9,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "9",
+        "ID_MUNICIPIO": "3",
+        "MUNICIPIO": "SAN MIGUEL DE ALLENDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 10,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "10",
+        "ID_MUNICIPIO": "31",
+        "MUNICIPIO": "SAN FRANCISCO DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 11,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "11",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 12,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "12",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 13,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "11",
+        "MUNICIPIO": "CORTAZAR"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 14,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "28",
+        "MUNICIPIO": "SALVATIERRA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 15,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "14",
+        "ID_MUNICIPIO": "27",
+        "MUNICIPIO": "SALAMANCA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 16,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "15",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 17,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "16",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 18,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "5",
+        "MUNICIPIO": "APASEO EL GRANDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 19,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "9",
+        "MUNICIPIO": "COMONFORT"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 20,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "18",
+        "ID_MUNICIPIO": "25",
+        "MUNICIPIO": "PURISIMA DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 21,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "19",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 22,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 23,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "46",
+        "MUNICIPIO": "YURIRIA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 24,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "21",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "DL",
+      "modality": "RP",
+      "section_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_CAS.csv",
+      "ordinal_within_section_zero": 25,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "22",
+        "ID_MUNICIPIO": "2",
+        "MUNICIPIO": "ACAMBARO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "0",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 7,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 2,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "14",
+        "MUNICIPIO": "DOLORES HIDALGO CUNA DE LA INDEPENDENCIA NACIONAL"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 3,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "1",
+        "ID_MUNICIPIO": "30",
+        "MUNICIPIO": "SAN FELIPE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 4,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "2",
+        "ID_MUNICIPIO": "33",
+        "MUNICIPIO": "SAN LUIS DE LA PAZ"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 5,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "3",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 6,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "4",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 7,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "6",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 8,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "7",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 9,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "8",
+        "ID_MUNICIPIO": "15",
+        "MUNICIPIO": "GUANAJUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 10,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "9",
+        "ID_MUNICIPIO": "3",
+        "MUNICIPIO": "SAN MIGUEL DE ALLENDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 11,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "10",
+        "ID_MUNICIPIO": "31",
+        "MUNICIPIO": "SAN FRANCISCO DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 12,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "11",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 13,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "12",
+        "ID_MUNICIPIO": "17",
+        "MUNICIPIO": "IRAPUATO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 14,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "11",
+        "MUNICIPIO": "CORTAZAR"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 15,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "13",
+        "ID_MUNICIPIO": "28",
+        "MUNICIPIO": "SALVATIERRA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 16,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "14",
+        "ID_MUNICIPIO": "27",
+        "MUNICIPIO": "SALAMANCA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 17,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "15",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 18,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "16",
+        "ID_MUNICIPIO": "7",
+        "MUNICIPIO": "CELAYA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 19,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "5",
+        "MUNICIPIO": "APASEO EL GRANDE"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 20,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "17",
+        "ID_MUNICIPIO": "9",
+        "MUNICIPIO": "COMONFORT"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 21,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "18",
+        "ID_MUNICIPIO": "25",
+        "MUNICIPIO": "PURISIMA DEL RINCON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 22,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "19",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 23,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "42",
+        "MUNICIPIO": "VALLE DE SANTIAGO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 24,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "20",
+        "ID_MUNICIPIO": "46",
+        "MUNICIPIO": "YURIRIA"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 25,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "21",
+        "ID_MUNICIPIO": "20",
+        "MUNICIPIO": "LEON"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "G",
+      "modality": "UNICA",
+      "section_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "casilla_member": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_CAS.csv",
+      "ordinal_within_section_zero": 26,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "22",
+        "ID_MUNICIPIO": "2",
+        "MUNICIPIO": "ACAMBARO"
+      },
+      "casilla_count": 1,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2018,
+      "type": "P",
+      "modality": "UNICA",
+      "section_member": "PRESIDENCIA_2018/2018_SEE_PRE_NAL_SEC.csv",
+      "casilla_member": "PRESIDENCIA_2018/2018_SEE_PRE_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 16,
+      "compared_fields": 28,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2024,
+      "type": "P",
+      "modality": "UNICA",
+      "section_member": "PRESIDENCIA_2024/CSV/2024_SEE_PRE_NAL_SEC.csv",
+      "casilla_member": "PRESIDENCIA_2024/CSV/2024_SEE_PRE_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "0",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 7,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2018,
+      "type": "S",
+      "modality": "MR",
+      "section_member": "SENADURIAS_MR_2018/2018_SEE_SEN_MR_NAL_SEC.csv",
+      "casilla_member": "SENADURIAS_MR_2018/2018_SEE_SEN_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 16,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "PRI_PVEM_NA",
+        "PRI_PVEM",
+        "PRI_NA",
+        "PVEM_NA",
+        "CAND_IND1",
+        "CAND_IND2",
+        "CAND_IND3",
+        "CAND_IND4",
+        "CAND_IND5",
+        "CAND_IND6",
+        "CAND_IND7"
+      ]
+    },
+    {
+      "year": 2024,
+      "type": "S",
+      "modality": "MR",
+      "section_member": "SENADURÍAS_MR_2024/CSV/2024_SEE_SEN_FED_MR_NAL_SEC.csv",
+      "casilla_member": "SENADURÍAS_MR_2024/CSV/2024_SEE_SEN_FED_MR_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "0",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 7,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    },
+    {
+      "year": 2018,
+      "type": "S",
+      "modality": "RP",
+      "section_member": "SENADURIAS_RP_2018/2018_SEE_SEN_RP_NAL_SEC.csv",
+      "casilla_member": "SENADURIAS_RP_2018/2018_SEE_SEN_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 16,
+      "compared_fields": 22,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": [
+        "PRI_PVEM_NA",
+        "PRI_PVEM",
+        "PRI_NA",
+        "PVEM_NA"
+      ]
+    },
+    {
+      "year": 2024,
+      "type": "S",
+      "modality": "RP",
+      "section_member": "SENADURÍAS_RP_2024/CSV/2024_SEE_SEN_FED_RP_NAL_SEC.csv",
+      "casilla_member": "SENADURÍAS_RP_2024/CSV/2024_SEE_SEN_FED_RP_NAL_CAS.csv",
+      "ordinal_within_section_zero": 1,
+      "identity": {
+        "ID_ESTADO": "11",
+        "ID_DISTRITO_FEDERAL": "0",
+        "ID_DISTRITO_LOCAL": "",
+        "ID_MUNICIPIO": "0",
+        "MUNICIPIO": "VOTO EN EL EXTRANJERO"
+      },
+      "casilla_count": 7,
+      "compared_fields": 20,
+      "differences": [],
+      "indeterminate_fields": [],
+      "blank_both_fields": []
+    }
+  ]
+}

@@ -1,0 +1,1989 @@
+{
+  "scope": "Etiquetas literales de hojas PARTICIPANTES INE por elección y año; conservar votos de combinación sin redistribución. Candidaturas independientes requieren alcance territorial antes de asignar nombres.",
+  "datasets": [
+    {
+      "year": 2018,
+      "election": "DF_MR",
+      "source_zip": "INE_SICEE_DF_MR_2018_original.zip",
+      "participants_xlsx": "DIPUTACIONES_FED_MR_2018/2018_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "DIPUTACIONES",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3134,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3134,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3086,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3130,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3101,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3094,
+          "label_status": "matched"
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "label_in_participants": "NUEVA ALIANZA",
+          "positive_sections": 3104,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3133,
+          "label_status": "matched"
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "label_in_participants": "ENCUENTRO SOCIAL",
+          "positive_sections": 3023,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD, MC",
+          "positive_sections": 2315,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD",
+          "positive_sections": 1673,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, MC",
+          "positive_sections": 1420,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRD, MC",
+          "positive_sections": 392,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA, ES",
+          "positive_sections": 2430,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA",
+          "positive_sections": 1836,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, ES",
+          "positive_sections": 353,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS MORENA, ES",
+          "positive_sections": 1302,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "OBILFRIDO GOMEZ ALVAREZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "MARTHA BEATRIZ CORDOVA BERNAL \"BETTY CORDOVA\"",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JURGEN GANSER CARBAJAL \"EL GÜENO\"",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND4",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "IVÁN ANTONIO PÉREZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND5",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "MARÍA ANTONIETA PÉREZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND6",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "DANIEL NIETO MARTÍNEZ",
+          "positive_sections": 215,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND7",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "MARIO HERNÁNDEZ HERRERA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND8",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "IRIS PAOLA GÓMEZ DE LA CRUZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND9",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "VICTOR JOEL ECHEVERRIA VALENZUELA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND10",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JULIO HUGO SÁNCHEZ QUIROZ \"EL HUNGARO\"",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND11",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "PABLO RICARDO MONTAÑO BECKMANN",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND12",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "RODRIGO CERDA CORNEJO",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND13",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "ALBERTO VALENCIA BAÑUELOS",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND14",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "ANIBAL GOMEZ MARQUINA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND15",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "CARLOS ALBERTO MANZO RODRÍGUEZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND16",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "LUISA MARÍA DE GUADALUPE CALDERÓN HINOJOSA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND17",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "DANIEL ALTAFI VALLADARES",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND18",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "ENRIQUE ALONSO PLASCENCIA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND19",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "DANIELA GONZÁLEZ RODRÍGUEZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND20",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "ROLANDO IVAN VALDEZ HERNANDEZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND21",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "OLGA VALENTINA TREVIÑO HINOJOSA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND22",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "GREGORIO FARIAS MATEOS",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND23",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "YAMILETT ORDUÑA SAIDE",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND24",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "ÁNGEL ALBERTO BARROSO CORREA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND25",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JESUS SILLER ROJAS",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND26",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "DAVID EUGENIO ELIZONDO CANTU",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND27",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "LUIS ÁNGEL BENAVIDES GARZA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND28",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "RAÚL GUAJARDO CANTÚ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND29",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "ALEJANDRO ERIC CRUZ JUÁREZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND30",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "PAUL ALFONSO LÓPEZ DE SANTA ANNA BAEZA \"PONCHILIN\"",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND31",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JESÚS HUMBERTO ALFARO BEDOYA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND32",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JOSÉ TERENCIO VALENZUELA GALLEGOS",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND33",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "MARÍA GRACIELA PARRA LÓPEZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND34",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "NORA VANESSA ESTRADA CALLES",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND35",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "CARLOS ARTURO CÓRDOVA COBOS",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND36",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JULIO CÉSAR OSORIO PÉREZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND37",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "PEDRO GUSTAVO BARRAGÁN NUÑO",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND38",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JUAN JESUS ANTONIO MANZUR OUDIE",
+          "positive_sections": 0,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "election": "DF_RP",
+      "source_zip": "INE_SICEE_DF_RP_2018_original.zip",
+      "participants_xlsx": "DIPUTACIONES_FED_RP_2018/2018_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "DIPUTACIONES",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3134,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3134,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3086,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3130,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3101,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3094,
+          "label_status": "matched"
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "label_in_participants": "NUEVA ALIANZA",
+          "positive_sections": 3104,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3133,
+          "label_status": "matched"
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "label_in_participants": "ENCUENTRO SOCIAL",
+          "positive_sections": 3023,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD, MC",
+          "positive_sections": 2315,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD",
+          "positive_sections": 1673,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, MC",
+          "positive_sections": 1420,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRD, MC",
+          "positive_sections": 392,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA, ES",
+          "positive_sections": 2430,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA",
+          "positive_sections": 1836,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, ES",
+          "positive_sections": 353,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS MORENA, ES",
+          "positive_sections": 1302,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "election": "S_MR",
+      "source_zip": "INE_SICEE_S_2018_original.zip",
+      "participants_xlsx": "SENADURIAS_MR_2018/2018_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "SENADURÍAS",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3136,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3136,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3070,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3133,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3106,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3109,
+          "label_status": "matched"
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "label_in_participants": "NUEVA ALIANZA",
+          "positive_sections": 3096,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3135,
+          "label_status": "matched"
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "label_in_participants": "ENCUENTRO SOCIAL",
+          "positive_sections": 3027,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD, MC",
+          "positive_sections": 2262,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD",
+          "positive_sections": 1624,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, MC",
+          "positive_sections": 1375,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRD, MC",
+          "positive_sections": 362,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA, ES",
+          "positive_sections": 2442,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA",
+          "positive_sections": 1866,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, ES",
+          "positive_sections": 352,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS MORENA, ES",
+          "positive_sections": 1252,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "LORENZO RICARDO GARCÍA DE LEÓN CORIA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "PABLO ABNER SALAZAR MENDIGUCHIA \"PABLO SALAZAR\"",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "SOLEDAD ROMERO ESPINAL",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND4",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JOSE PEDRO KUMAMOTO AGUILAR",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND5",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "RAUL GONZALEZ RODRIGUEZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND6",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "MANUEL JESUS CLOUTHIER CARRILLO",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND7",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "OBED JAVIER CRUZ PEREZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "election": "S_RP",
+      "source_zip": "INE_SICEE_S_RP_2018_original.zip",
+      "participants_xlsx": "SENADURIAS_RP_2018/2018_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "SENADURÍAS",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3136,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3136,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3070,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3133,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3106,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3109,
+          "label_status": "matched"
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "label_in_participants": "NUEVA ALIANZA",
+          "positive_sections": 3096,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3135,
+          "label_status": "matched"
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "label_in_participants": "ENCUENTRO SOCIAL",
+          "positive_sections": 3027,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD, MC",
+          "positive_sections": 2262,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD",
+          "positive_sections": 1624,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, MC",
+          "positive_sections": 1375,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRD, MC",
+          "positive_sections": 362,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PVEM, NA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA, ES",
+          "positive_sections": 2442,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA",
+          "positive_sections": 1866,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, ES",
+          "positive_sections": 352,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS MORENA, ES",
+          "positive_sections": 1252,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "election": "P",
+      "source_zip": "INE_SICEE_P_2018_original.zip",
+      "participants_xlsx": "PRESIDENCIA_2018/2018_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "PRESIDENCIA",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3135,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3133,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 2982,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3098,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3116,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3025,
+          "label_status": "matched"
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "label_in_participants": "NUEVA ALIANZA",
+          "positive_sections": 2920,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3133,
+          "label_status": "matched"
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "label_in_participants": "ENCUENTRO SOCIAL",
+          "positive_sections": 2997,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD, MC",
+          "positive_sections": 2749,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, PRD",
+          "positive_sections": 1976,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PAN, MC",
+          "positive_sections": 1811,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRD, MC",
+          "positive_sections": 359,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM, NA",
+          "positive_sections": 1762,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, PVEM",
+          "positive_sections": 2011,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PRI, NA",
+          "positive_sections": 718,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PVEM, NA",
+          "positive_sections": 471,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA, ES",
+          "positive_sections": 2901,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, MORENA",
+          "positive_sections": 2345,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS PT, ES",
+          "positive_sections": 843,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COMBINACIÓN DE PARTIDOS MORENA, ES",
+          "positive_sections": 1913,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "MARGARITA ESTER ZAVALA GÓMEZ DEL CAMPO",
+          "positive_sections": 593,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JAIME HELIODORO RODRÍGUEZ CALDERÓN",
+          "positive_sections": 3117,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "election": "DF_MR",
+      "source_zip": "INE_SICEE_DF_MR_2021_original.zip",
+      "participants_xlsx": "DIPUTACIONES_FED_MR_2021/2021_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "DIPUTACIONES",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3158,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3157,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3018,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3145,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 2982,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3117,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3157,
+          "label_status": "matched"
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ENCUENTRO SOLIDARIO",
+          "positive_sections": 3012,
+          "label_status": "matched"
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "label_in_participants": "REDES SOCIALES PROGRESISTAS",
+          "positive_sections": 2799,
+          "label_status": "matched"
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "label_in_participants": "FUERZA POR MEXICO",
+          "positive_sections": 2921,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COALICION VA POR MEXICO",
+          "positive_sections": 111,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 75,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 44,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 35,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COALICION JUNTOS HACEMOS HISTORIA",
+          "positive_sections": 22,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO PARTIDO DEL TRABAJO",
+          "positive_sections": 14,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO MORENA",
+          "positive_sections": 29,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO MORENA",
+          "positive_sections": 51,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "CHRISTOPHER ARTURO RODRIGUEZ HERNANDEZ",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "CARLOS ALEJANDRO BAUTISTA TAFOLLA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "DELFINO SUAREZ PIEDRAS EL CHANGUITO",
+          "positive_sections": 0,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "election": "DF_RP",
+      "source_zip": "INE_SICEE_DF_RP_2021_original.zip",
+      "participants_xlsx": "DIPUTACIONES_FED_RP_2021/2021_SEE_FED_NAL_PARTICIPANTES.xlsx",
+      "participants_sheet": "DIPUTACIONES",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3158,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3157,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3018,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3145,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 2982,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3117,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3157,
+          "label_status": "matched"
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ENCUENTRO SOLIDARIO",
+          "positive_sections": 3012,
+          "label_status": "matched"
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "label_in_participants": "REDES SOCIALES PROGRESISTAS",
+          "positive_sections": 2799,
+          "label_status": "matched"
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "label_in_participants": "FUERZA POR MEXICO",
+          "positive_sections": 2921,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COALICION VA POR MEXICO",
+          "positive_sections": 111,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 75,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 44,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 35,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "COALICION JUNTOS HACEMOS HISTORIA",
+          "positive_sections": 22,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO PARTIDO DEL TRABAJO",
+          "positive_sections": 14,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO MORENA",
+          "positive_sections": 29,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO MORENA",
+          "positive_sections": 51,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "election": "DF_MR",
+      "source_zip": "INE_SICEE_DF_MR_2024_original.zip",
+      "participants_xlsx": "DIPUTACIONES_FED_MR_2024/2024_SEE_FED_DIPUTACIONES_PARTICIPANTES.xlsx",
+      "participants_sheet": "DIPUTACIONES",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3227,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3079,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3219,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3210,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3226,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 2356,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 2088,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 673,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 264,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 3078,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO",
+          "positive_sections": 1745,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-MORENA",
+          "positive_sections": 2666,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 2335,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "JORGE AMIN SIMAN ESTEFAN",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "label_in_participants": "GUADALUPE ARACELI MENDOZA ARIAS",
+          "positive_sections": 0,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "election": "DF_RP",
+      "source_zip": "INE_SICEE_DF_RP_2024_original.zip",
+      "participants_xlsx": "DIPUTACIONES_FED_RP_2024/2024_SEE_FED_DIPUTACIONES_PARTICIPANTES.xlsx",
+      "participants_sheet": "DIPUTACIONES",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3227,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3079,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3219,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3210,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3226,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 2357,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 2090,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 675,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 264,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 3079,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO",
+          "positive_sections": 1746,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-MORENA",
+          "positive_sections": 2668,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 2336,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "election": "S_MR",
+      "source_zip": "INE_SICEE_S_2024_original.zip",
+      "participants_xlsx": "SENADURÍAS_MR_2024/2024_SEE_FED_SENADURIAS_PARTICIPANTES.xlsx",
+      "participants_sheet": "SENADURÍAS",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3225,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3064,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3221,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3212,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3228,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 3058,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO",
+          "positive_sections": 1750,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-MORENA",
+          "positive_sections": 2685,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 2344,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "election": "S_RP",
+      "source_zip": "INE_SICEE_S_RP_2024_original.zip",
+      "participants_xlsx": "SENADURÍAS_RP_2024/2024_SEE_FED_SENADURIAS_PARTICIPANTES.xlsx",
+      "participants_sheet": "SENADURÍAS",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3225,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 3064,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3221,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3212,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3228,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 0,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 3058,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO",
+          "positive_sections": 1750,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-MORENA",
+          "positive_sections": 2685,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 2344,
+          "label_status": "matched"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "source_zip": "INE_SICEE_P_2024_original.zip",
+      "participants_xlsx": "PRESIDENCIA_2024/2024_SEE_FED_PRESIDENCIA_PARTICIPANTES.xlsx",
+      "participants_sheet": "PRESIDENCIA",
+      "options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO ACCION NACIONAL",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 3226,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 2973,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO",
+          "positive_sections": 3220,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "label_in_participants": "PARTIDO DEL TRABAJO",
+          "positive_sections": 3218,
+          "label_status": "matched"
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "label_in_participants": "MOVIMIENTO CIUDADANO",
+          "positive_sections": 3231,
+          "label_status": "matched"
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "label_in_participants": "MORENA",
+          "positive_sections": 3232,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 2981,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO REVOLUCIONARIO INSTITUCIONAL",
+          "positive_sections": 2694,
+          "label_status": "matched"
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO ACCION NACIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 1063,
+          "label_status": "matched"
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO REVOLUCIONARIO INSTITUCIONAL-PARTIDO DE LA REVOLUCION DEMOCRATICA",
+          "positive_sections": 410,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 3138,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-PARTIDO DEL TRABAJO",
+          "positive_sections": 2039,
+          "label_status": "matched"
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO VERDE ECOLOGISTA DE MEXICO-MORENA",
+          "positive_sections": 2796,
+          "label_status": "matched"
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "label_in_participants": "PARTIDO DEL TRABAJO-MORENA",
+          "positive_sections": 2760,
+          "label_status": "matched"
+        }
+      ]
+    }
+  ]
+}

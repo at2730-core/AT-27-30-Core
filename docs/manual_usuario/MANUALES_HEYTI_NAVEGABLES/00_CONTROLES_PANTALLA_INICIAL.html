@@ -1,0 +1,251 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Antes de empezar · controles de pantalla · HEYTI</title><style>
+:root{--bg:#edf2f7;--paper:#fff;--text:#172b40;--muted:#465c72;--link:#154fb8;--border:#ccd7e3;--soft:#eef4fc;--size:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;font-size:var(--size);line-height:1.7}a{color:var(--link);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}button,a:focus-visible{outline-offset:4px}button{font:inherit;font-size:16px;cursor:pointer;color:var(--text);background:var(--paper);border:1px solid var(--border);border-radius:9px;padding:7px 12px}button:hover{background:var(--soft)}.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:var(--paper);border-bottom:1px solid var(--border);padding:12px 24px}.brand{font-size:16px;letter-spacing:1.5px;font-weight:800}.tools{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.tools a{font-size:16px;margin-right:8px}.layout{max-width:1550px;margin:26px auto;display:grid;grid-template-columns:290px minmax(0,1fr);gap:26px;padding:0 24px}.sidebar{position:sticky;top:105px;align-self:start;max-height:calc(100vh - 130px);overflow:auto;background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:19px}.sidebar summary{cursor:pointer;font-weight:700}.sidebar ol{padding-left:22px}.sidebar li{font-size:15px;line-height:1.45;margin:12px 0}.sidebar a{text-decoration:none}.sidebar a:hover{text-decoration:underline}.content{min-width:0;background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:38px 48px;box-shadow:0 5px 22px #17324d08}h1,h2,h3,h4{line-height:1.28;color:var(--text)}h1{font-size:2rem;margin-top:8px}h2{font-size:1.55rem;margin-top:2.5em;border-top:1px solid var(--border);padding-top:26px;scroll-margin-top:110px}h3{font-size:1.16rem;margin-top:1.7em}p,ul,ol{margin-top:15px;margin-bottom:19px}li{margin:7px 0}blockquote{margin:25px 0;padding:10px 23px;border-left:5px solid #2563b6;background:var(--soft);color:var(--text);border-radius:0 8px 8px 0}code{font-size:.9em;background:var(--soft);padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.table-scroll{max-width:100%;overflow:auto;margin:24px 0;border:1px solid var(--border);border-radius:10px}table{width:100%;border-collapse:collapse;font-size:.91em;line-height:1.55}th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);min-width:120px}th{background:var(--soft);font-weight:700}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 45%,var(--paper))}.meta{font-size:15px;color:var(--muted);margin-bottom:25px}.back{display:inline-block;font-size:15px;margin-top:12px}.footer{padding-top:28px;margin-top:35px;border-top:1px solid var(--border);font-size:15px;color:var(--muted)}.skip{position:absolute;left:10px;top:-100px}.skip:focus{top:10px;z-index:30;background:var(--paper);padding:10px}.home{max-width:1050px;margin:35px auto;padding:35px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:30px 0}.card{display:block;border:1px solid var(--border);border-radius:12px;padding:23px;text-decoration:none;background:var(--paper)}.card strong{display:block;font-size:1.2em}.card small{color:var(--muted)}body.contrast{--bg:#000;--paper:#111;--text:#fff;--muted:#e0e0e0;--link:#a9d7ff;--border:#777;--soft:#252525}body.contrast blockquote{border-left-color:#a9d7ff}.status{font-size:14px;color:var(--muted)}
+@media(max-width:950px){.layout{grid-template-columns:1fr;padding:0 13px;gap:15px}.sidebar{position:static;max-height:none}.sidebar ol{columns:2}.content{padding:25px}.top{padding:12px 15px}h1{font-size:1.65rem}}
+@media(max-width:580px){.sidebar ol{columns:1}.content{padding:20px 17px}.cards{grid-template-columns:1fr}.home{padding:20px}.tools{gap:5px}.tools button{padding:6px 8px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.sidebar,.back,.skip{display:none!important}.layout{display:block;max-width:none;margin:0;padding:0}.content,.home{border:0;box-shadow:none;padding:0;margin:0}body,body.contrast{background:#fff;color:#111;font-size:11pt;--text:#111;--paper:#fff;--border:#bbb;--soft:#eee;--link:#164ba0;--muted:#444}h2{break-after:avoid}h3,h4{break-after:avoid}p,li{orphans:3;widows:3}table{font-size:9pt}.table-scroll{overflow:visible}th,td{min-width:0;padding:7px;overflow-wrap:anywhere}.cards{display:block}.card{margin:12px 0}a{color:#164ba0}blockquote{break-inside:avoid}}
+</style></head><body><a class="skip" href="#contenido">Ir al contenido</a><header class="top"><span class="brand">HEYTI · DOCUMENTOS</span><nav class="tools" aria-label="Controles de lectura"><a href="ABRIR_MANUALES.html">Todos los documentos</a><button type="button" data-smaller aria-label="Reducir tamaño del texto">A−</button><button type="button" data-larger aria-label="Aumentar tamaño del texto">A+</button><button type="button" data-contrast aria-pressed="false">Alto contraste</button><button type="button" data-print>Imprimir / PDF</button><span class="status" data-status role="status">Texto: 18 px</span></nav></header><div class="layout"><aside class="sidebar" aria-label="Índice navegable"><details open><summary>Índice del documento</summary><ol><li><a href="#0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</a></li><li><a href="#01-ubicación-y-función-de-cada-control">0.1. Ubicación y función de cada control</a></li><li><a href="#02-consulta-cruzada">0.2. Consulta cruzada</a></li><li><a href="#03-universo-activo">0.3. Universo activo</a></li><li><a href="#04-individual">0.4. Individual</a></li><li><a href="#05-comparar">0.5. Comparar</a></li><li><a href="#06-resumen-de-sección--expandir">0.6. Resumen de sección → Expandir</a></li><li><a href="#07-recorrido-rápido-antes-de-la-auditoría">0.7. Recorrido rápido antes de la auditoría</a></li><li><a href="#08-qué-registrar-si-hay-una-dificultad">0.8. Qué registrar si hay una dificultad</a></li></ol></details><a class="back" href="#contenido">Volver al principio ↑</a></aside><main class="content" id="contenido"><div class="meta">Guía inicial · Lectura sin conexión · 23 de octubre de 2026</div><h1 id="heyti-core-v2">HEYTI CORE V2</h1>
+<h1 id="guía-de-los-controles-de-la-pantalla-inicial">Guía de los controles de la pantalla inicial</h1>
+<p><strong>Para:</strong> persona que utilizará o revisará HEYTI sin conocimientos técnicos.<br />
+<strong>Versión:</strong> 1.0 · 23 de octubre de 2026.<br />
+<strong>Alcance:</strong> controles superiores y panel «Resumen de sección» señalados en la captura de Alex. Esta guía también está incorporada como apartado 0 de los tres manuales actualizados.</p>
+<p>La captura muestra <strong>Análisis Territorial</strong>, <strong>Universo activo: Sección 1024</strong>, el modo <strong>Individual</strong> y el panel <strong>Resumen de sección</strong> reducido. Esa es una sección ya seleccionada, no necesariamente la pantalla que verá una persona que nunca haya utilizado HEYTI.</p>
+<p>La descripción se cotejó con la implementación disponible. No implica que se hayan probado todas las acciones en la instalación del usuario.</p>
+<h2 id="0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</h2>
+<h3 id="01-ubicación-y-función-de-cada-control">0.1. Ubicación y función de cada control</h3>
+<p>En la parte superior derecha de la captura, de izquierda a derecha, aparecen <strong>Consulta cruzada</strong>, <strong>Universo activo</strong> y el selector <strong>Individual / Comparar</strong>. Abajo a la derecha está <strong>Resumen de sección</strong>, con el botón <strong>Expandir</strong>.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Para qué sirve actualmente</th>
+<th>¿Cuándo lo utilizarás?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consulta cruzada</td>
+<td>Abre un aviso sobre una función de consulta futura. No ejecuta todavía una consulta cruzada.</td>
+<td>Para reconocer su estado; no es necesario para ejecutar los manuales actuales.</td>
+</tr>
+<tr>
+<td>Universo activo</td>
+<td>Muestra el contexto territorial seleccionado y abre el formulario «Seleccionar sección».</td>
+<td>Cuando deseas consultar una sección por su número.</td>
+</tr>
+<tr>
+<td>Individual</td>
+<td>Activa el modo de uso de las consultas documentadas.</td>
+<td>Déjalo seleccionado para revisar los tres módulos.</td>
+</tr>
+<tr>
+<td>Comparar</td>
+<td>Abre una pantalla de comparación entre módulos cuya configuración aún está pendiente.</td>
+<td>Puedes reconocer el aviso y volver a Individual; no equivale a una consulta comparativa ya operativa.</td>
+</tr>
+<tr>
+<td>Resumen de sección → Expandir</td>
+<td>Muestra el panel de información de la sección consultada y sus pestañas.</td>
+<td>Para ver identidad, resultados electorales, historial o trazabilidad de una sección.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Los controles no son filtros intercambiables. Elegir una sección, cambiar el modo y abrir una consulta son acciones distintas.</p>
+<h3 id="02-consulta-cruzada">0.2. Consulta cruzada</h3>
+<p><strong>Dónde aparece:</strong> en la cabecera de <strong>Análisis Territorial</strong>. En la implementación actual no se muestra ese mismo botón superior en Ganar Todo ni Socioeconómico; su ausencia allí no es un error.</p>
+<p><strong>Qué significa:</strong> es el acceso previsto para consultas que combinen capacidades o información. En esta versión abre un mensaje informativo, no un formulario operativo de búsqueda.</p>
+<p><strong>Cómo utilizarlo y salir:</strong></p>
+<ol>
+<li>Entra en <strong>Análisis Territorial</strong>.</li>
+<li>Pulsa <strong>Consulta cruzada</strong> en la parte superior.</li>
+<li>Se abre la ventana <strong>Pregúntale a HEYTI</strong>, bajo el rótulo <strong>CONSULTA CRUZADA</strong>.</li>
+<li>Lee el mensaje: <strong>«La consulta cruzada se habilitará al integrar las siguientes capacidades certificadas.»</strong></li>
+<li>Pulsa <strong>×</strong> en la ventana para cerrarla.</li>
+<li>Continúa desde <strong>Consultas del módulo</strong> con una de las consultas disponibles.</li>
+</ol>
+<p>No hay una pregunta que debas escribir ni un filtro adicional que debas encontrar para habilitarla. No necesita que el usuario instale algo. El mensaje tampoco significa que se hayan certificado todas las cifras de la plataforma.</p>
+<p><strong>Qué anotar en la revisión:</strong> si esperabas poder escribir una pregunta al pulsar el botón, registra esa expectativa y el aviso que apareció. No lo confundas con una consulta ejecutada sin resultados.</p>
+<h3 id="03-universo-activo">0.3. Universo activo</h3>
+<p><strong>Dónde está:</strong> botón superior con el rótulo <strong>UNIVERSO ACTIVO</strong>, un nombre territorial y una flecha hacia abajo. En la captura dice <strong>Sección 1024</strong>. Antes de seleccionar un territorio puede decir <strong>Seleccionar universo</strong>; después de una consulta por conjunto puede mostrar el municipio o distrito correspondiente.</p>
+<p><strong>Qué indica:</strong> el contexto territorial que la aplicación tiene seleccionado. <strong>No garantiza que todos los paneles abiertos hayan ejecutado ya una consulta con ese contexto.</strong> Revisa también los encabezados y filtros de cada ventana.</p>
+<h4 id="consultar-una-sección-por-su-número">Consultar una sección por su número</h4>
+<ol>
+<li>Para seguir los manuales, comprueba que esté seleccionado <strong>Individual</strong>.</li>
+<li>Pulsa sobre el botón completo <strong>UNIVERSO ACTIVO</strong>, su nombre o su flecha.</li>
+<li>Se abre la ventana <strong>Seleccionar sección</strong>, con el rótulo <strong>CONTEXTO TERRITORIAL</strong>.</li>
+<li>Busca el campo <strong>Número de sección</strong>.</li>
+<li>Escribe solo el número de la sección que deseas revisar; por ejemplo, <strong>1024</strong>, como en la captura. Si ya aparece otro número, selecciónalo y reemplázalo.</li>
+<li>Pulsa <strong>Consultar en HEYTI</strong>. También puedes pulsar Enter dentro del formulario.</li>
+<li>Espera mientras el botón indique <strong>Consultando...</strong>. No es necesario pulsarlo varias veces. Durante la consulta, el campo y el cierre pueden quedar desactivados.</li>
+<li>Si termina sin error, el diálogo se cierra y <strong>UNIVERSO ACTIVO</strong> muestra <strong>Sección [número consultado]</strong>.</li>
+<li>Revisa que el número coincida con el solicitado. El mapa muestra la geometría cuando existe y está autorizada para publicarse.</li>
+<li>Pulsa <strong>Expandir</strong> en <strong>Resumen de sección</strong> para leer su información, si el panel está reducido.</li>
+</ol>
+<p>El ejemplo 1024 sirve para reconocer el campo; la disponibilidad de cada sección depende de la respuesta de la instalación. Si aparece un mensaje de error, conserva su texto y avisa a Alex. Si la sección no tiene una geometría publicable, no debe interpretarse un mapa anterior como si fuera su polígono.</p>
+<h4 id="cerrar-sin-cambiar-de-sección">Cerrar sin cambiar de sección</h4>
+<p>Si abriste el formulario pero no deseas consultar otro número, pulsa <strong>×</strong>, antes de iniciar una consulta. Cerrar el formulario no equivale a ejecutar la selección que escribiste. Esta guía no presupone cierre al pulsar fuera de la ventana ni con Escape.</p>
+<h4 id="elegir-un-municipio-distrito-o-todo-guanajuato">Elegir un municipio, distrito o todo Guanajuato</h4>
+<p>Aunque el botón se llama «Universo activo», el formulario que abre actualmente es de <strong>sección individual</strong>. No escribas el nombre de un municipio o distrito en «Número de sección».</p>
+<p>Para consultar un conjunto:</p>
+<ol>
+<li>Abre la consulta deseada desde el menú del módulo.</li>
+<li>Dentro de esa ventana, busca <strong>Universo</strong> o <strong>Universo de referencia</strong>.</li>
+<li>Elige Guanajuato, el municipio o el distrito disponible.</li>
+<li>Selecciona los demás filtros de esa consulta.</li>
+<li>Pulsa su botón de ejecución: por ejemplo, <strong>Pintar mapa</strong> o <strong>Consultar ingresos y pintar mapa</strong>.</li>
+<li>Comprueba el encabezado del resultado. Ese es el alcance de la respuesta recién consultada.</li>
+</ol>
+<p><strong>Precaución:</strong> consultar una nueva sección con el selector general puede retirar el mapa por universo o un escenario que estabas viendo. Si quieres repetir una consulta por municipio o distrito, vuelve a abrirla y ejecútala con sus filtros. El selector no actualiza automáticamente todas las ventanas ni aplica sus parámetros de forma universal.</p>
+<h3 id="04-individual">0.4. Individual</h3>
+<p><strong>Qué significa:</strong> modo para trabajar con las consultas actuales desde sus módulos. No significa obligatoriamente «una sola sección»: también puedes consultar un municipio, distrito o Guanajuato completo dentro de una consulta.</p>
+<p><strong>Cómo utilizarlo:</strong></p>
+<ol>
+<li>Pulsa <strong>Individual</strong> en la cabecera.</li>
+<li>Comprueba que ese botón quede resaltado, como en la captura de Alex.</li>
+<li>Abre el módulo y despliega <strong>Consultas del módulo</strong>.</li>
+<li>Entra en la consulta y ejecútala con sus filtros.</li>
+</ol>
+<p>Si las entradas de consulta estaban desactivadas por estar en Comparar, Individual permite volver al recorrido normal. Pulsarlo no ejecuta por sí mismo una nueva consulta, no selecciona un número de sección y no convierte una estimación en resultado histórico.</p>
+<h3 id="05-comparar">0.5. Comparar</h3>
+<p><strong>Qué significa:</strong> acceso a una vista prevista para contrastar hasta tres módulos sobre el mismo universo. No es el selector de años ni el botón que ejecuta comparaciones dentro de una consulta.</p>
+<p><strong>Qué verás actualmente:</strong></p>
+<ol>
+<li>Pulsa <strong>Comparar</strong>.</li>
+<li>La zona central cambia a <strong>Comparar perspectivas</strong>, con el texto <strong>Hasta tres módulos sobre el mismo universo</strong>.</li>
+<li>Aparece <strong>Comparación sin configurar</strong> y el botón <strong>Configurar módulos</strong>.</li>
+<li>Si pulsas <strong>Configurar módulos</strong>, se abre una ventana con ese título y el aviso <strong>«Aquí se seleccionarán hasta tres módulos sobre el mismo universo.»</strong></li>
+<li>Esa ventana todavía es informativa: no contiene una selección operativa de módulos para completar la comparación.</li>
+<li>Ciérrala con <strong>×</strong> y pulsa <strong>Individual</strong> para regresar al uso de las consultas.</li>
+</ol>
+<p>En este modo las consultas del menú de los manuales quedan desactivadas. Cambiar a Individual permite retomarlas, pero debes comprobar qué respuesta está visible y volver a ejecutar si hace falta; no asumas que el cambio de modo recalcula nada.</p>
+<p><strong>No confundir:</strong></p>
+<ul>
+<li><strong>Comparar</strong>, de la cabecera: vista entre módulos, pendiente de configuración operativa.</li>
+<li><strong>Comparativa</strong>, de Análisis Territorial: consulta disponible para comparar históricos de una sección.</li>
+<li><strong>Comparador de escenarios de participación</strong>, de Ganar Todo: consulta disponible para comparar variantes de participación.</li>
+</ul>
+<p>La revisión de los tres módulos debe realizarse en <strong>Individual</strong>, sin esperar a que se habilite la comparación entre módulos.</p>
+<h3 id="06-resumen-de-sección--expandir">0.6. Resumen de sección → Expandir</h3>
+<p><strong>Dónde está:</strong> en la captura es la barra reducida de la parte inferior derecha. Corresponde a la consulta individual de sección, no al resumen de cualquier municipio, distrito o escenario que haya quedado en el mapa.</p>
+<p><strong>Cómo abrirlo:</strong></p>
+<ol>
+<li>Consulta una sección con <strong>UNIVERSO ACTIVO → Seleccionar sección → Consultar en HEYTI</strong>.</li>
+<li>En la barra <strong>Resumen de sección</strong>, pulsa <strong>Expandir</strong>.</li>
+<li>Se abre la ventana con encabezado <strong>RESPUESTA HEYTI</strong> y las pestañas disponibles.</li>
+<li>Pulsa la pestaña que desees revisar.</li>
+<li>Verifica el número de sección y, al leer resultados electorales, el año de la respuesta.</li>
+</ol>
+<p><strong>Expandir solo muestra el contenido:</strong> no vuelve a consultar, no selecciona una sección distinta y no abre automáticamente una tabla de resultados por universo.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Pestaña</th>
+<th>Información que muestra</th>
+<th>Cómo usarla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resumen</td>
+<td>Número de sección, clasificación territorial y estado de publicación de su identidad.</td>
+<td>Comprueba que sea la sección que acabas de solicitar. No es una tabla de votos.</td>
+</tr>
+<tr>
+<td>Elección [año]</td>
+<td>Resultados de la elección más reciente recibida para esa sección, con selector de Contienda y cifras disponibles.</td>
+<td>Selecciona el cargo dentro de la pestaña; el año no se cambia con el botón Expandir.</td>
+</tr>
+<tr>
+<td>Historial comparativo</td>
+<td>Comparación histórica por contienda y desplegables de años y cargos disponibles.</td>
+<td>Cambia Contienda en la comparación y abre los encabezados de año o cargo para ver sus fichas.</td>
+</tr>
+<tr>
+<td>Trazabilidad</td>
+<td>Clasificación, estado de respuesta, versión de conocimiento, identificador de solicitud y advertencias.</td>
+<td>Registra esos datos si necesitas informar una incidencia; no tienes que modificar los códigos.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Si no hay sección consultada, puede aparecer <strong>Sin lectura disponible</strong>. Si la respuesta no incluye cifras electorales o históricas, las pestañas lo indican. Expandir no puede crear esos datos. La publicación de la identidad territorial no equivale a una auditoría terminada de sus cifras electorales.</p>
+<h4 id="mover-ampliar-reducir-y-recuperar-el-panel">Mover, ampliar, reducir y recuperar el panel</h4>
+<ul>
+<li><strong>Minimizar:</strong> devuelve el panel a una barra pequeña; no elimina la sección consultada. <strong>Expandir</strong> permite verlo otra vez.</li>
+<li><strong>Arrastrar el encabezado:</strong> mantén pulsado sobre el título y mueve la ventana para descubrir el mapa.</li>
+<li><strong>Esquina inferior derecha:</strong> arrástrala para cambiar el tamaño del panel expandido.</li>
+<li><strong>Restablecer:</strong> recupera su posición y tamaño iniciales; no borra datos ni ejecuta otra consulta.</li>
+<li><strong>Barras de desplazamiento:</strong> permiten leer el contenido que no cabe en el panel. Las tablas anchas pueden necesitar desplazamiento horizontal.</li>
+</ul>
+<p>En <strong>Análisis Territorial</strong> puedes abrir las mismas pestañas desde <strong>Sección · contexto compartido</strong> en el menú izquierdo. Esto permite recuperar el panel reducido y entrar directamente en la pestaña elegida.</p>
+<p>Este panel compartido puede aparecer también en la vista general de <strong>Ganar Todo</strong>, pero sus consultas por universo usan sus propias ventanas. Si muestra una sección anterior o queda sin lectura después de ejecutar una consulta, no debe interpretarse como resumen de esa consulta nueva.</p>
+<p>En <strong>Socioeconómico</strong>, las ocho consultas usan paneles propios. Su <strong>Cerrar</strong> y su botón <strong>Expandir…</strong> corresponden a la consulta socioeconómica elegida, no a las cuatro pestañas del «Resumen de sección» de esta captura. No es un error que ese panel compartido no aparezca allí.</p>
+<h3 id="07-recorrido-rápido-antes-de-la-auditoría">0.7. Recorrido rápido antes de la auditoría</h3>
+<p><strong>Para revisar una sola sección en Análisis Territorial:</strong></p>
+<ol>
+<li>Entra en <strong>Análisis Territorial</strong> y activa <strong>Individual</strong>.</li>
+<li>Pulsa <strong>Universo activo</strong>.</li>
+<li>Escribe la sección y pulsa <strong>Consultar en HEYTI</strong>.</li>
+<li>Comprueba el número en la cabecera y pulsa <strong>Expandir</strong>.</li>
+<li>Recorre Resumen, Elección, Historial comparativo y Trazabilidad.</li>
+<li>Después abre Comparativa, Competitividad o Top 3 desde el menú cuando corresponda.</li>
+</ol>
+<p><strong>Para revisar una consulta por conjunto en cualquiera de los tres módulos:</strong></p>
+<ol>
+<li>Activa <strong>Individual</strong> y abre el módulo.</li>
+<li>Entra en <strong>Consultas del módulo</strong> y elige la consulta.</li>
+<li>Selecciona el <strong>Universo dentro de esa ventana</strong>, sus demás filtros y ejecuta.</li>
+<li>Comprueba el encabezado del resultado y utiliza su tabla, mapa y detalle.</li>
+<li>No necesitas abrir Consulta cruzada, configurar Comparar ni seleccionar previamente una sección individual.</li>
+</ol>
+<h3 id="08-qué-registrar-si-hay-una-dificultad">0.8. Qué registrar si hay una dificultad</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Qué comprobar o anotar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La flecha de Universo activo no muestra municipios</td>
+<td>Actualmente abre «Seleccionar sección». Usa el filtro Universo de la consulta para municipios y distritos.</td>
+</tr>
+<tr>
+<td>Consulta cruzada solo muestra un aviso</td>
+<td>Es el alcance actual; anota si el nombre te hizo esperar otra cosa.</td>
+</tr>
+<tr>
+<td>Comparar deja de mostrar el mapa de la consulta</td>
+<td>Es otra vista. Cierra cualquier aviso abierto y vuelve a Individual.</td>
+</tr>
+<tr>
+<td>Las consultas del menú no se pueden pulsar</td>
+<td>Comprueba que esté activo Individual.</td>
+</tr>
+<tr>
+<td>Expandir no muestra votos</td>
+<td>Comprueba si consultaste una sección, si hay cifras en la respuesta y qué pestaña elegiste.</td>
+</tr>
+<tr>
+<td>La sección del panel no coincide con el universo del mapa</td>
+<td>Registra ambos encabezados; pueden corresponder a consultas distintas. No mezcles sus cifras.</td>
+</tr>
+<tr>
+<td>Una sección no produce mapa o muestra error</td>
+<td>Conserva el número, mensaje exacto, hora y captura. No sustituyas su resultado con datos de otra sección.</td>
+</tr>
+<tr>
+<td>El panel tapa el mapa</td>
+<td>Muévelo, redimensiónalo o usa Minimizar.</td>
+</tr>
+</tbody>
+</table></div>
+<p>En tu hoja de revisión, anota por separado si encontraste cada control, si entendiste su nombre y si el resultado coincidió con lo que esperabas. No necesitas resolver la incidencia ni modificar la aplicación.</p>
+<footer class="footer">Documento de HEYTI CORE V2. Usa el índice para navegar o Ctrl + F para buscar una palabra. <a href="#contenido">Volver al principio ↑</a></footer></main></div><script>
+(()=>{let size=18;const status=document.querySelector('[data-status]');
+document.querySelector('[data-smaller]').addEventListener('click',()=>{size=Math.max(16,size-2);document.documentElement.style.setProperty('--size',size+'px');status.textContent='Texto: '+size+' px'});
+document.querySelector('[data-larger]').addEventListener('click',()=>{size=Math.min(30,size+2);document.documentElement.style.setProperty('--size',size+'px');status.textContent='Texto: '+size+' px'});
+document.querySelector('[data-contrast]').addEventListener('click',event=>{const active=document.body.classList.toggle('contrast');event.currentTarget.setAttribute('aria-pressed',String(active));event.currentTarget.textContent=active?'Contraste normal':'Alto contraste'});
+document.querySelector('[data-print]').addEventListener('click',()=>window.print());})();
+</script></body></html>

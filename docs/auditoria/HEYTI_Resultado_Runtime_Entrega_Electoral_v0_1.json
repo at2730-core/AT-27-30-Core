@@ -1,0 +1,30 @@
+{
+  "scope": "ISOLATED_AUDIT_AND_BLOCKED_PRESENTATION_NOT_UI_CERTIFICATION",
+  "database": "heyti_cas_full_probe_d12d6718adb8",
+  "audit_case": "DL2021 RP SEC:1080; original audit assertions passed",
+  "data_truth": "SYNTHETIC_GATE_FIXTURE_NOT_REAL_CERTIFICATION",
+  "runtime_cases": [
+    {
+      "gate_fixture": "ALLOWED",
+      "metric_scope": "RESULT",
+      "electoral_status": "NO_RELEASE_SELECTED",
+      "delivery_status": "DELIVERED",
+      "repository_calls": 0
+    },
+    {
+      "gate_fixture": "BLOCKED",
+      "metric_scope": "RESULT",
+      "electoral_status": "DATA_TRUTH_NOT_ALLOWED",
+      "delivery_status": "DELIVERED",
+      "repository_calls": 0
+    },
+    {
+      "gate_fixture": "ALLOWED",
+      "metric_scope": "NOMINAL_LIST",
+      "electoral_status": "NO_RELEASE_SELECTED",
+      "delivery_status": "DELIVERED",
+      "repository_calls": 0
+    }
+  ],
+  "limitation": "No selected real votes traverse runtime; no UI or production connection."
+}

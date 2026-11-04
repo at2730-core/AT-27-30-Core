@@ -1,0 +1,1484 @@
+{
+  "description": "Alertas VOTOS>LN, union de derivado aportado y SICEE 2024 por seccion; no implican fraude ni causa adjudicada",
+  "rows": [
+    {
+      "year": 2024,
+      "election": "A",
+      "official_modality": null,
+      "section": 354,
+      "derived": {
+        "votes": 440,
+        "ln": 377,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 440,
+        "ln": 750,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "A",
+      "official_modality": null,
+      "section": 448,
+      "derived": {
+        "votes": 463,
+        "ln": 373,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 463,
+        "ln": 745,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "A",
+      "official_modality": null,
+      "section": 1045,
+      "derived": {
+        "votes": 504,
+        "ln": 376,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 504,
+        "ln": 748,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "A",
+      "official_modality": null,
+      "section": 1401,
+      "derived": {
+        "votes": 535,
+        "ln": 442,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 535,
+        "ln": 439,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "A",
+      "official_modality": null,
+      "section": 1992,
+      "derived": {
+        "votes": 378,
+        "ln": 374,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 378,
+        "ln": 746,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 354,
+      "derived": {
+        "votes": 438,
+        "ln": 377,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 438,
+        "ln": 750,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 448,
+      "derived": {
+        "votes": 464,
+        "ln": 373,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 464,
+        "ln": 745,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 982,
+      "derived": {
+        "votes": 1608,
+        "ln": 4811,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1054,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 1045,
+      "derived": {
+        "votes": 505,
+        "ln": 376,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 505,
+        "ln": 748,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 1434,
+      "derived": {
+        "votes": 646,
+        "ln": 2464,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 474,
+        "ln": 463,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 1992,
+      "derived": {
+        "votes": 378,
+        "ln": 374,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 378,
+        "ln": 746,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 2450,
+      "derived": {
+        "votes": 1658,
+        "ln": 3291,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1299,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DL",
+      "official_modality": "MR",
+      "section": 3094,
+      "derived": {
+        "votes": 385,
+        "ln": 375,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 385,
+        "ln": 748,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 354,
+      "derived": {
+        "votes": 440,
+        "ln": 377,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 440,
+        "ln": 750,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 444,
+      "derived": {
+        "votes": 863,
+        "ln": 2823,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 863,
+        "ln": 823,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 448,
+      "derived": {
+        "votes": 458,
+        "ln": 373,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 458,
+        "ln": 745,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 452,
+      "derived": {
+        "votes": 1321,
+        "ln": 1287,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1321,
+        "ln": 1291,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 588,
+      "derived": {
+        "votes": 229,
+        "ln": 212,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 229,
+        "ln": 211,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 982,
+      "derived": {
+        "votes": 1007,
+        "ln": 2811,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1007,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 1042,
+      "derived": {
+        "votes": 930,
+        "ln": 711,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 930,
+        "ln": 711,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 1045,
+      "derived": {
+        "votes": 500,
+        "ln": 376,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 500,
+        "ln": 748,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 1434,
+      "derived": {
+        "votes": 501,
+        "ln": 1464,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 501,
+        "ln": 463,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 1992,
+      "derived": {
+        "votes": 380,
+        "ln": 374,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 380,
+        "ln": 746,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2381,
+      "derived": {
+        "votes": 1102,
+        "ln": 1943,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1102,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2450,
+      "derived": {
+        "votes": 1294,
+        "ln": 2291,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1294,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2547,
+      "derived": {
+        "votes": 736,
+        "ln": 1629,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 736,
+        "ln": 627,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2620,
+      "derived": {
+        "votes": 1547,
+        "ln": 2195,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1547,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2833,
+      "derived": {
+        "votes": 1133,
+        "ln": 1983,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1133,
+        "ln": 981,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2893,
+      "derived": {
+        "votes": 203,
+        "ln": 156,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 203,
+        "ln": 154,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2896,
+      "derived": {
+        "votes": 315,
+        "ln": 167,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 315,
+        "ln": 167,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 2919,
+      "derived": {
+        "votes": 1042,
+        "ln": 1840,
+        "votes_gt_ln": false
+      },
+      "sicee": {
+        "votes": 1042,
+        "ln": 837,
+        "votes_gt_ln": true
+      },
+      "classification": "SICEE_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 3094,
+      "derived": {
+        "votes": 380,
+        "ln": 375,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 380,
+        "ln": 748,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 9021,
+      "derived": {
+        "votes": 4,
+        "ln": 2,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": null,
+        "ln": null,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "official_modality": null,
+      "section": 9042,
+      "derived": {
+        "votes": 9217,
+        "ln": 0,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": null,
+        "ln": null,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 444,
+      "derived": {
+        "votes": 1057,
+        "ln": 823,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 552,
+        "ln": 823,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 982,
+      "derived": {
+        "votes": 1613,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 608,
+        "ln": 810,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 1434,
+      "derived": {
+        "votes": 648,
+        "ln": 463,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 334,
+        "ln": 463,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 1729,
+      "derived": {
+        "votes": 877,
+        "ln": 818,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 574,
+        "ln": 818,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 1866,
+      "derived": {
+        "votes": 814,
+        "ln": 793,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 619,
+        "ln": 793,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2062,
+      "derived": {
+        "votes": 1368,
+        "ln": 1213,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1092,
+        "ln": 1213,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2381,
+      "derived": {
+        "votes": 1665,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1260,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2450,
+      "derived": {
+        "votes": 1786,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1319,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2547,
+      "derived": {
+        "votes": 846,
+        "ln": 627,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 578,
+        "ln": 627,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2620,
+      "derived": {
+        "votes": 1218,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1218,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2833,
+      "derived": {
+        "votes": 1132,
+        "ln": 981,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 821,
+        "ln": 981,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "DF",
+      "official_modality": "MR",
+      "section": 2919,
+      "derived": {
+        "votes": 1091,
+        "ln": 837,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 823,
+        "ln": 837,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 175,
+      "derived": {
+        "votes": 3341,
+        "ln": 3111,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 2230,
+        "ln": 3111,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 248,
+      "derived": {
+        "votes": 1440,
+        "ln": 1329,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 990,
+        "ln": 1329,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 444,
+      "derived": {
+        "votes": 2417,
+        "ln": 823,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 867,
+        "ln": 823,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 613,
+      "derived": {
+        "votes": 1505,
+        "ln": 1475,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1181,
+        "ln": 1475,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 754,
+      "derived": {
+        "votes": 1707,
+        "ln": 1554,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1342,
+        "ln": 1554,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 972,
+      "derived": {
+        "votes": 1824,
+        "ln": 1177,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 990,
+        "ln": 1177,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 982,
+      "derived": {
+        "votes": 2485,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1510,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 1434,
+      "derived": {
+        "votes": 1285,
+        "ln": 463,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 319,
+        "ln": 463,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 1518,
+      "derived": {
+        "votes": 1936,
+        "ln": 1422,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1165,
+        "ln": 1422,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 1729,
+      "derived": {
+        "votes": 1545,
+        "ln": 818,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 782,
+        "ln": 818,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 1866,
+      "derived": {
+        "votes": 1199,
+        "ln": 793,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 780,
+        "ln": 793,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2062,
+      "derived": {
+        "votes": 1333,
+        "ln": 1213,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 872,
+        "ln": 1213,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2381,
+      "derived": {
+        "votes": 1910,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1506,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2450,
+      "derived": {
+        "votes": 1744,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1283,
+        "ln": 1292,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2547,
+      "derived": {
+        "votes": 1001,
+        "ln": 627,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 733,
+        "ln": 627,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2620,
+      "derived": {
+        "votes": 1536,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1377,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2833,
+      "derived": {
+        "votes": 1330,
+        "ln": 981,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1003,
+        "ln": 981,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 2919,
+      "derived": {
+        "votes": 1275,
+        "ln": 837,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 809,
+        "ln": 837,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 3143,
+      "derived": {
+        "votes": 2181,
+        "ln": 1585,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1183,
+        "ln": 1585,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 3194,
+      "derived": {
+        "votes": 1545,
+        "ln": 1451,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 892,
+        "ln": 1451,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "S",
+      "official_modality": "MR",
+      "section": 3242,
+      "derived": {
+        "votes": 2693,
+        "ln": 2609,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1877,
+        "ln": 2609,
+        "votes_gt_ln": false
+      },
+      "classification": "DERIVED_ONLY"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 175,
+      "derived": {
+        "votes": 3234,
+        "ln": 3111,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 3234,
+        "ln": 3111,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 248,
+      "derived": {
+        "votes": 1461,
+        "ln": 1329,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1461,
+        "ln": 1329,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 444,
+      "derived": {
+        "votes": 2249,
+        "ln": 823,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 2249,
+        "ln": 823,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 613,
+      "derived": {
+        "votes": 1504,
+        "ln": 1475,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1504,
+        "ln": 1475,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 754,
+      "derived": {
+        "votes": 1904,
+        "ln": 1554,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1904,
+        "ln": 1554,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 972,
+      "derived": {
+        "votes": 1821,
+        "ln": 1177,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1821,
+        "ln": 1177,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 982,
+      "derived": {
+        "votes": 2452,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 2452,
+        "ln": 810,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 1434,
+      "derived": {
+        "votes": 1317,
+        "ln": 463,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1317,
+        "ln": 463,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 1518,
+      "derived": {
+        "votes": 1932,
+        "ln": 1422,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1932,
+        "ln": 1422,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 1729,
+      "derived": {
+        "votes": 1545,
+        "ln": 818,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1545,
+        "ln": 818,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 1866,
+      "derived": {
+        "votes": 1196,
+        "ln": 793,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1196,
+        "ln": 793,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2062,
+      "derived": {
+        "votes": 1312,
+        "ln": 1213,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1312,
+        "ln": 1213,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2381,
+      "derived": {
+        "votes": 1546,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1546,
+        "ln": 943,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2450,
+      "derived": {
+        "votes": 1716,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1716,
+        "ln": 1292,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2547,
+      "derived": {
+        "votes": 1341,
+        "ln": 627,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1341,
+        "ln": 627,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2620,
+      "derived": {
+        "votes": 1379,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1379,
+        "ln": 1194,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2833,
+      "derived": {
+        "votes": 1426,
+        "ln": 981,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1426,
+        "ln": 981,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 2919,
+      "derived": {
+        "votes": 1510,
+        "ln": 837,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1510,
+        "ln": 837,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 3143,
+      "derived": {
+        "votes": 2006,
+        "ln": 1585,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 2006,
+        "ln": 1585,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "official_modality": null,
+      "section": 3194,
+      "derived": {
+        "votes": 1603,
+        "ln": 1451,
+        "votes_gt_ln": true
+      },
+      "sicee": {
+        "votes": 1603,
+        "ln": 1451,
+        "votes_gt_ln": true
+      },
+      "classification": "BOTH"
+    }
+  ]
+}

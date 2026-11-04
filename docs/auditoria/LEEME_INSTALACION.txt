@@ -1,0 +1,22 @@
+HEYTI V2 — Socioeconómico Paso 8: Proyección 2027
+
+INSTALACIÓN
+1. Conserva tu respaldo. Extrae el ZIP.
+2. Copia la carpeta apps dentro de AT-27-30-core y reemplaza archivos coincidentes, sin eliminar las demás carpetas.
+3. Se incluye dist compilado; no necesitas recompilar si usas esa versión. Si utilizas el servidor de desarrollo, reinícialo.
+4. Recarga con Ctrl+F5 y abre Socioeconómico → Proyección 2027 · escenarios.
+
+USO
+Selecciona universo y método. Hay tres opciones:
+- Lista nominal: CAGR por sección de 2018 a 2024 y extrapolación hasta 2027; 2021 aparece como contexto.
+- Lista nominal: tasa anual propia sobre la base de 2024.
+- Población de 18 años y más: tasa anual propia sobre Censo 2020 (7 años hasta 2027).
+En las dos opciones con tasa propia escribe tu supuesto anual en porcentaje (cero válido, mayor de -100 y hasta 100). No hay una tasa predeterminada inventada. Pulsa Calcular escenario 2027 y pintar mapa.
+
+Incluye mapa base, colores por quintiles, tabla completa por sección, bases, tasas, cambio respecto de la base y detalle al seleccionar la clave. Gris/N-D indica falta de cálculo. Los totales corresponden solo a las mismas secciones calculables. No hay suma ni resta entre lista nominal y población adulta.
+
+ALCANCE
+Es un escenario matemático condicional de HEYTI, no una proyección oficial. LN procede de los registros de Ayuntamiento (A) del CORE, cuya auditoría electoral sigue pendiente. Coincidir por clave no certifica límites históricos iguales. No se reparten datos entre secciones nuevas ni se inventa población adulta de 2018/2024. Las bases originales permanecen intactas.
+
+Verificación: 192 pruebas aprobadas en 38 archivos; compilación correcta (aviso habitual de tamaño de JavaScript). Sin comprobación visual interactiva ni móvil. Falta instalar/revisar esta consulta. Después corresponde la auditoría como usuario final de los tres primeros módulos, conforme a lo acordado.
+Paquete acumulativo con las consultas anteriores. El mapa base requiere Internet.

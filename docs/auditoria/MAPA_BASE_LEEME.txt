@@ -1,0 +1,29 @@
+HEYTI V2 — MAPA BASE COMO EN V1
+
+Cambios
+- Fondo de calles OpenStreetMap, el mismo proveedor que V1.
+- Sección individual: límites negros y relleno gris con opacidad de 15%.
+- Resultados 2024: secciones grises sobre el mapa de calles.
+- Consultas temáticas: conserva los colores de sus indicadores con transparencia de 30%.
+- Encuadre automático del universo consultado, enfoque de sección y botón Recentrar.
+- Actualización de los polígonos cuando cambia la consulta.
+- Ajuste al ampliar el panel del mapa.
+
+Uso
+Extrae el ZIP completo en una carpeta nueva y utiliza el mismo procedimiento con el que abres V2.
+El servidor de datos HEYTI-CORE conserva su configuración y debe estar disponible.
+Si ya tienes instaladas las dependencias de V2, el ZIP de actualización permite sustituir únicamente los archivos modificados dentro de la carpeta AT-27-30-core existente. Conserva antes una copia de tu carpeta.
+El fondo de calles requiere internet; el ZIP no contiene mapas para uso sin conexión.
+
+Archivos principales
+apps/heyti-web/src/shell/GeographicMap.tsx
+apps/heyti-web/src/shell/GeographicMap.css
+apps/heyti-web/src/shell/BaseMap.tsx
+apps/heyti-web/src/shell/SectionGeometryMap.tsx
+apps/heyti-web/src/shell/UniverseGeometryMap.tsx
+apps/heyti-web/src/shell/mapGeometry.ts
+apps/heyti-web/src/shell/MapSectionFocus.ts
+apps/heyti-web/src/shell/MapSectionFocus.test.ts
+apps/heyti-web/src/shell/SocioeconomicWorkspace.tsx
+
+Los archivos originales recibidos en ZIP no se modificaron.

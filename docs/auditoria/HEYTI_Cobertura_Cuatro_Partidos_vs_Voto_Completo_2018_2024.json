@@ -1,0 +1,404 @@
+{
+  "scope": "Sólo secciones ordinarias Guanajuato SICEE, 2018/2021/2024; modalidades MR y RP son alternativas, no sumar entre sí. Sumas de categorías de opciones originales con números; vacíos preservados como estado en catálogo fuente.",
+  "datasets": [
+    {
+      "year": 2018,
+      "election": "A",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1748522,
+        "other_party_direct": 297341,
+        "coalition_combination": 14723,
+        "nonregistered": 2276,
+        "null_votes": 79420,
+        "independent": 135497
+      },
+      "all_categories_sum": 2277779,
+      "four_direct_share_of_recorded_votes_pct": 76.7643,
+      "omitted_by_four_direct_only": 529257
+    },
+    {
+      "year": 2018,
+      "election": "DL_MR",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1854216,
+        "other_party_direct": 304078,
+        "coalition_combination": 22438,
+        "nonregistered": 3213,
+        "null_votes": 103354,
+        "independent": 15620
+      },
+      "all_categories_sum": 2302919,
+      "four_direct_share_of_recorded_votes_pct": 80.5159,
+      "omitted_by_four_direct_only": 448703
+    },
+    {
+      "year": 2018,
+      "election": "DL_RP",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1856357,
+        "other_party_direct": 304388,
+        "coalition_combination": 22438,
+        "nonregistered": 3214,
+        "null_votes": 103439
+      },
+      "all_categories_sum": 2289836,
+      "four_direct_share_of_recorded_votes_pct": 81.0694,
+      "omitted_by_four_direct_only": 433479
+    },
+    {
+      "year": 2018,
+      "election": "G",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1913954,
+        "other_party_direct": 257309,
+        "coalition_combination": 36099,
+        "nonregistered": 1664,
+        "null_votes": 72089
+      },
+      "all_categories_sum": 2281115,
+      "four_direct_share_of_recorded_votes_pct": 83.9043,
+      "omitted_by_four_direct_only": 367161
+    },
+    {
+      "year": 2021,
+      "election": "A",
+      "ordinary_sections": 3159,
+      "numeric_total_rows": 3157,
+      "missing_total_rows": 2,
+      "categories": {
+        "four_direct": 1581936,
+        "other_party_direct": 330920,
+        "coalition_combination": 2283,
+        "independent": 50827,
+        "nonregistered": 1550,
+        "null_votes": 46749
+      },
+      "all_categories_sum": 2014265,
+      "four_direct_share_of_recorded_votes_pct": 78.5366,
+      "omitted_by_four_direct_only": 432329
+    },
+    {
+      "year": 2021,
+      "election": "DL_MR",
+      "ordinary_sections": 3159,
+      "numeric_total_rows": 3159,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1637497,
+        "other_party_direct": 318462,
+        "coalition_combination": 4335,
+        "nonregistered": 1653,
+        "null_votes": 54193,
+        "independent": 3278
+      },
+      "all_categories_sum": 2019418,
+      "four_direct_share_of_recorded_votes_pct": 81.0876,
+      "omitted_by_four_direct_only": 381921
+    },
+    {
+      "year": 2021,
+      "election": "DL_RP",
+      "ordinary_sections": 3159,
+      "numeric_total_rows": 3158,
+      "missing_total_rows": 1,
+      "categories": {
+        "four_direct": 1642639,
+        "other_party_direct": 319302,
+        "coalition_combination": 4362,
+        "nonregistered": 1664,
+        "null_votes": 54336,
+        "independent": 3278
+      },
+      "all_categories_sum": 2025581,
+      "four_direct_share_of_recorded_votes_pct": 81.0947,
+      "omitted_by_four_direct_only": 382942
+    },
+    {
+      "year": 2024,
+      "election": "A",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2201894,
+        "other_party_direct": 302414,
+        "coalition_combination": 16643,
+        "independent": 18757,
+        "nonregistered": 1146,
+        "null_votes": 105071
+      },
+      "all_categories_sum": 2645925,
+      "four_direct_share_of_recorded_votes_pct": 83.2183,
+      "omitted_by_four_direct_only": 444031
+    },
+    {
+      "year": 2024,
+      "election": "DL_MR",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2281662,
+        "other_party_direct": 290149,
+        "coalition_combination": 38908,
+        "nonregistered": 1514,
+        "null_votes": 97701
+      },
+      "all_categories_sum": 2709934,
+      "four_direct_share_of_recorded_votes_pct": 84.1962,
+      "omitted_by_four_direct_only": 428272
+    },
+    {
+      "year": 2024,
+      "election": "DL_RP",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2288407,
+        "other_party_direct": 291112,
+        "coalition_combination": 38908,
+        "nonregistered": 1518,
+        "null_votes": 97974
+      },
+      "all_categories_sum": 2717919,
+      "four_direct_share_of_recorded_votes_pct": 84.197,
+      "omitted_by_four_direct_only": 429512
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2332340,
+        "other_party_direct": 222847,
+        "coalition_combination": 100124,
+        "nonregistered": 1124,
+        "null_votes": 55846
+      },
+      "all_categories_sum": 2712281,
+      "four_direct_share_of_recorded_votes_pct": 85.9918,
+      "omitted_by_four_direct_only": 379941
+    },
+    {
+      "year": 2018,
+      "election": "DF_MR",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1856825,
+        "other_party_direct": 291445,
+        "coalition_combination": 31324,
+        "nonregistered": 1589,
+        "null_votes": 99774,
+        "independent": 18442
+      },
+      "all_categories_sum": 2299399,
+      "four_direct_share_of_recorded_votes_pct": 80.7526,
+      "omitted_by_four_direct_only": 442574
+    },
+    {
+      "year": 2018,
+      "election": "DF_RP",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1863171,
+        "other_party_direct": 292206,
+        "coalition_combination": 31324,
+        "nonregistered": 1593,
+        "null_votes": 100099
+      },
+      "all_categories_sum": 2288393,
+      "four_direct_share_of_recorded_votes_pct": 81.4183,
+      "omitted_by_four_direct_only": 425222
+    },
+    {
+      "year": 2018,
+      "election": "S_MR",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1862175,
+        "other_party_direct": 296651,
+        "coalition_combination": 30045,
+        "nonregistered": 1700,
+        "null_votes": 111913
+      },
+      "all_categories_sum": 2302484,
+      "four_direct_share_of_recorded_votes_pct": 80.8768,
+      "omitted_by_four_direct_only": 440309
+    },
+    {
+      "year": 2018,
+      "election": "S_RP",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1878316,
+        "other_party_direct": 298482,
+        "coalition_combination": 30045,
+        "nonregistered": 1717,
+        "null_votes": 112761
+      },
+      "all_categories_sum": 2321321,
+      "four_direct_share_of_recorded_votes_pct": 80.9158,
+      "omitted_by_four_direct_only": 443005
+    },
+    {
+      "year": 2018,
+      "election": "P",
+      "ordinary_sections": 3137,
+      "numeric_total_rows": 3137,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1747341,
+        "other_party_direct": 203773,
+        "coalition_combination": 73339,
+        "independent": 224713,
+        "nonregistered": 1848,
+        "null_votes": 69169
+      },
+      "all_categories_sum": 2320183,
+      "four_direct_share_of_recorded_votes_pct": 75.3105,
+      "omitted_by_four_direct_only": 572842
+    },
+    {
+      "year": 2021,
+      "election": "DF_MR",
+      "ordinary_sections": 3159,
+      "numeric_total_rows": 3159,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1685874,
+        "other_party_direct": 271300,
+        "coalition_combination": 620,
+        "nonregistered": 1602,
+        "null_votes": 59092
+      },
+      "all_categories_sum": 2018488,
+      "four_direct_share_of_recorded_votes_pct": 83.5216,
+      "omitted_by_four_direct_only": 332614
+    },
+    {
+      "year": 2021,
+      "election": "DF_RP",
+      "ordinary_sections": 3159,
+      "numeric_total_rows": 3159,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 1693171,
+        "other_party_direct": 271979,
+        "coalition_combination": 620,
+        "nonregistered": 1611,
+        "null_votes": 59286
+      },
+      "all_categories_sum": 2026667,
+      "four_direct_share_of_recorded_votes_pct": 83.5446,
+      "omitted_by_four_direct_only": 333496
+    },
+    {
+      "year": 2024,
+      "election": "DF_MR",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2257232,
+        "other_party_direct": 292063,
+        "coalition_combination": 85998,
+        "nonregistered": 1828,
+        "null_votes": 72180
+      },
+      "all_categories_sum": 2709301,
+      "four_direct_share_of_recorded_votes_pct": 83.3142,
+      "omitted_by_four_direct_only": 452069
+    },
+    {
+      "year": 2024,
+      "election": "DF_RP",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2269999,
+        "other_party_direct": 293955,
+        "coalition_combination": 86132,
+        "nonregistered": 1845,
+        "null_votes": 72736
+      },
+      "all_categories_sum": 2724667,
+      "four_direct_share_of_recorded_votes_pct": 83.3129,
+      "omitted_by_four_direct_only": 454668
+    },
+    {
+      "year": 2024,
+      "election": "S_MR",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2293200,
+        "other_party_direct": 276053,
+        "coalition_combination": 59455,
+        "nonregistered": 1655,
+        "null_votes": 86937
+      },
+      "all_categories_sum": 2717300,
+      "four_direct_share_of_recorded_votes_pct": 84.3926,
+      "omitted_by_four_direct_only": 424100
+    },
+    {
+      "year": 2024,
+      "election": "S_RP",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2313193,
+        "other_party_direct": 278987,
+        "coalition_combination": 59455,
+        "nonregistered": 1675,
+        "null_votes": 88313
+      },
+      "all_categories_sum": 2741623,
+      "four_direct_share_of_recorded_votes_pct": 84.3731,
+      "omitted_by_four_direct_only": 428430
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "ordinary_sections": 3233,
+      "numeric_total_rows": 3233,
+      "missing_total_rows": 0,
+      "categories": {
+        "four_direct": 2159501,
+        "other_party_direct": 383575,
+        "coalition_combination": 145208,
+        "nonregistered": 4579,
+        "null_votes": 57015
+      },
+      "all_categories_sum": 2749878,
+      "four_direct_share_of_recorded_votes_pct": 78.5308,
+      "omitted_by_four_direct_only": 590377
+    }
+  ]
+}

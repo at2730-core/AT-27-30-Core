@@ -1,0 +1,1410 @@
+{
+  "scope": "Comparación de presencia no nula por sección; no demuestra igualdad de votos, modalidad ni vigencia. 2015 no evaluado.",
+  "datasets": [
+    {
+      "year": 2018,
+      "election_official": "A",
+      "master_prefix": "18A_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": null
+    },
+    {
+      "year": 2018,
+      "election_official": "DL_MR",
+      "master_prefix": "18DL_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2018,
+      "election_official": "DL_RP",
+      "master_prefix": "18DL_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2018,
+      "election_official": "G",
+      "master_prefix": "18G_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": null
+    },
+    {
+      "year": 2021,
+      "election_official": "A",
+      "master_prefix": "21A_",
+      "official_ordinary_sections": 3159,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3158,
+          "official_intersection": 3158,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            1404
+          ]
+        },
+        "LN": {
+          "master_nonnull": 3158,
+          "official_intersection": 3158,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            1404
+          ]
+        }
+      },
+      "modality_warning": null
+    },
+    {
+      "year": 2021,
+      "election_official": "DL_MR",
+      "master_prefix": "21DL_",
+      "official_ordinary_sections": 3159,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "PRI": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "PVEM": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "MORENA": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "TOTAL": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "LN": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2021,
+      "election_official": "DL_RP",
+      "master_prefix": "21DL_",
+      "official_ordinary_sections": 3159,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "PRI": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "PVEM": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "MORENA": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "TOTAL": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        },
+        "LN": {
+          "master_nonnull": 2831,
+          "official_intersection": 2831,
+          "missing_official_sections": 328,
+          "master_outside_official_sections": 0,
+          "missing_examples": [
+            761,
+            762,
+            763,
+            1318,
+            1319,
+            1320,
+            1321,
+            1323,
+            1324,
+            1325,
+            1326,
+            1330
+          ]
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "A",
+      "master_prefix": "24A_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3257,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 24,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3257,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 24,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3257,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 24,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3257,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 24,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3257,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 24,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3257,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 24,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": null
+    },
+    {
+      "year": 2024,
+      "election_official": "DL_MR",
+      "master_prefix": "24DL_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "DL_RP",
+      "master_prefix": "24DL_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3254,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 21,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "G",
+      "master_prefix": "24G_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3109,
+          "missing_official_sections": 124,
+          "master_outside_official_sections": 28,
+          "missing_examples": [
+            2786,
+            3155,
+            3156,
+            3157,
+            3158,
+            3159,
+            3160,
+            3161,
+            3162,
+            3163,
+            3164,
+            3165
+          ]
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3109,
+          "missing_official_sections": 124,
+          "master_outside_official_sections": 28,
+          "missing_examples": [
+            2786,
+            3155,
+            3156,
+            3157,
+            3158,
+            3159,
+            3160,
+            3161,
+            3162,
+            3163,
+            3164,
+            3165
+          ]
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3109,
+          "missing_official_sections": 124,
+          "master_outside_official_sections": 28,
+          "missing_examples": [
+            2786,
+            3155,
+            3156,
+            3157,
+            3158,
+            3159,
+            3160,
+            3161,
+            3162,
+            3163,
+            3164,
+            3165
+          ]
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3109,
+          "missing_official_sections": 124,
+          "master_outside_official_sections": 28,
+          "missing_examples": [
+            2786,
+            3155,
+            3156,
+            3157,
+            3158,
+            3159,
+            3160,
+            3161,
+            3162,
+            3163,
+            3164,
+            3165
+          ]
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3109,
+          "missing_official_sections": 124,
+          "master_outside_official_sections": 28,
+          "missing_examples": [
+            2786,
+            3155,
+            3156,
+            3157,
+            3158,
+            3159,
+            3160,
+            3161,
+            3162,
+            3163,
+            3164,
+            3165
+          ]
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3109,
+          "missing_official_sections": 124,
+          "master_outside_official_sections": 28,
+          "missing_examples": [
+            2786,
+            3155,
+            3156,
+            3157,
+            3158,
+            3159,
+            3160,
+            3161,
+            3162,
+            3163,
+            3164,
+            3165
+          ]
+        }
+      },
+      "modality_warning": null
+    },
+    {
+      "year": 2018,
+      "election_official": "DF_MR",
+      "master_prefix": "18DF_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2018,
+      "election_official": "DF_RP",
+      "master_prefix": "18DF_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2018,
+      "election_official": "S_MR",
+      "master_prefix": "18S_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2018,
+      "election_official": "S_RP",
+      "master_prefix": "18S_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2018,
+      "election_official": "P",
+      "master_prefix": "18P_",
+      "official_ordinary_sections": 3137,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3137,
+          "official_intersection": 3137,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": null
+    },
+    {
+      "year": 2021,
+      "election_official": "DF_MR",
+      "master_prefix": "21DF_",
+      "official_ordinary_sections": 3159,
+      "master_fields": {
+        "TOTAL": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2021,
+      "election_official": "DF_RP",
+      "master_prefix": "21DF_",
+      "official_ordinary_sections": 3159,
+      "master_fields": {
+        "TOTAL": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3159,
+          "official_intersection": 3159,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 0,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "DF_MR",
+      "master_prefix": "24DF_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "DF_RP",
+      "master_prefix": "24DF_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "S_MR",
+      "master_prefix": "24S_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "S_RP",
+      "master_prefix": "24S_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PVEM": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "MORENA": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "TOTAL": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "LN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        }
+      },
+      "modality_warning": "Master field has no explicit MR/RP; both rows above inspect same historical column, not two distinct stored modalities."
+    },
+    {
+      "year": 2024,
+      "election_official": "P",
+      "master_prefix": "24P_",
+      "official_ordinary_sections": 3233,
+      "master_fields": {
+        "PAN": {
+          "master_nonnull": 3237,
+          "official_intersection": 3233,
+          "missing_official_sections": 0,
+          "master_outside_official_sections": 4,
+          "missing_examples": []
+        },
+        "PRI": {
+          "master_nonnull": 3236,
+          "official_intersection": 3232,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 4,
+          "missing_examples": [
+            1150
+          ]
+        },
+        "PVEM": {
+          "master_nonnull": 3236,
+          "official_intersection": 3232,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 4,
+          "missing_examples": [
+            1150
+          ]
+        },
+        "MORENA": {
+          "master_nonnull": 3236,
+          "official_intersection": 3232,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 4,
+          "missing_examples": [
+            1150
+          ]
+        },
+        "TOTAL": {
+          "master_nonnull": 3236,
+          "official_intersection": 3232,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 4,
+          "missing_examples": [
+            1150
+          ]
+        },
+        "LN": {
+          "master_nonnull": 3236,
+          "official_intersection": 3232,
+          "missing_official_sections": 1,
+          "master_outside_official_sections": 4,
+          "missing_examples": [
+            1150
+          ]
+        }
+      },
+      "modality_warning": null
+    }
+  ],
+  "critical_findings": [
+    {
+      "id": "MASTER_24G_COPY_18G",
+      "severity": "critical",
+      "evidence": "For PAN, PRI, PVEM, MORENA, TOTAL and LN, all 3137 non-null 24G values exactly equal 18G at identical section keys. In 3109 shared ordinary 2024 SICEE sections, 24G_TOTAL equals official 2024 total only 13 times.",
+      "action": "Do not use master 24G as 2024 gubernatura; rebuild from versioned official 2024 source preserving historical 2018."
+    },
+    {
+      "id": "MASTER_21DL_COVERAGE",
+      "severity": "high",
+      "evidence": "Only 2831 of 3159 official ordinary 2021 DL sections have non-null master 21DL fields; 328 absent.",
+      "action": "Fill via complete official MR/RP separately after source reconciliation."
+    },
+    {
+      "id": "MASTER_21DF_PARTY_ABSENCE",
+      "severity": "high",
+      "evidence": "Master 21DF only has TOTAL and LN, no PAN/PRI/PVEM/MORENA columns.",
+      "action": "Ingest all official option columns MR/RP."
+    }
+  ],
+  "recovery_checks": [
+    {
+      "year": 2021,
+      "election": "DL_MR",
+      "missing_master_totals": 328,
+      "derived_present": 328,
+      "derived_matches_official_total": 328
+    },
+    {
+      "year": 2021,
+      "election": "A",
+      "missing_master_totals": 1,
+      "derived_present": 1,
+      "derived_matches_official_total": 1,
+      "section": 1404
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "missing_master_totals": 124,
+      "derived_present": 124,
+      "derived_matches_official_total": 124,
+      "warning": "All non-null 24G master columns are exact copies of 18G; derived G is official-compatible on all 3233 ordinary total rows."
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "missing_master_totals": 1,
+      "derived_present": 1,
+      "derived_matches_official_total": 1,
+      "section": 1150
+    }
+  ],
+  "duplicate_scan_note": "The six 24G_* columns equal 18G_* on all 3137 rows. Other exact matches found were LISTA_NOMINAL across elections within the same year and 24DF_LN=24S_LN; these are compatible with shared nominal geography and are not evidence of copied votes. No other cross-year party/total series was identical."
+}

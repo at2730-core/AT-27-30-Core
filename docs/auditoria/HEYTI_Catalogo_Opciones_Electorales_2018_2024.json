@@ -1,0 +1,3993 @@
+{
+  "scope": "Guanajuato, elecciones 2018/2021/2024; no incorpora 2015",
+  "source": "INE SICEE, CSV por seccion",
+  "datasets": [
+    {
+      "year": 2018,
+      "election": "A",
+      "zip_filename": "INE_SICEE_GTO_PEL_2018_original.zip",
+      "zip_sha256": "c5683d3bdadb4025880ddecb7c0de32b63cf9f2909bd2cfed760452669bc3b04",
+      "csv_path": "GTO_PEL_2018/AYUNTAMIENTOS_csv/2018_SEE_AYUN_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3137,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3131,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3131,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3013,
+          "positive_sections": 2950,
+          "blank_sections": 124
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3132,
+          "positive_sections": 3120,
+          "blank_sections": 5
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3122,
+          "positive_sections": 3028,
+          "blank_sections": 15
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3113,
+          "positive_sections": 3032,
+          "blank_sections": 24
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3070,
+          "positive_sections": 2997,
+          "blank_sections": 67
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3124,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3122,
+          "positive_sections": 2831,
+          "blank_sections": 15
+        },
+        {
+          "column": "MORENA_PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3122,
+          "positive_sections": 2201,
+          "blank_sections": 15
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3122,
+          "positive_sections": 1593,
+          "blank_sections": 15
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3122,
+          "positive_sections": 917,
+          "blank_sections": 15
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3122,
+          "positive_sections": 492,
+          "blank_sections": 15
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 90,
+          "positive_sections": 84,
+          "blank_sections": 3047
+        },
+        {
+          "column": "CAND_IND4",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 90,
+          "positive_sections": 86,
+          "blank_sections": 3047
+        },
+        {
+          "column": "CAND_IND5",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 43,
+          "positive_sections": 43,
+          "blank_sections": 3094
+        },
+        {
+          "column": "CAND_IND6",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 43,
+          "positive_sections": 43,
+          "blank_sections": 3094
+        },
+        {
+          "column": "CAND_IND7",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 43,
+          "positive_sections": 39,
+          "blank_sections": 3094
+        },
+        {
+          "column": "CAND_IND8",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 5,
+          "positive_sections": 5,
+          "blank_sections": 3132
+        },
+        {
+          "column": "CAND_IND9",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 247,
+          "positive_sections": 245,
+          "blank_sections": 2890
+        },
+        {
+          "column": "CAND_IND10",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 43,
+          "positive_sections": 43,
+          "blank_sections": 3094
+        },
+        {
+          "column": "CAND_IND11",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 71,
+          "positive_sections": 70,
+          "blank_sections": 3066
+        },
+        {
+          "column": "CAND_IND12",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 71,
+          "positive_sections": 71,
+          "blank_sections": 3066
+        },
+        {
+          "column": "CAND_IND13",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 13,
+          "positive_sections": 13,
+          "blank_sections": 3124
+        },
+        {
+          "column": "CAND_IND14",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 249,
+          "positive_sections": 249,
+          "blank_sections": 2888
+        },
+        {
+          "column": "CAND_IND15",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 18,
+          "positive_sections": 16,
+          "blank_sections": 3119
+        },
+        {
+          "column": "CAND_IND16",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 114,
+          "positive_sections": 108,
+          "blank_sections": 3023
+        },
+        {
+          "column": "CAND_IND17",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 154,
+          "positive_sections": 149,
+          "blank_sections": 2983
+        },
+        {
+          "column": "CAND_IND18",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 154,
+          "positive_sections": 152,
+          "blank_sections": 2983
+        },
+        {
+          "column": "CAND_IND19",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 71,
+          "positive_sections": 65,
+          "blank_sections": 3066
+        },
+        {
+          "column": "CAND_IND20",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 38,
+          "positive_sections": 0,
+          "blank_sections": 3099
+        },
+        {
+          "column": "CAND_IND21",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 103,
+          "positive_sections": 93,
+          "blank_sections": 3034
+        },
+        {
+          "column": "CAND_IND22",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 103,
+          "positive_sections": 96,
+          "blank_sections": 3034
+        },
+        {
+          "column": "CAND_IND23",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 36,
+          "positive_sections": 36,
+          "blank_sections": 3101
+        },
+        {
+          "column": "CAND_IND24",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 34,
+          "positive_sections": 33,
+          "blank_sections": 3103
+        },
+        {
+          "column": "CAND_IND25",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 26,
+          "positive_sections": 26,
+          "blank_sections": 3111
+        },
+        {
+          "column": "CAND_IND26",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 75,
+          "positive_sections": 75,
+          "blank_sections": 3062
+        },
+        {
+          "column": "CAND_IND27",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 28,
+          "positive_sections": 28,
+          "blank_sections": 3109
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "DL_MR",
+      "zip_filename": "INE_SICEE_GTO_PEL_2018_original.zip",
+      "zip_sha256": "c5683d3bdadb4025880ddecb7c0de32b63cf9f2909bd2cfed760452669bc3b04",
+      "csv_path": "GTO_PEL_2018/DIPUTACIONES_LOC_MR_csv/2018_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3137,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3137,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3137,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3069,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3131,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3079,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3103,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3082,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3130,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 2978,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 2132,
+          "blank_sections": 232
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 1579,
+          "blank_sections": 232
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 1105,
+          "blank_sections": 232
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 360,
+          "blank_sections": 232
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3049,
+          "positive_sections": 1874,
+          "blank_sections": 88
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 110,
+          "positive_sections": 109,
+          "blank_sections": 3027
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 107,
+          "positive_sections": 104,
+          "blank_sections": 3030
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "DL_RP",
+      "zip_filename": "INE_SICEE_GTO_PEL_2018_original.zip",
+      "zip_sha256": "c5683d3bdadb4025880ddecb7c0de32b63cf9f2909bd2cfed760452669bc3b04",
+      "csv_path": "GTO_PEL_2018/DIPUTACIONES_LOC_RP_csv/2018_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3137,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3137,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3137,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3069,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3131,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3079,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3103,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3082,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3130,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 2978,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 2132,
+          "blank_sections": 232
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 1579,
+          "blank_sections": 232
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 1105,
+          "blank_sections": 232
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2905,
+          "positive_sections": 360,
+          "blank_sections": 232
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3049,
+          "positive_sections": 1874,
+          "blank_sections": 88
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "G",
+      "zip_filename": "INE_SICEE_GTO_PEL_2018_original.zip",
+      "zip_sha256": "c5683d3bdadb4025880ddecb7c0de32b63cf9f2909bd2cfed760452669bc3b04",
+      "csv_path": "GTO_PEL_2018/GUBERNATURA_csv/2018_SEE_GOB_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3138,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3124,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3124,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3039,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3119,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3076,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3051,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3072,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3119,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 2958,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2428,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1713,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1389,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 476,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2291,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1704,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1041,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 576,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2021,
+      "election": "A",
+      "zip_filename": "INE_SICEE_GTO_PEL_2021_original.zip",
+      "zip_sha256": "b1104c62ba32602e0ec6b0b54778fd456fcf25004552368a21ccfad7ccf70c9c",
+      "csv_path": "GTO_PEL_2021/AYUNTAMIENTOS_csv/2021_SEE_AYUN_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3159,
+      "ordinary_rows": 3159,
+      "ordinary_unique_sections": 3159,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3157,
+          "positive_sections": 3157,
+          "blank_sections": 2
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3157,
+          "positive_sections": 3155,
+          "blank_sections": 2
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3085,
+          "positive_sections": 2905,
+          "blank_sections": 74
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3123,
+          "positive_sections": 3085,
+          "blank_sections": 36
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 2856,
+          "positive_sections": 2697,
+          "blank_sections": 303
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3125,
+          "positive_sections": 3044,
+          "blank_sections": 34
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3142,
+          "positive_sections": 3139,
+          "blank_sections": 17
+        },
+        {
+          "column": "NA_GTO",
+          "kind": "partido",
+          "nonempty_sections": 3066,
+          "positive_sections": 2920,
+          "blank_sections": 93
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "nonempty_sections": 2634,
+          "positive_sections": 2393,
+          "blank_sections": 525
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "nonempty_sections": 2324,
+          "positive_sections": 2100,
+          "blank_sections": 835
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "nonempty_sections": 2337,
+          "positive_sections": 2092,
+          "blank_sections": 822
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 1209,
+          "positive_sections": 461,
+          "blank_sections": 1950
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 43,
+          "positive_sections": 43,
+          "blank_sections": 3116
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 55,
+          "positive_sections": 51,
+          "blank_sections": 3104
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 90,
+          "positive_sections": 88,
+          "blank_sections": 3069
+        },
+        {
+          "column": "CAND_IND4",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 26,
+          "positive_sections": 26,
+          "blank_sections": 3133
+        },
+        {
+          "column": "CAND_IND5",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 154,
+          "positive_sections": 146,
+          "blank_sections": 3005
+        },
+        {
+          "column": "CAND_IND6",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 71,
+          "positive_sections": 71,
+          "blank_sections": 3088
+        },
+        {
+          "column": "CAND_IND7",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 249,
+          "positive_sections": 246,
+          "blank_sections": 2910
+        },
+        {
+          "column": "CAND_IND8",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 10,
+          "positive_sections": 10,
+          "blank_sections": 3149
+        },
+        {
+          "column": "CAND_IND9",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 78,
+          "positive_sections": 77,
+          "blank_sections": 3081
+        },
+        {
+          "column": "CAND_IND10",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 154,
+          "positive_sections": 144,
+          "blank_sections": 3005
+        },
+        {
+          "column": "CAND_IND11",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 90,
+          "positive_sections": 88,
+          "blank_sections": 3069
+        },
+        {
+          "column": "CAND_IND12",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 43,
+          "positive_sections": 43,
+          "blank_sections": 3116
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 2,
+        "mismatch_examples": [],
+        "non_numeric_examples": [
+          "2541",
+          "163"
+        ]
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta.",
+      "missing_total_details": [
+        {
+          "section": 163,
+          "sicee_section_total": null,
+          "sicee_nominal_list": 678,
+          "sicee_casillas": [
+            {
+              "type": "B1",
+              "votes": 371,
+              "nominal_list": 678,
+              "tribunal": "ANULADA",
+              "act_status": "1"
+            }
+          ],
+          "ieeg_2021_casillas": [
+            {
+              "type": "B",
+              "votes": 371,
+              "nominal_list": 678,
+              "observation": "Cotejo"
+            }
+          ],
+          "interpretation": "Votos del corte IEEG excluidos en el total seccional SICEE por anulacion judicial; preservar total NULL y causal, sin convertir a cero."
+        },
+        {
+          "section": 2541,
+          "sicee_section_total": null,
+          "sicee_nominal_list": 1202,
+          "sicee_casillas": [
+            {
+              "type": "B1",
+              "votes": 214,
+              "nominal_list": 601,
+              "tribunal": "ANULADA",
+              "act_status": "1"
+            },
+            {
+              "type": "C1",
+              "votes": 222,
+              "nominal_list": 601,
+              "tribunal": "ANULADA",
+              "act_status": "5"
+            }
+          ],
+          "ieeg_2021_casillas": [
+            {
+              "type": "B",
+              "votes": 214,
+              "nominal_list": 601,
+              "observation": "Cotejo"
+            },
+            {
+              "type": "C",
+              "votes": 222,
+              "nominal_list": 601,
+              "observation": "Recuento"
+            }
+          ],
+          "interpretation": "Ambas casillas del corte IEEG excluidas en SICEE por anulacion judicial; preservar total NULL y causal."
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "election": "DL_MR",
+      "zip_filename": "INE_SICEE_GTO_PEL_2021_original.zip",
+      "zip_sha256": "b1104c62ba32602e0ec6b0b54778fd456fcf25004552368a21ccfad7ccf70c9c",
+      "csv_path": "GTO_PEL_2021/DIPUTACIONES_LOC_MR_csv/2021_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3159,
+      "ordinary_rows": 3159,
+      "ordinary_unique_sections": 3159,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3158,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3154,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2999,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3137,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2978,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3105,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3155,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA_GTO",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3056,
+          "blank_sections": 0
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2887,
+          "blank_sections": 0
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2810,
+          "blank_sections": 0
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2762,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2164,
+          "positive_sections": 474,
+          "blank_sections": 995
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 148,
+          "positive_sections": 124,
+          "blank_sections": 3011
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2021,
+      "election": "DL_RP",
+      "zip_filename": "INE_SICEE_GTO_PEL_2021_original.zip",
+      "zip_sha256": "b1104c62ba32602e0ec6b0b54778fd456fcf25004552368a21ccfad7ccf70c9c",
+      "csv_path": "GTO_PEL_2021/DIPUTACIONES_LOC_RP_csv/2021_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3159,
+      "ordinary_rows": 3159,
+      "ordinary_unique_sections": 3159,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 3158,
+          "blank_sections": 1
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 3154,
+          "blank_sections": 1
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 2999,
+          "blank_sections": 1
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 3137,
+          "blank_sections": 1
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 2979,
+          "blank_sections": 1
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 3105,
+          "blank_sections": 1
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 3155,
+          "blank_sections": 1
+        },
+        {
+          "column": "NA_GTO",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 3056,
+          "blank_sections": 1
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 2888,
+          "blank_sections": 1
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 2811,
+          "blank_sections": 1
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "nonempty_sections": 3158,
+          "positive_sections": 2765,
+          "blank_sections": 1
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 2164,
+          "positive_sections": 474,
+          "blank_sections": 995
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 151,
+          "positive_sections": 124,
+          "blank_sections": 3008
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 1,
+        "mismatch_examples": [],
+        "non_numeric_examples": [
+          "1080"
+        ]
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta.",
+      "missing_total_details": [
+        {
+          "section": 1080,
+          "sicee_section_total": null,
+          "sicee_nominal_list": 1346,
+          "sicee_casillas": [
+            {
+              "type": "B1",
+              "votes": null,
+              "nominal_list": 673,
+              "act_status": "PAQUETE NO ENTREGADO"
+            },
+            {
+              "type": "C1",
+              "votes": null,
+              "nominal_list": 673,
+              "act_status": "PAQUETE NO ENTREGADO"
+            }
+          ],
+          "ieeg_2021_casillas": [
+            {
+              "type": "B",
+              "votes": null,
+              "raw_votes": "-",
+              "nominal_list": 673,
+              "observation": "Recuento"
+            },
+            {
+              "type": "C",
+              "votes": null,
+              "raw_votes": "-",
+              "nominal_list": 673,
+              "observation": "Recuento"
+            }
+          ],
+          "other_modality": {
+            "election": "DL_MR",
+            "sicee_section_total": 0,
+            "sicee_nominal_list": 1346
+          },
+          "interpretation": "RP carece de votacion publicada por paquetes no entregados; MR publica 0 para la misma seccion. No copiar cero MR al total RP."
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "election": "A",
+      "zip_filename": "INE_SICEE_GTO_PEL_2024_original.zip",
+      "zip_sha256": "13fe6a2ddb432922bddc9090f08eb0e558aeb3094ef1ba763b78d789b3d55e69",
+      "csv_path": "GTO_PEL_2024/AYUNTAMIENTOS_csv/2024_SEE_AYUN_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3257,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 24,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3217,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3201,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 2605,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3193,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 2949,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3025,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3217,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1463,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1245,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 438,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 112,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND_1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 3233,
+          "positive_sections": 54,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND_2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 3233,
+          "positive_sections": 98,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND_3",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 3233,
+          "positive_sections": 36,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "DL_MR",
+      "zip_filename": "INE_SICEE_GTO_PEL_2024_original.zip",
+      "zip_sha256": "13fe6a2ddb432922bddc9090f08eb0e558aeb3094ef1ba763b78d789b3d55e69",
+      "csv_path": "GTO_PEL_2024/DIPUTACIONES LOC_MR_csv/2024_SEE_DIP_LOC_MR_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3258,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 25,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3226,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 2903,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3215,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3196,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3224,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3231,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 778,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 602,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 215,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 99,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1586,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1175,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1341,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 817,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "DL_RP",
+      "zip_filename": "INE_SICEE_GTO_PEL_2024_original.zip",
+      "zip_sha256": "13fe6a2ddb432922bddc9090f08eb0e558aeb3094ef1ba763b78d789b3d55e69",
+      "csv_path": "GTO_PEL_2024/DIPUTACIONES LOC_RP_csv/2024_SEE_DIP_LOC_RP_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3258,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 25,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3226,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 2904,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3215,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3196,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3224,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3231,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 778,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 602,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 215,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 99,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1586,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1175,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1341,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 817,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "G",
+      "zip_filename": "INE_SICEE_GTO_PEL_2024_original.zip",
+      "zip_sha256": "13fe6a2ddb432922bddc9090f08eb0e558aeb3094ef1ba763b78d789b3d55e69",
+      "csv_path": "GTO_PEL_2024/GUBERNATURA_csv/2024_SEE_GOB_GTO_SEC.csv",
+      "csv_encoding": "utf-8-sig",
+      "gto_rows": 3259,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 26,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3220,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3028,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3211,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3182,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3221,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2986,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2564,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 998,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 408,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 3014,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2265,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2563,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1551,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "DF_MR",
+      "zip_filename": "INE_SICEE_DF_MR_2018_original.zip",
+      "zip_sha256": "0c6c40bb408cbbcc06e2fd61413d85f2dd1d8d49a2c2bb362cea8f27b3c94be4",
+      "csv_path": "DIPUTACIONES_FED_MR_2018/2018_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3137,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3134,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3134,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3086,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3130,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3101,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3094,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3104,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3133,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3023,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2315,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1673,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1420,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 392,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2430,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1836,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 353,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1302,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND4",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND5",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND6",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 216,
+          "positive_sections": 215,
+          "blank_sections": 2921
+        },
+        {
+          "column": "CAND_IND7",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND8",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND9",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND10",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND11",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND12",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND13",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND14",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND15",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND16",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND17",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND18",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND19",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND20",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND21",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND22",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND23",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND24",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND25",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND26",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND27",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND28",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND29",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND30",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND31",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND32",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND33",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND34",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND35",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND36",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND37",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND38",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "DF_RP",
+      "zip_filename": "INE_SICEE_DF_RP_2018_original.zip",
+      "zip_sha256": "27516a545057c1114f82a5a73febd11750c9b7c9a33ace37ad4b00f809bbe6e0",
+      "csv_path": "DIPUTACIONES_FED_RP_2018/2018_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3137,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3134,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3134,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3086,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3130,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3101,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3094,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3104,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3133,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3023,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2315,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1673,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1420,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 392,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2430,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1836,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 353,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1302,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "S_MR",
+      "zip_filename": "INE_SICEE_S_2018_original.zip",
+      "zip_sha256": "fc83f3e8aaba95357cd49b4bd91ee0171cfe00a66d5bb4cd9b35906cfbe32ee1",
+      "csv_path": "SENADURIAS_MR_2018/2018_SEE_SEN_MR_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3138,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3136,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3136,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3070,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3133,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3106,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3109,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3096,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3135,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3027,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2262,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1624,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1375,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 362,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2442,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1866,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 352,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1252,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND4",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND5",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND6",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "CAND_IND7",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "S_RP",
+      "zip_filename": "INE_SICEE_S_RP_2018_original.zip",
+      "zip_sha256": "582de042911ea1edf5f3b342f5a9661ed3ef4077352b68c8fad49ea98716b163",
+      "csv_path": "SENADURIAS_RP_2018/2018_SEE_SEN_RP_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3138,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3136,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3136,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3070,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3133,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3106,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3109,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3096,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3135,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3027,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2262,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1624,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1375,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 362,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3137
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2442,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1866,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 352,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1252,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2018,
+      "election": "P",
+      "zip_filename": "INE_SICEE_P_2018_original.zip",
+      "zip_sha256": "f04fbad28bb13f960f3136efc7e3e4cbc61a613794429c8433699cb9d86e84c0",
+      "csv_path": "PRESIDENCIA_2018/2018_SEE_PRE_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3138,
+      "ordinary_rows": 3137,
+      "ordinary_unique_sections": 3137,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3135,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3133,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 2982,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3098,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3116,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3025,
+          "blank_sections": 0
+        },
+        {
+          "column": "NA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 2920,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 3133,
+          "blank_sections": 0
+        },
+        {
+          "column": "ES",
+          "kind": "partido",
+          "nonempty_sections": 3137,
+          "positive_sections": 2997,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2749,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1976,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1811,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD_MC",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 359,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1762,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PVEM",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2011,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 718,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_NA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 471,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2901,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 2345,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 843,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA_ES",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3137,
+          "positive_sections": 1913,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 3137,
+          "positive_sections": 593,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 3137,
+          "positive_sections": 3117,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2021,
+      "election": "DF_MR",
+      "zip_filename": "INE_SICEE_DF_MR_2021_original.zip",
+      "zip_sha256": "90e325eed451985506750e7b03444c64b79382fdd31ab9ef4cdfb274e6a6798e",
+      "csv_path": "DIPUTACIONES_FED_MR_2021/2021_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3174,
+      "ordinary_rows": 3159,
+      "ordinary_unique_sections": 3159,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 15,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3158,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3157,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3018,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3145,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2982,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3117,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3157,
+          "blank_sections": 0
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3012,
+          "blank_sections": 0
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2799,
+          "blank_sections": 0
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2921,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 111,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 75,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 44,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 35,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 22,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 14,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 29,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 51,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3159
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3159
+        },
+        {
+          "column": "CAND_IND3",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3159
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2021,
+      "election": "DF_RP",
+      "zip_filename": "INE_SICEE_DF_RP_2021_original.zip",
+      "zip_sha256": "65f86f16baa871dfba4d7bba841f4c5502bffe99d1dcf03b6150978b63bd588e",
+      "csv_path": "DIPUTACIONES_FED_RP_2021/2021_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3174,
+      "ordinary_rows": 3159,
+      "ordinary_unique_sections": 3159,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 15,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3158,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3157,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3018,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3145,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2982,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3117,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3157,
+          "blank_sections": 0
+        },
+        {
+          "column": "PES",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 3012,
+          "blank_sections": 0
+        },
+        {
+          "column": "RSP",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2799,
+          "blank_sections": 0
+        },
+        {
+          "column": "FXM",
+          "kind": "partido",
+          "nonempty_sections": 3159,
+          "positive_sections": 2921,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 111,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 75,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 44,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 35,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 22,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 14,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 29,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3159,
+          "positive_sections": 51,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "DF_MR",
+      "zip_filename": "INE_SICEE_DF_MR_2024_original.zip",
+      "zip_sha256": "9da21ef4e7ed7f490d3351c4834c4cea0bff050699d9d4ebf45f902e333cc61c",
+      "csv_path": "DIPUTACIONES_FED_MR_2024/CSV/2024_SEE_DIP_FED_MR_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3233,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3227,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3079,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3219,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3210,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3226,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2356,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2088,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 673,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 264,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 3078,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1745,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2666,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2335,
+          "blank_sections": 0
+        },
+        {
+          "column": "CAND_IND1",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3233
+        },
+        {
+          "column": "CAND_IND2",
+          "kind": "candidatura_independiente",
+          "nonempty_sections": 0,
+          "positive_sections": 0,
+          "blank_sections": 3233
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "DF_RP",
+      "zip_filename": "INE_SICEE_DF_RP_2024_original.zip",
+      "zip_sha256": "57702d9440ee5b7543366bd16b680ff503c96a19c2e969675b2c4522e05605a4",
+      "csv_path": "DIPUTACIONES_FED_RP_2024/CSV/2024_SEE_DIP_FED_RP_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3233,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 0,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3227,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3079,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3219,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3210,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3226,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2357,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2090,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 675,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 264,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 3079,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1746,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2668,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2336,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "S_MR",
+      "zip_filename": "INE_SICEE_S_2024_original.zip",
+      "zip_sha256": "bafa39ae21279f229a3892422d8b9fb339160bc92a17c9a3583c92c1154c19cf",
+      "csv_path": "SENADURÍAS_MR_2024/CSV/2024_SEE_SEN_FED_MR_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3234,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3225,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3064,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3221,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3212,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3228,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 3058,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1750,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2685,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2344,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "S_RP",
+      "zip_filename": "INE_SICEE_S_RP_2024_original.zip",
+      "zip_sha256": "2c5d1aee26b9dfd1d188c9c9949d2b8d366c055d5e2a37b1da2a8b0dcc9fafbe",
+      "csv_path": "SENADURÍAS_RP_2024/CSV/2024_SEE_SEN_FED_RP_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3234,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3225,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3064,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3221,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3212,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3228,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 0,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 3058,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1750,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2685,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2344,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    },
+    {
+      "year": 2024,
+      "election": "P",
+      "zip_filename": "INE_SICEE_P_2024_original.zip",
+      "zip_sha256": "3122304d4dec2a24168708af9836f5df2860ac4347163dc311473bd037737bbf",
+      "csv_path": "PRESIDENCIA_2024/CSV/2024_SEE_PRE_NAL_SEC.csv",
+      "csv_encoding": "latin-1",
+      "gto_rows": 3234,
+      "ordinary_rows": 3233,
+      "ordinary_unique_sections": 3233,
+      "duplicate_ordinary_sections": 0,
+      "section_zero_rows": 1,
+      "voting_options": [
+        {
+          "column": "PAN",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3226,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRD",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 2973,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3220,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3218,
+          "blank_sections": 0
+        },
+        {
+          "column": "MC",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3231,
+          "blank_sections": 0
+        },
+        {
+          "column": "MORENA",
+          "kind": "partido",
+          "nonempty_sections": 3233,
+          "positive_sections": 3232,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2981,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRI",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2694,
+          "blank_sections": 0
+        },
+        {
+          "column": "PAN_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 1063,
+          "blank_sections": 0
+        },
+        {
+          "column": "PRI_PRD",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 410,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 3138,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_PT",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2039,
+          "blank_sections": 0
+        },
+        {
+          "column": "PVEM_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2796,
+          "blank_sections": 0
+        },
+        {
+          "column": "PT_MORENA",
+          "kind": "combinacion_coalicion",
+          "nonempty_sections": 3233,
+          "positive_sections": 2760,
+          "blank_sections": 0
+        }
+      ],
+      "extra_columns": [
+        "NUM_VOTOS_CAN_NREG",
+        "NUM_VOTOS_NULOS",
+        "TOTAL_VOTOS",
+        "LISTA_NOMINAL"
+      ],
+      "total_reconciliation": {
+        "mismatch_count": 0,
+        "non_numeric_rows": 0,
+        "mismatch_examples": [],
+        "non_numeric_examples": []
+      },
+      "note": "Opciones registradas en columnas originales; no redistribuir combinaciones a partidos ni tratar celdas vacias como votos cero en la ingesta."
+    }
+  ]
+}

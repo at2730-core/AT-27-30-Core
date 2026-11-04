@@ -1,0 +1,1126 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ganar Todo · HEYTI</title><style>
+:root{--bg:#edf2f7;--paper:#fff;--text:#172b40;--muted:#465c72;--link:#154fb8;--border:#ccd7e3;--soft:#eef4fc;--size:18px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:110px}body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;font-size:var(--size);line-height:1.7}a{color:var(--link);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}button,a:focus-visible{outline-offset:4px}button{font:inherit;font-size:16px;cursor:pointer;color:var(--text);background:var(--paper);border:1px solid var(--border);border-radius:9px;padding:7px 12px}button:hover{background:var(--soft)}.top{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;background:var(--paper);border-bottom:1px solid var(--border);padding:12px 24px}.brand{font-size:16px;letter-spacing:1.5px;font-weight:800}.tools{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.tools a{font-size:16px;margin-right:8px}.layout{max-width:1550px;margin:26px auto;display:grid;grid-template-columns:290px minmax(0,1fr);gap:26px;padding:0 24px}.sidebar{position:sticky;top:105px;align-self:start;max-height:calc(100vh - 130px);overflow:auto;background:var(--paper);border:1px solid var(--border);border-radius:12px;padding:19px}.sidebar summary{cursor:pointer;font-weight:700}.sidebar ol{padding-left:22px}.sidebar li{font-size:15px;line-height:1.45;margin:12px 0}.sidebar a{text-decoration:none}.sidebar a:hover{text-decoration:underline}.content{min-width:0;background:var(--paper);border:1px solid var(--border);border-radius:14px;padding:38px 48px;box-shadow:0 5px 22px #17324d08}h1,h2,h3,h4{line-height:1.28;color:var(--text)}h1{font-size:2rem;margin-top:8px}h2{font-size:1.55rem;margin-top:2.5em;border-top:1px solid var(--border);padding-top:26px;scroll-margin-top:110px}h3{font-size:1.16rem;margin-top:1.7em}p,ul,ol{margin-top:15px;margin-bottom:19px}li{margin:7px 0}blockquote{margin:25px 0;padding:10px 23px;border-left:5px solid #2563b6;background:var(--soft);color:var(--text);border-radius:0 8px 8px 0}code{font-size:.9em;background:var(--soft);padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}.table-scroll{max-width:100%;overflow:auto;margin:24px 0;border:1px solid var(--border);border-radius:10px}table{width:100%;border-collapse:collapse;font-size:.91em;line-height:1.55}th,td{padding:13px 15px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border);min-width:120px}th{background:var(--soft);font-weight:700}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:color-mix(in srgb,var(--soft) 45%,var(--paper))}.meta{font-size:15px;color:var(--muted);margin-bottom:25px}.back{display:inline-block;font-size:15px;margin-top:12px}.footer{padding-top:28px;margin-top:35px;border-top:1px solid var(--border);font-size:15px;color:var(--muted)}.skip{position:absolute;left:10px;top:-100px}.skip:focus{top:10px;z-index:30;background:var(--paper);padding:10px}.home{max-width:1050px;margin:35px auto;padding:35px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:30px 0}.card{display:block;border:1px solid var(--border);border-radius:12px;padding:23px;text-decoration:none;background:var(--paper)}.card strong{display:block;font-size:1.2em}.card small{color:var(--muted)}body.contrast{--bg:#000;--paper:#111;--text:#fff;--muted:#e0e0e0;--link:#a9d7ff;--border:#777;--soft:#252525}body.contrast blockquote{border-left-color:#a9d7ff}.status{font-size:14px;color:var(--muted)}
+@media(max-width:950px){.layout{grid-template-columns:1fr;padding:0 13px;gap:15px}.sidebar{position:static;max-height:none}.sidebar ol{columns:2}.content{padding:25px}.top{padding:12px 15px}h1{font-size:1.65rem}}
+@media(max-width:580px){.sidebar ol{columns:1}.content{padding:20px 17px}.cards{grid-template-columns:1fr}.home{padding:20px}.tools{gap:5px}.tools button{padding:6px 8px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.sidebar,.back,.skip{display:none!important}.layout{display:block;max-width:none;margin:0;padding:0}.content,.home{border:0;box-shadow:none;padding:0;margin:0}body,body.contrast{background:#fff;color:#111;font-size:11pt;--text:#111;--paper:#fff;--border:#bbb;--soft:#eee;--link:#164ba0;--muted:#444}h2{break-after:avoid}h3,h4{break-after:avoid}p,li{orphans:3;widows:3}table{font-size:9pt}.table-scroll{overflow:visible}th,td{min-width:0;padding:7px;overflow-wrap:anywhere}.cards{display:block}.card{margin:12px 0}a{color:#164ba0}blockquote{break-inside:avoid}}
+</style></head><body><a class="skip" href="#contenido">Ir al contenido</a><header class="top"><span class="brand">HEYTI · DOCUMENTOS</span><nav class="tools" aria-label="Controles de lectura"><a href="ABRIR_MANUALES.html">Todos los documentos</a><button type="button" data-smaller aria-label="Reducir tamaño del texto">A−</button><button type="button" data-larger aria-label="Aumentar tamaño del texto">A+</button><button type="button" data-contrast aria-pressed="false">Alto contraste</button><button type="button" data-print>Imprimir / PDF</button><span class="status" data-status role="status">Texto: 18 px</span></nav></header><div class="layout"><aside class="sidebar" aria-label="Índice navegable"><details open><summary>Índice del documento</summary><ol><li><a href="#0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</a></li><li><a href="#01-ubicación-y-función-de-cada-control">0.1. Ubicación y función de cada control</a></li><li><a href="#02-consulta-cruzada">0.2. Consulta cruzada</a></li><li><a href="#03-universo-activo">0.3. Universo activo</a></li><li><a href="#04-individual">0.4. Individual</a></li><li><a href="#05-comparar">0.5. Comparar</a></li><li><a href="#06-resumen-de-sección--expandir">0.6. Resumen de sección → Expandir</a></li><li><a href="#07-recorrido-rápido-antes-de-la-auditoría">0.7. Recorrido rápido antes de la auditoría</a></li><li><a href="#08-qué-registrar-si-hay-una-dificultad">0.8. Qué registrar si hay una dificultad</a></li><li><a href="#1-entrar-y-comenzar">1. Entrar y comenzar</a></li><li><a href="#2-qué-debes-distinguir-al-leer-los-datos">2. Qué debes distinguir al leer los datos</a></li><li><a href="#3-ventanas-tablas-y-mapa">3. Ventanas, tablas y mapa</a></li><li><a href="#4-las-13-consultas-y-sus-ventanas">4. Las 13 consultas y sus ventanas</a></li><li><a href="#5-participación-estimada-3">5. Participación estimada 3%...</a></li><li><a href="#6-participación-histórica">6. Participación histórica</a></li><li><a href="#7-escenario-de-participación-2027">7. Escenario de participación 2027</a></li><li><a href="#8-estabilidad-20182024">8. Estabilidad 2018–2024</a></li><li><a href="#9-metas-de-participación-2027">9. Metas de participación 2027</a></li><li><a href="#10-escenario-descriptivo-2027--votos-y-participación">10. Escenario descriptivo 2027 · votos y participación</a></li><li><a href="#11-diferencia-entre-partidos--2024">11. Diferencia entre partidos · 2024</a></li><li><a href="#12-alertas-de-datos--2024">12. Alertas de datos · 2024</a></li><li><a href="#13-eficiencia-del-voto--histórica-2024">13. Eficiencia del voto · histórica 2024</a></li><li><a href="#14-colindancias-y-agrupaciones">14. Colindancias y agrupaciones</a></li><li><a href="#15-sensibilidad-a-participación">15. Sensibilidad a participación</a></li><li><a href="#16-comparador-de-escenarios-de-participación">16. Comparador de escenarios de participación</a></li><li><a href="#17-distribución-de-votación-por-sección">17. Distribución de votación por sección</a></li><li><a href="#18-método-de-participación-y-diferencias-entre-consultas">18. Método de participación y diferencias entre consultas</a></li><li><a href="#19-si-algo-no-aparece-o-no-coincide">19. Si algo no aparece o no coincide</a></li><li><a href="#20-hoja-de-observaciones-para-la-revisión">20. Hoja de observaciones para la revisión</a></li></ol></details><a class="back" href="#contenido">Volver al principio ↑</a></aside><main class="content" id="contenido"><div class="meta">Manual de usuario · Lectura sin conexión · 23 de octubre de 2026</div><h1 id="heyti-core-v2">HEYTI CORE V2</h1>
+<h1 id="manual-de-uso--ganar-todo">Manual de uso · Ganar Todo</h1>
+<p><strong>Para:</strong> persona que realizará la revisión como usuario final.<br />
+<strong>Versión:</strong> 1.1 · 23 de octubre de 2026.<br />
+<strong>Alcance:</strong> las 13 consultas del módulo <strong>Ganar Todo</strong> de la versión disponible para esta entrega.</p>
+<p>Esta guía explica qué seleccionar, cómo ejecutar cada consulta y qué información encontrarás. No necesitas conocimientos de programación ni modificar archivos. Solicita a Alex que deje HEYTI abierto y funcionando; las calles del mapa base requieren Internet.</p>
+<p>El manual se elaboró revisando la implementación disponible. No sustituye la prueba de uso que vas a realizar. Si una pantalla se comporta distinto, registra el caso con sus filtros y una captura.</p>
+<p><strong>Actualización 23 de octubre de 2026:</strong> se añade la guía de los controles de la pantalla inicial; las consultas siguientes conservan su contenido.</p>
+<h2 id="índice">Índice</h2>
+<ul>
+<li><a href="#0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</a></li>
+<li><a href="#1-entrar-y-comenzar">1. Entrar y comenzar</a></li>
+<li><a href="#2-qu%C3%A9-debes-distinguir-al-leer-los-datos">2. Qué debes distinguir al leer los datos</a></li>
+<li><a href="#3-ventanas-tablas-y-mapa">3. Ventanas, tablas y mapa</a></li>
+<li><a href="#4-las-13-consultas-y-sus-ventanas">4. Las 13 consultas y sus ventanas</a></li>
+<li><a href="#5-participaci%C3%B3n-estimada-3">5. Participación estimada 3%...</a></li>
+<li><a href="#6-participaci%C3%B3n-hist%C3%B3rica">6. Participación histórica</a></li>
+<li><a href="#7-escenario-de-participaci%C3%B3n-2027">7. Escenario de participación 2027</a></li>
+<li><a href="#8-estabilidad-20182024">8. Estabilidad 2018–2024</a></li>
+<li><a href="#9-metas-de-participaci%C3%B3n-2027">9. Metas de participación 2027</a></li>
+<li><a href="#10-escenario-descriptivo-2027--votos-y-participaci%C3%B3n">10. Escenario descriptivo 2027 · votos y participación</a></li>
+<li><a href="#11-diferencia-entre-partidos--2024">11. Diferencia entre partidos · 2024</a></li>
+<li><a href="#12-alertas-de-datos--2024">12. Alertas de datos · 2024</a></li>
+<li><a href="#13-eficiencia-del-voto--hist%C3%B3rica-2024">13. Eficiencia del voto · histórica 2024</a></li>
+<li><a href="#14-colindancias-y-agrupaciones">14. Colindancias y agrupaciones</a></li>
+<li><a href="#15-sensibilidad-a-participaci%C3%B3n">15. Sensibilidad a participación</a></li>
+<li><a href="#16-comparador-de-escenarios-de-participaci%C3%B3n">16. Comparador de escenarios de participación</a></li>
+<li><a href="#17-distribuci%C3%B3n-de-votaci%C3%B3n-por-secci%C3%B3n">17. Distribución de votación por sección</a></li>
+<li><a href="#18-m%C3%A9todo-de-participaci%C3%B3n-y-diferencias-entre-consultas">18. Método de participación y diferencias entre consultas</a></li>
+<li><a href="#19-si-algo-no-aparece-o-no-coincide">19. Si algo no aparece o no coincide</a></li>
+<li><a href="#20-hoja-de-observaciones-para-la-revisi%C3%B3n">20. Hoja de observaciones para la revisión</a></li>
+</ul>
+<h2 id="0-antes-de-abrir-una-consulta-controles-de-la-pantalla-inicial">0. Antes de abrir una consulta: controles de la pantalla inicial</h2>
+<h3 id="01-ubicación-y-función-de-cada-control">0.1. Ubicación y función de cada control</h3>
+<p>En la parte superior derecha de la captura, de izquierda a derecha, aparecen <strong>Consulta cruzada</strong>, <strong>Universo activo</strong> y el selector <strong>Individual / Comparar</strong>. Abajo a la derecha está <strong>Resumen de sección</strong>, con el botón <strong>Expandir</strong>.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Para qué sirve actualmente</th>
+<th>¿Cuándo lo utilizarás?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consulta cruzada</td>
+<td>Abre un aviso sobre una función de consulta futura. No ejecuta todavía una consulta cruzada.</td>
+<td>Para reconocer su estado; no es necesario para ejecutar los manuales actuales.</td>
+</tr>
+<tr>
+<td>Universo activo</td>
+<td>Muestra el contexto territorial seleccionado y abre el formulario «Seleccionar sección».</td>
+<td>Cuando deseas consultar una sección por su número.</td>
+</tr>
+<tr>
+<td>Individual</td>
+<td>Activa el modo de uso de las consultas documentadas.</td>
+<td>Déjalo seleccionado para revisar los tres módulos.</td>
+</tr>
+<tr>
+<td>Comparar</td>
+<td>Abre una pantalla de comparación entre módulos cuya configuración aún está pendiente.</td>
+<td>Puedes reconocer el aviso y volver a Individual; no equivale a una consulta comparativa ya operativa.</td>
+</tr>
+<tr>
+<td>Resumen de sección → Expandir</td>
+<td>Muestra el panel de información de la sección consultada y sus pestañas.</td>
+<td>Para ver identidad, resultados electorales, historial o trazabilidad de una sección.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Los controles no son filtros intercambiables. Elegir una sección, cambiar el modo y abrir una consulta son acciones distintas.</p>
+<h3 id="02-consulta-cruzada">0.2. Consulta cruzada</h3>
+<p><strong>Dónde aparece:</strong> en la cabecera de <strong>Análisis Territorial</strong>. En la implementación actual no se muestra ese mismo botón superior en Ganar Todo ni Socioeconómico; su ausencia allí no es un error.</p>
+<p><strong>Qué significa:</strong> es el acceso previsto para consultas que combinen capacidades o información. En esta versión abre un mensaje informativo, no un formulario operativo de búsqueda.</p>
+<p><strong>Cómo utilizarlo y salir:</strong></p>
+<ol>
+<li>Entra en <strong>Análisis Territorial</strong>.</li>
+<li>Pulsa <strong>Consulta cruzada</strong> en la parte superior.</li>
+<li>Se abre la ventana <strong>Pregúntale a HEYTI</strong>, bajo el rótulo <strong>CONSULTA CRUZADA</strong>.</li>
+<li>Lee el mensaje: <strong>«La consulta cruzada se habilitará al integrar las siguientes capacidades certificadas.»</strong></li>
+<li>Pulsa <strong>×</strong> en la ventana para cerrarla.</li>
+<li>Continúa desde <strong>Consultas del módulo</strong> con una de las consultas disponibles.</li>
+</ol>
+<p>No hay una pregunta que debas escribir ni un filtro adicional que debas encontrar para habilitarla. No necesita que el usuario instale algo. El mensaje tampoco significa que se hayan certificado todas las cifras de la plataforma.</p>
+<p><strong>Qué anotar en la revisión:</strong> si esperabas poder escribir una pregunta al pulsar el botón, registra esa expectativa y el aviso que apareció. No lo confundas con una consulta ejecutada sin resultados.</p>
+<h3 id="03-universo-activo">0.3. Universo activo</h3>
+<p><strong>Dónde está:</strong> botón superior con el rótulo <strong>UNIVERSO ACTIVO</strong>, un nombre territorial y una flecha hacia abajo. En la captura dice <strong>Sección 1024</strong>. Antes de seleccionar un territorio puede decir <strong>Seleccionar universo</strong>; después de una consulta por conjunto puede mostrar el municipio o distrito correspondiente.</p>
+<p><strong>Qué indica:</strong> el contexto territorial que la aplicación tiene seleccionado. <strong>No garantiza que todos los paneles abiertos hayan ejecutado ya una consulta con ese contexto.</strong> Revisa también los encabezados y filtros de cada ventana.</p>
+<h4 id="consultar-una-sección-por-su-número">Consultar una sección por su número</h4>
+<ol>
+<li>Para seguir los manuales, comprueba que esté seleccionado <strong>Individual</strong>.</li>
+<li>Pulsa sobre el botón completo <strong>UNIVERSO ACTIVO</strong>, su nombre o su flecha.</li>
+<li>Se abre la ventana <strong>Seleccionar sección</strong>, con el rótulo <strong>CONTEXTO TERRITORIAL</strong>.</li>
+<li>Busca el campo <strong>Número de sección</strong>.</li>
+<li>Escribe solo el número de la sección que deseas revisar; por ejemplo, <strong>1024</strong>, como en la captura. Si ya aparece otro número, selecciónalo y reemplázalo.</li>
+<li>Pulsa <strong>Consultar en HEYTI</strong>. También puedes pulsar Enter dentro del formulario.</li>
+<li>Espera mientras el botón indique <strong>Consultando...</strong>. No es necesario pulsarlo varias veces. Durante la consulta, el campo y el cierre pueden quedar desactivados.</li>
+<li>Si termina sin error, el diálogo se cierra y <strong>UNIVERSO ACTIVO</strong> muestra <strong>Sección [número consultado]</strong>.</li>
+<li>Revisa que el número coincida con el solicitado. El mapa muestra la geometría cuando existe y está autorizada para publicarse.</li>
+<li>Pulsa <strong>Expandir</strong> en <strong>Resumen de sección</strong> para leer su información, si el panel está reducido.</li>
+</ol>
+<p>El ejemplo 1024 sirve para reconocer el campo; la disponibilidad de cada sección depende de la respuesta de la instalación. Si aparece un mensaje de error, conserva su texto y avisa a Alex. Si la sección no tiene una geometría publicable, no debe interpretarse un mapa anterior como si fuera su polígono.</p>
+<h4 id="cerrar-sin-cambiar-de-sección">Cerrar sin cambiar de sección</h4>
+<p>Si abriste el formulario pero no deseas consultar otro número, pulsa <strong>×</strong>, antes de iniciar una consulta. Cerrar el formulario no equivale a ejecutar la selección que escribiste. Esta guía no presupone cierre al pulsar fuera de la ventana ni con Escape.</p>
+<h4 id="elegir-un-municipio-distrito-o-todo-guanajuato">Elegir un municipio, distrito o todo Guanajuato</h4>
+<p>Aunque el botón se llama «Universo activo», el formulario que abre actualmente es de <strong>sección individual</strong>. No escribas el nombre de un municipio o distrito en «Número de sección».</p>
+<p>Para consultar un conjunto:</p>
+<ol>
+<li>Abre la consulta deseada desde el menú del módulo.</li>
+<li>Dentro de esa ventana, busca <strong>Universo</strong> o <strong>Universo de referencia</strong>.</li>
+<li>Elige Guanajuato, el municipio o el distrito disponible.</li>
+<li>Selecciona los demás filtros de esa consulta.</li>
+<li>Pulsa su botón de ejecución: por ejemplo, <strong>Pintar mapa</strong> o <strong>Consultar ingresos y pintar mapa</strong>.</li>
+<li>Comprueba el encabezado del resultado. Ese es el alcance de la respuesta recién consultada.</li>
+</ol>
+<p><strong>Precaución:</strong> consultar una nueva sección con el selector general puede retirar el mapa por universo o un escenario que estabas viendo. Si quieres repetir una consulta por municipio o distrito, vuelve a abrirla y ejecútala con sus filtros. El selector no actualiza automáticamente todas las ventanas ni aplica sus parámetros de forma universal.</p>
+<h3 id="04-individual">0.4. Individual</h3>
+<p><strong>Qué significa:</strong> modo para trabajar con las consultas actuales desde sus módulos. No significa obligatoriamente «una sola sección»: también puedes consultar un municipio, distrito o Guanajuato completo dentro de una consulta.</p>
+<p><strong>Cómo utilizarlo:</strong></p>
+<ol>
+<li>Pulsa <strong>Individual</strong> en la cabecera.</li>
+<li>Comprueba que ese botón quede resaltado, como en la captura de Alex.</li>
+<li>Abre el módulo y despliega <strong>Consultas del módulo</strong>.</li>
+<li>Entra en la consulta y ejecútala con sus filtros.</li>
+</ol>
+<p>Si las entradas de consulta estaban desactivadas por estar en Comparar, Individual permite volver al recorrido normal. Pulsarlo no ejecuta por sí mismo una nueva consulta, no selecciona un número de sección y no convierte una estimación en resultado histórico.</p>
+<h3 id="05-comparar">0.5. Comparar</h3>
+<p><strong>Qué significa:</strong> acceso a una vista prevista para contrastar hasta tres módulos sobre el mismo universo. No es el selector de años ni el botón que ejecuta comparaciones dentro de una consulta.</p>
+<p><strong>Qué verás actualmente:</strong></p>
+<ol>
+<li>Pulsa <strong>Comparar</strong>.</li>
+<li>La zona central cambia a <strong>Comparar perspectivas</strong>, con el texto <strong>Hasta tres módulos sobre el mismo universo</strong>.</li>
+<li>Aparece <strong>Comparación sin configurar</strong> y el botón <strong>Configurar módulos</strong>.</li>
+<li>Si pulsas <strong>Configurar módulos</strong>, se abre una ventana con ese título y el aviso <strong>«Aquí se seleccionarán hasta tres módulos sobre el mismo universo.»</strong></li>
+<li>Esa ventana todavía es informativa: no contiene una selección operativa de módulos para completar la comparación.</li>
+<li>Ciérrala con <strong>×</strong> y pulsa <strong>Individual</strong> para regresar al uso de las consultas.</li>
+</ol>
+<p>En este modo las consultas del menú de los manuales quedan desactivadas. Cambiar a Individual permite retomarlas, pero debes comprobar qué respuesta está visible y volver a ejecutar si hace falta; no asumas que el cambio de modo recalcula nada.</p>
+<p><strong>No confundir:</strong></p>
+<ul>
+<li><strong>Comparar</strong>, de la cabecera: vista entre módulos, pendiente de configuración operativa.</li>
+<li><strong>Comparativa</strong>, de Análisis Territorial: consulta disponible para comparar históricos de una sección.</li>
+<li><strong>Comparador de escenarios de participación</strong>, de Ganar Todo: consulta disponible para comparar variantes de participación.</li>
+</ul>
+<p>La revisión de los tres módulos debe realizarse en <strong>Individual</strong>, sin esperar a que se habilite la comparación entre módulos.</p>
+<h3 id="06-resumen-de-sección--expandir">0.6. Resumen de sección → Expandir</h3>
+<p><strong>Dónde está:</strong> en la captura es la barra reducida de la parte inferior derecha. Corresponde a la consulta individual de sección, no al resumen de cualquier municipio, distrito o escenario que haya quedado en el mapa.</p>
+<p><strong>Cómo abrirlo:</strong></p>
+<ol>
+<li>Consulta una sección con <strong>UNIVERSO ACTIVO → Seleccionar sección → Consultar en HEYTI</strong>.</li>
+<li>En la barra <strong>Resumen de sección</strong>, pulsa <strong>Expandir</strong>.</li>
+<li>Se abre la ventana con encabezado <strong>RESPUESTA HEYTI</strong> y las pestañas disponibles.</li>
+<li>Pulsa la pestaña que desees revisar.</li>
+<li>Verifica el número de sección y, al leer resultados electorales, el año de la respuesta.</li>
+</ol>
+<p><strong>Expandir solo muestra el contenido:</strong> no vuelve a consultar, no selecciona una sección distinta y no abre automáticamente una tabla de resultados por universo.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Pestaña</th>
+<th>Información que muestra</th>
+<th>Cómo usarla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resumen</td>
+<td>Número de sección, clasificación territorial y estado de publicación de su identidad.</td>
+<td>Comprueba que sea la sección que acabas de solicitar. No es una tabla de votos.</td>
+</tr>
+<tr>
+<td>Elección [año]</td>
+<td>Resultados de la elección más reciente recibida para esa sección, con selector de Contienda y cifras disponibles.</td>
+<td>Selecciona el cargo dentro de la pestaña; el año no se cambia con el botón Expandir.</td>
+</tr>
+<tr>
+<td>Historial comparativo</td>
+<td>Comparación histórica por contienda y desplegables de años y cargos disponibles.</td>
+<td>Cambia Contienda en la comparación y abre los encabezados de año o cargo para ver sus fichas.</td>
+</tr>
+<tr>
+<td>Trazabilidad</td>
+<td>Clasificación, estado de respuesta, versión de conocimiento, identificador de solicitud y advertencias.</td>
+<td>Registra esos datos si necesitas informar una incidencia; no tienes que modificar los códigos.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Si no hay sección consultada, puede aparecer <strong>Sin lectura disponible</strong>. Si la respuesta no incluye cifras electorales o históricas, las pestañas lo indican. Expandir no puede crear esos datos. La publicación de la identidad territorial no equivale a una auditoría terminada de sus cifras electorales.</p>
+<h4 id="mover-ampliar-reducir-y-recuperar-el-panel">Mover, ampliar, reducir y recuperar el panel</h4>
+<ul>
+<li><strong>Minimizar:</strong> devuelve el panel a una barra pequeña; no elimina la sección consultada. <strong>Expandir</strong> permite verlo otra vez.</li>
+<li><strong>Arrastrar el encabezado:</strong> mantén pulsado sobre el título y mueve la ventana para descubrir el mapa.</li>
+<li><strong>Esquina inferior derecha:</strong> arrástrala para cambiar el tamaño del panel expandido.</li>
+<li><strong>Restablecer:</strong> recupera su posición y tamaño iniciales; no borra datos ni ejecuta otra consulta.</li>
+<li><strong>Barras de desplazamiento:</strong> permiten leer el contenido que no cabe en el panel. Las tablas anchas pueden necesitar desplazamiento horizontal.</li>
+</ul>
+<p>En <strong>Análisis Territorial</strong> puedes abrir las mismas pestañas desde <strong>Sección · contexto compartido</strong> en el menú izquierdo. Esto permite recuperar el panel reducido y entrar directamente en la pestaña elegida.</p>
+<p>Este panel compartido puede aparecer también en la vista general de <strong>Ganar Todo</strong>, pero sus consultas por universo usan sus propias ventanas. Si muestra una sección anterior o queda sin lectura después de ejecutar una consulta, no debe interpretarse como resumen de esa consulta nueva.</p>
+<p>En <strong>Socioeconómico</strong>, las ocho consultas usan paneles propios. Su <strong>Cerrar</strong> y su botón <strong>Expandir…</strong> corresponden a la consulta socioeconómica elegida, no a las cuatro pestañas del «Resumen de sección» de esta captura. No es un error que ese panel compartido no aparezca allí.</p>
+<h3 id="07-recorrido-rápido-antes-de-la-auditoría">0.7. Recorrido rápido antes de la auditoría</h3>
+<p><strong>Para revisar una sola sección en Análisis Territorial:</strong></p>
+<ol>
+<li>Entra en <strong>Análisis Territorial</strong> y activa <strong>Individual</strong>.</li>
+<li>Pulsa <strong>Universo activo</strong>.</li>
+<li>Escribe la sección y pulsa <strong>Consultar en HEYTI</strong>.</li>
+<li>Comprueba el número en la cabecera y pulsa <strong>Expandir</strong>.</li>
+<li>Recorre Resumen, Elección, Historial comparativo y Trazabilidad.</li>
+<li>Después abre Comparativa, Competitividad o Top 3 desde el menú cuando corresponda.</li>
+</ol>
+<p><strong>Para revisar una consulta por conjunto en cualquiera de los tres módulos:</strong></p>
+<ol>
+<li>Activa <strong>Individual</strong> y abre el módulo.</li>
+<li>Entra en <strong>Consultas del módulo</strong> y elige la consulta.</li>
+<li>Selecciona el <strong>Universo dentro de esa ventana</strong>, sus demás filtros y ejecuta.</li>
+<li>Comprueba el encabezado del resultado y utiliza su tabla, mapa y detalle.</li>
+<li>No necesitas abrir Consulta cruzada, configurar Comparar ni seleccionar previamente una sección individual.</li>
+</ol>
+<h3 id="08-qué-registrar-si-hay-una-dificultad">0.8. Qué registrar si hay una dificultad</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Qué comprobar o anotar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>La flecha de Universo activo no muestra municipios</td>
+<td>Actualmente abre «Seleccionar sección». Usa el filtro Universo de la consulta para municipios y distritos.</td>
+</tr>
+<tr>
+<td>Consulta cruzada solo muestra un aviso</td>
+<td>Es el alcance actual; anota si el nombre te hizo esperar otra cosa.</td>
+</tr>
+<tr>
+<td>Comparar deja de mostrar el mapa de la consulta</td>
+<td>Es otra vista. Cierra cualquier aviso abierto y vuelve a Individual.</td>
+</tr>
+<tr>
+<td>Las consultas del menú no se pueden pulsar</td>
+<td>Comprueba que esté activo Individual.</td>
+</tr>
+<tr>
+<td>Expandir no muestra votos</td>
+<td>Comprueba si consultaste una sección, si hay cifras en la respuesta y qué pestaña elegiste.</td>
+</tr>
+<tr>
+<td>La sección del panel no coincide con el universo del mapa</td>
+<td>Registra ambos encabezados; pueden corresponder a consultas distintas. No mezcles sus cifras.</td>
+</tr>
+<tr>
+<td>Una sección no produce mapa o muestra error</td>
+<td>Conserva el número, mensaje exacto, hora y captura. No sustituyas su resultado con datos de otra sección.</td>
+</tr>
+<tr>
+<td>El panel tapa el mapa</td>
+<td>Muévelo, redimensiónalo o usa Minimizar.</td>
+</tr>
+</tbody>
+</table></div>
+<p>En tu hoja de revisión, anota por separado si encontraste cada control, si entendiste su nombre y si el resultado coincidió con lo que esperabas. No necesitas resolver la incidencia ni modificar la aplicación.</p>
+<h2 id="1-entrar-y-comenzar">1. Entrar y comenzar</h2>
+<ol>
+<li>En el panel izquierdo, pulsa <strong>Ganar Todo</strong>.</li>
+<li>Arriba, activa <strong>Individual</strong>. En modo «Comparar» estas consultas no se ejecutan desde el menú.</li>
+<li>Despliega <strong>Consultas del módulo</strong>.</li>
+<li>Pulsa el nombre de una consulta.</li>
+<li>En su ventana, selecciona <strong>Universo</strong> y <strong>Contienda</strong>, y los demás parámetros que se indiquen.</li>
+<li>Pulsa su botón de consulta o cálculo. No basta con cambiar los filtros.</li>
+<li>Espera a que termine <strong>Consultando…</strong> o <strong>Consultando históricos…</strong> y verifica el encabezado de la respuesta.</li>
+</ol>
+<p><strong>Universo</strong> es el conjunto de secciones: Guanajuato, municipio, distrito federal o distrito local. <strong>Contienda</strong> es el cargo: Ayuntamiento, Diputación local, Diputación federal, Gubernatura, Senaduría o Presidencia. En algunas listas, los tipos de universo aparecen también como <code>state</code>, <code>municipality</code>, <code>federal-district</code> y <code>local-district</code>, respectivamente.</p>
+<p>Elige el universo <strong>dentro de la ventana de la consulta</strong>. El botón superior <strong>UNIVERSO ACTIVO</strong> abre un formulario para seleccionar una sección y no reemplaza ese filtro.</p>
+<p>No necesitas consultar previamente una sección individual para usar las 13 consultas de este módulo.</p>
+<h2 id="2-qué-debes-distinguir-al-leer-los-datos">2. Qué debes distinguir al leer los datos</h2>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Concepto</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Histórico / observado</td>
+<td>Cifra que la aplicación recibe para una elección pasada. Su disponibilidad no significa que la auditoría electoral esté terminada.</td>
+</tr>
+<tr>
+<td>Escenario / estimado</td>
+<td>Resultado de una fórmula bajo supuestos. No es una votación observada ni una probabilidad.</td>
+</tr>
+<tr>
+<td>LN base 2024</td>
+<td>Lista nominal recibida para 2024. Los escenarios de este módulo la mantienen fija.</td>
+</tr>
+<tr>
+<td>Participación</td>
+<td>Votos totales ÷ lista nominal × 100, cuando las cifras permiten calcularla.</td>
+</tr>
+<tr>
+<td>pp / puntos porcentuales</td>
+<td>Diferencia directa entre porcentajes: pasar de 50% a 52% equivale a +2 pp. No equivale a aumentar 2% sobre 50.</td>
+</tr>
+<tr>
+<td>Total estimado</td>
+<td>LN base 2024 × participación estimada ÷ 100, redondeado a votos enteros en las tablas de volumen.</td>
+</tr>
+<tr>
+<td>Residuo</td>
+<td>Parte del total que no queda desglosada entre PAN, PRI, PVEM y MORENA. No es un partido ni un competidor único.</td>
+</tr>
+<tr>
+<td>Variación</td>
+<td>Diferencia entre dos valores; revisa si la columna compara estimación con histórico o escenario modificado con escenario base.</td>
+</tr>
+<tr>
+<td>N/D / No calculable</td>
+<td>Falta una base utilizable para ese cálculo. No lo sustituyas por cero.</td>
+</tr>
+<tr>
+<td>Cero</td>
+<td>El dato o cálculo vale 0; se conserva como cero.</td>
+</tr>
+<tr>
+<td>No celebrada</td>
+<td>La contienda no tuvo elección ese año. No equivale a cero votos.</td>
+</tr>
+<tr>
+<td>Cobertura</td>
+<td>Cuántas secciones pudieron representarse o utilizarse en un cálculo. Puede ser distinta entre años y entre cálculos.</td>
+</tr>
+<tr>
+<td>Bloqueadas</td>
+<td>Secciones que no se publican en ese mapa; no representan áreas con cero votos.</td>
+</tr>
+</tbody>
+</table></div>
+<p>El desglose partidista sigue <strong>PAN, PRI, PVEM y MORENA</strong>. La mayor votación entre esos cuatro no acredita un ganador frente a todos los participantes.</p>
+<p>Las agrupaciones territoriales usan la geometría actual disponible. Consultar un año pasado no reconstruye automáticamente sus límites originales. Las fuentes electorales conservan auditoría pendiente.</p>
+<h3 id="qué-comparten-los-escenarios-2027">Qué comparten los escenarios 2027</h3>
+<ul>
+<li>El año 2027 es el horizonte del ejercicio. No significa que todos los cargos tengan elección ese año.</li>
+<li>La participación se extrapola de históricos disponibles, con un método que se explica al final del manual.</li>
+<li>Se conserva la <strong>LN 2024</strong>, sin proyectar su crecimiento. La «Proyección 2027» del módulo Socioeconómico es otra consulta y no alimenta automáticamente estos escenarios.</li>
+<li>Cuando se estiman votos por partido, se mantienen las proporciones de 2024. Cambia el volumen, no se modelan cambios independientes de preferencias.</li>
+<li>Las estimaciones de participación se limitan a 0–100%; la aplicación informa cuando aplicó ese límite.</li>
+<li>Un total puede ser calculable aunque no lo sea su desglose por partido. No confundas esas dos coberturas.</li>
+<li>Ninguna de estas cifras es una garantía ni una instrucción para una campaña.</li>
+</ul>
+<h2 id="3-ventanas-tablas-y-mapa">3. Ventanas, tablas y mapa</h2>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Cómo utilizarlo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encabezado de la ventana</td>
+<td>Arrástralo con el ratón para mover la ventana y descubrir el mapa.</td>
+</tr>
+<tr>
+<td>Esquina inferior derecha</td>
+<td>Arrástrala para cambiar el tamaño de la ventana.</td>
+</tr>
+<tr>
+<td>Restablecer</td>
+<td>Recupera la posición y el tamaño iniciales de la ventana. No recalcula ni limpia los filtros.</td>
+</tr>
+<tr>
+<td>Cerrar</td>
+<td>Oculta esa ventana. Vuelve a abrirla desde el menú. Cerrar no equivale a borrar el resultado del mapa.</td>
+</tr>
+<tr>
+<td>Barra vertical</td>
+<td>Recorre resultados que están más abajo. La ventana y el menú tienen desplazamientos independientes.</td>
+</tr>
+<tr>
+<td>Barra horizontal de una tabla</td>
+<td>Muestra columnas que quedaron fuera del ancho visible. Es especialmente importante en Sensibilidad y Comparador de escenarios.</td>
+</tr>
+<tr>
+<td>Título desplegable</td>
+<td>Pulsa el título para abrir o cerrar notas de método, supuestos o procedencia.</td>
+</tr>
+<tr>
+<td>+ / − del mapa</td>
+<td>Acerca o aleja. También puedes usar la rueda del ratón.</td>
+</tr>
+<tr>
+<td>Arrastrar el mapa</td>
+<td>Cambia el área visible.</td>
+</tr>
+<tr>
+<td>Recentrar dentro del mapa</td>
+<td>Vuelve a encuadrar las secciones representadas.</td>
+</tr>
+<tr>
+<td>Polígono del mapa</td>
+<td>Pasa el puntero para identificar la sección; púlsalo para seleccionarla y revisar el texto asociado debajo del mapa. En las consultas con detalle enlazado también actualiza su ficha.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Antes de leer una respuesta, verifica su título, universo, contienda y año o escenario. Una ventana anterior puede seguir abierta. Si cambias filtros y aparece un aviso de actualización pendiente, vuelve a pulsar el botón de ejecución: el resultado visible aún corresponde al cálculo anterior.</p>
+<p><strong>No todas las tablas se ordenan pulsando sus títulos.</strong> La tabla «Participación estimada 3%...» tiene encabezados con flechas para ordenar. Las otras tablas descritas aquí conservan el orden indicado en su ficha.</p>
+<h3 id="precaución-de-esta-versión-sobre-los-colores">Precaución de esta versión sobre los colores</h3>
+<p>La correspondencia entre el relleno del mapa y la clasificación de algunas consultas está pendiente de comprobación visual. En Participación histórica, el mapa puede conservar colores de abstención del año elegido; en varios escenarios, colores de abstención de 2024; en Estabilidad, colores del partido de 2024. Diferencia entre partidos y Alertas también requieren revisar su correspondencia de colores.</p>
+<p>Para esas consultas, lee los porcentajes, estados y categorías <strong>en el panel o en el texto de la sección seleccionada</strong>, no únicamente a partir del color. Si mapa y leyenda no coinciden, registra la captura. Esta observación no se presenta como comportamiento ya comprobado en tu instalación.</p>
+<p>Las vistas Eficiencia del voto, Colindancias, Sensibilidad y Comparador sí tienen reglas de color propias conectadas en la implementación revisada; su presentación también debe comprobarse durante la revisión.</p>
+<h2 id="4-las-13-consultas-y-sus-ventanas">4. Las 13 consultas y sus ventanas</h2>
+<p>Todas pertenecen al módulo <strong>Ganar Todo</strong>. La ruta común es <strong>Ganar Todo → Consultas del módulo → nombre de la consulta</strong>.</p>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Nombre exacto en el menú</th>
+<th>Ventana que se abre</th>
+<th>Tipo principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Participación estimada 3%...</td>
+<td>Tabla de participación estimada 2027</td>
+<td>Escenario</td>
+</tr>
+<tr>
+<td>Participación histórica</td>
+<td>Participación histórica · Ganar Todo</td>
+<td>Histórico</td>
+</tr>
+<tr>
+<td>Escenario de participación 2027</td>
+<td>Escenario de participación 2027 · estimación</td>
+<td>Escenario</td>
+</tr>
+<tr>
+<td>Estabilidad 2018–2024</td>
+<td>Estabilidad 2018–2024 · lectura parcial</td>
+<td>Histórico</td>
+</tr>
+<tr>
+<td>Metas de participación 2027</td>
+<td>Metas de participación 2027 · escenario</td>
+<td>Comparación con parámetro</td>
+</tr>
+<tr>
+<td>Escenario descriptivo 2027 · votos y participación</td>
+<td>Escenario descriptivo 2027 · votos y participación</td>
+<td>Escenario frente a histórico</td>
+</tr>
+<tr>
+<td>Diferencia entre partidos · 2024</td>
+<td>Diferencia entre partidos · 2024</td>
+<td>Histórico</td>
+</tr>
+<tr>
+<td>Alertas de datos · 2024</td>
+<td>Alertas de datos · 2024</td>
+<td>Disponibilidad de datos</td>
+</tr>
+<tr>
+<td>Eficiencia del voto · histórica 2024</td>
+<td>Eficiencia del voto · histórica por sección</td>
+<td>Comparación histórica</td>
+</tr>
+<tr>
+<td>Colindancias y agrupaciones</td>
+<td>Colindancias y agrupaciones de secciones</td>
+<td>Geografía y datos históricos</td>
+</tr>
+<tr>
+<td>Sensibilidad a participación</td>
+<td>Sensibilidad a participación · escenario 2027</td>
+<td>Base frente a variación</td>
+</tr>
+<tr>
+<td>Comparador de escenarios de participación</td>
+<td>Comparador de escenarios de participación</td>
+<td>Varios escenarios simultáneos</td>
+</tr>
+<tr>
+<td>Distribución de votación por sección</td>
+<td>Distribución de votación por sección · escenario 2027</td>
+<td>Escenario detallado</td>
+</tr>
+</tbody>
+</table></div>
+<p>Los apartados 5 a 17 siguen ese mismo orden.</p>
+<h2 id="5-participación-estimada-3">5. Participación estimada 3%...</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Tabla de participación estimada 2027.</p>
+<p><strong>Para qué sirve:</strong> consultar por sección la participación estimada, el volumen de votos que implica y el 3% de ese volumen.</p>
+<h3 id="cómo-ejecutarla">Cómo ejecutarla</h3>
+<ol>
+<li>Pulsa <strong>Participación estimada 3%...</strong>.</li>
+<li>Selecciona <strong>Universo</strong> y <strong>Contienda</strong>.</li>
+<li>Verifica <strong>Año del escenario: 2027</strong>, fijo.</li>
+<li>Pulsa <strong>Calcular y pintar escenario</strong>.</li>
+<li>Desplaza la ventana hasta la tabla <strong>Participación estimada 2027 por sección</strong>.</li>
+<li>Pulsa un encabezado con flechas para ordenar; otra pulsación en la misma columna invierte el orden.</li>
+<li>Pulsa una fila o su número de sección para acercar el mapa y ver su ficha.</li>
+</ol>
+<h3 id="qué-presenta">Qué presenta</h3>
+<ul>
+<li>Participación estimada del universo, ponderada por LN 2024 de las secciones calculables.</li>
+<li>Secciones calculables, no calculables y bloqueadas; LN de la cobertura utilizada.</li>
+<li>Tabla: <strong>Sección</strong>, <strong>LN base 2024</strong>, <strong>Participación estimada 2027</strong>, <strong>Total estimado 2027</strong> y <strong>3% del total estimado 2027</strong>. Las cinco columnas permiten ordenar.</li>
+<li>Ficha de la sección elegida, con LN, total, 3%, años utilizados y aviso de límite cuando corresponda.</li>
+<li>Desplegable <strong>Método y trazabilidad del escenario</strong>.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> el 3% se obtiene del <strong>total estimado de votos</strong>, no de la LN ni del porcentaje de participación. No es un filtro ajustable ni una suma de tres puntos porcentuales.</p>
+<p>Ejemplo solo explicativo: LN 1,000 y participación estimada 60% producen 600 votos estimados; el 3% de 600 es 18 votos. No significa pasar de 60% a 63%.</p>
+<p><strong>Prueba sencilla:</strong> ordena por «Total estimado 2027», selecciona una sección y comprueba que su ficha repita el total y el 3% de la fila.</p>
+<h2 id="6-participación-histórica">6. Participación histórica</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Participación histórica · Ganar Todo.</p>
+<p><strong>Para qué sirve:</strong> revisar participación calculable con votos y LN históricos, sin estimar 2027.</p>
+<h3 id="cómo-ejecutarla-1">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Participación histórica</strong>.</li>
+<li>Elige <strong>Universo</strong>, <strong>Año</strong> —2018, 2021 o 2024— y <strong>Contienda</strong>.</li>
+<li>Pulsa <strong>Pintar mapa</strong>.</li>
+<li>Revisa la leyenda del panel y baja hasta <strong>Tendencia 2018–2024</strong>.</li>
+<li>Pulsa una sección del mapa para leer su porcentaje en el texto asociado, cuando sea calculable.</li>
+</ol>
+<h3 id="qué-presenta-1">Qué presenta</h3>
+<ul>
+<li>Encabezado con universo, año y contienda; cobertura del mapa.</li>
+<li>Leyenda con número de secciones en rangos de participación: <strong>menos de 30%</strong>, <strong>30% a menos de 50%</strong>, <strong>50% a 100%</strong>, además de estados no calculables presentes.</li>
+<li>Tres resultados anuales en <strong>Tendencia 2018–2024</strong>: porcentaje, secciones calculables, LN acumulada y votos acumulados, con barras de 0 a 100%.</li>
+<li><strong>Trazabilidad del mapa</strong>, desplegable.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> participación = votos totales ÷ LN × 100. El año elegido determina la consulta representada; «Tendencia» conserva los tres años. Cada porcentaje anual usa la suma de votos y LN de sus secciones calculables; no es una media simple de porcentajes seccionales. La cobertura puede cambiar entre años.</p>
+<p>No hay una tabla completa de todas las secciones en esta ventana. La comparación anual se presenta mediante resúmenes y barras. Revisa la precaución de colores del apartado 3.</p>
+<p><strong>Prueba sencilla:</strong> cambia el año y vuelve a consultar. Distingue el porcentaje de una sección del porcentaje acumulado que aparece en «Tendencia».</p>
+<h2 id="7-escenario-de-participación-2027">7. Escenario de participación 2027</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Escenario de participación 2027 · estimación.</p>
+<p><strong>Para qué sirve:</strong> extrapolar participación de históricos disponibles y resumir el escenario del universo seleccionado.</p>
+<h3 id="cómo-ejecutarla-2">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Escenario de participación 2027</strong>.</li>
+<li>Selecciona <strong>Universo</strong> y <strong>Contienda</strong>.</li>
+<li>Comprueba <strong>Año del escenario: 2027</strong>, fijo.</li>
+<li>Pulsa <strong>Calcular y pintar escenario</strong>.</li>
+<li>Lee el porcentaje general, su cobertura y las categorías de estimación del panel.</li>
+<li>Pulsa una sección del mapa para revisar su estimación y años utilizados en el texto asociado.</li>
+<li>Abre <strong>Método y trazabilidad del escenario</strong> para consultar cómo se calculó.</li>
+</ol>
+<h3 id="qué-presenta-2">Qué presenta</h3>
+<ul>
+<li>Participación estimada del universo, ponderada por LN 2024 de las secciones calculables.</li>
+<li>Número de secciones calculables, no calculables y bloqueadas; LN de cobertura.</li>
+<li>Conteos en las categorías <strong>Estimación menor de 30%</strong>, <strong>de 30% a menos de 50%</strong> y <strong>de 50% a 100%</strong>, más faltantes o inconsistencias.</li>
+<li>Cantidad de estimaciones trienales con solo dos años y de estimaciones limitadas a 0–100%.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> no presenta una tabla completa de resultados ni un desglose por partido. Para tabla de participación usa «Participación estimada 3%...»; para desglose estimado usa las consultas descriptivas posteriores. El escenario no implica actualización de LN ni celebración de la contienda en 2027. No interpretes los colores como clasificación estimada sin comprobarlos —apartado 3—.</p>
+<p><strong>Prueba sencilla:</strong> identifica cuántas secciones sustentan el porcentaje general y dónde se informa si hubo límites a 0–100%.</p>
+<h2 id="8-estabilidad-20182024">8. Estabilidad 2018–2024</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Estabilidad 2018–2024 · lectura parcial.</p>
+<p><strong>Para qué sirve:</strong> describir la continuidad del partido con más votos dentro del grupo rastreado, contando cuántos partidos distintos encabezaron los años requeridos.</p>
+<h3 id="cómo-ejecutarla-3">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Estabilidad 2018–2024</strong>.</li>
+<li>Elige <strong>Universo</strong> y <strong>Contienda</strong>. <strong>Periodo</strong> queda fijo en 2018–2024.</li>
+<li>Pulsa <strong>Pintar mapa</strong>.</li>
+<li>Lee los <strong>años requeridos</strong>, la cobertura y las categorías del panel.</li>
+<li>Pulsa una sección del mapa para revisar su secuencia por año en el texto asociado.</li>
+<li>Abre <strong>Método y trazabilidad</strong> si necesitas ampliar la explicación.</li>
+</ol>
+<h3 id="cómo-leer-sus-categorías">Cómo leer sus categorías</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Categoría</th>
+<th>Criterio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alta</td>
+<td>Un mismo partido encabeza todos los años requeridos.</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>Dos partidos distintos encabezan el conjunto de años.</td>
+</tr>
+<tr>
+<td>Baja</td>
+<td>Tres partidos distintos encabezan el conjunto de años.</td>
+</tr>
+<tr>
+<td>No calculable y su causa</td>
+<td>Falta un liderazgo único utilizable en alguno de los años requeridos; por ejemplo, empate, inconsistencia o faltante.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Ayuntamiento, Diputación local y Diputación federal requieren 2018, 2021 y 2024. Gubernatura, Senaduría y Presidencia utilizan 2018 y 2024: con dos años no puede haber tres partidos distintos.</p>
+<p><strong>Ejemplo solo explicativo:</strong> PAN–MORENA–PAN implica dos partidos distintos y se clasifica como media; no se cuentan simplemente dos cambios consecutivos.</p>
+<p>La ventana muestra conteos de categorías, cobertura y detalle por selección del mapa; no una tabla completa por sección. Alta no significa un resultado futuro garantizado ni una certificación de un territorio. Comprueba los colores según la precaución del apartado 3.</p>
+<p><strong>Prueba sencilla:</strong> selecciona una sección, cuenta los partidos distintos de su secuencia y compara ese conteo con la categoría.</p>
+<h2 id="9-metas-de-participación-2027">9. Metas de participación 2027</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Metas de participación 2027 · escenario.</p>
+<p><strong>Para qué sirve:</strong> comparar el escenario estimado con una referencia de participación y una tolerancia que introduce el usuario. No modifica el cálculo base de participación.</p>
+<h3 id="cómo-ejecutarla-4">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Metas de participación 2027</strong>.</li>
+<li>Selecciona <strong>Universo</strong> y <strong>Contienda</strong>; el año del escenario es 2027.</li>
+<li>Escribe <strong>Meta de participación (%)</strong>, de 0 a 100.</li>
+<li>Escribe <strong>Tolerancia debajo de la meta (pp)</strong>, de 0 a 100. El formulario permite pasos de 0.1.</li>
+<li>Pulsa <strong>Calcular y pintar metas</strong>.</li>
+<li>Lee las categorías y la tabla <strong>Hasta 20 secciones con mayor brecha</strong>.</li>
+<li>Si cambias meta o tolerancia, vuelve a calcular.</li>
+</ol>
+<h3 id="qué-presenta-3">Qué presenta</h3>
+<ul>
+<li>Porcentaje estimado y cobertura, meta y tolerancia aplicadas.</li>
+<li>Conteos: <strong>Cumple o supera la meta</strong>; <strong>Por debajo, dentro de la tolerancia</strong>; <strong>Por debajo, fuera de la tolerancia</strong>; y no calculables.</li>
+<li>Hasta veinte filas de secciones calculables por debajo de la meta, con <strong>Sección</strong>, <strong>Estimación</strong> y <strong>Brecha (pp)</strong>. Si no existen, aparece un mensaje.</li>
+<li>Desplegable <strong>Método y trazabilidad del escenario</strong>.</li>
+</ul>
+<p><strong>Ejemplo solo explicativo:</strong> meta 60%, tolerancia 3 pp y estimación 58% dan una brecha de 2 pp, dentro de tolerancia. Una estimación de 56% queda fuera. Estimaciones desde 60% cumplen o superan la referencia.</p>
+<p>La brecha es una diferencia de porcentajes; no equivale a votos adicionales ni a probabilidad. La tabla no incluye todas las secciones y no debe interpretarse como una recomendación de prioridades. Su número de sección no está enlazado a una ficha propia en esta tabla. Para el mapa, aplica la precaución del apartado 3.</p>
+<p><strong>Prueba sencilla:</strong> conserva universo y contienda, cambia solo la meta y comprueba que se actualicen la meta aplicada y sus categorías al recalcular.</p>
+<h2 id="10-escenario-descriptivo-2027--votos-y-participación">10. Escenario descriptivo 2027 · votos y participación</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Escenario descriptivo 2027 · votos y participación.</p>
+<p><strong>Para qué sirve:</strong> comparar votos observados de 2024 con votos estimados para el escenario 2027, manteniendo LN 2024 y proporciones partidistas de 2024.</p>
+<h3 id="cómo-ejecutarla-5">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Escenario descriptivo 2027 · votos y participación</strong>.</li>
+<li>Elige <strong>Universo</strong> y <strong>Contienda</strong>; el horizonte es 2027.</li>
+<li>Pulsa <strong>Calcular comparación</strong>.</li>
+<li>Revisa el resumen por partido y la tabla <strong>Comparación por sección</strong>.</li>
+<li>Usa el desplazamiento horizontal para ver todas las columnas.</li>
+<li>Pulsa una fila para acercar el mapa y abrir el detalle de la sección.</li>
+</ol>
+<h3 id="qué-presenta-4">Qué presenta</h3>
+<ul>
+<li>Participación estimada general y cobertura; secciones con comparación calculable.</li>
+<li>Tabla resumida por partido: <strong>2024 comparable</strong>, <strong>2027 estimado</strong> y <strong>Variación</strong>. Ambas columnas agregadas usan exactamente las mismas secciones comparables.</li>
+<li>Tabla por sección: LN 2024, participación estimada, cifras de cada partido en formato <strong>2024 / estimado 2027 / variación</strong>, máximo estimado rastreado, total estimado, residuo y estado.</li>
+<li><strong>★ y fondo azul</strong> en las cifras estimadas máximas del grupo; si empatan varias, todas se marcan. No son marcas de recomendación.</li>
+<li>Ficha de la sección seleccionada y <strong>Método y trazabilidad del escenario</strong>.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> variación = estimación 2027 − histórico 2024. Un valor positivo no es crecimiento observado ni una predicción independiente de preferencias. El reparto conserva proporciones históricas y utiliza redondeo para que partidos más residuo conserven el total entero.</p>
+<p>El mapa permite localizar secciones; no supongas que su relleno representa el partido con estrella en la tabla —apartado 3—.</p>
+<p><strong>Prueba sencilla:</strong> selecciona una fila y comprueba que su ficha conserve las cuatro cifras estimadas y las mismas variaciones.</p>
+<h2 id="11-diferencia-entre-partidos--2024">11. Diferencia entre partidos · 2024</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Diferencia entre partidos · 2024.</p>
+<p><strong>Para qué sirve:</strong> comparar los dos máximos de votación de 2024 entre los cuatro partidos rastreados, en votos y puntos porcentuales.</p>
+<h3 id="cómo-ejecutarla-6">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Diferencia entre partidos · 2024</strong>.</li>
+<li>Elige <strong>Universo</strong> y <strong>Contienda</strong>. El selector <strong>Año</strong> está fijo en 2024.</li>
+<li>Pulsa <strong>Pintar mapa</strong>.</li>
+<li>Recorre la tabla <strong>Diferencias históricas por sección</strong>, ordenada por número de sección.</li>
+<li>Puedes seleccionar la sección en el mapa y leer su diferencia en el texto asociado.</li>
+<li>La tabla ofrece un número de sección para acercar: comprueba si efectivamente mueve el mapa; si no ocurre, registra el caso y usa los controles del mapa.</li>
+</ol>
+<h3 id="qué-presenta-5">Qué presenta</h3>
+<ul>
+<li>Número de secciones calculables, incluidos los empates.</li>
+<li>Tabla: sección, primer máximo rastreado y votos, segundo máximo y votos, total de la contienda, diferencia en votos, diferencia en pp y estado.</li>
+<li>Notas de interpretación y <strong>Trazabilidad del mapa</strong>.</li>
+</ul>
+<p><strong>Diferencia = primer máximo − segundo máximo.</strong> Su equivalente en pp es diferencia ÷ votos totales × 100. Un empate máximo tiene diferencia cero, sin asignar ganador; se conservan los partidos empatados.</p>
+<p>No es una tabla de votos necesarios para una elección futura. Tampoco estima transferencias o probabilidades. La descripción de colores de esta pantalla requiere cotejo visual: no uses por sí sola la intensidad del relleno como medida de la diferencia.</p>
+<p><strong>Prueba sencilla:</strong> elige una fila calculable y resta sus dos máximos. Comprueba que coincida con «Diferencia en votos».</p>
+<h2 id="12-alertas-de-datos--2024">12. Alertas de datos · 2024</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Alertas de datos · 2024.</p>
+<p><strong>Para qué sirve:</strong> identificar disponibilidad, faltantes, ceros e inconsistencias de los datos de 2024. Son alertas de calidad del dato, no de riesgo de campaña.</p>
+<h3 id="cómo-ejecutarla-7">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Alertas de datos · 2024</strong>.</li>
+<li>Selecciona <strong>Universo</strong> y <strong>Contienda</strong>. <strong>Año</strong> está fijo en 2024.</li>
+<li>Pulsa <strong>Pintar mapa</strong>.</li>
+<li>Lee los conteos de estados y después la tabla por sección.</li>
+<li>Ante un dato que te genere duda, registra sección, cargo, estado y detalle; no reemplaces cifras.</li>
+<li>Comprueba el acercamiento ofrecido por las filas. Si no funciona, usa el mapa y anótalo.</li>
+</ol>
+<h3 id="qué-presenta-6">Qué presenta</h3>
+<ul>
+<li>Conteos de categorías presentes: <strong>Total y desglose rastreado disponibles</strong>, <strong>Desglose rastreado en cero con total positivo</strong>, <strong>Datos faltantes</strong>, <strong>Total de la contienda en cero</strong>, <strong>Cifras inconsistentes</strong> o <strong>Contienda no celebrada</strong>.</li>
+<li>Tabla ordenada por sección: <strong>Sección</strong>, <strong>Total 2024</strong>, votos de PAN, PRI, PVEM y MORENA, <strong>Disponibilidad</strong> y <strong>Detalle</strong>.</li>
+<li>Cantidad de secciones bloqueadas, fuera del mapa y de esta tabla.</li>
+<li>Desplegable <strong>Trazabilidad del mapa</strong>.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> «disponibles» no significa «certificados». Un total cero puede coexistir con desglose faltante; revisa las columnas individuales. La razón exacta de una inconsistencia puede requerir cotejo con la fuente. Lee las alertas en el panel; la asociación del color del mapa con esas alertas sigue pendiente de revisión visual.</p>
+<p><strong>Prueba sencilla:</strong> busca una fila con N/D si existe en tu selección y comprueba que puedas distinguir el dato faltante de un cero registrado.</p>
+<h2 id="13-eficiencia-del-voto--histórica-2024">13. Eficiencia del voto · histórica 2024</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Eficiencia del voto · histórica por sección.</p>
+<p><strong>Para qué sirve:</strong> comparar una opción elegida con el máximo de las otras tres opciones rastreadas en 2024. El nombre se conserva en el menú; no calcula una eficiencia porcentual de campaña ni votos requeridos.</p>
+<h3 id="cómo-ejecutarla-8">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Eficiencia del voto · histórica 2024</strong>.</li>
+<li>Elige <strong>Universo</strong> y <strong>Contienda · 2024</strong>.</li>
+<li>En <strong>Opción de referencia histórica</strong>, selecciona PAN, PRI, PVEM o MORENA. La selección es obligatoria.</li>
+<li>En <strong>Unidad del mapa</strong>, elige <strong>Votos</strong> o <strong>Puntos porcentuales</strong>.</li>
+<li>Ajusta <strong>Saturación de color</strong>, un número positivo, y <strong>Atenuar diferencias menores a</strong>, cero o un número positivo.</li>
+<li>Pulsa <strong>Consultar y pintar mapa</strong>.</li>
+<li>Lee la tabla completa y pulsa una fila o sección del mapa para abrir su detalle.</li>
+</ol>
+<h3 id="qué-presenta-y-cómo-interpretar-los-controles">Qué presenta y cómo interpretar los controles</h3>
+<ul>
+<li>Conteos de diferencias positivas, cero, negativas y no calculables.</li>
+<li>Tabla por sección: votos de la opción elegida, opción u opciones de contraste, votos de contraste, diferencia en votos y pp, máximo rastreado, total y estado.</li>
+<li>Detalle con los votos observados de los cuatro partidos.</li>
+<li><strong>Fuentes y cobertura</strong>, desplegable.</li>
+</ul>
+<p><strong>Diferencia = votos de la opción elegida − máximo de las otras tres.</strong> Positiva: supera ese contraste; negativa: queda debajo; cero: iguala ese máximo. La diferencia en pp usa el total de la contienda como denominador.</p>
+<p>Azul representa diferencia positiva; ocre, negativa; gris, cero o no calculable según su estado. <strong>Saturación</strong> establece el valor a partir del que se alcanza la mayor intensidad; <strong>Atenuar</strong> reduce intensidad en diferencias pequeñas. Ninguno oculta filas ni cambia cifras. Al cambiar de unidad, el formulario vuelve a una saturación inicial —1,000 votos o 10 pp— y atenuación cero; vuelve a consultar para aplicar los parámetros.</p>
+<p>No sumes pp de distintas secciones. La misma escala se aplica a cualquier partido seleccionado.</p>
+<p><strong>Prueba sencilla:</strong> conserva los datos de referencia, cambia solo saturación y vuelve a consultar. Las cifras de la tabla deben permanecer iguales aunque cambie la intensidad del mapa.</p>
+<h2 id="14-colindancias-y-agrupaciones">14. Colindancias y agrupaciones</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Colindancias y agrupaciones de secciones.</p>
+<p><strong>Para qué sirve:</strong> identificar secciones con tramos de límite compartido y conjuntos conectados por esa vecindad. Los votos no determinan la formación de los grupos.</p>
+<h3 id="cómo-ejecutarla-9">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Colindancias y agrupaciones</strong>.</li>
+<li>Selecciona <strong>Universo</strong> y <strong>Contienda para datos asociados · 2024</strong>.</li>
+<li>Pulsa <strong>Consultar colindancias y pintar mapa</strong>.</li>
+<li>Espera el cálculo. El porcentaje de progreso corresponde al análisis geométrico, después de consultar los datos; no es una estimación de tiempo restante.</li>
+<li>Revisa la tabla de secciones y el resumen por grupo.</li>
+<li>Pulsa una sección o una vecina para acercarla y ver su detalle.</li>
+<li>En el resumen por grupo, pulsa <strong>Ver [cantidad] secciones</strong> para mostrar todos sus miembros; pulsa un miembro para localizarlo.</li>
+</ol>
+<h3 id="qué-presenta-7">Qué presenta</h3>
+<ul>
+<li>Secciones evaluables, no calculables, pares colindantes y grupos encontrados.</li>
+<li>Mapa con colores que <strong>identifican grupos</strong>, sin jerarquía electoral.</li>
+<li>Tabla completa: sección, grupo, secciones colindantes, LN 2024, total histórico, votos de los cuatro partidos, estado de límites y de datos.</li>
+<li>Resumen por grupo: cantidad y lista de miembros, LN, total y votos por partido, con cobertura de cada suma.</li>
+<li>Miembros del grupo y ficha de la sección seleccionada con vecinas y datos de 2024.</li>
+<li><strong>Criterio geográfico, cobertura y fuentes</strong>, desplegable.</li>
+</ul>
+<p>Compartir solo una esquina no basta para ser colindantes. Un grupo puede unir una cadena de vecinas: no todas tienen que tocarse entre sí. Una sección sin vecinas dentro del universo forma un grupo de una sección; no prueba que carezca de vecinas fuera del universo.</p>
+<p>Las sumas muestran cuántas secciones aportaron valor respecto de las esperadas. Si falta un valor, se conserva N/D y la suma disponible se identifica como parcial. Los grupos no representan rutas ni tiempos de traslado y pueden cambiar al cambiar el universo. Pueden existir diferencias por precisión de los límites; no es una certificación topológica.</p>
+<p><strong>Prueba sencilla:</strong> abre los miembros de un grupo, elige una sección y verifica que puedas localizar tanto esa sección como alguna de sus vecinas.</p>
+<h2 id="15-sensibilidad-a-participación">15. Sensibilidad a participación</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Sensibilidad a participación · escenario 2027.</p>
+<p><strong>Para qué sirve:</strong> comparar el escenario base estimado con otro que aplica la misma variación de participación a todas las secciones calculables.</p>
+<h3 id="cómo-ejecutarla-10">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Sensibilidad a participación</strong>.</li>
+<li>Elige <strong>Universo</strong> y <strong>Contienda</strong>.</li>
+<li>Mueve el control <strong>Variación solicitada</strong> entre <strong>−8 y +8 pp</strong>, en pasos de <strong>0.5</strong>. Inicialmente puede mostrar +2 pp.</li>
+<li>Pulsa <strong>Calcular sensibilidad y pintar mapa</strong>.</li>
+<li>Lee los resúmenes y recorre horizontalmente la tabla.</li>
+<li>Pulsa una fila o sección del mapa para consultar históricos y detalle.</li>
+<li>Si cambias la variación, vuelve a calcular.</li>
+</ol>
+<h3 id="qué-presenta-8">Qué presenta</h3>
+<ul>
+<li>Secciones con volumen calculable, cobertura, LN base, total base estimado, total modificado y diferencia.</li>
+<li>Tabla por sección: participación base, variación solicitada y aplicada, participación modificada, totales base y modificado, cambio de volumen, votos de cada partido en formato <strong>base / modificado / cambio</strong>, residuo, estados del volumen y del desglose, y límite 0–100%.</li>
+<li>Detalle con años utilizados, históricos, participación antes y después del límite y desglose estimado.</li>
+<li>Desplegable <strong>Supuestos, cobertura y redondeo</strong>.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> base y modificado son <strong>dos estimaciones</strong>, no histórico frente a observado nuevo. +2 pp lleva 50% a 52% antes de aplicar el límite. Si una sección llega al límite 100%, la variación aplicada puede ser menor que la solicitada.</p>
+<p>El mapa usa azul para aumento de volumen, ocre para disminución y gris para sin cambio o no calculable, según el detalle. No son colores de beneficio partidista. El total puede conservarse aunque falte desglose por partido; sus estados se leen por separado.</p>
+<p>Las proporciones de 2024 y la LN siguen fijas. Las diferencias de un voto por redondeo no demuestran cambios de preferencias.</p>
+<p><strong>Prueba sencilla:</strong> calcula 0 pp y después +2 pp; compara el cambio de volumen y comprueba si hubo secciones limitadas.</p>
+<h2 id="16-comparador-de-escenarios-de-participación">16. Comparador de escenarios de participación</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Comparador de escenarios de participación.</p>
+<p><strong>Para qué sirve:</strong> comparar simultáneamente de dos a cinco escenarios sobre la misma cobertura, incluida siempre la base de 0 pp.</p>
+<h3 id="cómo-ejecutarla-11">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Comparador de escenarios de participación</strong>.</li>
+<li>Selecciona <strong>Universo</strong> y <strong>Contienda</strong>.</li>
+<li>Escribe de una a cuatro <strong>Variaciones</strong>, entre −8 y +8 pp, en pasos de 0.5. Inicialmente aparecen −4 y +4.</li>
+<li>Usa <strong>Añadir variación</strong> si necesitas otra y <strong>Quitar variación [número]</strong> para retirarla. Debe quedar al menos una distinta de cero.</li>
+<li>Pulsa <strong>Comparar escenarios y pintar mapa</strong>.</li>
+<li>Revisa la gráfica y la tabla de resumen de escenarios.</li>
+<li>En <strong>Escenario que se muestra en el mapa</strong>, elige una variante. También puedes pulsar <strong>Ver [escenario]</strong> en el resumen.</li>
+<li>Recorre horizontalmente la tabla completa y selecciona una sección para ver sus históricos.</li>
+</ol>
+<h3 id="qué-presenta-9">Qué presenta</h3>
+<ul>
+<li>La base 0 pp añadida automáticamente; duplicados reunidos en una sola variante.</li>
+<li>Gráfica de <strong>participación ponderada frente a volumen total estimado</strong>, con un punto por escenario calculado.</li>
+<li>Tabla resumen: participación ponderada, total estimado, cambio frente a base, cobertura, LN, secciones limitadas y botón para mostrar cada mapa.</li>
+<li>Tabla completa por sección: LN y datos observados 2024; para cada escenario, participación, variación aplicada, total, cambio, estimación por partido y diferencia frente a base, residuo, estados y límites.</li>
+<li>Históricos de la sección seleccionada y <strong>Supuestos, límites y fuentes</strong>, desplegable.</li>
+</ul>
+<p>La participación ponderada del resumen utiliza totales estimados ya redondeados por sección sobre la LN de la misma cobertura. Puede diferir ligeramente de otro resumen presentado antes del redondeo.</p>
+<p>Cambiar el <strong>escenario del mapa</strong> usa el último cálculo y conserva todas las columnas. Cambiar universo, contienda o variaciones exige volver a calcular. El mapa usa azul para aumento de volumen, ocre para disminución y gris para sin cambio o no calculable; la base 0 pp puede verse sin cambios.</p>
+<p>La línea de la gráfica conecta escenarios, no probabilidades ni un intervalo de confianza. Las variantes son cambios comunes de participación, no incrementos exclusivos de un partido.</p>
+<p><strong>Prueba sencilla:</strong> compara −2, 0 y +2 pp; alterna el escenario del mapa y verifica que la tabla siga mostrando simultáneamente las tres variantes.</p>
+<h2 id="17-distribución-de-votación-por-sección">17. Distribución de votación por sección</h2>
+<p><strong>Módulo:</strong> Ganar Todo.<br />
+<strong>Ventana:</strong> Distribución de votación por sección · escenario 2027.</p>
+<p><strong>Para qué sirve:</strong> reunir históricos de participación, escenario 2027, desglose estimado y separación entre los dos máximos rastreados, conservando el detalle por sección.</p>
+<h3 id="cómo-ejecutarla-12">Cómo ejecutarla</h3>
+<ol>
+<li>Abre <strong>Distribución de votación por sección</strong>.</li>
+<li>Elige <strong>Universo</strong> y <strong>Contienda</strong>; el horizonte es 2027.</li>
+<li>Pulsa <strong>Calcular distribución y pintar mapa</strong>.</li>
+<li>Recorre la tabla hacia la derecha para leer todas sus columnas.</li>
+<li>Pulsa una fila o sección del mapa para ver los históricos y el desglose detallado.</li>
+<li>Abre <strong>Método, máximos, redondeo y cobertura</strong> para ampliar la interpretación.</li>
+</ol>
+<h3 id="qué-presenta-10">Qué presenta</h3>
+<ul>
+<li>Cobertura general y número de secciones con desglose calculable.</li>
+<li>Tabla ordenada por sección: LN 2024; participación 2018, 2021 y 2024; participación estimada 2027; total estimado; cifras de cada partido en formato <strong>2024 / estimado / variación</strong>; residuo; mayor votación estimada; segundo máximo; separación en votos y pp; estados de desglose y diferencia.</li>
+<li>Ficha de sección con años utilizados, límites aplicados, tabla de históricos y tabla observada/estimada por partido.</li>
+</ul>
+<p><strong>Cómo leerla:</strong> «No usado por el método» identifica un año que no interviene; no equivale a N/D de un año requerido. La separación en pp utiliza el total estimado, incluido el residuo. En empate máximo la diferencia es cero y se conservan las opciones empatadas. Sin total positivo o bases utilizables no se calcula la separación.</p>
+<p>Puede existir un total de participación calculable con desglose y separación N/D. No sustituye esos faltantes con cero.</p>
+<p>Comparte la base matemática de la comparación descriptiva, pero reúne más columnas de históricos y separación. Esa separación no son votos adicionales requeridos ni prioridades territoriales. Usa el detalle escrito para interpretar el mapa hasta comprobar sus colores —apartado 3—.</p>
+<p><strong>Prueba sencilla:</strong> selecciona una fila y verifica que el total estimado de su ficha corresponda a esa sección; identifica si tiene desglose y diferencia calculables o solo volumen.</p>
+<h2 id="18-método-de-participación-y-diferencias-entre-consultas">18. Método de participación y diferencias entre consultas</h2>
+<p>No necesitas calcular estas fórmulas para usar HEYTI. Sirven para saber qué dato estás leyendo.</p>
+<h3 id="participación-base-estimada">Participación base estimada</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Contiendas</th>
+<th>Método mostrado por la aplicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ayuntamiento, Diputación local y Diputación federal</td>
+<td>Tendencia lineal con históricos 2018, 2021 y 2024, dando mayor peso a años recientes: 1, 1.5 y 2. Se exige 2024 y al menos otro año válido.</td>
+</tr>
+<tr>
+<td>Gubernatura, Senaduría y Presidencia</td>
+<td>Participación 2024 + 0.3 × (participación 2024 − participación 2018). Requiere ambos años.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Una cifra inconsistente en un año utilizado impide el cálculo correspondiente. Los porcentajes fuera de rango se limitan a 0–100% y se informa el recorte. Usar solo dos años en contiendas trienales también se señala.</p>
+<p>El resumen general de participación base pondera las estimaciones seccionales por LN 2024 de las secciones calculables. Los resúmenes de volumen de Sensibilidad y Comparador suman totales ya redondeados por sección; no esperes coincidencia exacta de todos los decimales con porcentajes previos al redondeo.</p>
+<h3 id="elegir-la-vista-adecuada">Elegir la vista adecuada</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Si deseas revisar…</th>
+<th>Abre…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Participación observada y comparación anual</td>
+<td>Participación histórica.</td>
+</tr>
+<tr>
+<td>Solo el resumen del escenario de participación</td>
+<td>Escenario de participación 2027.</td>
+</tr>
+<tr>
+<td>LN base, participación estimada, volumen y su 3% por sección</td>
+<td>Participación estimada 3%...</td>
+</tr>
+<tr>
+<td>Continuidad del máximo rastreado en varios años</td>
+<td>Estabilidad 2018–2024.</td>
+</tr>
+<tr>
+<td>El escenario frente a una meta y tolerancia</td>
+<td>Metas de participación 2027.</td>
+</tr>
+<tr>
+<td>Histórico 2024 frente a estimado por partido</td>
+<td>Escenario descriptivo 2027 · votos y participación.</td>
+</tr>
+<tr>
+<td>Históricos, estimado y separación de máximos en una tabla amplia</td>
+<td>Distribución de votación por sección.</td>
+</tr>
+<tr>
+<td>Cambio entre un escenario base y una variación común</td>
+<td>Sensibilidad a participación.</td>
+</tr>
+<tr>
+<td>Varias variaciones al mismo tiempo</td>
+<td>Comparador de escenarios de participación.</td>
+</tr>
+<tr>
+<td>Separación de los dos máximos observados en 2024</td>
+<td>Diferencia entre partidos · 2024.</td>
+</tr>
+<tr>
+<td>Una opción histórica elegida frente a las otras</td>
+<td>Eficiencia del voto · histórica 2024.</td>
+</tr>
+<tr>
+<td>Disponibilidad de los datos</td>
+<td>Alertas de datos · 2024.</td>
+</tr>
+<tr>
+<td>Vecindad y grupos por límites compartidos</td>
+<td>Colindancias y agrupaciones.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="19-si-algo-no-aparece-o-no-coincide">19. Si algo no aparece o no coincide</h2>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Situación</th>
+<th>Qué hacer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Las consultas están desactivadas</td>
+<td>Activa <strong>Individual</strong>.</td>
+</tr>
+<tr>
+<td>No encuentras una consulta</td>
+<td>Despliega Ganar Todo y Consultas del módulo; desplaza el menú izquierdo.</td>
+</tr>
+<tr>
+<td>Cambiaste un filtro y no cambió la respuesta</td>
+<td>Pulsa de nuevo el botón de ejecución y comprueba su encabezado.</td>
+</tr>
+<tr>
+<td>Una ventana tapa el mapa</td>
+<td>Muévela por el encabezado, cambia su tamaño o ciérrala.</td>
+</tr>
+<tr>
+<td>No alcanzas a ver columnas</td>
+<td>Utiliza la barra horizontal de la tabla; no todas caben al ampliar la ventana.</td>
+</tr>
+<tr>
+<td>Pulsas un encabezado y no ordena</td>
+<td>Solo la tabla de Participación estimada 3%... tiene orden interactivo en estas vistas. Las demás indican su orden fijo.</td>
+</tr>
+<tr>
+<td>El mapa y la leyenda parecen distintos</td>
+<td>Registra consulta, filtros, categoría escrita y captura. No saques conclusiones a partir del color solo.</td>
+</tr>
+<tr>
+<td>Una fila no acerca el mapa</td>
+<td>Anótalo; prueba seleccionar el polígono directamente y usa +, − o Recentrar.</td>
+</tr>
+<tr>
+<td>No hay datos para calcular</td>
+<td>Lee el estado y distingue faltantes, inconsistencia, total cero y no celebrada. No sustituyas N/D por cero.</td>
+</tr>
+<tr>
+<td>No aparece el desglose, pero sí un total</td>
+<td>Puede haber volumen calculable sin proporciones por partido utilizables. Revisa los dos estados.</td>
+</tr>
+<tr>
+<td>El progreso de Colindancias tarda</td>
+<td>No abras repetidamente la misma consulta. Puedes cerrarla para cancelar; registra si no termina.</td>
+</tr>
+<tr>
+<td>No aparece un botón para exportar una ficha PDF</td>
+<td>La generación de fichas no se documenta como función operativa de este bloque. Registra la necesidad; no debes instalar nada para suplirla.</td>
+</tr>
+<tr>
+<td>No carga el mapa de calles</td>
+<td>Pide a Alex comprobar Internet. Las calles y los datos de consulta son elementos distintos.</td>
+</tr>
+<tr>
+<td>Hay un mensaje de error</td>
+<td>Copia el texto, filtros y hora, y toma una captura. No necesitas modificar configuraciones ni reiniciar servicios.</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="20-hoja-de-observaciones-para-la-revisión">20. Hoja de observaciones para la revisión</h2>
+<p>La revisión busca saber si puedes encontrar, ejecutar y comprender cada consulta sin conocimientos de desarrollo. No necesitas proponer una solución de programación.</p>
+<p><strong>Intenta usar el manual por tu cuenta.</strong> Si necesitas ayuda, anota en qué paso la pediste. Distingue una falla de funcionamiento de una explicación que no se entiende o de la ausencia de datos.</p>
+<h3 id="datos-de-la-revisión">Datos de la revisión</h3>
+<ul>
+<li>Nombre de quien revisa:</li>
+<li>Fecha y hora:</li>
+<li>Dispositivo: computadora / teléfono / tableta.</li>
+<li>Navegador, si lo conoces:</li>
+<li>Universo y contienda usados:</li>
+<li>¿Pude leer cómodamente el texto y las cifras?:</li>
+<li>¿Entendí los colores y sus leyendas?:</li>
+</ul>
+<h3 id="una-ficha-por-consulta">Una ficha por consulta</h3>
+<ul>
+<li><strong>Nombre exacto de la consulta:</strong></li>
+<li><strong>Universo y contienda:</strong></li>
+<li><strong>Año, escenario y parámetros que utilicé:</strong></li>
+<li><strong>¿La encontré sin ayuda?:</strong> Sí / No.</li>
+<li><strong>¿Pude ejecutarla?:</strong> Sí / No / No pude comprobarlo.</li>
+<li><strong>¿Entendí qué información muestra?:</strong> Sí / En parte / No.</li>
+<li><strong>¿Distinguí histórico de estimado?:</strong></li>
+<li><strong>¿Los encabezados coinciden con mi selección?:</strong></li>
+<li><strong>¿Pude leer tabla, gráfica, mapa y detalle que correspondían?:</strong></li>
+<li><strong>¿Coinciden el color, la leyenda y la categoría escrita?:</strong></li>
+<li><strong>Paso donde necesité ayuda o tuve una dificultad:</strong></li>
+<li><strong>Qué esperaba:</strong></li>
+<li><strong>Qué ocurrió:</strong></li>
+<li><strong>Mensaje exacto y captura:</strong></li>
+<li><strong>Sugerencia en mis propias palabras:</strong></li>
+</ul>
+<h3 id="lista-de-recorrido">Lista de recorrido</h3>
+<div class="table-scroll" role="region" aria-label="Tabla: desplaza horizontalmente si no cabe" tabindex="0"><table>
+<thead>
+<tr>
+<th>Consulta</th>
+<th>La encontré</th>
+<th>La pude usar</th>
+<th>Entendí el resultado</th>
+<th>Observaciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Participación estimada 3%...</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Participación histórica</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Escenario de participación 2027</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Estabilidad 2018–2024</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Metas de participación 2027</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Escenario descriptivo 2027 · votos y participación</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Diferencia entre partidos · 2024</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Alertas de datos · 2024</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Eficiencia del voto · histórica 2024</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Colindancias y agrupaciones</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Sensibilidad a participación</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Comparador de escenarios de participación</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Distribución de votación por sección</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>Entrega a Alex este registro y las capturas. Son útiles tanto «la consulta falló» como «no entendí la cifra», «no encontré el botón», «no coincidió el color» y «el dato no estaba disponible»: describen problemas distintos.</p>
+<footer class="footer">Documento de HEYTI CORE V2. Usa el índice para navegar o Ctrl + F para buscar una palabra. <a href="#contenido">Volver al principio ↑</a></footer></main></div><script>
+(()=>{let size=18;const status=document.querySelector('[data-status]');
+document.querySelector('[data-smaller]').addEventListener('click',()=>{size=Math.max(16,size-2);document.documentElement.style.setProperty('--size',size+'px');status.textContent='Texto: '+size+' px'});
+document.querySelector('[data-larger]').addEventListener('click',()=>{size=Math.min(30,size+2);document.documentElement.style.setProperty('--size',size+'px');status.textContent='Texto: '+size+' px'});
+document.querySelector('[data-contrast]').addEventListener('click',event=>{const active=document.body.classList.toggle('contrast');event.currentTarget.setAttribute('aria-pressed',String(active));event.currentTarget.textContent=active?'Contraste normal':'Alto contraste'});
+document.querySelector('[data-print]').addEventListener('click',()=>window.print());})();
+</script></body></html>
