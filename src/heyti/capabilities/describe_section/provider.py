@@ -1,5 +1,7 @@
 from copy import deepcopy
 from typing import Any, Protocol
+from heyti.capabilities.describe_section.electoral_query import validate_section_request
+from heyti.capabilities.describe_section.versioned_electoral_source import ReadRequest
 
 from heyti.capabilities.describe_section.models import (
     SectionDescription,
@@ -45,6 +47,11 @@ class SectionElectoralSource(Protocol):
         ...
 
 
+class SectionVersionedElectoralSource(Protocol):
+    def read(self, request: ReadRequest) -> dict[str, Any]:
+        ...
+
+
 class DescribeSectionProvider:
     """
     Proveedor inicial de información para DescribeSection.
@@ -63,19 +70,33 @@ class DescribeSectionProvider:
         electoral_source: (
             SectionElectoralSource | None
         ) = None,
+        versioned_electoral_source: SectionVersionedElectoralSource | None = None,
     ) -> None:
         self.truth_source = truth_source
         self.territorial_source = territorial_source
         self.electoral_source = electoral_source
+        self.versioned_electoral_source = versioned_electoral_source
 
     def get_section(
         self,
         section_id: str,
+        electoral_request: ReadRequest | None = None,
     ) -> SectionDescription:
         description = SectionDescription()
         description.section_id = section_id
+        if electoral_request is not None:
+            validate_section_request(section_id, electoral_request)
+            description.electoral_versioned = {
+                "status": "DATA_TRUTH_NOT_ALLOWED", "data": None,
+                "purpose": "PRESENTATION", "metric_scope": electoral_request.metric_scope,
+            }
 
         if self.truth_source is None:
+            if electoral_request is not None:
+                description.warnings.append(SectionWarning(
+                    code="VERSIONED_ELECTORAL_UNAVAILABLE",
+                    message="Resultado electoral versionado bloqueado por Data Truth.",
+                ))
             return description
 
         snapshot = self.truth_source.get_section_truth(
@@ -98,6 +119,11 @@ class DescribeSectionProvider:
         )
 
         if publication_status != "ALLOWED":
+            if electoral_request is not None:
+                description.warnings.append(SectionWarning(
+                    code="VERSIONED_ELECTORAL_UNAVAILABLE",
+                    message="Resultado electoral versionado bloqueado por Data Truth.",
+                ))
             return description
 
         if self.territorial_source is not None:
@@ -119,7 +145,32 @@ class DescribeSectionProvider:
                     territorial
                 )
 
-        if self.electoral_source is not None:
+        if electoral_request is not None:
+            if self.versioned_electoral_source is None:
+                response = {
+                    "status": "VERSIONED_SOURCE_NOT_CONFIGURED", "data": None,
+                    "purpose": "PRESENTATION", "metric_scope": electoral_request.metric_scope,
+                }
+            else:
+                response = self.versioned_electoral_source.read(electoral_request)
+                if (not isinstance(response, dict)
+                        or response.get("purpose") != "PRESENTATION"
+                        or response.get("metric_scope") != electoral_request.metric_scope
+                        or "data" not in response or not isinstance(response.get("status"), str)):
+                    raise TypeError("Invalid versioned presentation response")
+                if response["data"] is not None and (
+                    response["status"] != "SELECTED_RESULT"
+                    or response.get("selection_status") != "SELECTED"
+                    or response.get("certification_status") != "CERTIFIED"
+                ):
+                    raise ValueError("Unselected electoral data cannot enter DescribeSection")
+            description.electoral_versioned = deepcopy(response)
+            if response["data"] is None:
+                description.warnings.append(SectionWarning(
+                    code="VERSIONED_ELECTORAL_UNAVAILABLE",
+                    message="Resultado electoral versionado no disponible: " + response["status"],
+                ))
+        elif self.electoral_source is not None:
             electoral = (
                 self.electoral_source
                 .get_section_electoral(

@@ -1,0 +1,58 @@
+.workspace-canvas[data-map-expanded="true"] {
+  box-sizing: border-box;
+  padding: 8px;
+}
+@media (min-width: 64rem) {
+  .application-shell:has(.workspace-canvas[data-map-expanded="true"]) {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+  }
+  .application-workspace:has(.workspace-canvas[data-map-expanded="true"]) {
+    min-height: 0;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .workspace-canvas[data-map-expanded="true"] {
+    min-height: 0;
+    height: 100%;
+    overflow: auto;
+  }
+  .workspace-canvas[data-map-expanded="true"] > .workspace-visual-grid {
+    height: 100%;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .workspace-canvas[data-map-expanded="true"] .workspace-visual-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .workspace-canvas[data-map-expanded="true"] .workspace-visual-panel > header {
+    flex: 0 0 auto;
+    min-height: 48px;
+    padding: 8px 12px;
+  }
+  .workspace-canvas[data-map-expanded="true"] .workspace-visual-map,
+  .workspace-canvas[data-map-expanded="true"] .workspace-visual-placeholder {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+    padding: 8px;
+  }
+  .workspace-canvas[data-map-expanded="true"] .section-geometry-map {
+    height: 100%;
+    min-height: 0;
+    gap: 6px;
+  }
+  .workspace-canvas[data-map-expanded="true"] .section-geometry-map > svg {
+    flex: 1 1 0;
+    height: 0;
+    min-height: 0;
+    max-height: none;
+  }
+  .workspace-canvas[data-map-expanded="true"] .section-geometry-map > figcaption {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+  }
+}

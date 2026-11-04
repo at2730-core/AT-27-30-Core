@@ -1,0 +1,140 @@
+@import "./SectionTableSticky.css";
+.heyti-data-panel {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 1px solid #d9e1ef;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.heyti-data-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.heyti-data-panel-header h3 {
+  margin: 0;
+  color: #1f2d3d;
+  font-size: 0.95rem;
+}
+
+.heyti-data-panel-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.28rem 0.58rem;
+  color: #12389a;
+  background: #eaf1ff;
+  border: 1px solid #cfe0ff;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.heyti-data-panel-detail {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.8rem 0.9rem;
+  background: #f8fafc;
+  border: 1px solid #e5ebf5;
+  border-radius: 10px;
+}
+
+.heyti-data-panel-detail h3 {
+  margin: 0;
+  color: #1f2d3d;
+  font-size: 0.8rem;
+}
+
+.heyti-data-panel-detail p {
+  margin: 0;
+  color: #475569;
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.heyti-win-table-scroll {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  max-height: min(420px, 48vh);
+  overflow-x: auto;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: auto;
+  scrollbar-color: #8192b4 #edf2f8;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  border: 1px solid #d9e1ef;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+.heyti-win-table-scroll::-webkit-scrollbar { width: 14px; height: 14px; }
+.heyti-win-table-scroll::-webkit-scrollbar-track { background: #edf2f8; }
+.heyti-win-table-scroll::-webkit-scrollbar-thumb { background: #8192b4; border: 3px solid #edf2f8; border-radius: 8px; }
+.heyti-win-table-scroll::-webkit-scrollbar-corner { background: #edf2f8; }
+.heyti-win-table thead th { position: sticky; top: 0; z-index: 1; padding: 8px 10px; background: linear-gradient(180deg, #f3f7ff 0%, #edf3ff 100%); }
+
+.heyti-win-table { width: 100%; min-width: 1150px; border-collapse: collapse; font-size: 12px; background: #ffffff; }
+.heyti-win-table caption { padding: 12px 14px 10px; text-align: left; font-size: 12px; font-weight: 800; color: #1f2d3d; }
+.heyti-win-table th, .heyti-win-table td { padding: 10px 12px; border-bottom: 1px solid #e5ebf5; text-align: right; white-space: nowrap; color: #243447; }
+.heyti-win-table th { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: #50607a; }
+.heyti-win-table th:first-child, .heyti-win-table td:first-child { text-align: left; }
+.heyti-win-table tbody tr { cursor: pointer; transition: background 0.15s ease, transform 0.15s ease; }
+.heyti-win-table tbody tr:hover { background: #f4f8ff; }
+.heyti-win-table tbody tr[aria-selected="true"] { background: #eaf1ff; }
+.heyti-win-table .heyti-sort-column-active { background: #e3edff; }
+.heyti-win-table .heyti-sort-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: auto;
+  max-width: 100%;
+  font: inherit;
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #1d47b8;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.heyti-win-table .heyti-sort-button:hover { background: #f8fbff; border-color: #d3dffb; }
+.heyti-win-table .heyti-sort-button-active {
+  background: linear-gradient(180deg, #edf4ff 0%, #dfeeff 100%);
+  border-color: #bfd0fb;
+  box-shadow: inset 0 0 0 1px rgba(30, 75, 183, 0.06);
+  color: #12389a;
+  font-weight: 700;
+}
+.heyti-win-table .heyti-sort-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12px;
+  font-size: 12px;
+  line-height: 1;
+  color: #1d47b8;
+}
+.heyti-win-table .heyti-sort-button[data-direction="none"] .heyti-sort-indicator { color: #64748b; }
+.heyti-win-table button {
+  font: inherit;
+  padding: 5px 8px;
+  border: 1px solid #cfdbf4;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #2047c4;
+  cursor: pointer;
+}
+.heyti-win-table button:focus-visible { outline: 2px solid #3452d5; outline-offset: 2px; }

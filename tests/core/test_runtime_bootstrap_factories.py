@@ -54,10 +54,11 @@ def test_runtime_bootstrap_preserves_other_capabilities():
 
     loaded_capabilities = bootstrap.initialize()
 
-    assert len(loaded_capabilities) == 4
-    assert bootstrap.registry.count() == 4
+    assert len(loaded_capabilities) == 5
+    assert bootstrap.registry.count() == 5
 
     assert bootstrap.registry.exists("describe_section") is True
+    assert bootstrap.registry.exists("describe_universe") is True
     assert bootstrap.registry.exists("health") is True
     assert bootstrap.registry.exists("system_info") is True
     assert bootstrap.registry.exists("version") is True

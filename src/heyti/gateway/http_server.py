@@ -207,6 +207,7 @@ def create_http_server(
             if self._request_path() not in {
                 "/health",
                 "/v1/sections/describe",
+                "/v1/universes/describe",
             }:
                 self._send_error_contract(
                     HTTPStatus.NOT_FOUND,
@@ -276,7 +277,7 @@ def create_http_server(
 
             if (
                 self._request_path()
-                != "/v1/sections/describe"
+                not in {"/v1/sections/describe", "/v1/universes/describe"}
             ):
                 self._send_error_contract(
                     HTTPStatus.NOT_FOUND,
@@ -316,13 +317,19 @@ def create_http_server(
             execution_id = f"EXE-{uuid4()}"
 
             try:
-                response = application.describe_section(
-                    section_id=payload.get("section_id"),
-                    request_id=request_id,
-                    execution_id=execution_id,
-                    knowledge_version=knowledge_version,
-                )
-            except ValueError as exc:
+                if self._request_path() == "/v1/universes/describe":
+                    response = application.describe_universe(payload)
+                else:
+                    if "electoral_query" in payload and not isinstance(payload["electoral_query"], dict):
+                        raise ValueError("electoral_query debe ser un objeto")
+                    response = application.describe_section(
+                        section_id=payload.get("section_id"),
+                        request_id=request_id,
+                        execution_id=execution_id,
+                        knowledge_version=knowledge_version,
+                        electoral_query=payload.get("electoral_query"),
+                    )
+            except (TypeError, ValueError) as exc:
                 self._send_error_contract(
                     HTTPStatus.BAD_REQUEST,
                     "INVALID_REQUEST",

@@ -1,0 +1,21 @@
+/* Opt-in: only tables whose first column is an electoral section identity. */
+.heyti-section-table > tbody > tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  min-width: 58px;
+  white-space: nowrap;
+  background: #ffffff;
+  box-shadow: 1px 0 0 #d9e1ef;
+}
+.heyti-section-table > thead > tr > :first-child {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background: #edf3ff;
+  box-shadow: 1px 0 0 #d9e1ef;
+}
+.heyti-section-table > tbody > tr:nth-child(even) > :first-child { background: #f5f8ff; }
+.heyti-section-table > tbody > tr:hover > :first-child { background: #edf3ff; }
+.heyti-section-table > tbody > tr[aria-selected="true"] > :first-child { background: #eaf1ff; }

@@ -1,3 +1,32 @@
+import { AreaSectionSelectionProvider, useAreaSectionSelection, useAreaSectionSource } from './AreaSectionSelection'
+import { TerritorialAreaPanel } from './TerritorialAreaPanel'
+import { areaReading, AREA_TITLES, isAreaKind } from './territorialAreaAnalysis'
+import { ComparisonWorkspace } from './ComparisonWorkspace'
+import { SocioWorkspaceHost } from './SocioWorkspaceHost'
+import { advanceSocioScope } from './socioWorkspaceMemory'
+import { VersionedElectoralPanel } from './VersionedElectoralPanel'
+import { SectionDemoProvider, SectionDemoPanel } from './SectionDemoPanel'
+import { ParticipationComparisonPanel } from './ParticipationComparisonPanel'
+import { GeographicGroupsPanel } from './GeographicGroupsPanel'
+import { geographicGroupsOf } from './geographicGroups'
+import { ParticipationSensitivityPanel } from './ParticipationSensitivityPanel'
+import { HistoricalReferencePanel } from './HistoricalReferencePanel'
+import { referenceSettings } from './historicalReference'
+import { fitUniverseSection } from './MapSectionFocus'
+import { useEffect, useState } from 'react'
+import { ElectoralStabilityPanel } from './ElectoralStabilityPanel'
+import type { ElectoralStability } from './electoralStability'
+import { ParticipationScenarioPanel } from './ParticipationScenarioPanel'
+import type { ParticipationScenario } from './participationScenario'
+import { queryDescriptions } from './QueryDescription'
+import './MapViewport.css'
+import { UniverseGeometryMap } from './UniverseGeometryMap'
+import { UniverseQueryPanel } from './UniverseQueryPanel'
+import type { UniverseMap } from '../gateway/universe.client'
+import { SectionTopThree } from './SectionTopThree'
+import { SectionCompetitiveness } from './SectionCompetitiveness'
+import { SectionInsightTabs } from './SectionInsightTabs'
+import { FloatingInsightPanel } from './FloatingInsightPanel'
 import type {
   ElectoralResultsView,
 } from '../gateway/electoral.response'
@@ -9,10 +38,42 @@ import type {
 } from '../gateway/territorial.response'
 import { getHeytiModule } from '../platform/module.catalog'
 import { useWorkspace } from '../platform/useWorkspace'
-import { SectionElectoralSummary } from './SectionElectoralSummary'
+import { ElectoralHistoricalComparison } from './SectionElectoralSummary'
 import { SectionGeometryMap } from './SectionGeometryMap'
 
 interface WorkspaceCanvasProps {
+  socioQueryRequest?: number
+  scenarioKind?: 'scenario' | 'goals' | 'win' | 'comparison' | 'participation-table' | 'sensitivity' | 'distribution' | 'multi-scenario'
+  stability?: ElectoralStability | null
+  stabilityOpen?: boolean
+  onCloseStability?: () => void
+  onStabilityPending?: () => void
+  onStabilityResult?: (result: ElectoralStability) => void
+  participationScenario?: ParticipationScenario | null
+  participationScenarioOpen?: boolean
+  onCloseParticipationScenario?: () => void
+  onParticipationScenarioPending?: () => void
+  onParticipationScenarioResult?: (result: ParticipationScenario) => void
+  mapResults2024?: boolean
+  mapDataAlerts?: boolean
+  mapHistoricalMargin?: boolean
+  mapParticipation?: boolean
+  activeQuery?: string
+  universeMapKind?: 'leaders' | 'abstention' | 'concentration' | 'participation' | 'margin' | 'data-alerts' | 'results2024' | 'reference' | 'geographic' | 'area-comparison' | 'area-competitiveness' | 'area-top3'
+  universeMapOpen?: boolean
+  universeMap?: UniverseMap | null
+  onCloseUniverseMap?: () => void
+  onUniverseMapResult?: (result: UniverseMap) => void
+  onUniverseMapPending?: () => void
+  topThreeOpen?: boolean
+  onCloseTopThree?: () => void
+  competitivenessOpen?: boolean
+  onCloseCompetitiveness?: () => void
+  historicalComparisonOpen?: boolean
+  onCloseHistoricalComparison?: () => void
+  insightPanelRequest?: number
+  activeInsightTab?: number
+  onSelectInsightTab?: (index: number) => void
   onOpenCrossQuery: () => void
   onConfigureComparison: () => void
   territorialTruth: TerritorialTruthView | null
@@ -52,7 +113,39 @@ function publicationLabel(
   }
 }
 
-export function WorkspaceCanvas({
+function WorkspaceCanvasContent({
+  socioQueryRequest = 0,
+  scenarioKind = 'scenario',
+  stability,
+  stabilityOpen,
+  onCloseStability,
+  onStabilityPending,
+  onStabilityResult,
+  participationScenario,
+  participationScenarioOpen,
+  onCloseParticipationScenario,
+  onParticipationScenarioPending,
+  onParticipationScenarioResult,
+  activeQuery = 'summary',
+  mapResults2024 = false,
+  mapDataAlerts = false,
+  mapHistoricalMargin = false,
+  mapParticipation = false,
+  universeMapKind,
+  universeMapOpen,
+  universeMap,
+  onCloseUniverseMap,
+  onUniverseMapResult,
+  onUniverseMapPending,
+  topThreeOpen,
+  onCloseTopThree,
+  competitivenessOpen,
+  onCloseCompetitiveness,
+  historicalComparisonOpen,
+  onCloseHistoricalComparison,
+  insightPanelRequest,
+  activeInsightTab,
+  onSelectInsightTab,
   onOpenCrossQuery,
   onConfigureComparison,
   territorialTruth,
@@ -61,48 +154,39 @@ export function WorkspaceCanvas({
   territorialLoading,
   territorialError,
 }: WorkspaceCanvasProps) {
-  const { state } = useWorkspace()
+  const { state, setMapView } = useWorkspace()
+  const socioActive = state.activeModuleId === 'socioeconomic' && state.mode !== 'comparison'
+  const universeScope = state.universe ? `${state.universe.level}:${state.universe.id}` : 'none'
+  const [socioVisited, setSocioVisited] = useState(socioActive)
+  const [socioMemory, setSocioMemory] = useState({scope: universeScope, revision: 0})
+  useEffect(() => {
+    if (socioActive) setSocioVisited(true)
+    setSocioMemory(previous => advanceSocioScope(previous, universeScope, socioActive))
+  }, [universeScope, socioActive])
+
+  const sourceMap = stability?.base ?? participationScenario?.base ?? universeMap
+  const { selection: areaSelection } = useAreaSectionSelection()
+  const { selectedSection: selectedAreaSection, selectSection } = useAreaSectionSource(sourceMap)
+  const resultsSelected = selectedAreaSection
+  const winSelected = selectedAreaSection
+  const focusResultSection = (id: string) => {
+    if (!universeMap) return
+    const view = fitUniverseSection(universeMap, id)
+    if (view) { selectSection(id); setMapView(view) }
+  }
+  const focusWinSection = (id: string) => {
+    if (!participationScenario) return
+    const view = fitUniverseSection(participationScenario.base, id)
+    if (view) { selectSection(id); setMapView(view) }
+  }
 
   const activeModule = getHeytiModule(
     state.activeModuleId,
   )
 
-  if (state.mode === 'comparison') {
-    return (
-      <main className="workspace-canvas">
-        <section className="workspace-introduction">
-          <div>
-            <p className="workspace-eyebrow">
-              CONTEXTO COMPARTIDO
-            </p>
-            <h1>Comparar perspectivas</h1>
-            <p>
-              Hasta tres módulos sobre el mismo universo.
-            </p>
-          </div>
+  const queryDescription = ['territorial-analysis', 'win-all'].includes(state.activeModuleId) ? queryDescriptions[activeQuery] ?? queryDescriptions.summary : activeModule.description
 
-          <button
-            type="button"
-            className="workspace-action"
-            onClick={onConfigureComparison}
-          >
-            Configurar módulos
-          </button>
-        </section>
-
-        <section className="workspace-empty-state">
-          <span aria-hidden="true">◇</span>
-          <h2>Comparación sin configurar</h2>
-          <p>
-            Selecciona un universo y los módulos que deseas
-            contrastar.
-          </p>
-        </section>
-      </main>
-    )
-  }
-
-  const truthStatus = territorialLoading
+  const truthStatus = universeMap && areaReading(universeMap) ? `${AREA_TITLES[areaReading(universeMap)!.kind]} · ${universeMap.year} · cobertura parcial` : stability ? 'Estabilidad 2018–2024 · cobertura parcial · fuentes en auditoría' : participationScenario ? `${participationScenario.participationComparison ? 'Comparación de escenarios 2027' : participationScenario.distributionOnly ? 'Distribución estimada 2027' : participationScenario.sensitivity ? 'Sensibilidad a participación 2027' : participationScenario.comparison ? 'Comparación descriptiva 2027' : participationScenario.win ? 'Escenario parcial 2027' : participationScenario.goals ? 'Metas 2027' : 'Escenario 2027'} · estimación · fuentes en auditoría` : universeMap ? `${geographicGroupsOf(universeMap) ? 'Agrupación geográfica · datos 2024' : referenceSettings(universeMap) ? 'Comparación histórica 2024' : mapResults2024 ? 'Resultados 2024' : mapDataAlerts ? 'Alertas de datos 2024' : mapHistoricalMargin ? 'Diferencia histórica 2024' : mapParticipation ? 'Participación histórica' : universeMap.metric === 'concentration' ? 'Concentración parcial' : universeMap.metric === 'abstention' ? 'Abstención' : 'Mayor votación rastreada'} · cobertura parcial` : territorialLoading
     ? 'Consultando HEYTI-CORE'
     : territorialTruth
       ? publicationLabel(
@@ -110,8 +194,14 @@ export function WorkspaceCanvas({
         )
       : 'Sin datos representados'
 
-  return (
-    <main className="workspace-canvas">
+  return (<>
+    {state.mode === 'comparison' ? <ComparisonWorkspace onConfigure={onConfigureComparison} onUniverseChange={onUniverseMapPending} /> : null}
+    <div style={{display: socioActive && state.mode !== 'comparison' ? 'contents' : 'none'}} aria-hidden={!socioActive || state.mode === 'comparison'}>
+      {(socioVisited || socioActive) ? <SocioWorkspaceHost key={socioMemory.revision} query={activeQuery} requestId={socioQueryRequest} /> : null}
+    </div>
+    <div key={universeScope} style={{display: socioActive || state.mode === 'comparison' ? 'none' : 'contents'}} aria-hidden={socioActive || state.mode === 'comparison'}>
+    <main className="workspace-canvas" data-map-expanded={['territorial-analysis', 'win-all'].includes(state.activeModuleId) ? 'true' : undefined}>
+      {!['territorial-analysis', 'win-all'].includes(state.activeModuleId) ? (
       <section className="workspace-introduction">
         <div>
           <p className="workspace-eyebrow">
@@ -129,6 +219,7 @@ export function WorkspaceCanvas({
           Consulta cruzada
         </button>
       </section>
+      ) : null}
 
       <div className="workspace-visual-grid">
         <section
@@ -137,7 +228,7 @@ export function WorkspaceCanvas({
         >
           <header>
             <div>
-              <p>OBJETO PRINCIPAL</p>
+              <p>UNIVERSO SELECCIONADO</p>
               <h2 id="visual-panel-title">
                 {state.universe
                   ? state.universe.label
@@ -152,13 +243,20 @@ export function WorkspaceCanvas({
 
           <div
             className={
-              territorialGeometry
+              (territorialGeometry || universeMap || participationScenario || stability)
                 ? 'workspace-visual-map'
                 : 'workspace-visual-placeholder'
             }
           >
-            {territorialGeometry ? (
+            {stability ? (
+              <UniverseGeometryMap key={`stability:${stability.base.universe.level}:${stability.base.universe.id}:${stability.base.contest}`} result={stability.base} stability={stability} selectedSection={selectedAreaSection} onSelectSection={selectSection} queryDescription={queryDescription} />
+            ) : participationScenario ? (
+              <UniverseGeometryMap key={`scenario:${participationScenario.base.universe.level}:${participationScenario.base.universe.id}:${participationScenario.base.contest}`} result={participationScenario.base} scenario={participationScenario} selectedSection={selectedAreaSection} onSelectSection={selectSection} queryDescription={queryDescription} />
+            ) : universeMap ? (
+              <UniverseGeometryMap key={`${universeMap.universe.level}:${universeMap.universe.id}`} result={universeMap} results2024Mode={mapResults2024} selectedSection={selectedAreaSection} onSelectSection={selectSection} participation={mapParticipation} historicalMarginMode={mapHistoricalMargin} dataAlertsMode={mapDataAlerts} queryDescription={queryDescription} />
+            ) : territorialGeometry ? (
               <SectionGeometryMap
+                queryDescription={queryDescription}
                 territorialGeometry={
                   territorialGeometry
                 }
@@ -207,16 +305,7 @@ export function WorkspaceCanvas({
           </div>
         </section>
 
-        <aside
-          className="workspace-insight-panel"
-          aria-labelledby="insight-panel-title"
-        >
-          <header>
-            <p>RESPUESTA HEYTI</p>
-            <h2 id="insight-panel-title">
-              Lectura del módulo
-            </h2>
-          </header>
+        {!areaSelection ? <FloatingInsightPanel title="Resumen de sección" minimizable expandRequest={insightPanelRequest}>
 
           {territorialLoading ? (
             <div className="workspace-insight-empty">
@@ -242,6 +331,12 @@ export function WorkspaceCanvas({
           !territorialError &&
           territorialTruth ? (
             <div className="workspace-insight-result">
+              <SectionDemoProvider key={territorialTruth.sectionId} sectionId={territorialTruth.sectionId}>
+              <SectionInsightTabs
+                selectedIndex={activeInsightTab}
+                onSelectedIndexChange={onSelectInsightTab}
+                electionYear={2024}
+                summary={<>
               <div className="workspace-truth-summary">
                 <span
                   data-status={
@@ -262,7 +357,20 @@ export function WorkspaceCanvas({
                 </p>
               </div>
 
-              <dl className="workspace-truth-details">
+                  <p className="heyti-overview-note">
+                    Consulta las pestañas para revisar datos de demostración y su evolución.
+                    La autorización territorial no acredita la validación de todas las cifras electorales.
+                  </p>
+                  <SectionDemoPanel view="summary" />
+                </>}
+                current={<SectionDemoPanel view="current" />}
+                history={<SectionDemoPanel view="history" />}
+                trace={<>
+                  <SectionDemoPanel view="trace" />
+                  <details><summary>Estado del lector auditado · independiente de la demostración</summary><VersionedElectoralPanel sectionId={territorialTruth.sectionId} /></details>
+              <details className="heyti-trace-disclosure" open>
+                <summary>Trazabilidad de la consulta territorial</summary>
+                <dl className="workspace-truth-details">
                 <div>
                   <dt>Clasificación</dt>
                   <dd>
@@ -290,12 +398,7 @@ export function WorkspaceCanvas({
                   </dd>
                 </div>
               </dl>
-
-              {electoralResults ? (
-                <SectionElectoralSummary
-                  electoralResults={electoralResults}
-                />
-              ) : null}
+              </details>
 
               {territorialTruth.warnings.length > 0 ? (
                 <section className="workspace-warning-list">
@@ -315,7 +418,9 @@ export function WorkspaceCanvas({
                 <p className="workspace-no-warnings">
                   Sin advertencias de Data Truth.
                 </p>
-              )}
+              )}                </>}
+              />
+              </SectionDemoProvider>
             </div>
           ) : null}
 
@@ -330,8 +435,71 @@ export function WorkspaceCanvas({
               </p>
             </div>
           ) : null}
-        </aside>
+        </FloatingInsightPanel> : null}
+        {stabilityOpen && onStabilityPending && onStabilityResult ? (
+          <FloatingInsightPanel title="Estabilidad 2018–2024 · lectura parcial" comparative onClose={onCloseStability}>
+            <ElectoralStabilityPanel result={stability ?? null} onPending={onStabilityPending} onResult={onStabilityResult} />
+          </FloatingInsightPanel>
+        ) : null}
+        {participationScenarioOpen && onParticipationScenarioPending && onParticipationScenarioResult ? (
+          <FloatingInsightPanel title={scenarioKind === 'multi-scenario' ? 'Comparador de escenarios de participación' : scenarioKind === 'distribution' ? 'Distribución de votación por sección · escenario 2027' : scenarioKind === 'sensitivity' ? 'Sensibilidad a participación · escenario 2027' : scenarioKind === 'participation-table' ? 'Tabla de participación estimada 2027' : (scenarioKind === 'comparison' || scenarioKind === 'win') ? 'Escenario descriptivo 2027 · votos y participación' : scenarioKind === 'goals' ? 'Metas de participación 2027 · escenario' : 'Escenario de participación 2027 · estimación'} comparative onClose={onCloseParticipationScenario}>
+            {scenarioKind === 'multi-scenario' ? <ParticipationComparisonPanel result={participationScenario?.participationComparison ? participationScenario : null} onResult={onParticipationScenarioResult} onPending={onParticipationScenarioPending} selectedSection={winSelected} onSelectSection={focusWinSection} /> : scenarioKind === 'sensitivity' ? <ParticipationSensitivityPanel result={participationScenario?.sensitivity && !participationScenario.participationComparison ? participationScenario : null} onResult={onParticipationScenarioResult} onPending={onParticipationScenarioPending} selectedSection={winSelected} onSelectSection={focusWinSection} /> : <ParticipationScenarioPanel distributionMode={scenarioKind === 'distribution'} key={scenarioKind} tableMode={scenarioKind === 'participation-table'} comparisonMode={scenarioKind === 'comparison' || scenarioKind === 'win'} selectedSection={winSelected} onSelectSection={focusWinSection} goalsMode={scenarioKind === 'goals'} result={participationScenario && (participationScenario.participationComparison ? 'multi-scenario' : participationScenario.distributionOnly ? 'distribution' : participationScenario.sensitivity ? 'sensitivity' : participationScenario.tableOnly ? 'participation-table' : participationScenario.comparison ? 'comparison' : participationScenario.win ? 'win' : participationScenario.goals ? 'goals' : 'scenario') === (scenarioKind === 'win' ? 'comparison' : scenarioKind) ? participationScenario : null} onPending={onParticipationScenarioPending} onResult={onParticipationScenarioResult} />}
+          </FloatingInsightPanel>
+        ) : null}
+        {universeMapOpen && onUniverseMapResult && onUniverseMapPending ? (
+          <FloatingInsightPanel title={isAreaKind(universeMapKind) ? AREA_TITLES[universeMapKind] : universeMapKind === 'geographic' ? 'Colindancias y agrupaciones de secciones' : universeMapKind === 'reference' ? 'Eficiencia del voto · histórica por sección' : universeMapKind === 'results2024' ? 'Resultados 2024 por universo' : universeMapKind === 'data-alerts' ? 'Alertas de datos · 2024' : universeMapKind === 'margin' ? 'Diferencia entre partidos · 2024' : universeMapKind === 'participation' ? 'Participación histórica · Ganar Todo' : universeMapKind === 'concentration' ? 'Concentración 2024 · índice parcial' : universeMapKind === 'abstention' ? 'Abstención por universo · lectura parcial' : 'Ganadores por año · lectura parcial'} comparative onClose={onCloseUniverseMap}>
+            {isAreaKind(universeMapKind) ? <TerritorialAreaPanel key={universeMapKind} kind={universeMapKind} result={universeMap && areaReading(universeMap)?.kind === universeMapKind ? universeMap : null} onResult={onUniverseMapResult} onPending={onUniverseMapPending} selectedSection={resultsSelected} onSelectSection={focusResultSection} /> : universeMapKind === 'geographic' ? <GeographicGroupsPanel result={universeMap && geographicGroupsOf(universeMap) ? universeMap : null} onResult={onUniverseMapResult} onPending={onUniverseMapPending} selectedSection={resultsSelected} onSelectSection={focusResultSection} /> : universeMapKind === 'reference' ? <HistoricalReferencePanel result={universeMap && referenceSettings(universeMap) ? universeMap : null} onResult={onUniverseMapResult} onPending={onUniverseMapPending} selectedSection={resultsSelected} onSelectSection={focusResultSection} /> : <UniverseQueryPanel key={universeMapKind} results2024Mode={universeMapKind === 'results2024'} selectedSection={resultsSelected} onSelectSection={focusResultSection} dataAlertsMode={universeMapKind === 'data-alerts'} historicalMarginMode={universeMapKind === 'margin'} participation={universeMapKind === 'participation'} metric={(universeMapKind === 'concentration' || universeMapKind === 'margin' || universeMapKind === 'data-alerts' || universeMapKind === 'results2024') ? 'concentration' : (universeMapKind === 'participation' || universeMapKind === 'abstention') ? 'abstention' : 'leaders'} result={universeMap && !areaReading(universeMap) && (universeMap.metric ?? 'leaders') === ((universeMapKind === 'margin' || universeMapKind === 'data-alerts' || universeMapKind === 'results2024') ? 'concentration' : universeMapKind === 'participation' ? 'abstention' : universeMapKind) && mapParticipation === (universeMapKind === 'participation') && mapHistoricalMargin === (universeMapKind === 'margin') && mapDataAlerts === (universeMapKind === 'data-alerts') && mapResults2024 === (universeMapKind === 'results2024') ? universeMap : null} onResult={onUniverseMapResult} onPending={onUniverseMapPending} />}
+          </FloatingInsightPanel>
+        ) : null}
+        {topThreeOpen ? (
+          <FloatingInsightPanel title="Top 3 por puesto" comparative onClose={onCloseTopThree}>
+            <div style={{ padding: '20px 16px' }}>
+              {territorialLoading ? <p role="status">Consultando la sección en HEYTI-CORE…</p>
+                : territorialError ? <p role="alert">{territorialError}</p>
+                : territorialTruth?.truthStatus === 'certified' && territorialTruth.publicationStatus === 'ALLOWED'
+                  && electoralResults && electoralResults.sectionId === territorialTruth.sectionId
+                  ? <SectionTopThree key={electoralResults.sectionId} electoralResults={electoralResults} />
+                  : <p>Selecciona y consulta una sección para revisar sus partidos rastreados.</p>}
+            </div>
+          </FloatingInsightPanel>
+        ) : null}
+        {competitivenessOpen ? (
+          <FloatingInsightPanel title="Competitividad por puesto" comparative onClose={onCloseCompetitiveness}>
+            <div style={{ padding: '20px 16px' }}>
+              {territorialLoading ? <p role="status">Consultando la sección en HEYTI-CORE…</p>
+                : territorialError ? <p role="alert">{territorialError}</p>
+                : territorialTruth?.truthStatus === 'certified' && territorialTruth.publicationStatus === 'ALLOWED'
+                  && electoralResults && electoralResults.sectionId === territorialTruth.sectionId
+                  ? <SectionCompetitiveness key={electoralResults.sectionId} electoralResults={electoralResults} />
+                  : <p>Selecciona y consulta una sección para revisar su competitividad.</p>}
+            </div>
+          </FloatingInsightPanel>
+        ) : null}
+        {historicalComparisonOpen ? (
+          <FloatingInsightPanel title="Comparativa histórica por puesto" comparative onClose={onCloseHistoricalComparison}>
+            <div className="heyti-independent-comparison">
+              {territorialLoading ? <p role="status">Consultando la sección en HEYTI-CORE…</p>
+                : territorialError ? <p role="alert">{territorialError}</p>
+                : territorialTruth?.truthStatus === 'certified' && territorialTruth.publicationStatus === 'ALLOWED'
+                  && electoralResults && electoralResults.sectionId === territorialTruth.sectionId ? <>
+                    <h3>Sección {territorialTruth.sectionId}</h3>
+                    <p className="heyti-overview-note">PAN, PRI, PVEM y MORENA: cobertura parcial. Los datos faltantes no equivalen a cero. La autorización territorial no acredita la validación de todas las cifras electorales.</p>
+                    <ElectoralHistoricalComparison key={electoralResults.sectionId} electoralResults={electoralResults} independent />
+                  </> : <p>Selecciona y consulta una sección para comparar sus resultados históricos disponibles.</p>}
+            </div>
+          </FloatingInsightPanel>
+        ) : null}
       </div>
     </main>
-  )
+    </div>
+  </>)
+}
+
+export function WorkspaceCanvas(props: WorkspaceCanvasProps) {
+  const { state } = useWorkspace()
+  const universe = state.universe ? `${state.universe.level}:${state.universe.id}` : 'none'
+  const scope = `${state.mode}:${state.activeModuleId}:${universe}:${props.activeQuery ?? 'summary'}`
+  return <AreaSectionSelectionProvider scope={scope} visible={state.mode !== 'comparison'}>
+    <WorkspaceCanvasContent {...props} />
+  </AreaSectionSelectionProvider>
 }

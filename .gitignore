@@ -62,3 +62,11 @@ database/backups/
 
 # Capturas temporales de consola HDRM
 /docs/txt/HDRM_STEP_*.txt
+
+# ==========================
+# Local development residues
+# ==========================
+
+/temporal/
+*.egg-info/
+*.respaldo-*

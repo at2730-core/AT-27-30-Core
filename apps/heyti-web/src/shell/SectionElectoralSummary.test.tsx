@@ -178,7 +178,7 @@ describe(
     )
 
     it(
-      'renders the certified historical comparison',
+      'renders the historical comparison under review',
       () => {
         const markup = renderToStaticMarkup(
           <SectionElectoralSummary
@@ -190,7 +190,7 @@ describe(
           'Comparativa histórica',
         )
         expect(markup).toContain(
-          'Serie certificada 2018–2024',
+          'Serie histórica en revisión 2018–2024',
         )
         expect(markup).toContain(
           'aria-label="Contienda comparada"',

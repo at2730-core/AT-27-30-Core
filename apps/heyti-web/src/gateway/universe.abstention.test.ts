@@ -1,0 +1,9 @@
+import { afterEach, expect, it, vi } from 'vitest'
+import { fetchUniverseMap } from './universe.client'
+const universe = { level: 'state' as const, id: '11', label: 'Guanajuato', sections: 1 }
+function payload() { return { contract: 'HEYTI_UNIVERSE_RESPONSE', version: '1.0', capability_id: 'describe_universe', metric: 'abstention', classification: 'FIXED_25_PERCENT_BANDS', universe, year: 2024, contest: 'A', sections: [{ section_id: '1524', geometry: { type: 'Polygon', coordinates: [[[0,0],[1,0],[1,1],[0,0]]] }, crs: 'OGC:CRS84', status: 'ABS_VERY_HIGH', leader: null, total: 0, nominal: 620, abstention: 100 }], counts: { ABS_VERY_HIGH: 1 }, coverage: { geographic_sections:1, represented_sections:1, blocked_sections:0 }, provenance: { electoral_scope:'TRACKED_PARTIES_ONLY', grouping_basis:'PROPERTIES_OF_CURRENT_GEOJSON', electoral_validation:'AUDIT_PENDING' }, trend: [2018,2021,2024].map(year => ({ year, valid_sections:1, nominal:620, votes:0, abstention:100 })) } }
+function mock(data: unknown) { vi.stubEnv('VITE_HEYTI_GATEWAY_URL', 'http://127.0.0.1:8765'); vi.stubGlobal('fetch',vi.fn().mockResolvedValue({ok:true,json:async()=>data})) }
+afterEach(()=>{vi.unstubAllGlobals();vi.unstubAllEnvs()})
+it('preserves literal zero as 100 percent with valid nominal list', async()=>{mock(payload()); const result = await fetchUniverseMap(universe,2024,'A',undefined,'abstention');expect(result.sections[0].abstention).toBe(100)})
+it('rejects wrong section percentage',async()=>{const data=payload();data.sections[0].abstention=0;mock(data);await expect(fetchUniverseMap(universe,2024,'A',undefined,'abstention')).rejects.toThrow()})
+it('rejects aggregate not matching mapped figures',async()=>{const data=payload();data.trend[2].nominal=621;mock(data);await expect(fetchUniverseMap(universe,2024,'A',undefined,'abstention')).rejects.toThrow()})

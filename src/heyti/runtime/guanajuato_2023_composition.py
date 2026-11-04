@@ -1,3 +1,5 @@
+from heyti.capabilities.describe_universe.implementation import DescribeUniverseCapability, UniverseSource
+from heyti.capabilities.describe_section.presentation_electoral_source import build_unselected_electoral_source
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -38,6 +40,8 @@ class Guanajuato2023RuntimeComposition:
 def compose_guanajuato_2023_runtime(
     master_path: str | Path,
     geometry_path: str | Path,
+    *,
+    versioned_electoral_source=None,
 ) -> Guanajuato2023RuntimeComposition:
     """
     Compone un RuntimeBootstrap con DescribeSection certificado.
@@ -69,20 +73,28 @@ def compose_guanajuato_2023_runtime(
 
     )
 
+    if versioned_electoral_source is None:
+        versioned_electoral_source = build_unselected_electoral_source(
+            Path(__file__).resolve().parents[3] / "docs/auditoria/HEYTI_Matriz_Seleccion_Cortes_23_Series_v0_1.csv"
+        )
+
     def build_describe_section() -> DescribeSectionCapability:
         provider = DescribeSectionProvider(
             truth_source=territorial_truth.source,
             territorial_source=territorial_geometry,
             electoral_source=electoral_results,
+            versioned_electoral_source=versioned_electoral_source,
         )
 
         return DescribeSectionCapability(
             provider=provider,
         )
 
+    universe_source = UniverseSource(geometry_path, master_path, territorial_truth.source, territorial_geometry, electoral_results, len(territorial_truth.profile.master_only))
     bootstrap = RuntimeBootstrap(
         capability_factories={
             "describe_section": build_describe_section,
+            "describe_universe": lambda: DescribeUniverseCapability(universe_source),
         },
     )
 

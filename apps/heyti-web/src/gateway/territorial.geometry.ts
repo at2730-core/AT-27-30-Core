@@ -137,7 +137,7 @@ function parseMultiPolygonCoordinates(
   return value.map(parsePolygonCoordinates)
 }
 
-function parseGeometry(
+export function parseGeometry(
   value: unknown,
 ): TerritorialGeometry {
   if (!isRecord(value)) {

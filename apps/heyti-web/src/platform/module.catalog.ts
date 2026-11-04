@@ -23,22 +23,22 @@ export const HEYTI_MODULES = [
     accentKey: 'strategy',
   },
   {
-    id: 'field',
+    id: 'socioeconomic',
     code: '03',
+    label: 'Socioeconómico',
+    shortLabel: 'Socioeconómico',
+    description:
+      'Lectura de indicadores del contexto social.',
+    accentKey: 'socioeconomic',
+  },
+  {
+    id: 'field',
+    code: '04',
     label: 'Campo',
     shortLabel: 'Campo',
     description:
       'Planeación, seguimiento y control territorial.',
     accentKey: 'field',
-  },
-  {
-    id: 'election-day',
-    code: '04',
-    label: 'Día D',
-    shortLabel: 'Día D',
-    description:
-      'Seguimiento de la operación durante la jornada.',
-    accentKey: 'election-day',
   },
   {
     id: 'et-27',
@@ -50,13 +50,13 @@ export const HEYTI_MODULES = [
     accentKey: 'et-27',
   },
   {
-    id: 'socioeconomic',
+    id: 'election-day',
     code: '06',
-    label: 'Socioeconómico',
-    shortLabel: 'Socioeconómico',
+    label: 'Día D',
+    shortLabel: 'Día D',
     description:
-      'Lectura de indicadores del contexto social.',
-    accentKey: 'socioeconomic',
+      'Seguimiento de la operación durante la jornada.',
+    accentKey: 'election-day',
   },
 ] as const satisfies readonly HeytiModuleDefinition[]
 

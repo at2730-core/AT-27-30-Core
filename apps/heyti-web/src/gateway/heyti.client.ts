@@ -226,7 +226,7 @@ function parseHeytiResponse(
   }
 }
 
-function gatewayBaseUrl(): string {
+export function gatewayBaseUrl(): string {
   const configuredUrl =
     import.meta.env.VITE_HEYTI_GATEWAY_URL?.trim()
 
@@ -278,9 +278,16 @@ function readErrorMessage(
   }
 }
 
+export interface ElectoralQuery {
+  year: 2024
+  type: 'A' | 'DL' | 'DF' | 'G' | 'S' | 'P'
+  modality: 'UNICA' | 'MR' | 'RP'
+}
+
 export async function describeSection(
   sectionId: string,
   signal?: AbortSignal,
+  electoralQuery: ElectoralQuery = { year: 2024, type: 'A', modality: 'UNICA' },
 ): Promise<HeytiResponse> {
   const normalizedSectionId = sectionId.trim()
 
@@ -304,6 +311,7 @@ export async function describeSection(
         },
         body: JSON.stringify({
           section_id: normalizedSectionId,
+          electoral_query: electoralQuery,
         }),
         signal,
       },

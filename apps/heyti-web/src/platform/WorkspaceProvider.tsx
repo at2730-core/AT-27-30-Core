@@ -1,8 +1,10 @@
 import {
   useMemo,
+  useEffect,
   useReducer,
 } from 'react'
 import type { ReactNode } from 'react'
+import { restoreWorkspace, persistWorkspace } from './workspace.persistence'
 import { WorkspaceContext } from './workspace.context'
 import {
   INITIAL_WORKSPACE_STATE,
@@ -24,11 +26,17 @@ export function WorkspaceProvider({
   const [state, dispatch] = useReducer(
     workspaceReducer,
     INITIAL_WORKSPACE_STATE,
+    restoreWorkspace,
   )
+
+  useEffect(() => { persistWorkspace(state) }, [state])
 
   const value = useMemo(
     () => ({
       state,
+      setMapView: (view: { zoom: number; x: number; y: number }) => {
+        dispatch({ type: 'set-map-view', view })
+      },
 
       selectModule: (moduleId: HeytiModuleId) => {
         dispatch({

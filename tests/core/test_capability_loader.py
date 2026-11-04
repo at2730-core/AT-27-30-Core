@@ -301,10 +301,11 @@ def test_capability_loader_loads_real_heyti_capabilities():
             capabilities_root
         )
 
-        assert len(loaded_capabilities) == 4
-        assert registry.count() == 4
+        assert len(loaded_capabilities) == 5
+        assert registry.count() == 5
 
         assert registry.exists("describe_section") is True
+        assert registry.exists("describe_universe") is True
         assert registry.exists("health") is True
         assert registry.exists("system_info") is True
         assert registry.exists("version") is True

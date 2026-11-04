@@ -1,5 +1,6 @@
 import {
   useState,
+  useId,
 } from 'react'
 
 import {
@@ -16,10 +17,12 @@ import type {
 
 interface SectionElectoralSummaryProps {
   electoralResults: ElectoralResultsView
+  view?: 'all' | 'current' | 'history'
 }
 
 interface ElectoralContestGridProps {
   contests: ElectoralResultsView['contests']
+  single?: boolean
 }
 
 interface ElectoralContestCardProps {
@@ -87,7 +90,7 @@ function qualityStatusLabel(
   status: ElectoralQualityStatus,
 ): string {
   return status === 'COMPLETE'
-    ? 'Cobertura completa'
+    ? 'Datos disponibles en todas las contiendas consultadas'
     : 'Cobertura parcial'
 }
 
@@ -107,6 +110,64 @@ function formatPercentage(
     : `${percentageFormatter.format(value * 100)} %`
 }
 
+function ElectoralPartyBars({
+  contest,
+}: {
+  contest: ElectoralContestView
+}) {
+  if (contest.dataStatus === 'NOT_CONTESTED') {
+    return (
+      <p className="heyti-party-chart-note">
+        Contienda no celebrada. No se representa una gráfica de votos.
+      </p>
+    )
+  }
+
+  const maximum = Math.max(
+    0,
+    ...ELECTORAL_TRACKED_PARTIES.map(
+      party => contest.votesByTrackedParty[party] ?? 0,
+    ),
+  )
+
+  return (
+    <section className="heyti-party-chart" aria-label="Votos por partido rastreado">
+      <p className="heyti-party-chart-title">Votos por partido rastreado</p>
+      <ul className="heyti-party-bars">
+        {ELECTORAL_TRACKED_PARTIES.map(party => {
+          const votes = contest.votesByTrackedParty[party]
+          const width = votes !== null && maximum > 0
+            ? (votes / maximum) * 100
+            : 0
+
+          return (
+            <li key={party} data-party={party}>
+              <div className="heyti-party-bar-label">
+                <span>{party}</span>
+                <strong>{formatNumber(votes)}</strong>
+              </div>
+              {votes !== null ? (
+                <div className="heyti-party-bar-track" aria-hidden="true">
+                  <span style={{ width: `${width}%` }} />
+                </div>
+              ) : (
+                <div className="heyti-party-bar-missing" aria-hidden="true" />
+              )}
+            </li>
+          )
+        })}
+      </ul>
+      <p className="heyti-party-chart-note">
+        {ELECTORAL_TRACKED_PARTIES.every(
+          party => contest.votesByTrackedParty[party] === null,
+        )
+          ? 'Sin datos por partido para graficar.'
+          : `Escala desde cero hasta ${formatNumber(maximum)} votos en esta tarjeta.`}
+        Solo incluye los cuatro partidos rastreados; no determina un ganador absoluto.
+      </p>
+    </section>
+  )
+}
 function ElectoralContestCard({
   contestId,
   contest,
@@ -169,44 +230,176 @@ function ElectoralContestCard({
         </div>
       </dl>
 
-      <ul aria-label="Votos por partido rastreado">
-        {ELECTORAL_TRACKED_PARTIES.map(
-          (party) => (
-            <li key={party}>
-              <span>{party}</span>
-              <strong>
-                {formatNumber(
-                  contest
-                    .votesByTrackedParty[party],
-                )}
-              </strong>
-            </li>
-          ),
-        )}
-      </ul>
+      <ElectoralPartyBars contest={contest} />
     </article>
   )
 }
 
 function ElectoralContestGrid({
   contests,
+  single = false,
 }: ElectoralContestGridProps) {
+  const [selectedContestId, setSelectedContestId] = useState<ElectoralContestId>('A')
+  if (single) {
+    return (
+      <div className="heyti-single-contest">
+        <label className="workspace-electoral-comparison-control">
+          <span>Contienda</span>
+          <select aria-label="Contienda de la elección" value={selectedContestId}
+            onChange={event => setSelectedContestId(event.target.value as ElectoralContestId)}>
+            {ELECTORAL_CONTEST_IDS.map(id => <option key={id} value={id}>{contestLabel(id)}</option>)}
+          </select>
+        </label>
+        <ElectoralContestCard contestId={selectedContestId} contest={contests[selectedContestId]} />
+      </div>
+    )
+  }
   return (
     <div className="workspace-electoral-contests">
       {ELECTORAL_CONTEST_IDS.map((contestId) => (
-        <ElectoralContestCard
+        <details key={contestId} className="heyti-contest-disclosure">
+          <summary>
+            <strong>{contestLabel(contestId)}</strong>
+            <span>{dataStatusLabel(contests[contestId].dataStatus)}</span>
+          </summary>
+          <ElectoralContestCard
           key={contestId}
           contestId={contestId}
           contest={contests[contestId]}
         />
+        </details>
       ))}
     </div>
   )
 }
 
-function ElectoralHistoricalComparison({
-  electoralResults,
-}: SectionElectoralSummaryProps) {
+function ElectoralGroupedHistory({
+  elections,
+  contestId,
+}: {
+  elections: Array<{
+    electionYear: number
+    contests: ElectoralResultsView['contests']
+  }>
+  contestId: ElectoralContestId
+}) {
+  const colors = ['#1765b3', '#c83e48', '#278348', '#853641']
+  const series = [...elections]
+    .sort((a, b) => a.electionYear - b.electionYear)
+    .map(election => ({
+      year: election.electionYear,
+      contest: election.contests[contestId],
+    }))
+
+  const values = series.flatMap(({ contest }) =>
+    contest.dataStatus === 'NOT_CONTESTED'
+      ? []
+      : ELECTORAL_TRACKED_PARTIES.map(
+          party => contest.votesByTrackedParty[party],
+        ).filter((value): value is number => value !== null),
+  )
+  const maximum = Math.max(0, ...values)
+  const scale = maximum > 0 ? maximum : 1
+  const groupWidth = 160
+  const chartWidth = 80 + series.length * groupWidth
+
+  return (
+    <section
+      className="heyti-history-chart"
+      aria-label={`Comparativa histórica de ${contestLabel(contestId)}`}
+    >
+      <h5>{contestLabel(contestId)} · Votos por partido y año</h5>
+      <ul className="heyti-history-legend" aria-label="Partidos">
+        {ELECTORAL_TRACKED_PARTIES.map((party, index) => (
+          <li key={party}>
+            <span style={{ background: colors[index] }} aria-hidden="true" />
+            {party}
+          </li>
+        ))}
+      </ul>
+
+      {values.length === 0 ? (
+        <p>Sin datos por partido para graficar esta contienda.</p>
+      ) : (
+        <div className="heyti-history-chart-scroll">
+          <svg
+            viewBox={`0 0 ${chartWidth} 320`}
+            style={{ minWidth: chartWidth }}
+            role="img"
+            aria-label={
+              `${contestLabel(contestId)}: comparación de votos por partido ` +
+              `entre ${series.map(item => item.year).join(', ')}. ` +
+              'Las cifras exactas aparecen en las tablas debajo.'
+            }
+          >
+            {[0, 0.25, 0.5, 0.75, 1].map(fraction => {
+              const y = 250 - fraction * 200
+              return (
+                <g key={fraction}>
+                  <line x1="65" x2={chartWidth - 10} y1={y} y2={y} stroke="#dbe3ef" />
+                  <text x="58" y={y + 4} textAnchor="end" fontSize="11" fill="#64748b">
+                    {integerFormatter.format(scale * fraction)}
+                  </text>
+                </g>
+              )
+            })}
+
+            {series.map(({ year, contest }, yearIndex) => {
+              const start = 80 + yearIndex * groupWidth
+              const notContested = contest.dataStatus === 'NOT_CONTESTED'
+              return (
+                <g key={year}>
+                  {notContested ? (
+                    <text x={start + 65} y="150" textAnchor="middle" fontSize="12" fill="#64748b">
+                      No celebrada
+                    </text>
+                  ) : ELECTORAL_TRACKED_PARTIES.map((party, partyIndex) => {
+                    const votes = contest.votesByTrackedParty[party]
+                    const x = start + partyIndex * 34
+                    const height = votes === null ? 0 : (votes / scale) * 200
+                    return (
+                      <g key={party}>
+                        <title>{`${year}, ${party}: ${formatNumber(votes)}`}</title>
+                        {votes === null ? (
+                          <text x={x + 12} y="238" textAnchor="middle" fontSize="10" fill="#64748b">
+                            N/D
+                          </text>
+                        ) : (
+                          <>
+                            <rect x={x} y={250 - height} width="24" height={height} fill={colors[partyIndex]} rx="2" />
+                            <text x={x + 12} y={242 - height} textAnchor="middle" fontSize="10" fill="#334155">
+                              {formatNumber(votes)}
+                            </text>
+                          </>
+                        )}
+                      </g>
+                    )
+                  })}
+                  <text x={start + 63} y="277" textAnchor="middle" fontSize="14" fontWeight="700" fill="#334155">
+                    {year}
+                  </text>
+                  <text x={start + 63} y="300" textAnchor="middle" fontSize="10" fill="#64748b">
+                    {dataStatusLabel(contest.dataStatus)}
+                  </text>
+                </g>
+              )
+            })}
+          </svg>
+        </div>
+      )}
+
+      <p className="heyti-party-chart-note">
+        Escala común entre años, desde cero.
+        N/D significa dato no disponible y no equivale a cero.
+        Solo se comparan los cuatro partidos rastreados.
+      </p>
+    </section>
+  )
+}
+export function ElectoralHistoricalComparison({
+  electoralResults, independent = false,
+}: SectionElectoralSummaryProps & { independent?: boolean }) {
+  const titleId = useId()
   const [selectedContestId, setSelectedContestId] =
     useState<ElectoralContestId>('A')
 
@@ -222,17 +415,17 @@ function ElectoralHistoricalComparison({
   return (
     <section
       className="workspace-electoral-comparison"
-      aria-labelledby="electoral-comparison-title"
+      aria-labelledby={titleId}
     >
       <header>
         <div>
-          <p>COMPARATIVA CERTIFICADA</p>
-          <h4 id="electoral-comparison-title">
+          <p>{independent ? "ANÁLISIS TERRITORIAL" : "COMPARATIVA CERTIFICADA"}</p>
+          <h4 id={titleId}>
             Comparativa histórica
           </h4>
         </div>
 
-        <span>Serie certificada 2018–2024</span>
+        <span>{independent ? "Resultados de la respuesta del CORE" : "Serie histórica en revisión 2018–2024"}</span>
       </header>
 
       <p className="workspace-electoral-comparison-note">
@@ -261,6 +454,11 @@ function ElectoralHistoricalComparison({
           ))}
         </select>
       </label>
+
+      <ElectoralGroupedHistory
+        elections={elections}
+        contestId={selectedContestId}
+      />
 
       <div className="workspace-electoral-comparison-years">
         {elections.map((election) => {
@@ -341,12 +539,15 @@ function ElectoralHistoricalComparison({
 
 export function SectionElectoralSummary({
   electoralResults,
+  view = 'all',
 }: SectionElectoralSummaryProps) {
   return (
     <section
       className="workspace-electoral-summary"
-      aria-labelledby="electoral-summary-title"
+      aria-labelledby={view === 'history' ? undefined : 'electoral-summary-title'}
+      aria-label={view === 'history' ? 'Historial electoral de la sección' : undefined}
     >
+      {view !== 'history' ? (<>
       <header>
         <div>
           <p>LECTURA ELECTORAL</p>
@@ -367,14 +568,17 @@ export function SectionElectoralSummary({
       </header>
 
       <p className="workspace-electoral-scope">
-        Resultados limitados a PAN, PRI, PVEM y MORENA.
-        La mayor votación rastreada no certifica un ganador
-        absoluto.
+        Este panel muestra los votos de PAN, PRI, PVEM y MORENA.
+        Para identificar al ganador de la elección se necesitan los resultados de todos los participantes.
       </p>
 
       <ElectoralContestGrid
         contests={electoralResults.contests}
+        single={view === 'current'}
       />
+      </>) : null}
+
+      {view !== 'current' ? (<>
 
       <ElectoralHistoricalComparison
         electoralResults={electoralResults}
@@ -431,6 +635,7 @@ export function SectionElectoralSummary({
           )}
         </div>
       </section>
+      </>) : null}
     </section>
   )
 }

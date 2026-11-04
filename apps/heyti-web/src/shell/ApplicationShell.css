@@ -752,7 +752,7 @@
   margin: 0;
 }
 
-.section-geometry-map svg {
+.section-geometry-map > svg {
   width: 100%;
   height: 100%;
   min-height: 23rem;
@@ -803,7 +803,7 @@
     min-height: 21rem;
   }
 
-  .section-geometry-map svg {
+  .section-geometry-map > svg {
     min-height: 16rem;
   }
 
@@ -840,7 +840,7 @@
   margin: 0;
 }
 
-.section-geometry-map svg {
+.section-geometry-map > svg {
   width: 100%;
   height: 100%;
   min-height: 23rem;
@@ -891,7 +891,7 @@
     min-height: 21rem;
   }
 
-  .section-geometry-map svg {
+  .section-geometry-map > svg {
     min-height: 16rem;
   }
 
@@ -969,9 +969,10 @@
 
 .workspace-electoral-contest {
   overflow: hidden;
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
   border: 1px solid var(--shell-border);
-  border-radius: 0.7rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.04);
 }
 
 .workspace-electoral-contest > header {
@@ -979,18 +980,27 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.65rem 0.75rem;
-  background: #f7f9fc;
+  padding: 0.7rem 0.85rem;
+  background: linear-gradient(180deg, #f4f7fb 0%, #edf3f9 100%);
   border-bottom: 1px solid var(--shell-border);
 }
 
 .workspace-electoral-contest > header strong {
   color: var(--shell-text);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
 }
 
 .workspace-electoral-contest > header span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.7rem;
+  padding: 0.25rem 0.55rem;
   color: #11613f;
+  background: rgba(39, 167, 96, 0.12);
+  border: 1px solid rgba(39, 167, 96, 0.2);
+  border-radius: 999px;
   font-size: 0.62rem;
   font-weight: 800;
 }
@@ -1016,7 +1026,7 @@
 .workspace-electoral-contest dl {
   display: grid;
   grid-template-columns: repeat(
-    2,
+    3,
     minmax(0, 1fr)
   );
   margin: 0;
@@ -1024,27 +1034,30 @@
 
 .workspace-electoral-contest dl > div {
   min-width: 0;
-  padding: 0.55rem 0.7rem;
+  padding: 0.7rem 0.8rem;
   border-bottom: 1px solid var(--shell-border);
+  background: rgba(248, 250, 252, 0.7);
 }
 
-.workspace-electoral-contest dl > div:nth-child(odd) {
+.workspace-electoral-contest dl > div:nth-child(3n + 1),
+.workspace-electoral-contest dl > div:nth-child(3n + 2) {
   border-right: 1px solid var(--shell-border);
 }
 
 .workspace-electoral-contest dt {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.22rem;
   color: var(--shell-muted);
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .workspace-electoral-contest dd {
   margin: 0;
   color: var(--shell-text);
-  font-size: 0.7rem;
+  font-size: 0.74rem;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
@@ -1054,9 +1067,9 @@
     2,
     minmax(0, 1fr)
   );
-  gap: 0.45rem;
+  gap: 0.5rem;
   margin: 0;
-  padding: 0.65rem 0.7rem;
+  padding: 0.8rem 0.8rem 0.9rem;
   list-style: none;
 }
 
@@ -1065,9 +1078,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-  padding: 0.4rem 0.5rem;
-  background: #f7f9fc;
-  border-radius: 0.45rem;
+  padding: 0.5rem 0.55rem;
+  background: linear-gradient(180deg, #f8fafc 0%, #f2f6fa 100%);
+  border: 1px solid var(--shell-border);
+  border-radius: 0.55rem;
   font-size: 0.66rem;
 }
 
@@ -1078,6 +1092,7 @@
 
 .workspace-electoral-contest li strong {
   color: var(--shell-text);
+  font-weight: 800;
 }
 
 @media (max-width: 48rem) {
@@ -1086,15 +1101,17 @@
     flex-direction: column;
   }
 
-  .workspace-electoral-contest dl,
-  .workspace-electoral-contest ul {
-    grid-template-columns: 1fr;
+  .workspace-electoral-contest dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .workspace-electoral-contest
-    dl
-    > div:nth-child(odd) {
+  .workspace-electoral-contest dl > div:nth-child(3n + 1),
+  .workspace-electoral-contest dl > div:nth-child(3n + 2) {
     border-right: 0;
+  }
+
+  .workspace-electoral-contest ul {
+    grid-template-columns: 1fr;
   }
 }
 /* HEYTI certified electoral history */
@@ -1269,23 +1286,20 @@
 
 .workspace-electoral-comparison-control select {
   width: 100%;
-  padding: 0.6rem 0.7rem;
+  padding: 0.7rem 0.8rem;
   color: var(--shell-text);
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
   border: 1px solid var(--shell-border);
-  border-radius: 0.55rem;
+  border-radius: 0.7rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
   font: inherit;
   font-size: 0.72rem;
 }
 
 .workspace-electoral-comparison-control select:focus-visible {
   border-color: var(--shell-accent);
-  outline: 2px solid color-mix(
-    in srgb,
-    var(--shell-accent) 25%,
-    transparent
-  );
-  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(52, 84, 197, 0.12);
+  outline: none;
 }
 
 .workspace-electoral-comparison-years {
@@ -1440,4 +1454,527 @@
     > div:nth-child(odd) {
     border-right: 0;
   }
+}
+
+.demo-source-notice { margin: 16px 24px; padding: 16px 20px; border: 1px solid #c99c47; border-radius: 12px; background: #fff8e8; color: #48391e; }
+.demo-source-notice p { line-height: 1.55; margin: 8px 0; }
+.section-map-controls { display:flex; flex-wrap:wrap; gap:8px; padding:8px; }
+.section-map-controls button { padding:8px 12px; cursor:pointer; }
+
+/* HEYTI FIX: controles compactos del mapa */
+.section-geometry-map {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.section-geometry-map > .section-map-controls {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  align-self: stretch;
+  flex-wrap: wrap;
+  gap: 6px;
+  height: auto;
+  padding: 8px;
+}
+
+.section-geometry-map > .section-map-controls > button {
+  flex: 0 0 auto;
+  align-self: center;
+  box-sizing: border-box;
+  width: auto;
+  min-width: 36px;
+  height: 36px;
+  min-height: 36px;
+  max-height: 36px;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #fff;
+  color: #1e293b;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.section-geometry-map > .section-map-controls > button:hover {
+  background: #eef2ff;
+}
+
+.section-geometry-map > .section-map-controls > button:focus-visible {
+  outline: 2px solid #3155c6;
+  outline-offset: 2px;
+}
+
+.section-geometry-map > svg {
+  display: block;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 280px;
+}
+
+/* HEYTI FIX 02: altura y encuadre del mapa */
+.workspace-visual-grid {
+  align-items: start;
+}
+
+.workspace-visual-map {
+  height: auto;
+  min-height: 0;
+}
+
+.section-geometry-map {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.section-geometry-map > .section-map-controls {
+  flex: 0 0 auto;
+}
+
+.section-geometry-map > svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  height: clamp(300px, 52vh, 560px);
+  min-height: 0;
+  max-height: 560px;
+}
+
+.section-geometry-map > figcaption {
+  flex: 0 0 auto;
+  padding: 12px 16px;
+}
+
+/* HEYTI PANEL 01 */
+.workspace-insight-panel {
+  min-width: 0;
+}
+.workspace-insight-panel dd {
+  overflow-wrap: anywhere;
+}
+.heyti-trace-disclosure,
+.heyti-contest-disclosure {
+  min-width: 0;
+  border: 1px solid #dbe3ef;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+.heyti-trace-disclosure {
+  margin-bottom: 16px;
+}
+.heyti-trace-disclosure > summary,
+.heyti-contest-disclosure > summary {
+  padding: 14px;
+  cursor: pointer;
+  color: #24344b;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.heyti-contest-disclosure > summary > span {
+  display: block;
+  margin: 5px 0 0 16px;
+  font-size: 12px;
+  color: #526176;
+}
+.heyti-trace-disclosure > summary:focus-visible,
+.heyti-contest-disclosure > summary:focus-visible {
+  outline: 2px solid #3155c6;
+  outline-offset: -3px;
+}
+.heyti-contest-disclosure > .workspace-electoral-contest {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #dbe3ef;
+  border-radius: 0;
+}
+.heyti-trace-disclosure > .workspace-truth-details {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #dbe3ef;
+}
+
+/* HEYTI PANEL 02: evitar encabezados duplicados */
+.heyti-contest-disclosure > .workspace-electoral-contest > header {
+    display: none;
+}
+
+/* HEYTI PANEL 03 */
+.workspace-visual-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.workspace-insight-panel.heyti-floating-insight {
+    position: fixed;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: min(460px, calc(100vw - 24px));
+    height: min(600px, calc(100vh - 120px));
+    min-width: min(320px, calc(100vw - 24px));
+    min-height: min(260px, calc(100vh - 24px));
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 24px);
+    resize: both;
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 14px 42px rgb(15 23 42 / 20%);
+}
+
+.heyti-floating-insight > .heyti-floating-header {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: move;
+    touch-action: none;
+    user-select: none;
+    background: #f8fafc;
+    border-bottom: 1px solid #dbe3ef;
+}
+
+.heyti-floating-header p {
+    margin: 0 0 5px;
+}
+
+.heyti-floating-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.heyti-floating-header button {
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    padding: 8px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #334155;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.heyti-floating-header:focus-visible,
+.heyti-floating-header button:focus-visible {
+    outline: 2px solid #3654d4;
+    outline-offset: -3px;
+}
+
+.heyti-floating-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    min-width: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.heyti-floating-footer {
+    flex: 0 0 auto;
+    padding: 8px 24px 8px 12px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 11px;
+    color: #64748b;
+}
+
+/* HEYTI PANEL 04 */
+.heyti-party-chart {
+    padding: 14px 12px;
+    border-top: 1px solid #dbe3ef;
+}
+
+.heyti-party-chart-title {
+    margin: 0 0 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #334155;
+}
+
+.workspace-electoral-contest .heyti-party-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.workspace-electoral-contest .heyti-party-bars > li {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.heyti-party-bar-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.heyti-party-bar-label strong {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.heyti-party-bar-track {
+    height: 12px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #edf1f7;
+}
+
+.heyti-party-bar-track > span {
+    display: block;
+    height: 100%;
+    background: #3654d4;
+    border-radius: 4px;
+}
+
+.heyti-party-bars [data-party="PAN"] .heyti-party-bar-track > span {
+    background: #1765b3;
+}
+
+.heyti-party-bars [data-party="PRI"] .heyti-party-bar-track > span {
+    background: #c83e48;
+}
+
+.heyti-party-bars [data-party="PVEM"] .heyti-party-bar-track > span {
+    background: #278348;
+}
+
+.heyti-party-bars [data-party="MORENA"] .heyti-party-bar-track > span {
+    background: #853641;
+}
+
+.heyti-party-bar-missing {
+    height: 12px;
+    border-bottom: 1px dashed #94a3b8;
+}
+
+.heyti-party-chart-note {
+    margin: 12px 0 0;
+    padding: 0;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.workspace-electoral-contest > .heyti-party-chart-note {
+    padding: 12px;
+}
+
+/* HEYTI PANEL 05 */
+.heyti-history-chart {
+    margin: 16px 0;
+    padding: 14px 12px;
+    border: 1px solid #dbe3ef;
+    border-radius: 10px;
+    background: #fff;
+    min-width: 0;
+}
+
+.heyti-history-chart h5 {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #334155;
+}
+
+.heyti-history-chart .heyti-history-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin: 0 0 12px;
+    padding: 0;
+    list-style: none;
+}
+
+.heyti-history-chart .heyti-history-legend > li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    background: transparent;
+    font-size: 11px;
+    color: #475569;
+}
+
+.heyti-history-legend > li > span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+.heyti-history-chart-scroll {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.heyti-history-chart-scroll svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+/* HEYTI PANEL PESTANAS 01 */
+.heyti-section-tabs { min-width: 0; }
+.heyti-section-tablist { display: flex; flex-wrap: wrap; gap: 4px; position: sticky; top: 0; z-index: 2; padding: 8px 0 12px; background: #fff; border-bottom: 1px solid #dbe3ef; }
+.heyti-section-tablist > button { flex: 0 0 auto; width: auto; height: auto; min-height: 36px; padding: 8px 10px; border: 1px solid transparent; border-radius: 8px; background: #f4f6fa; color: #475569; font: inherit; font-size: 12px; cursor: pointer; }
+.heyti-section-tablist > button[aria-selected="true"] { color: #2443bc; border-color: #bccbf4; background: #eaf0ff; font-weight: 700; }
+.heyti-section-tablist > button:focus-visible { outline: 2px solid #3555ce; outline-offset: 2px; }
+.heyti-section-tab-content { padding-top: 16px; min-width: 0; }
+.heyti-section-tab-content[hidden] { display: none !important; }
+.heyti-section-tab-content .workspace-electoral-summary { margin-top: 0; padding-top: 0; border-top: 0; }
+.heyti-single-contest .workspace-electoral-comparison-control { margin: 12px 0; }
+.heyti-overview-note { margin-top: 20px; color: #64748b; font-size: 12px; line-height: 1.6; }
+
+/* HEYTI MENU 01: iconos y consultas desplegables */
+.module-navigation { position: sticky; top: 0; height: 100vh; min-height: 0; overflow: hidden; }
+.module-navigation > nav { min-height: 0; overflow-y: auto; flex: 1; padding-bottom: 16px; scrollbar-width: thin; }
+.module-navigation-brand, .module-navigation-status, .module-navigation-footer { flex-shrink: 0; }
+.module-navigation-button { grid-template-columns: 26px minmax(0, 1fr) 12px; gap: 8px; }
+.module-navigation-label { white-space: normal; overflow-wrap: anywhere; }
+.heyti-module-icon { display: flex; align-items: center; justify-content: center; color: #91a4ea; }
+.module-navigation-button[data-accent="strategy"] .heyti-module-icon { color: #f6c45d; }
+.module-navigation-button[data-accent="socioeconomic"] .heyti-module-icon { color: #5ed1bd; }
+.module-navigation-button[data-accent="field"] .heyti-module-icon { color: #83c77a; }
+.module-navigation-button[data-accent="et-27"] .heyti-module-icon { color: #c5a3ef; }
+.module-navigation-button[data-accent="election-day"] .heyti-module-icon { color: #efa1b4; }
+.heyti-module-chevron { color: #98a4b5; font-size: 18px; }
+.heyti-module-queries { margin: 4px 10px 14px 24px; padding-left: 12px; border-left: 1px solid #3b4658; }
+.heyti-module-queries[hidden] { display: none !important; }
+.heyti-query-group { color: #98a4b5; font-size: 10px; line-height: 1.5; margin: 12px 0 6px; }
+.heyti-module-queries ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; }
+.heyti-module-queries button { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; width: 100%; min-height: 32px; height: auto; padding: 7px 8px; font: inherit; font-size: 11px; line-height: 1.4; text-align: left; color: #d0d8e4; background: transparent; border: 1px solid transparent; border-radius: 6px; cursor: pointer; }
+.heyti-module-queries button:hover:not(:disabled) { background: #26334b; color: #fff; }
+.heyti-module-queries button[aria-current="true"] { color: #fff; background: #283a64; border-color: #40588b; }
+.heyti-module-queries button:focus-visible { outline: 2px solid #8ea4f3; outline-offset: 1px; }
+.heyti-module-queries button:disabled { color: #9ba7b8; cursor: default; }
+.heyti-module-queries button small { font-size: 9px; color: #cbb782; }
+.heyti-query-pending-note { color: #98a4b5; font-size: 11px; line-height: 1.5; }
+@media (max-width: 760px) {
+  .module-navigation { position: static; height: auto; max-height: 65vh; }
+}
+
+/* HEYTI COMPARATIVA 01 */
+.heyti-independent-comparison > h3 { margin: 0 0 10px; font-size: 17px; }
+.heyti-independent-comparison .workspace-electoral-comparison { margin-top: 16px; }
+.heyti-floating-header > button { flex-shrink: 0; }
+
+.heyti-floating-header { flex-wrap: wrap; }
+.heyti-floating-header > div { min-width: 0; flex: 1 1 150px; }
+
+/* HEYTI COMPARATIVA 02: margen interior */
+.heyti-independent-comparison {
+    box-sizing: border-box;
+    padding: 20px 16px;
+}
+
+/* HEYTI COLORES V1 01: superficies claras de la V1; colores de datos intactos. */
+.application-shell {
+  --shell-sidebar: #dfe6e9;
+  --shell-sidebar-muted: #37474f;
+}
+.application-shell .module-navigation {
+  color: #2c3e50;
+  background: linear-gradient(180deg, #b2bec3 0%, #dfe6e9 100%);
+  border-right-color: #b2bec3;
+}
+.application-shell .module-navigation-brand {
+  color: #2c3e50;
+  background: #b2bec3;
+  border-bottom-color: #8ea3ad;
+}
+.application-shell .module-navigation-brand small,
+.application-shell .module-navigation-footer small,
+.application-shell .module-navigation-status,
+.application-shell .heyti-module-chevron,
+.application-shell .heyti-query-pending-note,
+.application-shell .heyti-query-group {
+  color: #37474f;
+}
+.application-shell .module-navigation-footer {
+  color: #2c3e50;
+  background: #dfe6e9;
+  border-top-color: #b2bec3;
+}
+.application-shell .module-navigation-footer > span:first-child {
+  background: var(--shell-accent);
+}
+.application-shell .module-navigation-button {
+  color: #2c3e50;
+}
+.application-shell .module-navigation-button:hover {
+  color: #2c3e50;
+  background: #dfe6e9;
+}
+.application-shell .module-navigation-button[data-active='true'],
+.application-shell .module-navigation-button[data-active='true']:hover {
+  color: #2c3e50;
+  background: #e3f2fd;
+  border-color: #8ea3ad;
+}
+/* Conservar el color de cada icono sobre una pequena superficie de contraste. */
+.application-shell .heyti-module-icon {
+  background: #2c3e50;
+  border-radius: 5px;
+}
+.application-shell .heyti-module-queries {
+  border-left-color: #8ea3ad;
+}
+.application-shell .heyti-module-queries button {
+  color: #2c3e50;
+}
+.application-shell .heyti-module-queries button:hover:not(:disabled),
+.application-shell .heyti-module-queries button.heyti-submenu-toggle:hover {
+  color: #2c3e50;
+  background: #dfe6e9;
+}
+.application-shell .heyti-module-queries button[aria-current='true'],
+.application-shell .heyti-module-queries button[aria-current='true']:hover:not(:disabled) {
+  color: #2c3e50;
+  background: #e3f2fd;
+  border-color: #8ea3ad;
+}
+.application-shell .heyti-module-queries button.heyti-submenu-toggle {
+  color: #2c3e50;
+}
+.application-shell .heyti-module-queries button:disabled,
+.application-shell .heyti-module-queries button:disabled:hover {
+  color: #37474f;
+  background: transparent;
+  border-color: transparent;
+}
+.application-shell .heyti-module-queries button small {
+  color: #37474f;
+}
+.application-shell .module-navigation-button:focus-visible,
+.application-shell .heyti-module-queries button:focus-visible,
+.application-shell .heyti-module-queries button.heyti-submenu-toggle:focus-visible {
+  outline-color: var(--shell-accent);
+}
+
+.application-shell .module-navigation .heyti-module-queries .heyti-query-group {
+  color: #37474f;
 }

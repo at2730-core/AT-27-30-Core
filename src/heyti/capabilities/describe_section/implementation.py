@@ -1,4 +1,5 @@
 from heyti.capabilities.base import Capability
+from heyti.capabilities.describe_section.electoral_query import parse_electoral_query
 from heyti.capabilities.describe_section.provider import (
     DescribeSectionProvider,
 )
@@ -32,6 +33,12 @@ class DescribeSectionCapability(Capability):
         if resolved_section_id is None:
             raise ValueError(
                 "section_id es obligatorio"
+            )
+
+        if payload is not None and "electoral_query" in payload:
+            request = parse_electoral_query(resolved_section_id, payload["electoral_query"])
+            return self.provider.get_section(
+                section_id=resolved_section_id, electoral_request=request,
             )
 
         return self.provider.get_section(

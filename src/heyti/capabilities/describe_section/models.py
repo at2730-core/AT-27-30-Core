@@ -58,6 +58,7 @@ class SectionDescription:
 
         self.territorial = None
         self.electoral = None
+        self.electoral_versioned = None
         self.socioeconomic = None
         self.field = None
         self.security = None

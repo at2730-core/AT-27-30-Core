@@ -1,0 +1,7 @@
+.heyti-section-search { display: block; min-width: 0; max-width: 100%; }
+.heyti-section-search-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 8px; margin: 10px 0 6px; }
+.heyti-section-search-controls label { display: grid; gap: 5px; font-size: 13px; font-weight: 600; }
+.heyti-section-search-controls input { box-sizing: border-box; width: min(250px, 100%); max-width: 100%; padding: 8px 10px; border: 1px solid #94a3b8; border-radius: 6px; background: white; color: #1c2735; font: inherit; }
+.heyti-section-search-controls button { padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; color: #2047c4; font: inherit; cursor: pointer; }
+.heyti-section-search-controls :is(input,button):focus-visible { outline: 3px solid #3454c5; outline-offset: 2px; }
+.heyti-section-search > p { font-size: 12px; line-height: 1.5; margin: 6px 0 10px; }

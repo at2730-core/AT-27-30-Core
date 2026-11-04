@@ -1,4 +1,6 @@
 from typing import Any
+from copy import deepcopy
+from heyti.capabilities.describe_section.electoral_query import parse_electoral_query
 
 from heyti.gateway.gateway import HeytiGateway
 from heyti.materialization.contracts import (
@@ -67,6 +69,7 @@ class HeytiHttpApplication:
         request_id: str | None = None,
         execution_id: str | None = None,
         knowledge_version: str | None = None,
+        electoral_query: dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         """
         Ejecuta y materializa DescribeSection mediante el Gateway.
@@ -77,12 +80,15 @@ class HeytiHttpApplication:
                 "section_id debe ser una cadena no vacía"
             )
 
+        payload = {"section_id": section_id.strip()}
+        if electoral_query is not None:
+            parse_electoral_query(section_id.strip(), electoral_query)
+            payload["electoral_query"] = deepcopy(electoral_query)
+
         response = self._gateway.execute_materialized(
             capability_name="describe_section",
             session_id=self._session_id,
-            payload={
-                "section_id": section_id.strip(),
-            },
+            payload=payload,
             request_id=request_id,
             execution_id=execution_id,
             knowledge_version=knowledge_version,
@@ -95,3 +101,9 @@ class HeytiHttpApplication:
             )
 
         return response.to_dict()
+
+    def describe_universe(self, payload):
+        result = self._gateway.execute("describe_universe", self._session_id, payload)
+        if not isinstance(result, dict) or result.get("contract") != "HEYTI_UNIVERSE_RESPONSE":
+            raise TypeError("Contrato de universo inválido")
+        return result

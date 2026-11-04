@@ -82,6 +82,13 @@ class DescribeSectionMaterializer(Materializer):
                     )
                 )
 
+        if cognitive_result.electoral_versioned is not None:
+            value = cognitive_result.electoral_versioned
+            blocks.append(ResponseBlock(
+                type="domain" if value.get("data") is not None else "metadata",
+                role="electoral_versioned", content=deepcopy(value),
+            ))
+
         if cognitive_result.data_truth is not None:
             blocks.append(
                 ResponseBlock(

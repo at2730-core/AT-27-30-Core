@@ -14,10 +14,12 @@ export const INITIAL_WORKSPACE_STATE: WorkspaceState = {
   activeModuleId: DEFAULT_MODULE_ID,
   mode: 'individual',
   universe: null,
+  mapView: { zoom: 1, x: 0, y: 0 },
   comparisonModuleIds: [],
 }
 
 export type WorkspaceAction =
+  | { type: 'set-map-view'; view: { zoom: number; x: number; y: number } }
   | {
       type: 'select-module'
       moduleId: HeytiModuleId
@@ -40,6 +42,9 @@ export function workspaceReducer(
   action: WorkspaceAction,
 ): WorkspaceState {
   switch (action.type) {
+    case 'set-map-view':
+      return { ...state, mapView: action.view }
+
     case 'select-module':
       return {
         ...state,
@@ -50,6 +55,8 @@ export function workspaceReducer(
       return {
         ...state,
         universe: action.universe,
+        mapView: state.universe?.id === action.universe?.id && state.universe?.level === action.universe?.level
+          ? state.mapView : { zoom: 1, x: 0, y: 0 },
       }
 
     case 'set-mode':

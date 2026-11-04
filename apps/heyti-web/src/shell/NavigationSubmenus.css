@@ -1,0 +1,21 @@
+.heyti-module-queries button.heyti-submenu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 8px;
+  margin: 4px 0;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.heyti-submenu-toggle > span:last-child { flex: 0 0 auto; font-size: 18px; }
+.heyti-module-queries button.heyti-submenu-toggle:hover { background: #253248; }
+.heyti-module-queries button.heyti-submenu-toggle:focus-visible { outline: 2px solid #94a3ff; outline-offset: 2px; }
+.heyti-submenu-content[hidden] { display: none !important; }

@@ -1,0 +1,18 @@
+.heyti-section-history { margin: 18px 0 12px; min-width: 0; }
+.heyti-section-history-explanation { margin: 8px 0 12px; color: #475569; font-size: 13px; line-height: 1.5; }
+.heyti-section-history-scroll { overflow-x: auto; max-width: 100%; padding: 2px 2px 8px; }
+.heyti-section-history-scroll:focus-visible { outline: 2px solid #3454c5; outline-offset: -2px; }
+.heyti-section-history-row { display: grid; grid-template-columns: repeat(3, minmax(300px, 1fr)); gap: 16px; min-width: 932px; }
+.heyti-section-history-year { margin: 0; padding: 12px; border: 1px solid #dfe4eb; border-radius: 10px; background: #fff; min-width: 0; }
+.heyti-section-history-year figcaption { display: flex; flex-direction: column; gap: 4px; min-height: 56px; color: #1c2735; }
+.heyti-section-history-year figcaption strong { font-size: 20px; }
+.heyti-section-history-year figcaption span { font-size: 12px; line-height: 1.4; }
+.heyti-section-history-year svg { display: block; width: 100%; height: auto; }
+.heyti-section-history-grid { stroke: #e2e8f0; stroke-width: 1; }
+.heyti-section-history-axis { stroke: #64748b; stroke-width: 1; }
+.heyti-section-history-tick, .heyti-section-history-unit { fill: #475569; font: 11px Arial, sans-serif; }
+.heyti-section-history-value { fill: #1c2735; font: bold 12px Arial, sans-serif; }
+.heyti-section-history-party { fill: #1c2735; font: bold 11px Arial, sans-serif; }
+.heyti-section-history-metrics { margin: 8px 0 0; color: #334155; font-size: 13px; line-height: 1.6; }
+.heyti-section-history-table { margin: 14px 0; }
+.heyti-section-history-table > summary { cursor: pointer; color: #334155; padding: 8px 0; }

@@ -44,5 +44,6 @@ export interface WorkspaceState {
   activeModuleId: HeytiModuleId
   mode: WorkspaceMode
   universe: UniverseSelection | null
+  mapView?: { zoom: number; x: number; y: number }
   comparisonModuleIds: HeytiModuleId[]
 }

@@ -1,0 +1,65 @@
+.section-geometry-map > .geographic-map {
+  flex: 0 0 auto;
+  width: 100%;
+  height: clamp(360px, 52vh, 560px);
+  min-height: 300px;
+  border-radius: 12px;
+  isolation: isolate;
+  z-index: 0;
+}
+
+/* The older SVG map rules must not resize Leaflet's geographic overlay. */
+.section-geometry-map .geographic-map .leaflet-overlay-pane svg {
+  width: auto;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+  filter: none;
+}
+
+.geographic-map-recenter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 800;
+  padding: 8px 12px;
+  border: 2px solid rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  background: #fff;
+  color: #111827;
+  font: 600 14px Arial, sans-serif;
+  cursor: pointer;
+}
+
+.geographic-map-recenter:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+@media (min-width: 64rem) {
+  .workspace-canvas[data-map-expanded="true"] .section-geometry-map > .geographic-map {
+    flex: 1 1 0;
+    height: 0;
+    min-height: 240px;
+  }
+}
+
+/* Hide Leaflet's decorative flag while keeping map attribution visible. */
+.section-geometry-map .geographic-map .leaflet-attribution-flag {
+  display: none;
+}
+.geographic-map .geographic-section-label { background:rgba(255,255,255,.96);border:1px solid #334155;border-radius:4px;color:#111827;font:700 12px Arial,sans-serif;padding:2px 5px;box-shadow:none;pointer-events:none; }
+.geographic-map .geographic-section-label::before { display:none; }
+
+.geographic-label-control {
+  position: absolute; top: 54px; right: 10px; z-index: 800;
+  display: grid; gap: 4px; max-width: min(200px, calc(100% - 64px));
+  padding: 8px; border: 1px solid #cbd5e1; border-radius: 6px;
+  background: rgba(255,255,255,.96); color: #1c2735; font: 12px Arial,sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,.12);
+}
+.geographic-label-control label { font-weight: 700; }
+.geographic-label-control select { min-width: 0; max-width: 100%; padding: 4px; background: white; color: #1c2735; border: 1px solid #94a3b8; border-radius: 4px; }
+.geographic-label-control small { font-size: 11px; line-height: 1.3; }
+.geographic-label-control select:focus-visible { outline: 3px solid #3454c5; outline-offset: 2px; }
