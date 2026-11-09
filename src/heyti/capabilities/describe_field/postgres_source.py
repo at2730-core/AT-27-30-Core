@@ -1,4 +1,7 @@
+import os
 from contextlib import contextmanager
+
+import psycopg2
 
 
 SUMMARY_SQL = """
@@ -55,6 +58,45 @@ LEFT JOIN field.actor_assignment aa
 LEFT JOIN field.role r
   ON r.role_id = aa.role_id
 """
+
+
+def build_environment_connection_factory(environ=None):
+    environment = os.environ if environ is None else environ
+
+    def connect():
+        parameters = {
+            "host": environment.get(
+                "HEYTI_DB_HOST",
+                "localhost",
+            ),
+            "port": int(
+                environment.get(
+                    "HEYTI_DB_PORT",
+                    "5432",
+                )
+            ),
+            "dbname": environment.get(
+                "HEYTI_DB_NAME",
+                "at2730_core",
+            ),
+            "user": environment.get(
+                "HEYTI_DB_USER",
+                "postgres",
+            ),
+            "connect_timeout": 5,
+            "application_name": "HEYTI_FIELD_RUNTIME",
+        }
+
+        password = environment.get(
+            "HEYTI_DB_PASSWORD"
+        )
+
+        if password:
+            parameters["password"] = password
+
+        return psycopg2.connect(**parameters)
+
+    return connect
 
 
 class PostgresFieldSource:

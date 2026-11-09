@@ -208,6 +208,7 @@ def create_http_server(
                 "/health",
                 "/v1/sections/describe",
                 "/v1/universes/describe",
+                "/v1/field/describe",
             }:
                 self._send_error_contract(
                     HTTPStatus.NOT_FOUND,
@@ -277,7 +278,11 @@ def create_http_server(
 
             if (
                 self._request_path()
-                not in {"/v1/sections/describe", "/v1/universes/describe"}
+                not in {
+                    "/v1/sections/describe",
+                    "/v1/universes/describe",
+                    "/v1/field/describe",
+                }
             ):
                 self._send_error_contract(
                     HTTPStatus.NOT_FOUND,
@@ -319,6 +324,8 @@ def create_http_server(
             try:
                 if self._request_path() == "/v1/universes/describe":
                     response = application.describe_universe(payload)
+                elif self._request_path() == "/v1/field/describe":
+                    response = application.describe_field(payload)
                 else:
                     if "electoral_query" in payload and not isinstance(payload["electoral_query"], dict):
                         raise ValueError("electoral_query debe ser un objeto")

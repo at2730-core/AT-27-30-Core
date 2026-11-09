@@ -34,6 +34,20 @@ class RecordingKernel:
             }
         )
 
+        if capability_name == "describe_field":
+            return {
+                "contract": "HEYTI_FIELD_RESPONSE",
+                "version": "1.0",
+                "capability_id": "describe_field",
+                "operation": payload.get("operation"),
+                "privacy": {
+                    "mode": "PERSONAL_DATA_REDACTED",
+                },
+                "summary": {
+                    "total_records": 45,
+                },
+            }
+
         return {
             "status": "OK",
             "runtime": "HEYTI CORE",
@@ -310,3 +324,41 @@ def test_describe_section_rejects_missing_section_id(
 
     assert status == 400
     assert payload["error"]["code"] == "INVALID_REQUEST"
+
+
+
+def test_describe_field_route_uses_privacy_contract(
+    running_server,
+):
+    base_url, kernel = running_server
+
+    status, headers, payload = request_json(
+        f"{base_url}/v1/field/describe",
+        method="POST",
+        payload={
+            "operation": "summary",
+        },
+        headers={
+            "Origin": "http://localhost:5173",
+            "Content-Type": "application/json",
+        },
+    )
+
+    assert status == 200
+    assert payload["contract"] == "HEYTI_FIELD_RESPONSE"
+    assert payload["summary"]["total_records"] == 45
+    assert payload["privacy"]["mode"] == (
+        "PERSONAL_DATA_REDACTED"
+    )
+    assert headers["Cache-Control"] == "no-store"
+    assert headers["Access-Control-Allow-Origin"] == (
+        "http://localhost:5173"
+    )
+
+    assert kernel.execute_calls[-1] == {
+        "capability_name": "describe_field",
+        "session_id": "HTTP-SESSION",
+        "payload": {
+            "operation": "summary",
+        },
+    }

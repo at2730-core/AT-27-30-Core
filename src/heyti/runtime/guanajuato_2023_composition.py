@@ -1,3 +1,8 @@
+from heyti.capabilities.describe_field.implementation import DescribeFieldCapability
+from heyti.capabilities.describe_field.postgres_source import (
+    PostgresFieldSource,
+    build_environment_connection_factory,
+)
 from heyti.capabilities.describe_universe.implementation import DescribeUniverseCapability, UniverseSource
 from heyti.capabilities.describe_section.presentation_electoral_source import build_unselected_electoral_source
 from dataclasses import dataclass
@@ -35,6 +40,7 @@ class Guanajuato2023RuntimeComposition:
     territorial_truth: GuanajuatoTerritorialTruthAssembly
     territorial_geometry: CertifiedGeoJsonSectionSource
     electoral_results: CertifiedElectoralSectionSource
+    field_results: PostgresFieldSource
 
 
 def compose_guanajuato_2023_runtime(
@@ -42,6 +48,7 @@ def compose_guanajuato_2023_runtime(
     geometry_path: str | Path,
     *,
     versioned_electoral_source=None,
+    field_connection_factory=None,
 ) -> Guanajuato2023RuntimeComposition:
     """
     Compone un RuntimeBootstrap con DescribeSection certificado.
@@ -91,10 +98,18 @@ def compose_guanajuato_2023_runtime(
         )
 
     universe_source = UniverseSource(geometry_path, master_path, territorial_truth.source, territorial_geometry, electoral_results, len(territorial_truth.profile.master_only))
+    if field_connection_factory is None:
+        field_connection_factory = (
+            build_environment_connection_factory()
+        )
+    field_results = PostgresFieldSource(
+        field_connection_factory
+    )
     bootstrap = RuntimeBootstrap(
         capability_factories={
             "describe_section": build_describe_section,
             "describe_universe": lambda: DescribeUniverseCapability(universe_source),
+            "describe_field": lambda: DescribeFieldCapability(field_results),
         },
     )
 
@@ -103,4 +118,5 @@ def compose_guanajuato_2023_runtime(
         territorial_truth=territorial_truth,
         territorial_geometry=territorial_geometry,
         electoral_results=electoral_results,
+        field_results=field_results,
     )

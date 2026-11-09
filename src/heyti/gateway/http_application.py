@@ -102,6 +102,34 @@ class HeytiHttpApplication:
 
         return response.to_dict()
 
+
+    def describe_field(self, payload):
+        """
+        Ejecuta DescribeField mediante el Gateway oficial.
+        """
+
+        if not isinstance(payload, dict):
+            raise ValueError(
+                "La consulta de Campo debe ser un objeto"
+            )
+
+        result = self._gateway.execute(
+            capability_name="describe_field",
+            session_id=self._session_id,
+            payload=payload,
+        )
+
+        if (
+            not isinstance(result, dict)
+            or result.get("contract")
+            != "HEYTI_FIELD_RESPONSE"
+        ):
+            raise TypeError(
+                "Contrato de Campo inv?lido"
+            )
+
+        return result
+
     def describe_universe(self, payload):
         result = self._gateway.execute("describe_universe", self._session_id, payload)
         if not isinstance(result, dict) or result.get("contract") != "HEYTI_UNIVERSE_RESPONSE":

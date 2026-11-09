@@ -75,6 +75,7 @@ def build_guanajuato_2023_http_host(
     allowed_origins: (
         tuple[str, ...]
     ) = DEFAULT_ALLOWED_ORIGINS,
+    field_connection_factory=None,
 ) -> Guanajuato2023HttpHost:
     """
     Construye y arranca internamente el Runtime certificado.
@@ -91,6 +92,9 @@ def build_guanajuato_2023_http_host(
     composition = compose_guanajuato_2023_runtime(
         master_path=master_path,
         geometry_path=geometry_path,
+        field_connection_factory=(
+            field_connection_factory
+        ),
     )
 
     kernel = HeytiKernel(

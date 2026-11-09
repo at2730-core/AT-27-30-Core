@@ -1,9 +1,10 @@
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, patch
 
 import pytest
 
 from heyti.capabilities.describe_field.postgres_source import (
     PostgresFieldSource,
+    build_environment_connection_factory,
 )
 
 
@@ -99,3 +100,37 @@ def test_postgres_field_source_closes_after_error():
     connection.commit.assert_not_called()
     connection.rollback.assert_called_once()
     connection.close.assert_called_once()
+
+
+
+def test_environment_factory_uses_explicit_configuration():
+    environment = {
+        "HEYTI_DB_HOST": "db.example",
+        "HEYTI_DB_PORT": "5544",
+        "HEYTI_DB_NAME": "heyti_test",
+        "HEYTI_DB_USER": "heyti_user",
+        "HEYTI_DB_PASSWORD": "secret",
+    }
+
+    factory = build_environment_connection_factory(
+        environment
+    )
+
+    marker = object()
+
+    with patch(
+        "heyti.capabilities.describe_field."
+        "postgres_source.psycopg2.connect",
+        return_value=marker,
+    ) as connect:
+        assert factory() is marker
+
+    connect.assert_called_once_with(
+        host="db.example",
+        port=5544,
+        dbname="heyti_test",
+        user="heyti_user",
+        password="secret",
+        connect_timeout=5,
+        application_name="HEYTI_FIELD_RUNTIME",
+    )
