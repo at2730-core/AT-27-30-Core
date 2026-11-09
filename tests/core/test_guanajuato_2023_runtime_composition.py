@@ -59,8 +59,8 @@ def test_certified_composition_reaches_materialized_runtime():
 
     loaded_capabilities = bootstrap.initialize()
 
-    assert len(loaded_capabilities) == 5
-    assert bootstrap.registry.count() == 5
+    assert len(loaded_capabilities) == 6
+    assert bootstrap.registry.count() == 6
 
     capability = bootstrap.registry.get("describe_section")
 

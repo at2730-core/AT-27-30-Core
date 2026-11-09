@@ -13,8 +13,8 @@ def test_runtime_bootstrap_loads_official_capabilities():
 
     loaded_capabilities = bootstrap.initialize()
 
-    assert len(loaded_capabilities) == 5
-    assert bootstrap.registry.count() == 5
+    assert len(loaded_capabilities) == 6
+    assert bootstrap.registry.count() == 6
 
     assert bootstrap.registry.exists("describe_section") is True
     assert bootstrap.registry.exists("describe_universe") is True
