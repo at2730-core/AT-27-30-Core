@@ -9,6 +9,7 @@ description = "Núcleo operativo de la plataforma HEYTI"
 requires-python = ">=3.10"
 dependencies = [
     "openpyxl>=3.1,<4",
+    "psycopg2-binary>=2.9,<3",
 ]
 
 [tool.setuptools]

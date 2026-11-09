@@ -2,18 +2,9 @@ import json
 import uuid
 from pathlib import Path
 import psycopg2
-from psycopg2.extras import execute_values
+from campo_db_config import get_campo_db_config
 
 INPUT_GEOJSON = Path("data/puntos_campo.geojson")
-
-DB_CONFIG = {
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "at2730_core",
-    "user": "postgres",
-    "password": "at2730core"
-}
-
 
 def main():
     with open(INPUT_GEOJSON, "r", encoding="utf-8") as f:
@@ -21,7 +12,7 @@ def main():
 
     features = data.get("features", [])
 
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = psycopg2.connect(**get_campo_db_config())
     conn.autocommit = False
     cur = conn.cursor()
 

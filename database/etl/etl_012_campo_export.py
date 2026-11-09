@@ -2,17 +2,9 @@ import json
 from pathlib import Path
 
 import psycopg2
+from campo_db_config import get_campo_db_config
 
 OUTPUT_GEOJSON = Path("data/puntos_campo_export.geojson")
-
-DB_CONFIG = {
-    "host": "localhost",
-    "port": 5432,
-    "dbname": "at2730_core",
-    "user": "postgres",
-    "password": "at2730core"
-}
-
 
 SQL = """
 SELECT
@@ -56,7 +48,7 @@ ORDER BY a.actor_id;
 
 def main():
 
-    conn = psycopg2.connect(**DB_CONFIG)
+    conn = psycopg2.connect(**get_campo_db_config())
     cur = conn.cursor()
 
     cur.execute(SQL)
