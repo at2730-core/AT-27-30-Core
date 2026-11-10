@@ -18,7 +18,7 @@ export function DemoNoticeScreen({ onAccept }: { onAccept: () => void }) {
           <p>HEYTI utiliza fuentes electorales oficiales del INE y del IEEG. Estamos auditando las fuentes de datos, su integración y trazabilidad para verificar que lo mostrado corresponda a la fuente y al corte identificado.</p>
           <p>Esta versión es una demostración y puede contener datos pendientes de validación, señalados en pantalla.</p>
           <p>La geografía mostrada corresponde a la referencia actualmente disponible en HEYTI y todavía no constituye el Marco Geográfico Electoral 2026–2027. El INE anunció la publicación de los productos cartográficos correspondientes para el 12 de noviembre de 2026; serán incorporados después de su descarga y conciliación.</p>
-          <p>Los datos de Campo y los escenarios indicarán su propia procedencia y estado de validación.</p>
+          <p>Los datos de Promoción y los escenarios indicarán su propia procedencia y estado de validación.</p>
         </div>
         <button ref={acceptRef} className="splash-button" type="button" onClick={onAccept}>ACEPTAR</button>
       </section>

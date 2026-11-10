@@ -3,6 +3,7 @@ import { TerritorialAreaPanel } from './TerritorialAreaPanel'
 import { areaReading, AREA_TITLES, isAreaKind } from './territorialAreaAnalysis'
 import { ComparisonWorkspace } from './ComparisonWorkspace'
 import { SocioWorkspaceHost } from './SocioWorkspaceHost'
+import { FieldWorkspace } from './FieldWorkspace'
 import { advanceSocioScope } from './socioWorkspaceMemory'
 import { VersionedElectoralPanel } from './VersionedElectoralPanel'
 import { SectionDemoProvider, SectionDemoPanel } from './SectionDemoPanel'
@@ -156,6 +157,7 @@ function WorkspaceCanvasContent({
 }: WorkspaceCanvasProps) {
   const { state, setMapView } = useWorkspace()
   const socioActive = state.activeModuleId === 'socioeconomic' && state.mode !== 'comparison'
+  const fieldActive = state.activeModuleId === 'field' && state.mode !== 'comparison'
   const universeScope = state.universe ? `${state.universe.level}:${state.universe.id}` : 'none'
   const [socioVisited, setSocioVisited] = useState(socioActive)
   const [socioMemory, setSocioMemory] = useState({scope: universeScope, revision: 0})
@@ -196,10 +198,11 @@ function WorkspaceCanvasContent({
 
   return (<>
     {state.mode === 'comparison' ? <ComparisonWorkspace onConfigure={onConfigureComparison} onUniverseChange={onUniverseMapPending} /> : null}
+    {fieldActive ? <FieldWorkspace /> : null}
     <div style={{display: socioActive && state.mode !== 'comparison' ? 'contents' : 'none'}} aria-hidden={!socioActive || state.mode === 'comparison'}>
       {(socioVisited || socioActive) ? <SocioWorkspaceHost key={socioMemory.revision} query={activeQuery} requestId={socioQueryRequest} /> : null}
     </div>
-    <div key={universeScope} style={{display: socioActive || state.mode === 'comparison' ? 'none' : 'contents'}} aria-hidden={socioActive || state.mode === 'comparison'}>
+    <div key={universeScope} style={{display: socioActive || fieldActive || state.mode === 'comparison' ? 'none' : 'contents'}} aria-hidden={socioActive || fieldActive || state.mode === 'comparison'}>
     <main className="workspace-canvas" data-map-expanded={['territorial-analysis', 'win-all'].includes(state.activeModuleId) ? 'true' : undefined}>
       {!['territorial-analysis', 'win-all'].includes(state.activeModuleId) ? (
       <section className="workspace-introduction">

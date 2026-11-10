@@ -34,8 +34,8 @@ export const HEYTI_MODULES = [
   {
     id: 'field',
     code: '04',
-    label: 'Campo',
-    shortLabel: 'Campo',
+    label: 'Promoción',
+    shortLabel: 'Promoción',
     description:
       'Planeación, seguimiento y control territorial.',
     accentKey: 'field',
