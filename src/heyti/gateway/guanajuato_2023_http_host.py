@@ -6,6 +6,9 @@ from heyti.audit.data_truth.baselines.guanajuato_2023 import (
     GUANAJUATO_2023_POLICY_ID,
     GUANAJUATO_2023_POLICY_VERSION,
 )
+from heyti.capabilities.describe_field.postgres_source import (
+    build_environment_connection_factory,
+)
 from heyti.gateway.gateway import HeytiGateway
 from heyti.gateway.http_application import (
     HeytiHttpApplication,
@@ -18,6 +21,13 @@ from heyti.kernel.kernel import HeytiKernel
 from heyti.runtime.guanajuato_2023_composition import (
     Guanajuato2023RuntimeComposition,
     compose_guanajuato_2023_runtime,
+)
+from heyti.security.composition import (
+    SecurityComposition,
+    compose_security,
+)
+from heyti.security.http_application import (
+    SecurityHttpApplication,
 )
 
 
@@ -34,9 +44,11 @@ class Guanajuato2023HttpHost:
     """
 
     composition: Guanajuato2023RuntimeComposition
+    security_composition: SecurityComposition
     kernel: HeytiKernel
     gateway: HeytiGateway
     application: HeytiHttpApplication
+    security_application: SecurityHttpApplication
     server: ThreadingHTTPServer
 
     @property
@@ -89,11 +101,29 @@ def build_guanajuato_2023_http_host(
             "session_id debe ser una cadena no vacía"
         )
 
+    effective_connection_factory = (
+        field_connection_factory
+    )
+
+    if effective_connection_factory is None:
+        effective_connection_factory = (
+            build_environment_connection_factory()
+        )
+
     composition = compose_guanajuato_2023_runtime(
         master_path=master_path,
         geometry_path=geometry_path,
         field_connection_factory=(
-            field_connection_factory
+            effective_connection_factory
+        ),
+    )
+
+    security_composition = compose_security(
+        connection_factory=(
+            effective_connection_factory
+        ),
+        session_manager=(
+            composition.bootstrap.session_manager
         ),
     )
 
@@ -118,6 +148,16 @@ def build_guanajuato_2023_http_host(
         session_id=normalized_session_id,
     )
 
+    security_application = SecurityHttpApplication(
+        authentication_service=(
+            security_composition
+            .authentication_service
+        ),
+        session_service=(
+            security_composition.session_service
+        ),
+    )
+
     knowledge_version = (
         f"{GUANAJUATO_2023_POLICY_ID}:"
         f"{GUANAJUATO_2023_POLICY_VERSION}"
@@ -130,6 +170,9 @@ def build_guanajuato_2023_http_host(
             port=port,
             allowed_origins=allowed_origins,
             knowledge_version=knowledge_version,
+            security_application=(
+                security_application
+            ),
         )
     except Exception:
         gateway.stop()
@@ -137,8 +180,14 @@ def build_guanajuato_2023_http_host(
 
     return Guanajuato2023HttpHost(
         composition=composition,
+        security_composition=(
+            security_composition
+        ),
         kernel=kernel,
         gateway=gateway,
         application=application,
+        security_application=(
+            security_application
+        ),
         server=server,
     )
