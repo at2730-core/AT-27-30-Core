@@ -11,6 +11,12 @@ from uuid import uuid4
 from heyti.gateway.http_application import (
     HeytiHttpApplication,
 )
+from heyti.security.http_application import (
+    AuthenticatedSessionRequiredError,
+    InvalidCredentialsError,
+    PasswordChangeRequiredError,
+    SecurityHttpApplication,
+)
 
 
 DEFAULT_ALLOWED_ORIGINS = (
@@ -26,6 +32,7 @@ def create_http_server(
     port: int = 8765,
     allowed_origins: tuple[str, ...] = DEFAULT_ALLOWED_ORIGINS,
     knowledge_version: str | None = None,
+    security_application: SecurityHttpApplication | None = None,
 ) -> ThreadingHTTPServer:
     """
     Construye el servidor HTTP local de HEYTI.
@@ -37,6 +44,18 @@ def create_http_server(
     if not isinstance(application, HeytiHttpApplication):
         raise TypeError(
             "application debe ser HeytiHttpApplication"
+        )
+
+    if (
+        security_application is not None
+        and not isinstance(
+            security_application,
+            SecurityHttpApplication,
+        )
+    ):
+        raise TypeError(
+            "security_application debe ser "
+            "SecurityHttpApplication"
         )
 
     normalized_origins = frozenset(
@@ -73,6 +92,29 @@ def create_http_server(
                 origin is None
                 or origin in normalized_origins
             )
+
+        def _bearer_token(self) -> str:
+            authorization = self.headers.get(
+                "Authorization",
+                "",
+            ).strip()
+
+            scheme, separator, token = (
+                authorization.partition(" ")
+            )
+            token = token.strip()
+
+            if (
+                scheme.lower() != "bearer"
+                or not separator
+                or not token
+                or " " in token
+            ):
+                raise AuthenticatedSessionRequiredError(
+                    "Se requiere una sesion autenticada"
+                )
+
+            return token
 
         def _send_json(
             self,
@@ -204,12 +246,21 @@ def create_http_server(
             if self._reject_disallowed_origin():
                 return
 
-            if self._request_path() not in {
+            allowed_paths = {
                 "/health",
                 "/v1/sections/describe",
                 "/v1/universes/describe",
                 "/v1/field/describe",
-            }:
+            }
+
+            if security_application is not None:
+                allowed_paths.update({
+                    "/v1/auth/login",
+                    "/v1/auth/session",
+                    "/v1/auth/logout",
+                })
+
+            if self._request_path() not in allowed_paths:
                 self._send_error_contract(
                     HTTPStatus.NOT_FOUND,
                     "NOT_FOUND",
@@ -237,7 +288,7 @@ def create_http_server(
             )
             self.send_header(
                 "Access-Control-Allow-Headers",
-                "Content-Type, X-Request-ID",
+                "Content-Type, X-Request-ID, Authorization",
             )
             self.send_header(
                 "Access-Control-Max-Age",
@@ -249,45 +300,112 @@ def create_http_server(
             if self._reject_disallowed_origin():
                 return
 
-            if self._request_path() != "/health":
-                self._send_error_contract(
-                    HTTPStatus.NOT_FOUND,
-                    "NOT_FOUND",
-                    "Ruta no encontrada.",
+            path = self._request_path()
+
+            if path == "/health":
+                try:
+                    payload = application.health()
+                except Exception:
+                    self._send_error_contract(
+                        HTTPStatus.INTERNAL_SERVER_ERROR,
+                        "INTERNAL_ERROR",
+                        "HEYTI-CORE no pudo completar la solicitud.",
+                    )
+                    return
+
+                self._send_json(
+                    HTTPStatus.OK,
+                    payload,
                 )
                 return
 
-            try:
-                payload = application.health()
-            except Exception:
-                self._send_error_contract(
-                    HTTPStatus.INTERNAL_SERVER_ERROR,
-                    "INTERNAL_ERROR",
-                    "HEYTI-CORE no pudo completar la solicitud.",
+            if (
+                path == "/v1/auth/session"
+                and security_application is not None
+            ):
+                try:
+                    token = self._bearer_token()
+                    payload = (
+                        security_application
+                        .current_session(token)
+                    )
+                except AuthenticatedSessionRequiredError:
+                    self._send_error_contract(
+                        HTTPStatus.UNAUTHORIZED,
+                        "AUTHENTICATION_REQUIRED",
+                        "Se requiere una sesion autenticada.",
+                    )
+                    return
+                except Exception:
+                    self._send_error_contract(
+                        HTTPStatus.INTERNAL_SERVER_ERROR,
+                        "INTERNAL_ERROR",
+                        "HEYTI-CORE no pudo completar la solicitud.",
+                    )
+                    return
+
+                self._send_json(
+                    HTTPStatus.OK,
+                    payload,
                 )
                 return
 
-            self._send_json(
-                HTTPStatus.OK,
-                payload,
+            self._send_error_contract(
+                HTTPStatus.NOT_FOUND,
+                "NOT_FOUND",
+                "Ruta no encontrada.",
             )
 
         def do_POST(self) -> None:
             if self._reject_disallowed_origin():
                 return
 
-            if (
-                self._request_path()
-                not in {
-                    "/v1/sections/describe",
-                    "/v1/universes/describe",
-                    "/v1/field/describe",
-                }
-            ):
+            path = self._request_path()
+
+            allowed_paths = {
+                "/v1/sections/describe",
+                "/v1/universes/describe",
+                "/v1/field/describe",
+            }
+
+            if security_application is not None:
+                allowed_paths.update({
+                    "/v1/auth/login",
+                    "/v1/auth/logout",
+                })
+
+            if path not in allowed_paths:
                 self._send_error_contract(
                     HTTPStatus.NOT_FOUND,
                     "NOT_FOUND",
                     "Ruta no encontrada.",
+                )
+                return
+
+            if path == "/v1/auth/logout":
+                try:
+                    token = self._bearer_token()
+                    response = (
+                        security_application.logout(token)
+                    )
+                except AuthenticatedSessionRequiredError:
+                    self._send_error_contract(
+                        HTTPStatus.UNAUTHORIZED,
+                        "AUTHENTICATION_REQUIRED",
+                        "Se requiere una sesion autenticada.",
+                    )
+                    return
+                except Exception:
+                    self._send_error_contract(
+                        HTTPStatus.INTERNAL_SERVER_ERROR,
+                        "INTERNAL_ERROR",
+                        "HEYTI-CORE no pudo completar la solicitud.",
+                    )
+                    return
+
+                self._send_json(
+                    HTTPStatus.OK,
+                    response,
                 )
                 return
 
@@ -315,26 +433,87 @@ def create_http_server(
                 )
                 return
 
+            if path == "/v1/auth/login":
+                try:
+                    response = (
+                        security_application.login(payload)
+                    )
+                except InvalidCredentialsError:
+                    self._send_error_contract(
+                        HTTPStatus.UNAUTHORIZED,
+                        "INVALID_CREDENTIALS",
+                        "Credenciales invalidas.",
+                    )
+                    return
+                except PasswordChangeRequiredError:
+                    self._send_error_contract(
+                        HTTPStatus.FORBIDDEN,
+                        "PASSWORD_CHANGE_REQUIRED",
+                        "Debe cambiarse la contrasena.",
+                    )
+                    return
+                except ValueError as exc:
+                    self._send_error_contract(
+                        HTTPStatus.BAD_REQUEST,
+                        "INVALID_REQUEST",
+                        str(exc),
+                    )
+                    return
+                except Exception:
+                    self._send_error_contract(
+                        HTTPStatus.INTERNAL_SERVER_ERROR,
+                        "INTERNAL_ERROR",
+                        "HEYTI-CORE no pudo completar la solicitud.",
+                    )
+                    return
+
+                self._send_json(
+                    HTTPStatus.OK,
+                    response,
+                )
+                return
+
             request_id = (
-                self.headers.get("X-Request-ID", "").strip()
+                self.headers.get(
+                    "X-Request-ID",
+                    "",
+                ).strip()
                 or f"REQ-{uuid4()}"
             )
             execution_id = f"EXE-{uuid4()}"
 
             try:
-                if self._request_path() == "/v1/universes/describe":
-                    response = application.describe_universe(payload)
-                elif self._request_path() == "/v1/field/describe":
-                    response = application.describe_field(payload)
+                if path == "/v1/universes/describe":
+                    response = (
+                        application
+                        .describe_universe(payload)
+                    )
+                elif path == "/v1/field/describe":
+                    response = (
+                        application.describe_field(payload)
+                    )
                 else:
-                    if "electoral_query" in payload and not isinstance(payload["electoral_query"], dict):
-                        raise ValueError("electoral_query debe ser un objeto")
+                    if (
+                        "electoral_query" in payload
+                        and not isinstance(
+                            payload["electoral_query"],
+                            dict,
+                        )
+                    ):
+                        raise ValueError(
+                            "electoral_query debe ser un objeto"
+                        )
+
                     response = application.describe_section(
-                        section_id=payload.get("section_id"),
+                        section_id=payload.get(
+                            "section_id"
+                        ),
                         request_id=request_id,
                         execution_id=execution_id,
                         knowledge_version=knowledge_version,
-                        electoral_query=payload.get("electoral_query"),
+                        electoral_query=payload.get(
+                            "electoral_query"
+                        ),
                     )
             except (TypeError, ValueError) as exc:
                 self._send_error_contract(
