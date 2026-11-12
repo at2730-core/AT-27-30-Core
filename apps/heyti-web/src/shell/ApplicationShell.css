@@ -1978,3 +1978,97 @@
 .application-shell .module-navigation .heyti-module-queries .heyti-query-group {
   color: #37474f;
 }
+
+
+/* HEYTI authenticated identity */
+
+.workspace-identity {
+  min-height: 3.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.45rem 0.5rem 0.45rem 0.75rem;
+  background: #ffffff;
+  border: 1px solid var(--shell-border);
+  border-radius: 0.65rem;
+}
+
+.workspace-identity-copy {
+  min-width: 6.5rem;
+  display: grid;
+  gap: 0.05rem;
+}
+
+.workspace-identity-copy small {
+  color: var(--shell-muted);
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+}
+
+.workspace-identity-copy strong {
+  max-width: 10rem;
+  overflow: hidden;
+  color: var(--shell-text);
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-identity-copy span {
+  color: var(--shell-muted);
+  font-size: 0.68rem;
+}
+
+.workspace-logout {
+  min-height: 2.35rem;
+  padding: 0.45rem 0.7rem;
+  color: #175d66;
+  background: #edf7f8;
+  border: 1px solid #a9d2d6;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.workspace-logout:hover:not(:disabled) {
+  color: #ffffff;
+  background: #176872;
+  border-color: #176872;
+}
+
+.workspace-logout:disabled {
+  cursor: wait;
+  opacity: 0.64;
+}
+
+.workspace-logout-error {
+  max-width: 18rem;
+  padding: 0.55rem 0.7rem;
+  color: #98231e;
+  background: #fff1f0;
+  border: 1px solid #e8aaa6;
+  border-radius: 0.55rem;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 760px) {
+  .workspace-identity {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .workspace-identity-copy strong {
+    max-width: 14rem;
+  }
+
+  .workspace-logout-error {
+    box-sizing: border-box;
+    max-width: none;
+    width: 100%;
+  }
+}

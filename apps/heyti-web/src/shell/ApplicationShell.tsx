@@ -1,3 +1,6 @@
+import type {
+  AuthenticatedUser,
+} from '../gateway/auth.client'
 import type { AreaKind } from './territorialAreaAnalysis'
 import { ContextQueryDialog } from './ContextQueryDialog'
 import { availableCrossQueries, scopeKey } from './contextQueries'
@@ -46,7 +49,19 @@ type OpenPanel =
   | 'comparison'
   | null
 
-function ApplicationShellContent() {
+interface ApplicationShellProps {
+  user: AuthenticatedUser
+  logoutPending: boolean
+  logoutError: string | null
+  onLogout: () => Promise<void>
+}
+
+function ApplicationShellContent({
+  user,
+  logoutPending,
+  logoutError,
+  onLogout,
+}: ApplicationShellProps) {
   const {
     selectUniverse, state, selectModule, setMode,
   } = useWorkspace()
@@ -254,6 +269,10 @@ function ApplicationShellContent() {
 
       <div className="application-workspace">
         <WorkspaceHeader
+          user={user}
+          logoutPending={logoutPending}
+          logoutError={logoutError}
+          onLogout={onLogout}
           onOpenCrossQuery={() => setOpenPanel('cross-query')}
           onOpenUniverseSelector={() => {
             setTerritorialError(null)
@@ -413,10 +432,12 @@ function ApplicationShellContent() {
   )
 }
 
-export function ApplicationShell() {
+export function ApplicationShell(
+  props: ApplicationShellProps,
+) {
   return (
     <WorkspaceProvider>
-      <ApplicationShellContent />
+      <ApplicationShellContent {...props} />
     </WorkspaceProvider>
   )
 }
