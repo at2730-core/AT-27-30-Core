@@ -1,0 +1,193 @@
+.heyti-login-screen {
+  align-items: center;
+  background:
+    radial-gradient(
+      circle at 50% 28%,
+      rgba(255, 255, 255, 0.96),
+      rgba(230, 239, 241, 0.88) 46%,
+      #e5edef 100%
+    );
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+.heyti-login-card {
+  background: #ffffff;
+  border: 1px solid #cbd9dc;
+  border-radius: 20px;
+  border-top: 5px solid #176872;
+  box-shadow:
+    0 24px 60px rgba(25, 56, 63, 0.15);
+  box-sizing: border-box;
+  max-width: 520px;
+  padding: 42px 48px 32px;
+  width: 100%;
+}
+
+.heyti-login-brand {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.heyti-login-mark {
+  align-items: center;
+  background: #176872;
+  border-radius: 13px;
+  color: #ffffff;
+  display: flex;
+  flex: 0 0 62px;
+  font-size: 28px;
+  font-weight: 800;
+  height: 62px;
+  justify-content: center;
+}
+
+.heyti-login-product {
+  color: #075c68;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 5px;
+}
+
+.heyti-login-brand h1 {
+  color: #102b31;
+  font-size: 34px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.heyti-login-subtitle {
+  color: #547079;
+  font-size: 16px;
+  margin: 5px 0 0;
+}
+
+.heyti-login-divider {
+  background: linear-gradient(
+    90deg,
+    #176872,
+    #2a9baa
+  );
+  border-radius: 999px;
+  height: 8px;
+  margin: 30px 0;
+}
+
+.heyti-login-form {
+  display: grid;
+  gap: 20px;
+}
+
+.heyti-login-heading h2 {
+  color: #102b31;
+  font-size: 22px;
+  margin: 0 0 5px;
+}
+
+.heyti-login-heading p {
+  color: #5a737b;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.heyti-login-field {
+  display: grid;
+  gap: 7px;
+}
+
+.heyti-login-field span {
+  color: #18383f;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.heyti-login-field input {
+  background: #ffffff;
+  border: 1px solid #b9cdd1;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #102b31;
+  font: inherit;
+  min-height: 48px;
+  outline: none;
+  padding: 10px 13px;
+  width: 100%;
+}
+
+.heyti-login-field input:focus {
+  border-color: #176872;
+  box-shadow: 0 0 0 3px rgba(23, 104, 114, 0.16);
+}
+
+.heyti-login-field input:disabled {
+  background: #edf2f3;
+  cursor: wait;
+}
+
+.heyti-login-error {
+  background: #fff2f1;
+  border: 1px solid #e9a19b;
+  border-radius: 10px;
+  color: #a21d18;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 12px 14px;
+}
+
+.heyti-login-submit {
+  background: #176872;
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  min-height: 52px;
+  padding: 12px 20px;
+}
+
+.heyti-login-submit:hover:not(:disabled) {
+  background: #105963;
+}
+
+.heyti-login-submit:focus-visible {
+  outline: 3px solid rgba(23, 104, 114, 0.28);
+  outline-offset: 3px;
+}
+
+.heyti-login-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.heyti-login-footer {
+  color: #678087;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-top: 24px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .heyti-login-card {
+    padding: 32px 24px 26px;
+  }
+
+  .heyti-login-brand {
+    align-items: flex-start;
+  }
+
+  .heyti-login-brand h1 {
+    font-size: 28px;
+  }
+
+  .heyti-login-mark {
+    flex-basis: 54px;
+    height: 54px;
+  }
+}
