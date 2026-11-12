@@ -1,3 +1,4 @@
+import { authenticatedHeaders } from './auth.transport'
 import {
   gatewayBaseUrl,
   HeytiGatewayError,
@@ -363,6 +364,7 @@ async function requestField(
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          ...authenticatedHeaders(),
         },
         body: JSON.stringify(body),
         signal,

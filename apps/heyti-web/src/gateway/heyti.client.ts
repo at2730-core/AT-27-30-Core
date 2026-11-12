@@ -1,3 +1,5 @@
+import { authenticatedHeaders } from './auth.transport'
+
 export interface HeytiResponseBlock {
   type: string
   role: string
@@ -228,7 +230,8 @@ function parseHeytiResponse(
 
 export function gatewayBaseUrl(): string {
   const configuredUrl =
-    import.meta.env.VITE_HEYTI_GATEWAY_URL?.trim()
+
+import.meta.env.VITE_HEYTI_GATEWAY_URL?.trim()
 
   if (!configuredUrl) {
     throw new HeytiGatewayError(
@@ -308,6 +311,7 @@ export async function describeSection(
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
+          ...authenticatedHeaders(),
         },
         body: JSON.stringify({
           section_id: normalizedSectionId,

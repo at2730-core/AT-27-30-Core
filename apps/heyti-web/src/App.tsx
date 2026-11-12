@@ -5,6 +5,10 @@ import {
   type AuthSession,
   logout,
 } from './gateway/auth.client'
+import {
+  clearAuthenticatedSessionToken,
+  setAuthenticatedSessionToken,
+} from './gateway/auth.transport'
 import { ApplicationShell } from './shell/ApplicationShell'
 import { DemoNoticeScreen } from './startup/DemoNoticeScreen'
 import { LoginScreen } from './startup/LoginScreen'
@@ -35,6 +39,7 @@ function App() {
 
     try {
       await logout(session.sessionToken)
+      clearAuthenticatedSessionToken()
       setNoticeAccepted(false)
       setSession(null)
     } catch (error) {
@@ -42,6 +47,7 @@ function App() {
         error instanceof AuthClientError
         && error.status === 401
       ) {
+        clearAuthenticatedSessionToken()
         setNoticeAccepted(false)
         setSession(null)
         return
@@ -69,6 +75,9 @@ function App() {
     return (
       <LoginScreen
         onAuthenticated={(authenticatedSession) => {
+          setAuthenticatedSessionToken(
+            authenticatedSession.sessionToken,
+          )
           setLogoutError(null)
           setSession(authenticatedSession)
         }}

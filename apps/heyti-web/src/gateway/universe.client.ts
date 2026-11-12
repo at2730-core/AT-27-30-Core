@@ -1,3 +1,4 @@
+import { authenticatedHeaders } from './auth.transport'
 import { gatewayBaseUrl } from './heyti.client'
 import { parseGeometry } from './territorial.geometry'
 import type { TerritorialGeometry } from './territorial.geometry'
@@ -23,7 +24,7 @@ function option(value: unknown): UniverseOption {
   return { level: level as MapLevel, id: str(o.id), label: str(o.label), sections: count(o.sections) }
 }
 async function request(payload: unknown, signal?: AbortSignal) {
-  const response = await fetch(`${gatewayBaseUrl()}/v1/universes/describe`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload), signal })
+  const response = await fetch(`${gatewayBaseUrl()}/v1/universes/describe`, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json', ...authenticatedHeaders() }, body: JSON.stringify(payload), signal })
   if (!response.ok) throw new Error(`CORE no pudo consultar el universo (HTTP ${response.status}). Reinicia el CORE si acabas de aplicar este bloque.`)
   const data = record(await response.json())
   if (data.contract !== 'HEYTI_UNIVERSE_RESPONSE' || data.version !== '1.0' || data.capability_id !== 'describe_universe') throw new Error('Contrato de universo no soportado.')

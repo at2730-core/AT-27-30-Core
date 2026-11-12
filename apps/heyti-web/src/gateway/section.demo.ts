@@ -1,3 +1,4 @@
+import { authenticatedHeaders } from './auth.transport'
 import { gatewayBaseUrl } from './heyti.client'
 
 export const DEMO_CONTESTS = ['A','DL','DF','G','S','P'] as const
@@ -43,7 +44,7 @@ export function demoParticipation(c: DemoContest): number | null {
   return c.status==='NOT_CONTESTED'||c.status==='INCONSISTENT'||c.total===null||c.nominal===null||c.nominal<=0||c.total>c.nominal ? null : c.total*100/c.nominal
 }
 export async function fetchSectionDemo(sectionId: string, signal?: AbortSignal): Promise<SectionDemo> {
-  const response=await fetch(`${gatewayBaseUrl()}/v1/universes/describe`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({operation:'section-demo',section_id:sectionId}),signal})
+  const response=await fetch(`${gatewayBaseUrl()}/v1/universes/describe`,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json',...authenticatedHeaders()},body:JSON.stringify({operation:'section-demo',section_id:sectionId}),signal})
   if(!response.ok) throw new Error(`No fue posible consultar los datos de demostración (HTTP ${response.status}). Reinicia HEYTI-CORE tras aplicar el bloque.`)
   return parseSectionDemo(await response.json(),sectionId)
 }
