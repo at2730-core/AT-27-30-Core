@@ -15,6 +15,12 @@ from heyti.security.postgres_authorization import (
 from heyti.security.postgres_credentials import (
     PostgresCredentialRepository,
 )
+from heyti.security.postgres_scope_profile import (
+    PostgresTerritorialScopeProfileSource,
+)
+from heyti.security.scope_profile import (
+    TerritorialScopeProfileService,
+)
 from heyti.security.service import (
     AuthorizationService,
 )
@@ -38,6 +44,12 @@ class SecurityComposition:
         PostgresAuthorizationSource
     )
     authorization_service: AuthorizationService
+    scope_profile_source: (
+        PostgresTerritorialScopeProfileSource
+    )
+    scope_profile_service: (
+        TerritorialScopeProfileService
+    )
     session_service: AuthenticatedSessionService
 
 
@@ -90,6 +102,17 @@ def compose_security(
         authorization_source
     )
 
+    scope_profile_source = (
+        PostgresTerritorialScopeProfileSource(
+            connection_factory
+        )
+    )
+    scope_profile_service = (
+        TerritorialScopeProfileService(
+            scope_profile_source
+        )
+    )
+
     session_service = (
         AuthenticatedSessionService(
             session_manager
@@ -112,6 +135,12 @@ def compose_security(
         ),
         authorization_service=(
             authorization_service
+        ),
+        scope_profile_source=(
+            scope_profile_source
+        ),
+        scope_profile_service=(
+            scope_profile_service
         ),
         session_service=session_service,
     )

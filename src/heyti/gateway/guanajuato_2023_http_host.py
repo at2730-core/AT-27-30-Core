@@ -165,6 +165,10 @@ def build_guanajuato_2023_http_host(
             security_composition
             .password_change_service
         ),
+        scope_profile_service=(
+            security_composition
+            .scope_profile_service
+        ),
     )
 
     knowledge_version = (

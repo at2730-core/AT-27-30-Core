@@ -37,6 +37,7 @@ class SecurityHttpApplication:
         session_service,
         authorization_service=None,
         password_change_service=None,
+        scope_profile_service=None,
     ):
         if not callable(
             getattr(
@@ -104,6 +105,24 @@ class SecurityHttpApplication:
 
         self._password_change_service = (
             password_change_service
+        )
+
+        if (
+            scope_profile_service is not None
+            and not callable(
+                getattr(
+                    scope_profile_service,
+                    "profile",
+                    None,
+                )
+            )
+        ):
+            raise TypeError(
+                "scope_profile_service incompatible"
+            )
+
+        self._scope_profile_service = (
+            scope_profile_service
         )
 
     def login(
@@ -330,11 +349,11 @@ class SecurityHttpApplication:
             "status": "SIGNED_OUT",
         }
 
-    @staticmethod
     def _session_payload(
+        self,
         session: AuthenticatedSession,
     ) -> dict[str, Any]:
-        return {
+        payload = {
             "status": "AUTHENTICATED",
             "session_token": session.session_id,
             "expires_at": (
@@ -349,3 +368,15 @@ class SecurityHttpApplication:
                 "role": session.role.value,
             },
         }
+
+        if self._scope_profile_service is not None:
+            territorial_access = (
+                self._scope_profile_service.profile(
+                    session.user_id
+                )
+            )
+            payload["territorial_access"] = (
+                territorial_access.to_dict()
+            )
+
+        return payload
