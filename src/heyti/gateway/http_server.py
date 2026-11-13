@@ -17,6 +17,10 @@ from heyti.security.http_application import (
     PasswordChangeRequiredError,
     SecurityHttpApplication,
 )
+from heyti.security.password_change import (
+    InvalidPasswordChangeCredentialsError,
+    PasswordChangeLockedError,
+)
 
 
 DEFAULT_ALLOWED_ORIGINS = (
@@ -282,6 +286,7 @@ def create_http_server(
                     "/v1/auth/login",
                     "/v1/auth/session",
                     "/v1/auth/logout",
+                    "/v1/auth/password",
                 })
 
             if self._request_path() not in allowed_paths:
@@ -394,6 +399,7 @@ def create_http_server(
                 allowed_paths.update({
                     "/v1/auth/login",
                     "/v1/auth/logout",
+                    "/v1/auth/password",
                 })
 
             if path not in allowed_paths:
@@ -452,6 +458,58 @@ def create_http_server(
                     HTTPStatus.BAD_REQUEST,
                     "INVALID_JSON",
                     str(exc),
+                )
+                return
+
+            if path == "/v1/auth/password":
+                try:
+                    response = (
+                        security_application
+                        .change_password(payload)
+                    )
+                except (
+                    TypeError,
+                    ValueError,
+                ) as exc:
+                    self._send_error_contract(
+                        HTTPStatus.BAD_REQUEST,
+                        "INVALID_REQUEST",
+                        str(exc),
+                    )
+                    return
+                except (
+                    InvalidPasswordChangeCredentialsError
+                ):
+                    self._send_error_contract(
+                        HTTPStatus.UNAUTHORIZED,
+                        "INVALID_CREDENTIALS",
+                        "Credenciales invalidas.",
+                    )
+                    return
+                except PasswordChangeLockedError:
+                    self._send_error_contract(
+                        HTTPStatus.LOCKED,
+                        "ACCOUNT_LOCKED",
+                        (
+                            "La credencial esta "
+                            "temporalmente bloqueada."
+                        ),
+                    )
+                    return
+                except Exception:
+                    self._send_error_contract(
+                        HTTPStatus.INTERNAL_SERVER_ERROR,
+                        "INTERNAL_ERROR",
+                        (
+                            "HEYTI-CORE no pudo completar "
+                            "la solicitud."
+                        ),
+                    )
+                    return
+
+                self._send_json(
+                    HTTPStatus.OK,
+                    response,
                 )
                 return
 

@@ -6,6 +6,9 @@ from heyti.security.authentication import (
 from heyti.security.credentials import (
     Argon2CredentialHasher,
 )
+from heyti.security.password_change import (
+    PasswordChangeService,
+)
 from heyti.security.postgres_authorization import (
     PostgresAuthorizationSource,
 )
@@ -30,6 +33,7 @@ class SecurityComposition:
     )
     credential_hasher: Argon2CredentialHasher
     authentication_service: AuthenticationService
+    password_change_service: PasswordChangeService
     authorization_source: (
         PostgresAuthorizationSource
     )
@@ -69,6 +73,14 @@ def compose_security(
         )
     )
 
+    password_change_service = (
+        PasswordChangeService(
+            authentication_service,
+            credential_repository,
+            credential_hasher,
+        )
+    )
+
     authorization_source = (
         PostgresAuthorizationSource(
             connection_factory
@@ -91,6 +103,9 @@ def compose_security(
         credential_hasher=credential_hasher,
         authentication_service=(
             authentication_service
+        ),
+        password_change_service=(
+            password_change_service
         ),
         authorization_source=(
             authorization_source

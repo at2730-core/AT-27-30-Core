@@ -66,6 +66,20 @@ WHERE user_id = %s;
 """
 
 
+PASSWORD_CHANGE_SQL = """
+UPDATE security.user_credential
+SET
+    credential_hash = %s,
+    failed_attempts = 0,
+    locked_until = NULL,
+    must_change = FALSE,
+    password_changed_at = CURRENT_TIMESTAMP,
+    updated_at = CURRENT_TIMESTAMP
+WHERE user_id = %s
+RETURNING user_id;
+"""
+
+
 @dataclass(frozen=True)
 class CredentialRecord:
     user_id: int
@@ -260,6 +274,41 @@ class PostgresCredentialRepository:
                     user_id,
                 ),
             )
+
+    def complete_password_change(
+        self,
+        user_id: int,
+        credential_hash: str,
+    ) -> None:
+        self._validate_user_id(user_id)
+
+        if not isinstance(credential_hash, str):
+            raise TypeError(
+                "credential_hash debe ser una cadena"
+            )
+
+        normalized_hash = credential_hash.strip()
+
+        if not normalized_hash.startswith(
+            "$argon2id$"
+        ):
+            raise ValueError(
+                "credential_hash debe ser Argon2id"
+            )
+
+        with self._write_cursor() as cursor:
+            cursor.execute(
+                PASSWORD_CHANGE_SQL,
+                (
+                    normalized_hash,
+                    user_id,
+                ),
+            )
+
+            if cursor.fetchone() is None:
+                raise ValueError(
+                    "La credencial solicitada no existe"
+                )
 
     @staticmethod
     def _validate_user_id(user_id: int) -> None:

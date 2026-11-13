@@ -118,10 +118,49 @@ class SessionMemory:
         return False
 
 
+class PasswordChangeStub:
+    def __init__(self, mode="success"):
+        self.mode = mode
+
+    def change_password(
+        self,
+        *,
+        username,
+        current_password,
+        new_password,
+        confirmation,
+    ):
+        from heyti.security.password_change import (
+            InvalidPasswordChangeCredentialsError,
+            PasswordChangeLockedError,
+            PasswordChangeResult,
+        )
+
+        if self.mode == "invalid":
+            raise (
+                InvalidPasswordChangeCredentialsError()
+            )
+
+        if self.mode == "locked":
+            raise PasswordChangeLockedError()
+
+        if self.mode == "validation":
+            raise ValueError(
+                "La confirmacion no coincide"
+            )
+
+        return PasswordChangeResult(
+            user_id=8,
+            username=username,
+            display_name="Jose de Jesus",
+        )
+
+
 @contextmanager
 def running_server(
     status=AuthenticationStatus.AUTHENTICATED,
     include_security=True,
+    password_change_mode="success",
 ):
     application = HeytiHttpApplication(
         gateway=HeytiGateway(HealthKernel()),
@@ -135,6 +174,11 @@ def running_server(
             SecurityHttpApplication(
                 AuthenticationStub(status),
                 SessionMemory(),
+                password_change_service=(
+                    PasswordChangeStub(
+                        password_change_mode
+                    )
+                ),
             )
         )
 
@@ -462,3 +506,119 @@ def test_protection_requires_security_application():
             port=0,
             require_authenticated_operations=True,
         )
+
+def test_password_route_changes_required_password():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/auth/password",
+            method="POST",
+            payload={
+                "username": "jose.de.jesus",
+                "current_password": "Temporal-2026",
+                "new_password": "Definitiva-2026",
+                "confirmation": "Definitiva-2026",
+            },
+            headers={
+                "Content-Type": "application/json",
+            },
+        )
+
+    assert status == 200
+    assert payload == {
+        "status": "PASSWORD_CHANGED",
+        "user": {
+            "user_id": 8,
+            "username": "jose.de.jesus",
+            "display_name": "Jose de Jesus",
+        },
+    }
+    assert "Temporal-2026" not in str(payload)
+    assert "Definitiva-2026" not in str(payload)
+
+
+def test_password_route_rejects_invalid_credentials():
+    with running_server(
+        password_change_mode="invalid"
+    ) as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/auth/password",
+            method="POST",
+            payload={
+                "username": "jose.de.jesus",
+                "current_password": "incorrecta",
+                "new_password": "Definitiva-2026",
+                "confirmation": "Definitiva-2026",
+            },
+            headers={
+                "Content-Type": "application/json",
+            },
+        )
+
+    assert status == 401
+    assert payload["error"]["code"] == (
+        "INVALID_CREDENTIALS"
+    )
+
+
+def test_password_route_reports_locked_account():
+    with running_server(
+        password_change_mode="locked"
+    ) as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/auth/password",
+            method="POST",
+            payload={
+                "username": "jose.de.jesus",
+                "current_password": "Temporal-2026",
+                "new_password": "Definitiva-2026",
+                "confirmation": "Definitiva-2026",
+            },
+            headers={
+                "Content-Type": "application/json",
+            },
+        )
+
+    assert status == 423
+    assert payload["error"]["code"] == (
+        "ACCOUNT_LOCKED"
+    )
+
+
+def test_password_route_rejects_invalid_request():
+    with running_server(
+        password_change_mode="validation"
+    ) as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/auth/password",
+            method="POST",
+            payload={
+                "username": "jose.de.jesus",
+                "current_password": "Temporal-2026",
+                "new_password": "Definitiva-2026",
+                "confirmation": "Otra-2026",
+            },
+            headers={
+                "Content-Type": "application/json",
+            },
+        )
+
+    assert status == 400
+    assert payload["error"]["code"] == (
+        "INVALID_REQUEST"
+    )
+
+
+def test_password_route_supports_preflight():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/auth/password",
+            method="OPTIONS",
+            headers={
+                "Origin": (
+                    "http://127.0.0.1:5173"
+                ),
+            },
+        )
+
+    assert status == 204
+    assert payload is None

@@ -36,6 +36,7 @@ class SecurityHttpApplication:
         authentication_service,
         session_service,
         authorization_service=None,
+        password_change_service=None,
     ):
         if not callable(
             getattr(
@@ -85,6 +86,24 @@ class SecurityHttpApplication:
 
         self._authorization_service = (
             authorization_service
+        )
+
+        if (
+            password_change_service is not None
+            and not callable(
+                getattr(
+                    password_change_service,
+                    "change_password",
+                    None,
+                )
+            )
+        ):
+            raise TypeError(
+                "password_change_service incompatible"
+            )
+
+        self._password_change_service = (
+            password_change_service
         )
 
     def login(
@@ -148,6 +167,45 @@ class SecurityHttpApplication:
         )
 
         return self._session_payload(session)
+
+    def change_password(
+        self,
+        payload: dict[str, Any],
+    ) -> dict[str, Any]:
+        if self._password_change_service is None:
+            raise RuntimeError(
+                "El cambio de contrasena no esta configurado"
+            )
+
+        if not isinstance(payload, dict):
+            raise ValueError(
+                "La solicitud debe ser un objeto"
+            )
+
+        result = (
+            self._password_change_service
+            .change_password(
+                username=payload.get("username"),
+                current_password=payload.get(
+                    "current_password"
+                ),
+                new_password=payload.get(
+                    "new_password"
+                ),
+                confirmation=payload.get(
+                    "confirmation"
+                ),
+            )
+        )
+
+        return {
+            "status": "PASSWORD_CHANGED",
+            "user": {
+                "user_id": result.user_id,
+                "username": result.username,
+                "display_name": result.display_name,
+            },
+        }
 
     def current_session(
         self,
