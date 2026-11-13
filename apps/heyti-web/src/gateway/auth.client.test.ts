@@ -7,6 +7,7 @@ import {
 } from 'vitest'
 import {
   AuthClientError,
+  changePassword,
   currentSession,
   login,
   logout,
@@ -168,6 +169,91 @@ describe('cliente de autenticacion', () => {
         'No fue posible conectar con HEYTI-CORE.',
         0,
       ),
+    )
+  })
+})
+
+describe('cambio obligatorio de contrasena', () => {
+  it('envia el cambio sin devolver secretos', async () => {
+    mockResponse({
+      status: 'PASSWORD_CHANGED',
+      user: {
+        user_id: 8,
+        username: 'jose.de.jesus',
+        display_name: 'Jose de Jesus',
+      },
+    })
+
+    const result = await changePassword(
+      'jose.de.jesus',
+      'Temporal-2026',
+      'Definitiva-2026',
+      'Definitiva-2026',
+    )
+
+    expect(result).toEqual({
+      userId: 8,
+      username: 'jose.de.jesus',
+      displayName: 'Jose de Jesus',
+    })
+
+    const request = vi.mocked(fetch).mock.calls[0]
+    const body = String(request[1]?.body)
+
+    expect(request[0]).toBe(
+      'http://127.0.0.1:8765/v1/auth/password',
+    )
+    expect(request[1]?.method).toBe('POST')
+    expect(body).toContain('"current_password"')
+    expect(body).toContain('"new_password"')
+    expect(result).not.toHaveProperty('password')
+    expect(result).not.toHaveProperty('sessionToken')
+  })
+
+  it('traduce una credencial temporal invalida', async () => {
+    mockResponse(
+      {
+        error: {
+          code: 'INVALID_CREDENTIALS',
+          message: 'Credenciales invalidas.',
+        },
+      },
+      401,
+    )
+
+    await expect(
+      changePassword(
+        'jose.de.jesus',
+        'incorrecta',
+        'Definitiva-2026',
+        'Definitiva-2026',
+      ),
+    ).rejects.toMatchObject({
+      name: 'AuthClientError',
+      code: 'INVALID_CREDENTIALS',
+      status: 401,
+    })
+  })
+
+  it('rechaza una confirmacion HTTP incompatible', async () => {
+    mockResponse({
+      status: 'UNKNOWN',
+      user: {
+        user_id: 8,
+        username: 'jose.de.jesus',
+        display_name: 'Jose de Jesus',
+      },
+    })
+
+    await expect(
+      changePassword(
+        'jose.de.jesus',
+        'Temporal-2026',
+        'Definitiva-2026',
+        'Definitiva-2026',
+      ),
+    ).rejects.toThrow(
+      'no confirma el cambio',
     )
   })
 })

@@ -18,6 +18,12 @@ export interface AuthSession {
   user: AuthenticatedUser
 }
 
+export interface PasswordChangedUser {
+  userId: number
+  username: string
+  displayName: string
+}
+
 export class AuthClientError extends Error {
   readonly code: string
   readonly status: number
@@ -124,6 +130,43 @@ function parseSession(value: unknown): AuthSession {
   }
 }
 
+function parsePasswordChanged(
+  value: unknown,
+): PasswordChangedUser {
+  const payload = record(value)
+
+  if (payload.status !== 'PASSWORD_CHANGED') {
+    throw new Error(
+      'La respuesta no confirma el cambio.',
+    )
+  }
+
+  const rawUser = record(payload.user)
+  const userId = rawUser.user_id
+
+  if (
+    typeof userId !== 'number'
+    || !Number.isSafeInteger(userId)
+    || userId <= 0
+  ) {
+    throw new Error(
+      'El identificador del usuario no es valido.',
+    )
+  }
+
+  return {
+    userId,
+    username: text(
+      rawUser.username,
+      'user.username',
+    ),
+    displayName: text(
+      rawUser.display_name,
+      'user.display_name',
+    ),
+  }
+}
+
 function parseError(
   value: unknown,
   status: number,
@@ -205,6 +248,34 @@ export async function login(
   )
 
   return parseSession(payload)
+}
+
+export async function changePassword(
+  username: string,
+  currentPassword: string,
+  newPassword: string,
+  confirmation: string,
+  signal?: AbortSignal,
+): Promise<PasswordChangedUser> {
+  const payload = await requestJson(
+    '/v1/auth/password',
+    {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username,
+        current_password: currentPassword,
+        new_password: newPassword,
+        confirmation,
+      }),
+      signal,
+    },
+  )
+
+  return parsePasswordChanged(payload)
 }
 
 export async function currentSession(

@@ -4,11 +4,14 @@ import {
   useRef,
   useState,
 } from 'react'
+
 import {
   AuthClientError,
   type AuthSession,
+  changePassword,
   login,
 } from '../gateway/auth.client'
+
 import './LoginScreen.css'
 
 interface LoginScreenProps {
@@ -17,13 +20,29 @@ interface LoginScreenProps {
   ) => void
 }
 
+type AccessStep =
+  | 'LOGIN'
+  | 'PASSWORD_CHANGE'
+
 export function LoginScreen({
   onAuthenticated,
 }: LoginScreenProps) {
+  const [step, setStep] = useState<AccessStep>(
+    'LOGIN',
+  )
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [newPassword, setNewPassword] = (
+    useState('')
+  )
+  const [confirmation, setConfirmation] = (
+    useState('')
+  )
   const [pending, setPending] = useState(false)
   const [errorMessage, setErrorMessage] = (
+    useState<string | null>(null)
+  )
+  const [successMessage, setSuccessMessage] = (
     useState<string | null>(null)
   )
 
@@ -41,25 +60,10 @@ export function LoginScreen({
     }
   }, [])
 
-  async function handleSubmit(
-    event: FormEvent<HTMLFormElement>,
+  async function submitLogin(
+    normalizedUsername: string,
+    controller: AbortController,
   ) {
-    event.preventDefault()
-
-    const normalizedUsername = username.trim()
-
-    if (!normalizedUsername || !password) {
-      setErrorMessage(
-        'Captura tu usuario y contrasena.',
-      )
-      return
-    }
-
-    const controller = new AbortController()
-    activeRequest.current = controller
-    setPending(true)
-    setErrorMessage(null)
-
     try {
       const session = await login(
         normalizedUsername,
@@ -81,11 +85,120 @@ export function LoginScreen({
         return
       }
 
-      if (error instanceof AuthClientError) {
-        setErrorMessage(error.message)
+      if (
+        error instanceof AuthClientError
+        && error.code === (
+          'PASSWORD_CHANGE_REQUIRED'
+        )
+      ) {
+        setStep('PASSWORD_CHANGE')
+        setErrorMessage(null)
+        setSuccessMessage(null)
+        return
+      }
+
+      setErrorMessage(
+        error instanceof AuthClientError
+          ? error.message
+          : 'No fue posible iniciar sesion.',
+      )
+    }
+  }
+
+  async function submitPasswordChange(
+    normalizedUsername: string,
+    controller: AbortController,
+  ) {
+    if (!newPassword || !confirmation) {
+      setErrorMessage(
+        'Captura y confirma la nueva contrasena.',
+      )
+      return
+    }
+
+    if (newPassword !== confirmation) {
+      setErrorMessage(
+        'La confirmacion no coincide.',
+      )
+      return
+    }
+
+    try {
+      await changePassword(
+        normalizedUsername,
+        password,
+        newPassword,
+        confirmation,
+        controller.signal,
+      )
+
+      if (!mounted.current) {
+        return
+      }
+
+      setPassword('')
+      setNewPassword('')
+      setConfirmation('')
+      setStep('LOGIN')
+      setErrorMessage(null)
+      setSuccessMessage(
+        'Contrasena actualizada. '
+        + 'Ingresa con tu nueva contrasena.',
+      )
+    } catch (error) {
+      if (
+        !mounted.current
+        || controller.signal.aborted
+      ) {
+        return
+      }
+
+      setErrorMessage(
+        error instanceof AuthClientError
+          ? error.message
+          : (
+            'No fue posible cambiar '
+            + 'la contrasena.'
+          ),
+      )
+    }
+  }
+
+  async function handleSubmit(
+    event: FormEvent<HTMLFormElement>,
+  ) {
+    event.preventDefault()
+
+    const normalizedUsername = username.trim()
+
+    if (!normalizedUsername || !password) {
+      setErrorMessage(
+        step === 'LOGIN'
+          ? 'Captura tu usuario y contrasena.'
+          : (
+            'Captura el usuario y la '
+            + 'contrasena temporal.'
+          ),
+      )
+      return
+    }
+
+    const controller = new AbortController()
+    activeRequest.current = controller
+    setPending(true)
+    setErrorMessage(null)
+    setSuccessMessage(null)
+
+    try {
+      if (step === 'LOGIN') {
+        await submitLogin(
+          normalizedUsername,
+          controller,
+        )
       } else {
-        setErrorMessage(
-          'No fue posible iniciar sesion.',
+        await submitPasswordChange(
+          normalizedUsername,
+          controller,
         )
       }
     } finally {
@@ -98,6 +211,10 @@ export function LoginScreen({
       }
     }
   }
+
+  const changingPassword = (
+    step === 'PASSWORD_CHANGE'
+  )
 
   return (
     <main className="heyti-login-screen">
@@ -134,10 +251,21 @@ export function LoginScreen({
           noValidate
         >
           <div className="heyti-login-heading">
-            <h2>Inicia sesi&oacute;n</h2>
+            <h2>
+              {changingPassword
+                ? 'Establece tu contraseña'
+                : 'Inicia sesión'}
+            </h2>
             <p>
-              Utiliza las credenciales asignadas
-              para HEYTI.
+              {changingPassword
+                ? (
+                  'Por seguridad debes reemplazar '
+                  + 'la contraseña temporal.'
+                )
+                : (
+                  'Utiliza las credenciales '
+                  + 'asignadas para HEYTI.'
+                )}
             </p>
           </div>
 
@@ -148,7 +276,7 @@ export function LoginScreen({
               name="username"
               autoComplete="username"
               value={username}
-              disabled={pending}
+              disabled={pending || changingPassword}
               onChange={(event) => {
                 setUsername(event.target.value)
               }}
@@ -157,7 +285,11 @@ export function LoginScreen({
           </label>
 
           <label className="heyti-login-field">
-            <span>Contrase&ntilde;a</span>
+            <span>
+              {changingPassword
+                ? 'Contraseña temporal'
+                : 'Contraseña'}
+            </span>
             <input
               type="password"
               name="password"
@@ -170,6 +302,45 @@ export function LoginScreen({
             />
           </label>
 
+          {changingPassword ? (
+            <>
+              <label className="heyti-login-field">
+                <span>Nueva contrase&ntilde;a</span>
+                <input
+                  type="password"
+                  name="new-password"
+                  autoComplete="new-password"
+                  value={newPassword}
+                  disabled={pending}
+                  onChange={(event) => {
+                    setNewPassword(
+                      event.target.value,
+                    )
+                  }}
+                  autoFocus
+                />
+              </label>
+
+              <label className="heyti-login-field">
+                <span>
+                  Confirma la nueva contrase&ntilde;a
+                </span>
+                <input
+                  type="password"
+                  name="confirmation"
+                  autoComplete="new-password"
+                  value={confirmation}
+                  disabled={pending}
+                  onChange={(event) => {
+                    setConfirmation(
+                      event.target.value,
+                    )
+                  }}
+                />
+              </label>
+            </>
+          ) : null}
+
           {errorMessage ? (
             <div
               className="heyti-login-error"
@@ -179,14 +350,27 @@ export function LoginScreen({
             </div>
           ) : null}
 
+          {successMessage ? (
+            <div
+              className="heyti-login-success"
+              role="status"
+            >
+              {successMessage}
+            </div>
+          ) : null}
+
           <button
             className="heyti-login-submit"
             type="submit"
             disabled={pending}
           >
             {pending
-              ? 'Validando...'
-              : 'Entrar a HEYTI'}
+              ? 'Procesando...'
+              : (
+                changingPassword
+                  ? 'Guardar nueva contraseña'
+                  : 'Entrar a HEYTI'
+              )}
           </button>
         </form>
 

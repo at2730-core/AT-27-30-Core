@@ -191,3 +191,12 @@
     height: 54px;
   }
 }
+
+.heyti-login-success {
+  border: 1px solid #70b9a4;
+  border-radius: 12px;
+  background: #edf8f4;
+  color: #145c4d;
+  padding: 0.9rem 1rem;
+  line-height: 1.45;
+}
