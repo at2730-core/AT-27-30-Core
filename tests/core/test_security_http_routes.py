@@ -1,4 +1,6 @@
 import json
+
+import pytest
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from threading import Thread
@@ -141,6 +143,9 @@ def running_server(
         host="127.0.0.1",
         port=0,
         security_application=security_application,
+        require_authenticated_operations=(
+            security_application is not None
+        ),
     )
 
     thread = Thread(
@@ -387,3 +392,73 @@ def test_auth_routes_are_not_exposed_without_security():
 
     assert status == 404
     assert payload["error"]["code"] == "NOT_FOUND"
+
+
+def test_operational_route_requires_bearer_token():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/sections/describe",
+            method="POST",
+            payload={
+                "section_id": "1",
+            },
+            headers={
+                "Content-Type": "application/json",
+            },
+        )
+
+    assert status == 401
+    assert payload == {
+        "error": {
+            "code": "AUTHENTICATION_REQUIRED",
+            "message": (
+                "Se requiere una sesion autenticada."
+            ),
+        }
+    }
+
+
+def test_operational_route_rejects_invalid_token():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/universes/describe",
+            method="POST",
+            payload={
+                "operation": "catalog",
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": (
+                    "Bearer INVALID-SESSION"
+                ),
+            },
+        )
+
+    assert status == 401
+    assert payload["error"]["code"] == (
+        "AUTHENTICATION_REQUIRED"
+    )
+
+
+def test_protection_requires_security_application():
+    from heyti.gateway.http_application import (
+        HeytiHttpApplication,
+    )
+
+    application = HeytiHttpApplication.__new__(
+        HeytiHttpApplication
+    )
+
+    with pytest.raises(
+        ValueError,
+        match=(
+            "proteccion operativa requiere "
+            "security_application"
+        ),
+    ):
+        create_http_server(
+            application=application,
+            host="127.0.0.1",
+            port=0,
+            require_authenticated_operations=True,
+        )

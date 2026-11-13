@@ -88,6 +88,7 @@ def build_guanajuato_2023_http_host(
         tuple[str, ...]
     ) = DEFAULT_ALLOWED_ORIGINS,
     field_connection_factory=None,
+    require_authenticated_operations: bool = True,
 ) -> Guanajuato2023HttpHost:
     """
     Construye y arranca internamente el Runtime certificado.
@@ -172,6 +173,9 @@ def build_guanajuato_2023_http_host(
             knowledge_version=knowledge_version,
             security_application=(
                 security_application
+            ),
+            require_authenticated_operations=(
+                require_authenticated_operations
             ),
         )
     except Exception:

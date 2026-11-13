@@ -33,6 +33,7 @@ def create_http_server(
     allowed_origins: tuple[str, ...] = DEFAULT_ALLOWED_ORIGINS,
     knowledge_version: str | None = None,
     security_application: SecurityHttpApplication | None = None,
+    require_authenticated_operations: bool = False,
 ) -> ThreadingHTTPServer:
     """
     Construye el servidor HTTP local de HEYTI.
@@ -58,11 +59,34 @@ def create_http_server(
             "SecurityHttpApplication"
         )
 
+    if not isinstance(
+        require_authenticated_operations,
+        bool,
+    ):
+        raise TypeError(
+            "require_authenticated_operations debe ser bool"
+        )
+
+    if (
+        require_authenticated_operations
+        and security_application is None
+    ):
+        raise ValueError(
+            "La proteccion operativa requiere "
+            "security_application"
+        )
+
     normalized_origins = frozenset(
         origin.rstrip("/")
         for origin in allowed_origins
         if isinstance(origin, str) and origin.strip()
     )
+
+    operational_paths = frozenset({
+        "/v1/sections/describe",
+        "/v1/universes/describe",
+        "/v1/field/describe",
+    })
 
     class HeytiRequestHandler(BaseHTTPRequestHandler):
         server_version = "HEYTI-HTTP/0.1"
@@ -362,11 +386,9 @@ def create_http_server(
 
             path = self._request_path()
 
-            allowed_paths = {
-                "/v1/sections/describe",
-                "/v1/universes/describe",
-                "/v1/field/describe",
-            }
+            allowed_paths = set(
+                operational_paths
+            )
 
             if security_application is not None:
                 allowed_paths.update({
@@ -472,6 +494,36 @@ def create_http_server(
                     response,
                 )
                 return
+
+            if (
+                require_authenticated_operations
+                and path in operational_paths
+            ):
+                try:
+                    token = self._bearer_token()
+                    security_application.current_session(
+                        token
+                    )
+                except AuthenticatedSessionRequiredError:
+                    self._send_error_contract(
+                        HTTPStatus.UNAUTHORIZED,
+                        "AUTHENTICATION_REQUIRED",
+                        (
+                            "Se requiere una sesion "
+                            "autenticada."
+                        ),
+                    )
+                    return
+                except Exception:
+                    self._send_error_contract(
+                        HTTPStatus.INTERNAL_SERVER_ERROR,
+                        "INTERNAL_ERROR",
+                        (
+                            "HEYTI-CORE no pudo completar "
+                            "la solicitud."
+                        ),
+                    )
+                    return
 
             request_id = (
                 self.headers.get(

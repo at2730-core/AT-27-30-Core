@@ -77,6 +77,7 @@ def test_certified_http_host_serves_real_section_truth():
         geometry_path=geometry_path,
         host="127.0.0.1",
         port=0,
+        require_authenticated_operations=False,
     )
 
     assert host.gateway.is_running() is True

@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 class UniverseMapTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.host = build_guanajuato_2023_http_host(ROOT/'datasets/electoral/Datos_Electoral_con_2015.json', ROOT/'datasets/spatial/secciones.geojson', port=0)
+        cls.host = build_guanajuato_2023_http_host(ROOT/'datasets/electoral/Datos_Electoral_con_2015.json', ROOT/'datasets/spatial/secciones.geojson', port=0, require_authenticated_operations=False)
         cls.thread = threading.Thread(target=cls.host.serve_forever, daemon=True)
         cls.thread.start()
         cls.url = 'http://%s:%s' % cls.host.address
