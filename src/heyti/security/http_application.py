@@ -20,11 +20,22 @@ class AuthenticatedSessionRequiredError(Exception):
     pass
 
 
+from dataclasses import replace
+
+from heyti.security.contracts import (
+    AuthorizationResource,
+    DecisionReason,
+    PermissionScope,
+    PrivacyProjection,
+)
+
+
 class SecurityHttpApplication:
     def __init__(
         self,
         authentication_service,
         session_service,
+        authorization_service=None,
     ):
         if not callable(
             getattr(
@@ -57,6 +68,24 @@ class SecurityHttpApplication:
             authentication_service
         )
         self._session_service = session_service
+
+        if (
+            authorization_service is not None
+            and not callable(
+                getattr(
+                    authorization_service,
+                    "authorize",
+                    None,
+                )
+            )
+        ):
+            raise TypeError(
+                "authorization_service incompatible"
+            )
+
+        self._authorization_service = (
+            authorization_service
+        )
 
     def login(
         self,
@@ -134,6 +163,93 @@ class SecurityHttpApplication:
             )
 
         return self._session_payload(session)
+
+    def authorize_field_operation(
+        self,
+        *,
+        user_id: int,
+        session_id: str,
+        payload: dict[str, Any],
+    ):
+        if self._authorization_service is None:
+            raise RuntimeError(
+                "La autorizacion no esta configurada"
+            )
+
+        if not isinstance(payload, dict):
+            raise ValueError(
+                "La consulta de Campo debe ser un objeto"
+            )
+
+        operation = payload.get("operation")
+
+        permission_by_operation = {
+            "summary": "FIELD_SUMMARY_READ",
+            "map": "FIELD_MAP_READ",
+        }
+
+        permission_code = (
+            permission_by_operation.get(operation)
+        )
+
+        if permission_code is None:
+            raise ValueError(
+                "Operacion de Campo no soportada"
+            )
+
+        section_code = None
+
+        if operation == "map":
+            raw_section_code = payload.get(
+                "section_code"
+            )
+
+            if raw_section_code is not None:
+                section_code = str(
+                    raw_section_code
+                ).strip()
+
+                if not section_code:
+                    raise ValueError(
+                        "section_code no puede estar vacio"
+                    )
+
+        decision = (
+            self._authorization_service.authorize(
+                user_id=user_id,
+                session_id=session_id,
+                permission_code=permission_code,
+                resource=AuthorizationResource(
+                    resource_type=(
+                        f"FIELD_{operation.upper()}"
+                    ),
+                    resource_ref=operation,
+                    section_code=section_code,
+                ),
+            )
+        )
+
+        if (
+            operation == "map"
+            and section_code is None
+            and decision.allowed
+            and decision.scope
+            is not PermissionScope.GLOBAL
+        ):
+            return replace(
+                decision,
+                allowed=False,
+                reason=(
+                    DecisionReason
+                    .RESOURCE_OUTSIDE_SCOPE
+                ),
+                audit_required=True,
+                privacy_projection=(
+                    PrivacyProjection.REDACTED
+                ),
+            )
+
+        return decision
 
     def logout(
         self,

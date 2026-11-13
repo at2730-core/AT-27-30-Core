@@ -501,9 +501,38 @@ def create_http_server(
             ):
                 try:
                     token = self._bearer_token()
-                    security_application.current_session(
-                        token
+                    session_payload = (
+                        security_application
+                        .current_session(token)
                     )
+
+                    if path == "/v1/field/describe":
+                        decision = (
+                            security_application
+                            .authorize_field_operation(
+                                user_id=(
+                                    session_payload[
+                                        "user"
+                                    ][
+                                        "user_id"
+                                    ]
+                                ),
+                                session_id=token,
+                                payload=payload,
+                            )
+                        )
+
+                        if not decision.allowed:
+                            self._send_error_contract(
+                                HTTPStatus.FORBIDDEN,
+                                "AUTHORIZATION_DENIED",
+                                (
+                                    "El usuario no tiene "
+                                    "autorizacion para "
+                                    "esta operacion."
+                                ),
+                            )
+                            return
                 except AuthenticatedSessionRequiredError:
                     self._send_error_contract(
                         HTTPStatus.UNAUTHORIZED,
@@ -512,6 +541,13 @@ def create_http_server(
                             "Se requiere una sesion "
                             "autenticada."
                         ),
+                    )
+                    return
+                except ValueError as exc:
+                    self._send_error_contract(
+                        HTTPStatus.BAD_REQUEST,
+                        "INVALID_REQUEST",
+                        str(exc),
                     )
                     return
                 except Exception:
