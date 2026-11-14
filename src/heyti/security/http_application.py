@@ -328,6 +328,240 @@ class SecurityHttpApplication:
 
         return decision
 
+    def authorize_section_operation(
+        self,
+        *,
+        user_id: int,
+        session_id: str,
+        section_code: str,
+    ):
+        if self._authorization_service is None:
+            raise RuntimeError(
+                "La autorizacion no esta configurada"
+            )
+
+        if not isinstance(section_code, str):
+            raise ValueError(
+                "section_code debe ser una cadena"
+            )
+
+        normalized_section_code = (
+            section_code.strip()
+        )
+
+        if (
+            not normalized_section_code
+            or not normalized_section_code.isdigit()
+            or int(normalized_section_code) <= 0
+        ):
+            raise ValueError(
+                "section_code debe ser positivo"
+            )
+
+        return self._authorization_service.authorize(
+            user_id=user_id,
+            session_id=session_id,
+            permission_code="SECTION_READ",
+            resource=AuthorizationResource(
+                resource_type="SECTION",
+                resource_ref=normalized_section_code,
+                section_code=normalized_section_code,
+            ),
+        )
+
+    def authorize_universe_operation(
+        self,
+        *,
+        user_id: int,
+        session_id: str,
+        payload: dict[str, Any],
+    ):
+        if self._authorization_service is None:
+            raise RuntimeError(
+                "La autorizacion no esta configurada"
+            )
+
+        if not isinstance(payload, dict):
+            raise ValueError(
+                "La consulta de universo debe ser un objeto"
+            )
+
+        operation = payload.get("operation")
+
+        if operation == "catalog":
+            return self._authorization_service.authorize(
+                user_id=user_id,
+                session_id=session_id,
+                permission_code=(
+                    "UNIVERSE_CATALOG_READ"
+                ),
+                resource=AuthorizationResource(
+                    resource_type="UNIVERSE_CATALOG",
+                    resource_ref="catalog",
+                ),
+            )
+
+        if operation == "section-demo":
+            return self.authorize_section_operation(
+                user_id=user_id,
+                session_id=session_id,
+                section_code=payload.get("section_id"),
+            )
+
+        if operation != "map":
+            raise ValueError(
+                "Operacion de universo no soportada"
+            )
+
+        level = payload.get("level")
+        universe_id = payload.get("id")
+
+        supported_levels = {
+            "state",
+            "municipality",
+            "federal-district",
+            "local-district",
+        }
+
+        if level not in supported_levels:
+            raise ValueError(
+                "Nivel de universo no soportado"
+            )
+
+        if not isinstance(universe_id, str):
+            raise ValueError(
+                "id de universo debe ser una cadena"
+            )
+
+        normalized_universe_id = (
+            universe_id.strip()
+        )
+
+        if (
+            not normalized_universe_id
+            or not normalized_universe_id.isdigit()
+            or int(normalized_universe_id) <= 0
+        ):
+            raise ValueError(
+                "id de universo debe ser positivo"
+            )
+
+        municipality_code = (
+            normalized_universe_id
+            if level == "municipality"
+            else None
+        )
+
+        decision = self._authorization_service.authorize(
+            user_id=user_id,
+            session_id=session_id,
+            permission_code="UNIVERSE_MAP_READ",
+            resource=AuthorizationResource(
+                resource_type="UNIVERSE_MAP",
+                resource_ref=(
+                    f"{level}:{normalized_universe_id}"
+                ),
+                municipality_code=municipality_code,
+            ),
+        )
+
+        if (
+            level != "municipality"
+            and decision.allowed
+            and decision.scope
+            is not PermissionScope.GLOBAL
+        ):
+            return replace(
+                decision,
+                allowed=False,
+                reason=(
+                    DecisionReason
+                    .RESOURCE_OUTSIDE_SCOPE
+                ),
+                audit_required=True,
+                privacy_projection=(
+                    PrivacyProjection.REDACTED
+                ),
+            )
+
+        return decision
+
+    def filter_universe_catalog(
+        self,
+        *,
+        user_id: int,
+        response: dict[str, Any],
+    ) -> dict[str, Any]:
+        if self._scope_profile_service is None:
+            raise RuntimeError(
+                "El perfil territorial no esta configurado"
+            )
+
+        if not isinstance(response, dict):
+            raise ValueError(
+                "La respuesta de catalogo debe ser un objeto"
+            )
+
+        catalog = response.get("catalog")
+
+        if not isinstance(catalog, list):
+            raise ValueError(
+                "El catalogo debe ser una lista"
+            )
+
+        normalized_catalog = []
+
+        for item in catalog:
+            if not isinstance(item, dict):
+                raise ValueError(
+                    "El catalogo contiene un elemento invalido"
+                )
+
+            level = item.get("level")
+            universe_id = item.get("id")
+
+            if (
+                not isinstance(level, str)
+                or not isinstance(universe_id, str)
+                or not level.strip()
+                or not universe_id.strip()
+            ):
+                raise ValueError(
+                    "El catalogo contiene una identidad invalida"
+                )
+
+            normalized_catalog.append(dict(item))
+
+        profile = self._scope_profile_service.profile(
+            user_id=user_id
+        )
+
+        if profile.global_access:
+            return {
+                **response,
+                "catalog": normalized_catalog,
+            }
+
+        municipality_codes = {
+            str(scope.municipality_code)
+            for scope in profile.scopes
+            if scope.municipality_code is not None
+        }
+
+        filtered_catalog = [
+            item
+            for item in normalized_catalog
+            if (
+                item["level"] == "municipality"
+                and item["id"] in municipality_codes
+            )
+        ]
+
+        return {
+            **response,
+            "catalog": filtered_catalog,
+        }
+
     def logout(
         self,
         session_id: str,

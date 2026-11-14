@@ -18,7 +18,13 @@ from heyti.security.authentication import (
     AuthenticationResult,
     AuthenticationStatus,
 )
-from heyti.security.contracts import AccessRole
+from heyti.security.contracts import (
+    AccessRole,
+    AuthorizationDecision,
+    DecisionReason,
+    PermissionScope,
+    PrivacyProjection,
+)
 from heyti.security.http_application import (
     SecurityHttpApplication,
 )
@@ -61,6 +67,45 @@ class HealthKernel:
         session_id,
         payload=None,
     ):
+        if capability_name == "describe_universe":
+            response = {
+                "contract": "HEYTI_UNIVERSE_RESPONSE",
+                "version": "1.0",
+                "capability_id": "describe_universe",
+            }
+
+            if payload.get("operation") == "catalog":
+                return {
+                    **response,
+                    "catalog": [
+                        {
+                            "level": "state",
+                            "id": "11",
+                            "label": "Guanajuato",
+                            "sections": 3266,
+                        },
+                        {
+                            "level": "municipality",
+                            "id": "20",
+                            "label": "Leon",
+                            "sections": 787,
+                        },
+                        {
+                            "level": "municipality",
+                            "id": "1",
+                            "label": "Abasolo",
+                            "sections": 50,
+                        },
+                    ],
+                }
+
+            return {
+                **response,
+                "operation": payload.get("operation"),
+                "level": payload.get("level"),
+                "id": payload.get("id"),
+            }
+
         return {
             "status": "OK",
             "runtime": "HEYTI CORE",
@@ -156,6 +201,81 @@ class PasswordChangeStub:
         )
 
 
+class OperationalAuthorizationStub:
+    def authorize(
+        self,
+        *,
+        user_id,
+        session_id,
+        permission_code,
+        resource,
+    ):
+        allowed = True
+
+        if permission_code == "SECTION_READ":
+            allowed = resource.section_code == "1261"
+
+        if permission_code == "UNIVERSE_MAP_READ":
+            allowed = (
+                resource.municipality_code in (
+                    None,
+                    "20",
+                )
+            )
+
+        return AuthorizationDecision(
+            allowed=allowed,
+            permission_code=permission_code,
+            reason=(
+                DecisionReason.AUTHORIZED
+                if allowed
+                else (
+                    DecisionReason
+                    .RESOURCE_OUTSIDE_SCOPE
+                )
+            ),
+            scope=PermissionScope.ASSIGNED_TERRITORY,
+            audit_required=not allowed,
+            privacy_projection=(
+                PrivacyProjection.PUBLIC_OPERATIONAL
+                if allowed
+                else PrivacyProjection.REDACTED
+            ),
+        )
+
+
+class ScopeItemStub:
+    municipality_code = "20"
+
+
+class ScopeProfileStub:
+    global_access = False
+    scopes = (ScopeItemStub(),)
+
+    def to_dict(self):
+        return {
+            "global_access": False,
+            "scopes": [
+                {
+                    "scope_id": 2,
+                    "name": "Municipio 20 - Leon",
+                    "type": "MUNICIPALITY",
+                    "municipality": {
+                        "municipality_id": 20,
+                        "code": "20",
+                        "name": "Leon de los Aldama",
+                    },
+                    "section_count": 787,
+                }
+            ],
+        }
+
+
+class ScopeProfileServiceStub:
+    def profile(self, user_id):
+        return ScopeProfileStub()
+
+
 @contextmanager
 def running_server(
     status=AuthenticationStatus.AUTHENTICATED,
@@ -178,6 +298,12 @@ def running_server(
                     PasswordChangeStub(
                         password_change_mode
                     )
+                ),
+                authorization_service=(
+                    OperationalAuthorizationStub()
+                ),
+                scope_profile_service=(
+                    ScopeProfileServiceStub()
                 ),
             )
         )
@@ -622,3 +748,128 @@ def test_password_route_supports_preflight():
 
     assert status == 204
     assert payload is None
+
+def test_authenticated_catalog_is_filtered_to_municipality():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/universes/describe",
+            method="POST",
+            payload={
+                "operation": "catalog",
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": (
+                    f"Bearer {SESSION_TOKEN}"
+                ),
+            },
+        )
+
+    assert status == 200
+    assert payload["catalog"] == [
+        {
+            "level": "municipality",
+            "id": "20",
+            "label": "Leon",
+            "sections": 787,
+        }
+    ]
+
+
+def test_assigned_municipality_map_is_authorized():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/universes/describe",
+            method="POST",
+            payload={
+                "operation": "map",
+                "level": "municipality",
+                "id": "20",
+                "year": 2024,
+                "contest": "A",
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": (
+                    f"Bearer {SESSION_TOKEN}"
+                ),
+            },
+        )
+
+    assert status == 200
+    assert payload["level"] == "municipality"
+    assert payload["id"] == "20"
+
+
+def test_external_municipality_map_is_rejected():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/universes/describe",
+            method="POST",
+            payload={
+                "operation": "map",
+                "level": "municipality",
+                "id": "1",
+                "year": 2024,
+                "contest": "A",
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": (
+                    f"Bearer {SESSION_TOKEN}"
+                ),
+            },
+        )
+
+    assert status == 403
+    assert payload["error"]["code"] == (
+        "AUTHORIZATION_DENIED"
+    )
+
+
+def test_state_map_is_rejected_for_scoped_user():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/universes/describe",
+            method="POST",
+            payload={
+                "operation": "map",
+                "level": "state",
+                "id": "11",
+                "year": 2024,
+                "contest": "A",
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": (
+                    f"Bearer {SESSION_TOKEN}"
+                ),
+            },
+        )
+
+    assert status == 403
+    assert payload["error"]["code"] == (
+        "AUTHORIZATION_DENIED"
+    )
+
+
+def test_external_section_is_rejected():
+    with running_server() as base_url:
+        status, _, payload = request_json(
+            f"{base_url}/v1/sections/describe",
+            method="POST",
+            payload={
+                "section_id": "1",
+            },
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": (
+                    f"Bearer {SESSION_TOKEN}"
+                ),
+            },
+        )
+
+    assert status == 403
+    assert payload["error"]["code"] == (
+        "AUTHORIZATION_DENIED"
+    )

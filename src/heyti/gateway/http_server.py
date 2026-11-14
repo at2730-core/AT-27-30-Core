@@ -564,33 +564,58 @@ def create_http_server(
                         .current_session(token)
                     )
 
+                    user_id = session_payload[
+                        "user"
+                    ]["user_id"]
+
                     if path == "/v1/field/describe":
                         decision = (
                             security_application
                             .authorize_field_operation(
-                                user_id=(
-                                    session_payload[
-                                        "user"
-                                    ][
-                                        "user_id"
-                                    ]
-                                ),
+                                user_id=user_id,
                                 session_id=token,
                                 payload=payload,
                             )
                         )
-
-                        if not decision.allowed:
-                            self._send_error_contract(
-                                HTTPStatus.FORBIDDEN,
-                                "AUTHORIZATION_DENIED",
-                                (
-                                    "El usuario no tiene "
-                                    "autorizacion para "
-                                    "esta operacion."
+                    elif path == "/v1/universes/describe":
+                        decision = (
+                            security_application
+                            .authorize_universe_operation(
+                                user_id=user_id,
+                                session_id=token,
+                                payload=payload,
+                            )
+                        )
+                    else:
+                        decision = (
+                            security_application
+                            .authorize_section_operation(
+                                user_id=user_id,
+                                session_id=token,
+                                section_code=payload.get(
+                                    "section_id"
                                 ),
                             )
-                            return
+                        )
+
+                    if not decision.allowed:
+                        self._send_error_contract(
+                            HTTPStatus.FORBIDDEN,
+                            "AUTHORIZATION_DENIED",
+                            (
+                                "El usuario no tiene "
+                                "autorizacion para "
+                                "esta operacion."
+                            ),
+                        )
+                        return
+                except (TypeError, ValueError) as exc:
+                    self._send_error_contract(
+                        HTTPStatus.BAD_REQUEST,
+                        "INVALID_REQUEST",
+                        str(exc),
+                    )
+                    return
                 except AuthenticatedSessionRequiredError:
                     self._send_error_contract(
                         HTTPStatus.UNAUTHORIZED,
@@ -634,6 +659,18 @@ def create_http_server(
                         application
                         .describe_universe(payload)
                     )
+                    if (
+                        require_authenticated_operations
+                        and payload.get("operation")
+                        == "catalog"
+                    ):
+                        response = (
+                            security_application
+                            .filter_universe_catalog(
+                                user_id=user_id,
+                                response=response,
+                            )
+                        )
                 elif path == "/v1/field/describe":
                     response = (
                         application.describe_field(payload)

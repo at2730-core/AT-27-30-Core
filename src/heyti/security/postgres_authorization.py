@@ -16,7 +16,8 @@ SELECT
     r.role_code,
     tm.team_id,
     ts.scope_type,
-    s.section_code::text
+    s.section_code::text,
+    m.municipio_code::text
 FROM security.app_user u
 LEFT JOIN security.user_role_assignment ura
   ON ura.user_id = u.user_id
@@ -55,6 +56,9 @@ LEFT JOIN security.territorial_scope_section tss
   ON tss.scope_id = ts.scope_id
 LEFT JOIN territorial.section s
   ON s.section_id = tss.section_id
+LEFT JOIN territorial.municipio m
+  ON m.municipio_id = s.municipio_id
+ AND ts.scope_type = 'MUNICIPALITY'
 WHERE u.user_id = %s
 ORDER BY
     tm.team_id,
@@ -177,6 +181,12 @@ class PostgresAuthorizationSource:
             if row[5] is not None
         )
 
+        municipality_codes = frozenset(
+            str(row[6])
+            for row in rows
+            if row[6] is not None
+        )
+
         return SecurityIdentity(
             user_id=int(rows[0][0]),
             session_id=normalized_session_id,
@@ -185,6 +195,9 @@ class PostgresAuthorizationSource:
             team_ids=team_ids,
             territorial_access=TerritorialAccess(
                 global_access=global_access,
+                municipality_codes=(
+                    municipality_codes
+                ),
                 section_codes=section_codes,
             ),
         )

@@ -398,6 +398,9 @@ INSERT INTO security.access_permission (
 )
 VALUES
     ('FIELD_MODULE_ACCESS', 'Acceder a Promoción.', FALSE, FALSE),
+    ('SECTION_READ', 'Consultar una seccion autorizada.', FALSE, FALSE),
+    ('UNIVERSE_CATALOG_READ', 'Consultar universos autorizados.', FALSE, FALSE),
+    ('UNIVERSE_MAP_READ', 'Consultar mapas de universos autorizados.', FALSE, FALSE),
     ('FIELD_SUMMARY_READ', 'Consultar indicadores.', FALSE, FALSE),
     ('FIELD_MAP_READ', 'Consultar puntos geolocalizados.', FALSE, FALSE),
     ('FIELD_RECORD_READ', 'Consultar registros.', TRUE, TRUE),
@@ -440,6 +443,9 @@ SELECT
     CASE
         WHEN p.permission_code IN (
             'FIELD_MODULE_ACCESS',
+            'SECTION_READ',
+            'UNIVERSE_CATALOG_READ',
+            'UNIVERSE_MAP_READ',
             'FIELD_SUMMARY_READ',
             'FIELD_MAP_READ',
             'FIELD_RECORD_CREATE'
@@ -451,6 +457,9 @@ FROM security.access_role r
 JOIN security.access_permission p
   ON p.permission_code IN (
       'FIELD_MODULE_ACCESS',
+      'SECTION_READ',
+      'UNIVERSE_CATALOG_READ',
+      'UNIVERSE_MAP_READ',
       'FIELD_SUMMARY_READ',
       'FIELD_MAP_READ',
       'FIELD_RECORD_READ',

@@ -36,6 +36,7 @@ def test_identity_loads_role_teams_and_sections():
             41,
             "SECTION_SET",
             "1481",
+            None,
         ),
         (
             7,
@@ -44,6 +45,7 @@ def test_identity_loads_role_teams_and_sections():
             42,
             "SECTION_SET",
             "1482",
+            None,
         ),
     ]
 
@@ -59,6 +61,9 @@ def test_identity_loads_role_teams_and_sections():
     assert identity.active is True
     assert identity.team_ids == frozenset({41, 42})
     assert identity.territorial_access.global_access is False
+    assert identity.territorial_access.municipality_codes == (
+        frozenset()
+    )
     assert identity.territorial_access.section_codes == (
         frozenset({"1481", "1482"})
     )
@@ -72,6 +77,46 @@ def test_identity_loads_role_teams_and_sections():
     connection.close.assert_called_once()
 
 
+def test_identity_loads_municipality_and_sections():
+    source, _, cursor = make_source()
+
+    cursor.fetchall.return_value = [
+        (
+            4,
+            True,
+            "COORDINATOR",
+            None,
+            "MUNICIPALITY",
+            "1261",
+            "20",
+        ),
+        (
+            4,
+            True,
+            "COORDINATOR",
+            None,
+            "MUNICIPALITY",
+            "1262",
+            "20",
+        ),
+    ]
+
+    identity = source.identity(
+        user_id=4,
+        session_id="COORDINATOR-SESSION",
+    )
+
+    assert identity is not None
+    assert identity.role is AccessRole.COORDINATOR
+    assert identity.territorial_access.global_access is False
+    assert identity.territorial_access.municipality_codes == (
+        frozenset({"20"})
+    )
+    assert identity.territorial_access.section_codes == (
+        frozenset({"1261", "1262"})
+    )
+
+
 def test_identity_loads_global_access():
     source, _, cursor = make_source()
 
@@ -82,6 +127,7 @@ def test_identity_loads_global_access():
             "ADMINISTRATOR",
             None,
             "GLOBAL",
+            None,
             None,
         )
     ]
@@ -94,6 +140,9 @@ def test_identity_loads_global_access():
     assert identity is not None
     assert identity.role is AccessRole.ADMINISTRATOR
     assert identity.territorial_access.global_access is True
+    assert identity.territorial_access.municipality_codes == (
+        frozenset()
+    )
     assert identity.territorial_access.section_codes == (
         frozenset()
     )
@@ -121,6 +170,7 @@ def test_identity_returns_none_without_single_role():
         (
             7,
             True,
+            None,
             None,
             None,
             None,
