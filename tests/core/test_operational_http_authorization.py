@@ -455,4 +455,3 @@ def test_catalog_filter_requires_scope_profile():
             user_id=3,
             response=catalog_response(),
         )
-
