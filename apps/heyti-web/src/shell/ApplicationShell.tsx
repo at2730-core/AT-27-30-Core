@@ -10,13 +10,22 @@ import { readVersionedElectoral } from '../gateway/electoral.versioned'
 import type { ElectoralStability } from './electoralStability'
 import type { ParticipationScenario } from './participationScenario'
 import {
+  useEffect,
   useState,
 } from 'react'
 import type {
   FormEvent,
 } from 'react'
 import './ApplicationShell.css'
-import type { UniverseMap } from '../gateway/universe.client'
+import {
+  fetchUniverseCatalog,
+} from '../gateway/universe.client'
+import type {
+  UniverseMap,
+} from '../gateway/universe.client'
+import {
+  authenticatedDefaultUniverse,
+} from './authenticatedUniverse'
 import {
   readElectoralResults,
 } from '../gateway/electoral.response'
@@ -106,6 +115,46 @@ function ApplicationShellContent({
     useState(false)
   const [territorialError, setTerritorialError] =
     useState<string | null>(null)
+
+  useEffect(() => {
+    if (territorialAccess.globalAccess) {
+      return
+    }
+
+    const abort = new AbortController()
+
+    fetchUniverseCatalog(abort.signal)
+      .then((catalog) => {
+        if (abort.signal.aborted) {
+          return
+        }
+
+        const universe = (
+          authenticatedDefaultUniverse(
+            territorialAccess,
+            catalog,
+          )
+        )
+
+        if (universe !== null) {
+          selectUniverse(universe)
+        }
+      })
+      .catch((error) => {
+        if (!abort.signal.aborted) {
+          setTerritorialError(
+            error instanceof Error
+              ? error.message
+              : 'No fue posible cargar el universo autorizado.',
+          )
+        }
+      })
+
+    return () => abort.abort()
+  }, [
+    territorialAccess,
+    user.userId,
+  ])
 
   const closePanel = () => {
     if (!territorialLoading) {
