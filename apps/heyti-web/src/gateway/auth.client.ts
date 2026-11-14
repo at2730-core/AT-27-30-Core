@@ -5,6 +5,30 @@ export type AuthRole =
   | 'COORDINATOR'
   | 'PROMOTER'
 
+export type TerritorialScopeType =
+  | 'GLOBAL'
+  | 'MUNICIPALITY'
+  | 'SECTION_SET'
+
+export interface TerritorialMunicipality {
+  municipalityId: number
+  code: string
+  name: string
+}
+
+export interface TerritorialScope {
+  scopeId: number
+  name: string
+  type: TerritorialScopeType
+  municipality: TerritorialMunicipality | null
+  sectionCount: number
+}
+
+export interface TerritorialAccess {
+  globalAccess: boolean
+  scopes: TerritorialScope[]
+}
+
 export interface AuthenticatedUser {
   userId: number
   username: string
@@ -16,6 +40,7 @@ export interface AuthSession {
   sessionToken: string
   expiresAt: string
   user: AuthenticatedUser
+  territorialAccess: TerritorialAccess
 }
 
 export interface PasswordChangedUser {
@@ -84,6 +109,179 @@ function parseRole(value: unknown): AuthRole {
   return value
 }
 
+function positiveInteger(
+  value: unknown,
+  field: string,
+): number {
+  if (
+    typeof value !== 'number'
+    || !Number.isSafeInteger(value)
+    || value <= 0
+  ) {
+    throw new Error(
+      `El campo ${field} no es un entero positivo.`,
+    )
+  }
+
+  return value
+}
+
+function nonNegativeInteger(
+  value: unknown,
+  field: string,
+): number {
+  if (
+    typeof value !== 'number'
+    || !Number.isSafeInteger(value)
+    || value < 0
+  ) {
+    throw new Error(
+      `El campo ${field} no es un entero no negativo.`,
+    )
+  }
+
+  return value
+}
+
+function parseScopeType(
+  value: unknown,
+): TerritorialScopeType {
+  if (
+    value !== 'GLOBAL'
+    && value !== 'MUNICIPALITY'
+    && value !== 'SECTION_SET'
+  ) {
+    throw new Error(
+      'El tipo de alcance territorial no es compatible.',
+    )
+  }
+
+  return value
+}
+
+function parseMunicipality(
+  value: unknown,
+): TerritorialMunicipality | null {
+  if (value === null) {
+    return null
+  }
+
+  const municipality = record(value)
+
+  return {
+    municipalityId: positiveInteger(
+      municipality.municipality_id,
+      'municipality.municipality_id',
+    ),
+    code: text(
+      municipality.code,
+      'municipality.code',
+    ),
+    name: text(
+      municipality.name,
+      'municipality.name',
+    ),
+  }
+}
+
+function parseTerritorialScope(
+  value: unknown,
+): TerritorialScope {
+  const scope = record(value)
+  const type = parseScopeType(scope.type)
+  const municipality = parseMunicipality(
+    scope.municipality,
+  )
+  const sectionCount = nonNegativeInteger(
+    scope.section_count,
+    'scope.section_count',
+  )
+
+  if (
+    type === 'MUNICIPALITY'
+    && municipality === null
+  ) {
+    throw new Error(
+      'El alcance municipal no identifica municipio.',
+    )
+  }
+
+  if (
+    type === 'GLOBAL'
+    && (
+      municipality !== null
+      || sectionCount !== 0
+    )
+  ) {
+    throw new Error(
+      'El alcance global contiene recursos incompatibles.',
+    )
+  }
+
+  return {
+    scopeId: positiveInteger(
+      scope.scope_id,
+      'scope.scope_id',
+    ),
+    name: text(
+      scope.name,
+      'scope.name',
+    ),
+    type,
+    municipality,
+    sectionCount,
+  }
+}
+
+function parseTerritorialAccess(
+  value: unknown,
+): TerritorialAccess {
+  const access = record(value)
+
+  if (typeof access.global_access !== 'boolean') {
+    throw new Error(
+      'global_access debe ser booleano.',
+    )
+  }
+
+  if (!Array.isArray(access.scopes)) {
+    throw new Error(
+      'scopes debe ser una lista.',
+    )
+  }
+
+  const scopes = access.scopes.map(
+    parseTerritorialScope,
+  )
+  const scopeIds = scopes.map(
+    scope => scope.scopeId,
+  )
+
+  if (new Set(scopeIds).size !== scopeIds.length) {
+    throw new Error(
+      'La sesion contiene alcances duplicados.',
+    )
+  }
+
+  const derivedGlobalAccess = scopes.some(
+    scope => scope.type === 'GLOBAL',
+  )
+
+  if (
+    access.global_access
+    !== derivedGlobalAccess
+  ) {
+    throw new Error(
+      'global_access no coincide con los alcances.',
+    )
+  }
+
+  return {
+    globalAccess: access.global_access,
+    scopes,
+  }
+}
+
 function parseSession(value: unknown): AuthSession {
   const payload = record(value)
 
@@ -114,6 +312,9 @@ function parseSession(value: unknown): AuthSession {
     expiresAt: text(
       payload.expires_at,
       'expires_at',
+    ),
+    territorialAccess: parseTerritorialAccess(
+      payload.territorial_access,
     ),
     user: {
       userId,

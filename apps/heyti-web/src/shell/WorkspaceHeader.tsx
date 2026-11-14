@@ -1,12 +1,14 @@
 import type {
   AuthenticatedUser,
   AuthRole,
+  TerritorialAccess,
 } from '../gateway/auth.client'
 import { getHeytiModule } from '../platform/module.catalog'
 import { useWorkspace } from '../platform/useWorkspace'
 
 interface WorkspaceHeaderProps {
   user: AuthenticatedUser
+  territorialAccess: TerritorialAccess
   logoutPending: boolean
   logoutError: string | null
   onLogout: () => Promise<void>
@@ -20,8 +22,43 @@ const roleLabels: Record<AuthRole, string> = {
   PROMOTER: 'Promotor',
 }
 
+export function territorialAccessLabel(
+  access: TerritorialAccess,
+): string {
+  if (access.globalAccess) {
+    return 'Cobertura global'
+  }
+
+  if (access.scopes.length === 0) {
+    return 'Sin alcance territorial'
+  }
+
+  if (access.scopes.length > 1) {
+    return `${access.scopes.length} alcances territoriales`
+  }
+
+  const scope = access.scopes[0]
+
+  if (
+    scope.type === 'MUNICIPALITY'
+    && scope.municipality !== null
+  ) {
+    return (
+      `Municipio ${scope.municipality.code}`
+      + ` ? ${scope.municipality.name}`
+      + ` ? ${scope.sectionCount} secciones`
+    )
+  }
+
+  return (
+    `${scope.name}`
+    + ` ? ${scope.sectionCount} secciones`
+  )
+}
+
 export function WorkspaceHeader({
   user,
+  territorialAccess,
   logoutPending,
   logoutError,
   onLogout,
@@ -138,6 +175,11 @@ export function WorkspaceHeader({
             <small>SESI&Oacute;N ACTIVA</small>
             <strong>{user.displayName}</strong>
             <span>{roleLabels[user.role]}</span>
+            <span className="workspace-scope">
+              {territorialAccessLabel(
+                territorialAccess,
+              )}
+            </span>
           </div>
 
           <button

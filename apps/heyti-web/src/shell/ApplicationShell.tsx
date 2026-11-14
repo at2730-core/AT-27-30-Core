@@ -1,5 +1,6 @@
 import type {
   AuthenticatedUser,
+  TerritorialAccess,
 } from '../gateway/auth.client'
 import type { AreaKind } from './territorialAreaAnalysis'
 import { ContextQueryDialog } from './ContextQueryDialog'
@@ -51,6 +52,7 @@ type OpenPanel =
 
 interface ApplicationShellProps {
   user: AuthenticatedUser
+  territorialAccess: TerritorialAccess
   logoutPending: boolean
   logoutError: string | null
   onLogout: () => Promise<void>
@@ -58,6 +60,7 @@ interface ApplicationShellProps {
 
 function ApplicationShellContent({
   user,
+  territorialAccess,
   logoutPending,
   logoutError,
   onLogout,
@@ -270,6 +273,9 @@ function ApplicationShellContent({
       <div className="application-workspace">
         <WorkspaceHeader
           user={user}
+          territorialAccess={
+            territorialAccess
+          }
           logoutPending={logoutPending}
           logoutError={logoutError}
           onLogout={onLogout}

@@ -2072,3 +2072,11 @@
     width: 100%;
   }
 }
+
+.workspace-scope {
+  color: #176f78;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.25;
+  max-width: 17rem;
+}

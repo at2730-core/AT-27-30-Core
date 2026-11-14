@@ -96,6 +96,9 @@ function App() {
   return (
     <ApplicationShell
       user={session.user}
+      territorialAccess={
+        session.territorialAccess
+      }
       logoutPending={logoutPending}
       logoutError={logoutError}
       onLogout={handleLogout}

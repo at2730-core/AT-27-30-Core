@@ -23,6 +23,18 @@ const sessionPayload = {
     display_name: 'Alex',
     role: 'ADMINISTRATOR',
   },
+  territorial_access: {
+    global_access: true,
+    scopes: [
+      {
+        scope_id: 1,
+        name: 'Acceso global',
+        type: 'GLOBAL',
+        municipality: null,
+        section_count: 0,
+      },
+    ],
+  },
 }
 
 function mockResponse(
@@ -60,6 +72,18 @@ describe('cliente de autenticacion', () => {
     expect(session).toEqual({
       sessionToken: 'A'.repeat(43),
       expiresAt: '2026-11-12T18:00:00+00:00',
+      territorialAccess: {
+        globalAccess: true,
+        scopes: [
+          {
+            scopeId: 1,
+            name: 'Acceso global',
+            type: 'GLOBAL',
+            municipality: null,
+            sectionCount: 0,
+          },
+        ],
+      },
       user: {
         userId: 3,
         username: 'alex',
@@ -254,6 +278,97 @@ describe('cambio obligatorio de contrasena', () => {
       ),
     ).rejects.toThrow(
       'no confirma el cambio',
+    )
+  })
+})
+
+describe('alcance territorial autenticado', () => {
+  it('traduce un alcance municipal', async () => {
+    mockResponse({
+      ...sessionPayload,
+      user: {
+        user_id: 4,
+        username: 'jose.de.jesus',
+        display_name: 'Jose de Jesus',
+        role: 'COORDINATOR',
+      },
+      territorial_access: {
+        global_access: false,
+        scopes: [
+          {
+            scope_id: 2,
+            name: 'Municipio 20 - Leon',
+            type: 'MUNICIPALITY',
+            municipality: {
+              municipality_id: 20,
+              code: '20',
+              name: 'Leon de los Aldama',
+            },
+            section_count: 787,
+          },
+        ],
+      },
+    })
+
+    const session = await login(
+      'jose.de.jesus',
+      'definitive-password',
+    )
+
+    expect(session.territorialAccess).toEqual({
+      globalAccess: false,
+      scopes: [
+        {
+          scopeId: 2,
+          name: 'Municipio 20 - Leon',
+          type: 'MUNICIPALITY',
+          municipality: {
+            municipalityId: 20,
+            code: '20',
+            name: 'Leon de los Aldama',
+          },
+          sectionCount: 787,
+        },
+      ],
+    })
+  })
+
+  it('rechaza una sesion sin alcance', async () => {
+    const {
+      territorial_access: _territorialAccess,
+      ...incompleteSession
+    } = sessionPayload
+
+    mockResponse(incompleteSession)
+
+    await expect(
+      login('alex', 'secret-password'),
+    ).rejects.toThrow(
+      'La respuesta de autenticacion no es un objeto.',
+    )
+  })
+
+  it('rechaza una marca global inconsistente', async () => {
+    mockResponse({
+      ...sessionPayload,
+      territorial_access: {
+        global_access: false,
+        scopes: [
+          {
+            scope_id: 1,
+            name: 'Acceso global',
+            type: 'GLOBAL',
+            municipality: null,
+            section_count: 0,
+          },
+        ],
+      },
+    })
+
+    await expect(
+      login('alex', 'secret-password'),
+    ).rejects.toThrow(
+      'global_access no coincide con los alcances.',
     )
   })
 })
