@@ -1,3 +1,4 @@
+import { useSocioUniverse } from './useSocioUniverse'
 import { SectionTableSearch } from './SectionTableSearch'
 import { useAreaSectionSource } from './AreaSectionSelection'
 import { useEffect, useMemo, useRef, useState } from 'react'
@@ -17,10 +18,13 @@ const number=(v:number|null|undefined)=>v==null?'N/D':v.toLocaleString('es-MX',{
 export function SocioRuralWorkspace({requestId=0}:{requestId?:number}){
  const {state,selectUniverse}=useWorkspace()
  const [catalog,setCatalog]=useState<UniverseOption[]>([])
- const [choice,setChoice]=useState(state.universe&&state.universe.level!=='section'?state.universe.level+':'+state.universe.id:'state:11')
+
  const [source,setSource]=useState<RuralSource>('census')
  const [result,setResult]=useState<Result|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState<string|null>(null),[selected,setSelected]=useState<string|null>(null),[expanded,setExpanded]=useState(true)
  const controller=useRef<AbortController|null>(null)
+  const { choice, setChoice } = useSocioUniverse(catalog, () => {
+    controller.current?.abort(); setResult(null); setSelected(null); setLoading(false); setError(null)
+  })
  useEffect(()=>{setExpanded(true)},[requestId])
  useEffect(()=>{const abort=new AbortController();fetchUniverseCatalog(abort.signal).then(setCatalog).catch(e=>{if(!abort.signal.aborted)setError(e instanceof Error?e.message:'Catálogo no disponible.')});return()=>{abort.abort();controller.current?.abort()}},[])
  async function query(){
@@ -54,9 +58,9 @@ export function SocioRuralWorkspace({requestId=0}:{requestId?:number}){
  const different=comparable.filter(r=>r.census!.type!==r.snapshot!.type).length
  return <main className="workspace-canvas" data-map-expanded="true"><div className="workspace-visual-grid"><section className="workspace-visual-panel" aria-labelledby="rural-map-title"><header><div><p>UNIVERSO SELECCIONADO</p><h2 id="rural-map-title">{result?.map.universe.label??state.universe?.label??'Sin selección'}</h2></div><span className="workspace-truth-status">Tipo de sección · {sourceLabel}</span></header><div className={result?'workspace-visual-map':'workspace-visual-placeholder'}>{result&&geo?<figure className="section-geometry-map"><GeographicMap data={geo} mapAriaLabel="Mapa base con secciones urbanas, mixtas y rurales" showSectionLabels selectedSection={selected} onSelectSection={focus} style={feature=>{const id=String(feature?.properties?.sectionId??''),row=byId[id],kind=row?ruralType(row,result.source):null;return {fillColor:SECTION_KINDS.find(k=>k.code===kind)?.color??'#94a3b8',fillOpacity:kind===null?.22:.43,color:selected===id?'#111827':'#64748b',weight:selected===id?3:.8}}}/><figcaption><strong>Urbana, mixta y rural: categorías del tipo de sección. Colores para distinguir categorías. Gris = sin clasificación utilizable de la fuente elegida. Enlace censal por clave; equivalencia de límites pendiente.</strong></figcaption></figure>:<><strong>{loading?'Consultando clasificación y geometrías…':'Tipo urbano-rural · secciones'}</strong><small>Selecciona universo y fuente y pulsa Consultar tipo de sección.</small></>}</div></section>
  {expanded?<FloatingInsightPanel title="Tipo urbano-rural · secciones electorales" comparative onClose={()=>setExpanded(false)}><section style={{padding:'20px 16px'}}><p>Clasificación territorial en tres categorías: urbana (código 2), mixta (3) y rural (4). Los códigos identifican categorías y no son una puntuación. Una sección mixta reúne localidades urbanas y rurales; este dato no indica cómo se reparte su población entre ambos ámbitos.</p>
- <label className="workspace-electoral-comparison-control"><span>Universo</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{catalog.map(u=><option key={u.level+':'+u.id} value={u.level+':'+u.id}>{u.label}</option>)}</select></label>
+ <label className="workspace-electoral-comparison-control"><span>Universo</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{!choice && <option value="" disabled>Selecciona un universo</option>}{catalog.map(u=><option key={u.level+':'+u.id} value={u.level+':'+u.id}>{u.label}</option>)}</select></label>
  <label className="workspace-electoral-comparison-control"><span>Fuente para colorear el mapa</span><select value={source} disabled={loading} onChange={e=>setSource(e.target.value as RuralSource)}><option value="census">INEGI/INE · Censo 2020 · cartografía enero 2021</option><option value="snapshot">Archivo territorial aportado de V2 · fecha no acreditada</option></select></label>
- <button type="button" className="workspace-action" disabled={loading||!catalog.length} onClick={()=>void query()}>{loading?'Consultando…':'Consultar tipo de sección y pintar mapa'}</button>
+ <button type="button" className="workspace-action" style={{marginTop: 12}} disabled={loading||!choice} onClick={()=>void query()}>{loading?'Consultando…':'Consultar tipo de sección y pintar mapa'}</button>
  {error?<p role="alert">{error}</p>:null}{stale?<p role="status">Cambió la selección. Tabla y mapa conservan la consulta anterior hasta volver a consultar.</p>:null}
  {result?<><h3>{result.map.universe.label} · {sourceLabel}</h3><p>{summary.represented} secciones representadas: {summary.known} con tipo utilizable y {summary.missing} N/D para la fuente elegida. {result.map.coverage.blocked} geometrías bloqueadas no representadas.</p>
  <ul style={{listStyle:'none',padding:0}}>{summary.bands.map(b=><li key={b.code} style={{margin:'10px 0'}}><span aria-hidden="true" style={{display:'inline-block',width:14,height:14,background:b.color,marginRight:8}}/>{b.label}: {b.count} secciones · {number(b.percent)}{b.percent===null?'':'% de las secciones con tipo disponible'}</li>)}</ul>

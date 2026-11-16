@@ -1,3 +1,4 @@
+import { useSocioUniverse } from './useSocioUniverse'
 import { SectionTableSearch } from './SectionTableSearch'
 import { useAreaSectionSource } from './AreaSectionSelection'
 import { SocioEducationMap } from './SocioEducationMap'
@@ -17,12 +18,15 @@ const number = (v: number | null | undefined) => v == null ? 'N/D' : v.toLocaleS
 export function SocioeconomicWorkspace({requestId=0}:{requestId?:number}) {
   const { state, selectUniverse } = useWorkspace()
   const [catalog, setCatalog] = useState<UniverseOption[]>([])
-  const [choice,setChoice] = useState(state.universe && state.universe.level !== 'section' ? `${state.universe.level}:${state.universe.id}` : 'state:11')
+
   const [key,setKey] = useState<SocioKey>('POB_TOTAL'), [groups,setGroups] = useState(5)
   const [result,setResult] = useState<SocioResult | null>(null), [error,setError] = useState<string | null>(null)
   const [loading,setLoading] = useState(false), [selected,setSelected] = useState<string | null>(null)
   const [expanded,setExpanded] = useState(true)
   const request = useRef<AbortController | null>(null)
+  const { choice, setChoice } = useSocioUniverse(catalog, () => {
+    request.current?.abort(); setResult(null); setSelected(null); setLoading(false); setError(null)
+  })
   useEffect(()=>{setExpanded(true)},[requestId])
   useEffect(()=>{
     const abort = new AbortController()
@@ -65,10 +69,10 @@ export function SocioeconomicWorkspace({requestId=0}:{requestId?:number}) {
     </div></section>
     {expanded ? <FloatingInsightPanel title="Indicadores socioeconómicos · Censo 2020" comparative onClose={()=>setExpanded(false)}><section style={{padding:'20px 16px'}}>
       <p className="heyti-overview-note">Referencia: INEGI e INE, Censo 2020. Al consultar se cotejan las cifras del archivo con la referencia oficial. La correspondencia de límites con el mapa sigue pendiente; no se rellenan faltantes.</p>
-      <label className="workspace-electoral-comparison-control"><span>Universo</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{catalog.map(u=><option key={`${u.level}:${u.id}`} value={`${u.level}:${u.id}`}>{u.label} · {u.sections} secciones</option>)}</select></label>
+      <label className="workspace-electoral-comparison-control"><span>Universo</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{!choice && <option value="" disabled>Selecciona un universo</option>}{catalog.map(u=><option key={`${u.level}:${u.id}`} value={`${u.level}:${u.id}`}>{u.label} · {u.sections} secciones</option>)}</select></label>
       <label className="workspace-electoral-comparison-control"><span>Indicador</span><select value={key} disabled={loading} onChange={e=>setKey(e.target.value as SocioKey)}>{SOCIO_INDICATORS.map(i=><option key={i.key} value={i.key}>{i.label}</option>)}</select></label>
       <label className="workspace-electoral-comparison-control"><span>Clasificación descriptiva</span><select value={groups} disabled={loading} onChange={e=>setGroups(Number(e.target.value))}><option value={5}>Quintiles</option><option value={4}>Cuartiles</option><option value={3}>Tercios</option></select></label>
-      <button type="button" className="workspace-action" disabled={loading||!catalog.length} onClick={()=>void query()}>{loading?'Consultando…':'Pintar mapa'}</button>
+      <button type="button" className="workspace-action" style={{marginTop: 12}} disabled={loading||!choice} onClick={()=>void query()}>{loading?'Consultando…':'Pintar mapa'}</button>
       {error?<p role="alert">{error}</p>:null}{stale?<p role="status">La selección cambió. Pulsa «Pintar mapa» para actualizar.</p>:null}
       {result?<><h3>{result.map.universe.label} · {indicator.label}</h3><SocioTraceabilitySummary map={result.map} reference={result.reference} verification={result.verification} indicator={result.key}/><p>{valid.length} secciones con valor; {rows.length-valid.length} N/D; {result.map.coverage.blocked} geometrías bloqueadas no representadas.</p>
       <p>{result.key==='ESCOLARIDAD_PROM' ? `Media no ponderada de valores seccionales: ${number(valid.length?sum/valid.length:null)} años · ${valid.length} secciones con dato. Cada sección con dato tiene el mismo peso. No es el promedio ponderado de la población ni un promedio oficial del territorio actual.` : `Suma de valores del archivo enlazados por clave: ${number(valid.length?sum:null)} ${indicator.unit}. Cobertura parcial; no es un total certificado del territorio actual.`}</p>

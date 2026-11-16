@@ -1,3 +1,4 @@
+import { useSocioUniverse } from './useSocioUniverse'
 import { GeographicDataScope } from './DataScopeNotes'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useWorkspace } from '../platform/useWorkspace'
@@ -19,9 +20,12 @@ function IncomeStatistics({row}:{row:IncomeRow}){
 export function SocioIncomeWorkspace({requestId=0}:{requestId?:number}){
  const {state,selectUniverse}=useWorkspace()
  const [catalog,setCatalog]=useState<UniverseOption[]>([])
- const [choice,setChoice]=useState(state.universe&&state.universe.level!=='section'?state.universe.level+':'+state.universe.id:'state:11')
+
  const [result,setResult]=useState<Result|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState<string|null>(null),[selected,setSelected]=useState<string|null>(null),[expanded,setExpanded]=useState(true),[showSections,setShowSections]=useState(true)
  const controller=useRef<AbortController|null>(null)
+  const { choice, setChoice } = useSocioUniverse(catalog, () => {
+    controller.current?.abort(); setResult(null); setSelected(null); setLoading(false); setError(null)
+  })
  useEffect(()=>{setExpanded(true)},[requestId])
  useEffect(()=>{const abort=new AbortController();fetchUniverseCatalog(abort.signal).then(setCatalog).catch(e=>{if(!abort.signal.aborted)setError(e instanceof Error?e.message:'Catálogo no disponible.')});return()=>{abort.abort();controller.current?.abort()}},[])
  async function query(){
@@ -46,8 +50,8 @@ export function SocioIncomeWorkspace({requestId=0}:{requestId?:number}){
  const withIncome=ids.filter(id=>result?.data.rows[id]?.estimate!=null)
  return <main className="workspace-canvas" data-map-expanded="true"><div className="workspace-visual-grid"><section className="workspace-visual-panel" aria-labelledby="income-map-title"><header><div><p>UNIVERSO SELECCIONADO</p><h2 id="income-map-title">{result?.map.universe.label??state.universe?.label??'Sin selección'}</h2></div><span className="workspace-truth-status">Ingreso municipal estimado · INEGI 2024 · límites 2020</span></header><div className={result?'workspace-visual-map':'workspace-visual-placeholder'}>{result?<figure className="section-geometry-map"><GeographicMap data={geo} contextData={showSections?context:undefined} mapAriaLabel="Mapa base con ingresos estimados por municipio y secciones de referencia" selectedSection={selected} onSelectSection={focus} style={feature=>{const id=String(feature?.properties?.sectionId??''),band=incomeBand(result.data.rows[id]?.estimate);return {fillColor:band===null?'#94a3b8':INCOME_BANDS[band].color,fillOpacity:band===null?.25:.5,color:selected===id?'#111827':'#64748b',weight:selected===id?3:1}}}/><figcaption><strong>Unidad del dato: municipio completo · Universo de referencia: {result.map.universe.label}. Ingreso promedio por hogar y trimestre, pesos de la publicación 2024. Oscuro = mayor ingreso estimado; gris = N/D. Municipios completos, límites INEGI 2020. Secciones discontinuas de referencia.</strong></figcaption></figure>:<><strong>{loading?'Consultando ingresos y cartografía…':'Ingreso estimado · municipios 2024'}</strong><small>Selecciona un universo y pulsa Consultar ingresos.</small></>}</div></section>
  {expanded?<FloatingInsightPanel title="Ingreso estimado municipal · INEGI ICMM 2024" comparative onClose={()=>setExpanded(false)}><section style={{padding:'20px 16px'}}><p>Estimaciones oficiales del ingreso corriente promedio trimestral por hogar, en pesos, para municipios. Se muestran el monto, el intervalo de confianza al 90% y las medidas de precisión de la fuente. El año del ingreso es 2024; la publicación es del 28 de septiembre de 2026.</p>
- <label className="workspace-electoral-comparison-control"><span>Universo de referencia</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{catalog.map(u=><option key={u.level+':'+u.id} value={u.level+':'+u.id}>{u.label}</option>)}</select></label>
- <button type="button" className="workspace-action" disabled={loading||!catalog.length} onClick={()=>void query()}>{loading?'Consultando…':'Consultar ingresos y pintar mapa'}</button>
+ <label className="workspace-electoral-comparison-control"><span>Universo de referencia</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{!choice && <option value="" disabled>Selecciona un universo</option>}{catalog.map(u=><option key={u.level+':'+u.id} value={u.level+':'+u.id}>{u.label}</option>)}</select></label>
+ <button type="button" className="workspace-action" style={{marginTop: 12}} disabled={loading||!choice} onClick={()=>void query()}>{loading?'Consultando…':'Consultar ingresos y pintar mapa'}</button>
  <label style={{display:'block',margin:'12px 0'}}><input type="checkbox" checked={showSections} onChange={e=>setShowSections(e.target.checked)}/> Mostrar secciones electorales como referencia</label>
  {error?<p role="alert">{error}</p>:null}{stale?<p role="status">Cambió el universo. Vuelve a consultar para actualizar el resultado.</p>:null}
  {result?<><h3>{result.map.universe.label} · contexto municipal</h3><GeographicDataScope universe={result.map.universe.label} unit="municipio completo" year={2024} source="INEGI · ICMM" /><p>{ids.length} municipios en la tabla; {withIncome.length} con estimación disponible y {ids.length-withIncome.length} N/D. {ids.filter(id=>!areaIds.has(id)).length} sin geometría. {result.map.coverage.blocked} secciones bloqueadas no usadas en el cruce.</p>

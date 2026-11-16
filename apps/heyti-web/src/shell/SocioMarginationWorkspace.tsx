@@ -1,3 +1,4 @@
+import { useSocioUniverse } from './useSocioUniverse'
 import { GeographicDataScope } from './DataScopeNotes'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useWorkspace } from '../platform/useWorkspace'
@@ -16,9 +17,12 @@ const source='https://www.gob.mx/conapo/documentos/indices-de-marginacion-2020-2
 export function SocioMarginationWorkspace({requestId=0}:{requestId?:number}){
  const {state,selectUniverse}=useWorkspace()
  const [catalog,setCatalog]=useState<UniverseOption[]>([])
- const [choice,setChoice]=useState(state.universe&&state.universe.level!=='section'?state.universe.level+':'+state.universe.id:'state:11')
+
  const [result,setResult]=useState<Result|null>(null),[loading,setLoading]=useState(false),[error,setError]=useState<string|null>(null),[selected,setSelected]=useState<string|null>(null),[expanded,setExpanded]=useState(true),[showSections,setShowSections]=useState(true)
  const controller=useRef<AbortController|null>(null)
+  const { choice, setChoice } = useSocioUniverse(catalog, () => {
+    controller.current?.abort(); setResult(null); setSelected(null); setLoading(false); setError(null)
+  })
  useEffect(()=>{setExpanded(true)},[requestId])
  useEffect(()=>{const abort=new AbortController();fetchUniverseCatalog(abort.signal).then(setCatalog).catch(e=>{if(!abort.signal.aborted)setError(e instanceof Error?e.message:'Catálogo no disponible.')});return()=>{abort.abort();controller.current?.abort()}},[])
  async function query(){
@@ -49,8 +53,8 @@ export function SocioMarginationWorkspace({requestId=0}:{requestId?:number}){
  const linkedSections=useMemo(()=>new Set(ids.flatMap(id=>result?.data.sectionLinks[id]??[]).filter(id=>currentSections.has(id))),[ids,result,currentSections])
  return <main className="workspace-canvas" data-map-expanded="true"><div className="workspace-visual-grid"><section className="workspace-visual-panel" aria-labelledby="margination-map-title"><header><div><p>UNIVERSO SELECCIONADO</p><h2 id="margination-map-title">{result?.map.universe.label??state.universe?.label??'Sin selección'}</h2></div><span className="workspace-truth-status">Marginación urbana · CONAPO 2020 · áreas geoestadísticas</span></header><div className={result?'workspace-visual-map':'workspace-visual-placeholder'}>{result?<figure className="section-geometry-map"><GeographicMap data={geo} contextData={showSections?context:undefined} mapAriaLabel="Mapa base con marginación por AGEB urbana y secciones de referencia" selectedSection={selected} onSelectSection={focus} style={feature=>{const id=String(feature?.properties?.sectionId??'');return {fillColor:marginationColor(result.data.rows[id]),fillOpacity:result.data.rows[id] ? .55:.25,color:selected===id?'#111827':'#64748b',weight:selected===id?3:.7}}}/><figcaption><strong>Unidad del dato: AGEB urbana completa · Universo de referencia: {result.map.universe.label}. Grado oficial por AGEB urbana, 2020. Oscuro = mayor grado de marginación; gris = sin índice disponible. Líneas discontinuas: secciones de referencia. Fuera de las AGEB mostradas no se asigna grado.</strong></figcaption></figure>:<><strong>{loading?'Consultando marginación y cartografía…':'Marginación urbana · CONAPO 2020'}</strong><small>Selecciona un universo y pulsa Consultar marginación.</small></>}</div></section>
  {expanded?<FloatingInsightPanel title="Marginación urbana · CONAPO 2020" comparative onClose={()=>setExpanded(false)}><section style={{padding:'20px 16px'}}><p>El Área Geoestadística Básica (AGEB) es la unidad de esta consulta. Se conservan los índices y grados publicados por CONAPO con base en el Censo 2020 y los límites geoestadísticos del INEGI de ese año.</p>
- <label className="workspace-electoral-comparison-control"><span>Universo de referencia</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{catalog.map(u=><option key={u.level+':'+u.id} value={u.level+':'+u.id}>{u.label}</option>)}</select></label>
- <button type="button" className="workspace-action" disabled={loading||!catalog.length} onClick={()=>void query()}>{loading?'Consultando…':'Consultar marginación y pintar mapa'}</button>
+ <label className="workspace-electoral-comparison-control"><span>Universo de referencia</span><select value={choice} disabled={loading||!catalog.length} onChange={e=>setChoice(e.target.value)}>{!choice && <option value="" disabled>Selecciona un universo</option>}{catalog.map(u=><option key={u.level+':'+u.id} value={u.level+':'+u.id}>{u.label}</option>)}</select></label>
+ <button type="button" className="workspace-action" style={{marginTop: 12}} disabled={loading||!choice} onClick={()=>void query()}>{loading?'Consultando…':'Consultar marginación y pintar mapa'}</button>
  <label style={{display:'block',margin:'12px 0'}}><input type="checkbox" checked={showSections} onChange={e=>setShowSections(e.target.checked)}/> Mostrar límites de secciones electorales como referencia</label>
  {error?<p role="alert">{error}</p>:null}{stale?<p role="status">Cambió el universo. La consulta anterior se conserva hasta volver a consultar.</p>:null}
  {result?<><h3>{result.map.universe.label} · cobertura urbana 2020</h3><GeographicDataScope universe={result.map.universe.label} unit="AGEB urbana completa" year={2020} source="CONAPO" /><p>{ids.length.toLocaleString('es-MX')} AGEB en la tabla: {withIndex.length.toLocaleString('es-MX')} con índice y {(ids.length-withIndex.length).toLocaleString('es-MX')} sin índice disponible. {ids.filter(id=>!areaSet.has(id)).length} registros sin geometría. {result.map.coverage.blocked} secciones bloqueadas no usadas en el cruce.</p>
