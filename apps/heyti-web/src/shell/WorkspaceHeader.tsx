@@ -45,14 +45,14 @@ export function territorialAccessLabel(
   ) {
     return (
       `Municipio ${scope.municipality.code}`
-      + ` ? ${scope.municipality.name}`
-      + ` ? ${scope.sectionCount} secciones`
+      + ` \u00b7 ${scope.municipality.name}`
+      + ` \u00b7 ${scope.sectionCount} secciones`
     )
   }
 
   return (
     `${scope.name}`
-    + ` ? ${scope.sectionCount} secciones`
+    + ` \u00b7 ${scope.sectionCount} secciones`
   )
 }
 

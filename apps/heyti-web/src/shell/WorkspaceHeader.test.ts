@@ -49,8 +49,8 @@ describe('etiqueta de alcance territorial', () => {
     expect(
       territorialAccessLabel(access),
     ).toBe(
-      'Municipio 20 ? Leon de los Aldama'
-      + ' ? 787 secciones',
+      'Municipio 20 \u00b7 Leon de los Aldama'
+      + ' \u00b7 787 secciones',
     )
   })
 
